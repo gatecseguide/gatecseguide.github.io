@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE Compiler Design Important Topics for CSE 2027</title>
+<meta name="description" content="GATE compiler design important topics for CSE 2027: SDT, LL(1), LR parsing, runtime environments and data-flow analysis, ranked from PYQs with traps.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE Compiler Design Important Topics for CSE 2027">
+<meta property="og:description" content="GATE compiler design important topics for CSE 2027: SDT, LL(1), LR parsing, runtime environments and data-flow analysis, ranked from PYQs with traps.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE Compiler Design Important Topics for CSE 2027">
+<meta name="twitter:description" content="GATE compiler design important topics for CSE 2027: SDT, LL(1), LR parsing, runtime environments and data-flow analysis, ranked from PYQs with traps.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Compiler Design for GATE CSE: Important Topics", "description": "GATE compiler design important topics for CSE 2027: SDT, LL(1), LR parsing, runtime environments and data-flow analysis, ranked from PYQs with traps.", "image": ["https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/", "inLanguage": "en-IN", "keywords": "gate compiler design important topics, gate compiler design weightage, gate cse parsing questions, gate liveness analysis questions, gate 2027 compiler design preparation"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Compiler Design for GATE CSE: Important Topics", "item": "https://gatecseguide.github.io/articles/gate-cse-compiler-design-important-topics/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the most important Compiler Design topics for GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "The top tier is syntax-directed translation (evaluating attributes on an input), LR parsing conflicts and grammar-class identification, and LL(1) tables and conditions. FIRST and FOLLOW, LR state counts, local optimisation, scoping and parameter passing, three-address code and liveness analysis form the next tier."}}, {"@type": "Question", "name": "How many marks does Compiler Design carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations put Compiler Design at about 4.6 marks per paper on average from 2009 to 2026, rising to about 5.4 marks for 2018 to 2026. It has not gone below 4 marks in any paper since 2018 and reached 8 marks in 2021 and 2024. Figures differ by 1 to 2 marks between analysts."}}, {"@type": "Question", "name": "Is Compiler Design worth preparing for GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It carries fewer marks than most core subjects, but its questions follow a small set of computational patterns and are rarely rated difficult in post-exam analyses. A candidate who practises those patterns can convert nearly all of its marks, which makes it one of the best returns on study time in the paper."}}, {"@type": "Question", "name": "Is data-flow analysis in the GATE CSE 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Local optimisation and data-flow analyses, named as constant propagation, liveness analysis and common subexpression elimination, were added in GATE 2021 and remain in the 2027 syllabus. Since 2021 the paper has included computational questions on these topics, so treat them as a priority rather than an optional extra."}}, {"@type": "Question", "name": "Has the GATE 2027 Compiler Design syllabus changed?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Compiler Design section is unchanged from 2026. It covers lexical analysis, parsing, syntax-directed translation, runtime environments, intermediate code generation, local optimisation and data-flow analyses. The 2027 revision changed Digital Logic, COA and Computer Networks only. Confirm the text on the official GATE 2027 website."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Subjects</nav>
+<article>
+<h1>Compiler Design for GATE CSE: Important Topics</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">The most important Compiler Design topics for GATE CSE 2027 are syntax-directed translation, LR parsing conflicts, LL(1) parsing with FIRST and FOLLOW, and data-flow analysis. It is the smallest core subject by marks, at about 5 a paper recently. It is also one of the most predictable, because nearly every question follows a handful of mechanical procedures.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-gate-2027-compiler-design-syllabus-says">What the GATE 2027 Compiler Design syllabus says</a></li><li><a href="#how-many-marks-compiler-design-carries">How many marks Compiler Design carries</a></li><li><a href="#the-most-tested-compiler-design-topics-and-how-they-are-asked">The most-tested Compiler Design topics and how they are asked</a></li><li><a href="#compiler-design-priority-table-for-gate-2027">Compiler Design priority table for GATE 2027</a></li><li><a href="#common-compiler-design-traps">Common Compiler Design traps</a></li><li><a href="#what-past-iit-madras-papers-suggest">What past IIT Madras papers suggest</a></li><li><a href="#how-to-prepare-compiler-design-for-gate-2027">How to prepare Compiler Design for GATE 2027</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The syllabus is unchanged for 2027. Data-flow analysis (constant propagation, liveness, common subexpression elimination) has been named since 2021.</li>
+<li>Analyst compilations put Compiler Design at about 4.6 marks on average from 2009 to 2026, and about 5.4 from 2018 onward.</li>
+<li>Evaluating a syntax-directed definition on an input is the most reliable question, appearing in roughly 20 of 27 years.</li>
+<li>LL(1) has moved from an occasional topic to a near-annual one, and analysts reported it again in 2026 Shift 2.</li>
+<li>Most questions are computations with one numeric answer. Practise about eight procedures and you have covered most of the subject's history.</li>
+</ul>
+<h2 id="what-the-gate-2027-compiler-design-syllabus-says">What the GATE 2027 Compiler Design syllabus says</h2>
+<p>The official 2027 syllabus reads: "Lexical analysis, parsing, syntax-directed translation. Runtime environments. Intermediate code generation. Local optimisation, Data flow analyses: constant propagation, liveness analysis, common sub expression elimination."</p>
+<p>This is unchanged from 2026. The last real change came in 2021, when local optimisation and data-flow analyses were added. Before that, optimisation questions were rare and mostly definitional. Now they are computational. Bootstrapping and T-diagrams are no longer named. They, along with operator-precedence parsing tables, have effectively disappeared from the paper. Confirm the wording at gate2027.iitm.ac.in.</p>
+<h2 id="how-many-marks-compiler-design-carries">How many marks Compiler Design carries</h2>
+<p>These are third-party analyst compilations (gateexam.info, GeeksforGeeks, careers360, goclasses.in, PW), not official figures. Grammar and ambiguity questions are sometimes counted under Theory of Computation, so figures vary by 1–2 marks.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Compiler Design marks (approx.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average 2009–2026</td>
+<td>about 4.6</td>
+</tr>
+<tr>
+<td>Average 2009–2017</td>
+<td>about 3.8</td>
+</tr>
+<tr>
+<td>Average 2018–2026</td>
+<td>about 5.4</td>
+</tr>
+<tr>
+<td>Lowest / highest</td>
+<td>2 (2009) / 8 (2021, 2024)</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>5 (1 one-mark + 2 two-mark questions)</td>
+</tr>
+<tr>
+<td>2026 Shift 2</td>
+<td>4 questions (marks not reported)</td>
+</tr>
+</tbody>
+</table></div>
+<p>The trend is mildly upward. The subject has not dropped below 4 marks since 2018. Post-exam analyses rarely call Compiler Design questions difficult, which is why they are some of the safest marks in the paper. Compare subjects in <a href="../gate-cse-subject-wise-weightage/">GATE CSE subject-wise weightage</a>.</p>
+<h2 id="the-most-tested-compiler-design-topics-and-how-they-are-asked">The most-tested Compiler Design topics and how they are asked</h2>
+<p>The years are reconstructed from PYQ repositories and are approximate.</p>
+<h3 id="1-syntax-directed-translation">1. Syntax-directed translation</h3>
+<p>This is the single most reliable question in the subject, seen in roughly 20 of 27 years. You get a grammar with semantic rules, often using unfamiliar operator symbols, and must compute an attribute value for a given input. This is usually a 2-mark NAT. Variants: the order in which embedded print actions fire, a string-valued attribute, or which SDD is L-attributed. The trap is associativity. <code>E → E # T</code> makes <code>#</code> left-associative, <code>E → T # E</code> makes it right-associative, and the two give different answers.</p>
+<h3 id="2-lr-parsing-conflicts-classes-and-state-counts">2. LR parsing: conflicts, classes and state counts</h3>
+<p>This appears in roughly 16–18 of 27 years, counting conflict and class questions together. Question forms: identify which parser class a grammar falls into (LR(0), SLR(1) but not LR(0), and so on up to CLR(1)), find the state with a shift–reduce or reduce–reduce conflict, or count states in the canonical LR(0) collection as a 2-mark NAT. MSQs test hierarchy statements such as "merging LR(1) states with the same core can introduce reduce–reduce conflicts but never shift–reduce conflicts".</p>
+<h3 id="3-ll1-parsing-first-and-follow">3. LL(1) parsing, FIRST and FOLLOW</h3>
+<p>This appears in roughly 15–17 of 27 years. You compute FIRST or FOLLOW for a grammar with nullable nonterminals, fill LL(1) table entries, count entries, or decide whether a grammar is LL(1). A related 1-mark item asks for the correct grammar after removing left recursion or left factoring.</p>
+<h3 id="4-runtime-environments">4. Runtime environments</h3>
+<p>Program output under static vs dynamic scoping, and output under call by reference, value-result or name (often with an array-index side effect). Activation record fields and access vs control links come up as shorter conceptual items.</p>
+<h3 id="5-intermediate-code">5. Intermediate code</h3>
+<p>The minimum number of three-address instructions or temporaries for an expression, and node or edge counts in a DAG with repeated subexpressions.</p>
+<h3 id="6-data-flow-analysis-and-local-optimisation">6. Data-flow analysis and local optimisation</h3>
+<p>Seen in 2021, and approx. every year from 2022 to 2026. You find live variables at a point in a basic block, constants at a join in a small control-flow graph, or whether an expression is available. Classifying an optimisation (constant folding, copy propagation, strength reduction, dead code elimination) is a common 1-mark item. Counting basic blocks is growing as a short NAT.</p>
+<p>A quick liveness example: take the block <code>p = q * r</code>, <code>s = p + t</code>, <code>q = s - 1</code>, with only <code>q</code> live at the exit. Working backwards: before the third line, <code>s</code> is live. Before the second, <code>p</code> and <code>t</code> are live. Before the first, <code>q</code>, <code>r</code> and <code>t</code> are live, so three variables are live at entry.</p>
+<h3 id="7-lexical-analysis">7. Lexical analysis</h3>
+<p>Count tokens in a C fragment, or say which tasks belong to the lexer. It is short, usually 1 mark, and easy if you know the traps.</p>
+<h2 id="compiler-design-priority-table-for-gate-2027">Compiler Design priority table for GATE 2027</h2>
+<p>Tiers come from an eight-factor weighted score: historical and recent frequency, variety of question forms, syllabus centrality, time since last asked, format fit, IIT Madras history and other evidence. They guide study time. They do not promise any question.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Topics</th>
+<th>Likely format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1 (very high)</td>
+<td>SDT attribute evaluation, print order, S/L-attributed; LR conflicts and grammar class; LL(1) tables, conditions, left recursion</td>
+<td>2-mark NAT, MCQ, MSQ</td>
+</tr>
+<tr>
+<td>Tier 2 (high)</td>
+<td>FIRST/FOLLOW; LR state and item counts; local optimisation; scoping and parameter passing; three-address code counts; liveness analysis</td>
+<td>NAT, MCQ, MSQ</td>
+</tr>
+<tr>
+<td>Tier 3 (moderate)</td>
+<td>Lexical analysis; ambiguity, precedence, parse-tree counts; constant propagation, available expressions, reaching definitions; activation records and links; basic blocks; DAG counts; compiler phases</td>
+<td>1–2 marks, mixed</td>
+</tr>
+<tr>
+<td>Tier 4 (lower)</td>
+<td>Handles, viable prefixes, operator precedence; loop optimisations; register requirement (Sethi–Ullman)</td>
+<td>MCQ / NAT</td>
+</tr>
+</tbody>
+</table></div>
+<p>The book's Compiler Design chapter scores all 19 subtopics individually, describes the likely question shape for each top topic, and includes 28 original practice questions with fully worked solutions. <a href="../../#buy">See what the book includes</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Compiler%20Design%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="common-compiler-design-traps">Common Compiler Design traps</h2>
+<ul>
+<li><strong>FOLLOW sets never contain ε</strong>, and <code>$</code> always belongs to FOLLOW of the start symbol.</li>
+<li><strong>Nullable chains.</strong> In <code>A → B C D</code> with B and C nullable, FIRST(D) goes into FIRST(A).</li>
+<li><strong>LL(1) ε-entries.</strong> <code>A → ε</code> goes under every terminal in FOLLOW(A). A FIRST/FOLLOW overlap is a conflict even when the FIRST sets are disjoint.</li>
+<li><strong>LALR state count.</strong> LALR(1) has the same number of states as LR(0)/SLR(1), and fewer than CLR(1).</li>
+<li><strong>Merging lookaheads.</strong> Merging same-core states can create reduce–reduce conflicts, never shift–reduce.</li>
+<li><strong>Ambiguous grammars</strong> are never LR(k), and left-recursive grammars are never LL(1).</li>
+<li><strong>Precedence from grammar.</strong> An operator lower in the grammar (closer to the leaves) binds tighter. Left recursion means left associativity.</li>
+<li><strong>Token counting.</strong> A string literal is one token, a comment is zero, and <code>&gt;=</code> is one token. Maximal munch splits <code>a+++b</code> as <code>a ++ + b</code>.</li>
+<li><strong>Dynamic scoping</strong> follows the call chain, not the program text.</li>
+<li><strong>Call by name</strong> re-evaluates the argument each time it is used. That is why <code>A[i]</code> can refer to a different element after <code>i</code> changes.</li>
+<li><strong>DAG counts.</strong> Identical subexpressions and repeated variable leaves share one node.</li>
+<li><strong>Available expressions.</strong> An expression is available only if it is computed on every path with no later change to its operands. A variable holding different constants on two paths is not constant at the join.</li>
+<li><strong>Phases.</strong> An undeclared variable is a semantic error, not a lexical one. An unterminated string is lexical.</li>
+</ul>
+<p>Keep counting rules on your own formula sheet. One example: the number of LR(0) items is the sum of (RHS length + 1) over all productions, plus 2 for the augmented production. The <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a> is a good place to start.</p>
+<h2 id="what-past-iit-madras-papers-suggest">What past IIT Madras papers suggest</h2>
+<p>IIT Madras set the CS paper in 2003, 2011 and 2019. Compiler Design carried about 3 marks in 2011 and 5–6 in 2019. All three years used the standard computational patterns: LR conflicts, SDT and token counts. That shows no bias particular to Madras. The 2019 paper had 24 NAT questions, and Compiler Design lends itself to NAT, so plan to answer state counts, attribute values and live-variable counts without options to check against.</p>
+<h2 id="how-to-prepare-compiler-design-for-gate-2027">How to prepare Compiler Design for GATE 2027</h2>
+<ol>
+<li><strong>Start with SDT.</strong> Build the parse tree using the grammar's own associativity, then evaluate bottom-up. Do print-order schemes and S/L-attributed classification in the same sitting.</li>
+<li><strong>FIRST, FOLLOW and LL(1).</strong> Practise on grammars with ε-productions and nullable chains until your sets come out right every time.</li>
+<li><strong>LR parsing as one procedure.</strong> Build LR(0) item sets, check LR(0) conflicts, resolve with FOLLOW for SLR, then check lookaheads for LALR and CLR. Count states carefully and watch for gotos that return to an existing state.</li>
+<li><strong>Data-flow analysis.</strong> Liveness backwards, constant propagation forwards, available expressions forwards on every path. Write the in and out sets for each block.</li>
+<li><strong>Runtime and intermediate code.</strong> Scoping and parameter-passing programs, three-address instruction counts, DAG node counts.</li>
+<li><strong>Lexical analysis and phases last.</strong> They are quick, so a short revision is enough.</li>
+</ol>
+<p>Compiler Design shares grammars, ambiguity and parse-tree counting with <a href="../gate-cse-theory-of-computation-important-topics/">Theory of Computation</a>, so revising them back to back saves time. Because the subject is small and stable, it slots well into the late stages of a <a href="../gate-cse-2027-preparation-strategy/">GATE CSE 2027 preparation strategy</a>. The book's last-minute revision sheet puts the Compiler Design formulas and traps on a few pages for final revision (<a href="../../#buy">details</a>).</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Compiler%20Design%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What are the most important Compiler Design topics for GATE CSE 2027?</summary><p>The top tier is syntax-directed translation (evaluating attributes on an input), LR parsing conflicts and grammar-class identification, and LL(1) tables and conditions. FIRST and FOLLOW, LR state counts, local optimisation, scoping and parameter passing, three-address code and liveness analysis form the next tier.</p></details><details><summary>How many marks does Compiler Design carry in GATE CSE?</summary><p>Third-party analyst compilations put Compiler Design at about 4.6 marks per paper on average from 2009 to 2026, rising to about 5.4 marks for 2018 to 2026. It has not gone below 4 marks in any paper since 2018 and reached 8 marks in 2021 and 2024. Figures differ by 1 to 2 marks between analysts.</p></details><details><summary>Is Compiler Design worth preparing for GATE CSE?</summary><p>Yes. It carries fewer marks than most core subjects, but its questions follow a small set of computational patterns and are rarely rated difficult in post-exam analyses. A candidate who practises those patterns can convert nearly all of its marks, which makes it one of the best returns on study time in the paper.</p></details><details><summary>Is data-flow analysis in the GATE CSE 2027 syllabus?</summary><p>Yes. Local optimisation and data-flow analyses, named as constant propagation, liveness analysis and common subexpression elimination, were added in GATE 2021 and remain in the 2027 syllabus. Since 2021 the paper has included computational questions on these topics, so treat them as a priority rather than an optional extra.</p></details><details><summary>Has the GATE 2027 Compiler Design syllabus changed?</summary><p>No. The Compiler Design section is unchanged from 2026. It covers lexical analysis, parsing, syntax-directed translation, runtime environments, intermediate code generation, local optimisation and data-flow analyses. The 2027 revision changed Digital Logic, COA and Computer Networks only. Confirm the text on the official GATE 2027 website.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gatecse.in/gate-2021-syllabus-including-changes/" rel="nofollow noopener" target="_blank">GATE 2021 syllabus changes (gatecse.in)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions by topic</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-theory-of-computation-important-topics/"><div class="c">Subjects</div><b>Theory of Computation for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-2027-preparation-strategy/"><div class="c">Strategy</div><b>GATE CSE 2027 Preparation Strategy: A 20-Week Plan</b><span>9 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Compiler%20Design%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CSE Common Mistakes That Cost Marks and Their Fixes</title>
+<meta name="description" content="GATE CSE common mistakes that cost marks, from blind MCQ guessing and MSQ over-selection to NAT unit slips and subject traps, with the fix for each one.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-common-mistakes/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE CSE Common Mistakes That Cost Marks and Their Fixes">
+<meta property="og:description" content="GATE CSE common mistakes that cost marks, from blind MCQ guessing and MSQ over-selection to NAT unit slips and subject traps, with the fix for each one.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-common-mistakes/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-common-mistakes/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CSE Common Mistakes That Cost Marks and Their Fixes">
+<meta name="twitter:description" content="GATE CSE common mistakes that cost marks, from blind MCQ guessing and MSQ over-selection to NAT unit slips and subject traps, with the fix for each one.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-common-mistakes/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them", "description": "GATE CSE common mistakes that cost marks, from blind MCQ guessing and MSQ over-selection to NAT unit slips and subject traps, with the fix for each one.", "image": ["https://gatecseguide.github.io/articles/gate-cse-common-mistakes/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-common-mistakes/", "inLanguage": "en-IN", "keywords": "gate cse common mistakes, gate cse traps, gate exam silly mistakes, gate negative marking strategy, gate nat answer mistakes"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them", "item": "https://gatecseguide.github.io/articles/gate-cse-common-mistakes/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the most common mistakes in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "The costliest are guessing MCQs with no option eliminated, ticking one extra option in an MSQ, unit and rounding slips in NAT answers, and spending more than five minutes on one question in the first pass. Subject traps add to these, such as NULL inside NOT IN in SQL, Belady's anomaly applied to LRU, or the wrong window limit for selective repeat."}}, {"@type": "Question", "name": "Is there negative marking for MSQ and NAT questions in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "No. Negative marking applies only to MCQs, at minus one third of a mark for a wrong 1-mark MCQ and minus two thirds for a wrong 2-mark MCQ. MSQ and NAT carry no penalty, but an MSQ gives marks only when you select exactly the correct set of options, with no partial credit."}}, {"@type": "Question", "name": "Should I guess MCQ answers in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Only when you can eliminate at least one option. A blind guess among four options has an expected value of exactly zero because of negative marking. With one option eliminated the expected gain is positive, and with two eliminated it is worth a third of a mark on a 1-mark question and two thirds on a 2-mark question."}}, {"@type": "Question", "name": "How can I avoid silly mistakes in GATE NAT questions?", "acceptedAnswer": {"@type": "Answer", "text": "Write the unit next to every number, carry full precision and round only the final answer to the stated decimals, and check that you are answering the quantity asked, such as hits rather than faults or bytes rather than bits. Enter the number only, with a minus sign if negative, and no units or commas."}}, {"@type": "Question", "name": "Why do I lose marks in GATE mock tests even when I know the concepts?", "acceptedAnswer": {"@type": "Answer", "text": "Usually because of conventions, traps and pacing rather than missing knowledge. Log every wrong, skipped and slow question by subtopic and by cause, such as a trap, a unit slip or overspent time. After about three mocks the pattern becomes clear, and that log becomes the most useful revision list you have."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Strategy</nav>
+<article>
+<h1>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">Many of the marks lost in GATE CSE have nothing to do with hard questions. They go to predictable errors: a blind MCQ guess, one extra tick in an MSQ, a unit slip in a NAT answer, or a textbook reflex applied to a question that quietly changed the rule. Each one has a fixed correction. Learn the corrections, practise them in mocks, and you keep marks you have already earned.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#mistakes-in-how-you-attempt-the-paper">Mistakes in how you attempt the paper</a></li><li><a href="#nat-answer-mistakes">NAT answer mistakes</a></li><li><a href="#subject-traps-that-repeat">Subject traps that repeat</a></li><li><a href="#when-a-familiar-concept-comes-with-a-changed-rule">When a familiar concept comes with a changed rule</a></li><li><a href="#a-small-illustration">A small illustration</a></li><li><a href="#how-to-stop-repeating-the-same-mistakes">How to stop repeating the same mistakes</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Never guess an MCQ with no option eliminated. The expected value is zero. Do guess when you can rule out one or more options.</li>
+<li>Treat each MSQ as four separate true-or-false decisions. One over-selection loses the whole question.</li>
+<li>Answer every NAT and MSQ before time runs out, since neither carries negative marks.</li>
+<li>Unit slips are, by the book's analysis, the single largest source of lost NAT marks. Write the unit next to every number.</li>
+<li>Many subject traps come from a rule with a false converse or an unstated convention. Learn the rule, not the pattern.</li>
+</ul>
+<h2 id="mistakes-in-how-you-attempt-the-paper">Mistakes in how you attempt the paper</h2>
+<h3 id="guessing-mcqs-blind">Guessing MCQs blind</h3>
+<p>Only MCQs carry negative marks: −1/3 for a wrong 1-mark answer and −2/3 for a wrong 2-mark answer. Here is the expected value of a guess:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Options eliminated</th>
+<th>Chance of a correct guess</th>
+<th>Expected value, 1-mark MCQ</th>
+<th>Expected value, 2-mark MCQ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>1/4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>One</td>
+<td>1/3</td>
+<td>+1/9</td>
+<td>+2/9</td>
+</tr>
+<tr>
+<td>Two</td>
+<td>1/2</td>
+<td>+1/3</td>
+<td>+2/3</td>
+</tr>
+</tbody>
+</table></div>
+<p>A blind guess gains nothing on average. Guessing after eliminating even one option is worth it. Leaving a NAT blank while guessing a 2-mark MCQ blind has the order backwards. The NAT guess costs nothing, while the blind MCQ guess gains nothing.</p>
+<h3 id="over-selecting-in-msqs">Over-selecting in MSQs</h3>
+<p>An MSQ pays only when you pick exactly the correct set of options, with no partial credit. At least one option is always correct, and all four may be. Judge each option on its own and select only what you can justify. If one option cannot be decided, leave that question for last. The <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT strategy</a> guide covers each type in depth.</p>
+<h3 id="sinking-time-into-one-question">Sinking time into one question</h3>
+<p>Spending more than five minutes on a single question in the first pass is the most common reason for an unfinished paper. Budget about 1.5 minutes for a 1-mark question and 3 minutes for a 2-mark question. If you have no plan within 60–90 seconds, mark the question and move on. Two 1-mark questions are worth the same as one 2-mark question.</p>
+<h3 id="misreading-under-pressure">Misreading under pressure</h3>
+<ul>
+<li>Confusing "which is NOT true" with "which is true". Underline the negation.</li>
+<li>Reading only part of the last option. GATE often puts the deciding clause at the end.</li>
+<li>Changing a confident MCQ answer without a definite reason. Second-guessing under time pressure loses more than it gains.</li>
+</ul>
+<h2 id="nat-answer-mistakes">NAT answer mistakes</h2>
+<p>NAT answers are typed on a virtual keypad with no options to check against, so small slips go uncaught.</p>
+<ul>
+<li><strong>Units.</strong> Watch ms against µs, KB as 1000 against 1024, Mbps as 10^6, and bits against bytes. When a question fixes a convention, use it. When it does not, the usual defaults are 10^3 for data rates and 2^10 for memory sizes.</li>
+<li><strong>Rounding.</strong> Carry full precision and round only the final answer to the stated decimals.</li>
+<li><strong>Wrong quantity.</strong> Check you are giving what was asked: edges or nodes, faults or hits, waiting time or response time.</li>
+<li><strong>Entry format.</strong> Type the number only, with a minus sign if it is negative. No units, commas or fractions.</li>
+</ul>
+<p>The <a href="../gate-cse-2027-exam-pattern-marking-scheme/">exam pattern and marking scheme</a> article explains how each question type is scored.</p>
+<h2 id="subject-traps-that-repeat">Subject traps that repeat</h2>
+<p>Each trap below comes from GATE's recurring question patterns, with the rule that avoids it.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>The trap</th>
+<th>The correct rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mathematics</td>
+<td>Counting reflexive-and-symmetric relations as 2^(n(n + 1)/2)</td>
+<td>Reflexivity fixes the diagonal: 2^(n(n − 1)/2)</td>
+</tr>
+<tr>
+<td>Mathematics</td>
+<td>Using a per-hour Poisson rate for a 10-minute window</td>
+<td>Rescale the rate to the interval asked</td>
+</tr>
+<tr>
+<td>Digital Logic</td>
+<td>Bias 128, or forgetting the implicit 1 in IEEE-754</td>
+<td>Bias 127 (single) or 1023 (double); implicit 1 for normalised values</td>
+</tr>
+<tr>
+<td>Digital Logic</td>
+<td>Missing a K-map group that wraps around the edges or corners</td>
+<td>Check the four corners and the edge columns</td>
+</tr>
+<tr>
+<td>COA</td>
+<td>Using k × n cycles for a pipeline</td>
+<td>(k + n − 1) cycles, plus stalls</td>
+</tr>
+<tr>
+<td>COA</td>
+<td>Mapping a block with mod (number of lines)</td>
+<td>Use mod (number of sets)</td>
+</tr>
+<tr>
+<td>PDS</td>
+<td>Reading <code>*p++</code> as <code>(*p)++</code></td>
+<td>Postfix ++ binds tighter: <code>*(p++)</code></td>
+</tr>
+<tr>
+<td>PDS</td>
+<td>Treating % of a negative operand as a mathematical modulus</td>
+<td>The result takes the sign of the dividend</td>
+</tr>
+<tr>
+<td>Algorithms</td>
+<td>Assuming a constant added to every edge preserves shortest paths</td>
+<td>It does not; it preserves the MST</td>
+</tr>
+<tr>
+<td>Algorithms</td>
+<td>Unique MST implies distinct weights</td>
+<td>False; only the converse holds</td>
+</tr>
+<tr>
+<td>TOC</td>
+<td>Complement of a CFL is a CFL</td>
+<td>Not in general; true for DCFLs</td>
+</tr>
+<tr>
+<td>TOC</td>
+<td>Binary numbers divisible by 6 need a 6-state DFA</td>
+<td>The minimum DFA has 4 states</td>
+</tr>
+<tr>
+<td>Compiler Design</td>
+<td>Putting ε in a FOLLOW set</td>
+<td>ε never appears; $ is in FOLLOW of the start symbol</td>
+</tr>
+<tr>
+<td>Compiler Design</td>
+<td>LALR has fewer states than SLR</td>
+<td>Same count as LR(0) and SLR; fewer than CLR</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Queueing the preempted process before a new arrival at the same instant in round robin</td>
+<td>The new arrival goes first (GATE convention)</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Applying Belady's anomaly to LRU</td>
+<td>Only FIFO-type algorithms; LRU and Optimal are immune</td>
+</tr>
+<tr>
+<td>DBMS</td>
+<td>A &gt; ALL condition over an empty subquery is false</td>
+<td>It is true for every outer row</td>
+</tr>
+<tr>
+<td>DBMS</td>
+<td>COUNT(col) counts NULLs</td>
+<td>COUNT(*) counts rows; COUNT(col) skips NULLs</td>
+</tr>
+<tr>
+<td>Networks</td>
+<td>Fragment offset in bytes</td>
+<td>Offset is in 8-byte units</td>
+</tr>
+<tr>
+<td>Networks</td>
+<td>Reno restarts cwnd from 1 on a triple duplicate ACK</td>
+<td>Reno sets cwnd = ssthresh = cwnd/2; Tahoe restarts at 1</td>
+</tr>
+<tr>
+<td>General Aptitude</td>
+<td>+20 % then −20 % leaves the value unchanged</td>
+<td>The net change is −4 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>This table holds 21 traps. The book's last-minute revision sheet lists 85, subject by subject, along with 28 common mistakes, frequently confused concept pairs and edge cases. Its do-not-skip list also pairs each of its 160 concepts with the trap that most often costs the marks. <a href="../../#buy">See the full book</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Common%20Mistakes%20That%20Cost%20Marks%20in%20GATE%20CSE%20and%20How%20to%20Avoid%20Them" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="when-a-familiar-concept-comes-with-a-changed-rule">When a familiar concept comes with a changed rule</h2>
+<p>Since 2021, GATE papers have often set familiar concepts in unfamiliar settings: a DP with an extra constraint, a graph algorithm with a modified rule, a scheduling policy with a twist. The mistake is to answer from memory of the textbook version. A safer routine:</p>
+<ol>
+<li>Read the definition twice and restate it in one line.</li>
+<li>Map it to the nearest concept you know, but do not assume the standard result applies.</li>
+<li>Test the rule on the smallest case: n = 1, n = 2 or the empty input.</li>
+<li>For a modified algorithm, run the modified rule on the given instance.</li>
+<li>If it is still unclear after 90 seconds, mark it and move on. These are often 2-mark NATs with no penalty for returning later.</li>
+</ol>
+<p>Some classic examples: Dijkstra can fail with a negative edge, but on a particular graph it may still be correct, so run it rather than reciting "fails". A syntax-directed translation may redefine operators or use right recursion, so evaluate it with the grammar's associativity, not arithmetic habit. And three-valued logic makes the intuitive answer to an SQL query with NULLs wrong, so evaluate row by row.</p>
+<h2 id="a-small-illustration">A small illustration</h2>
+<p>Here is a trap built on an off-by-one. Three processes each need at most 4 units of one resource type. How many units make deadlock impossible?</p>
+<p>With 9 units, each process can hold 3 and wait for a fourth that never comes, so deadlock is still possible. The rule is n(k − 1) + 1 = 3 × 3 + 1 = 10 units. Stopping at n(k − 1) is exactly the mistake the question is built to catch. Many GATE traps work this way: the formula is familiar, and the marks go to whoever remembers the +1.</p>
+<h2 id="how-to-stop-repeating-the-same-mistakes">How to stop repeating the same mistakes</h2>
+<ul>
+<li><strong>Log every wrong, skipped and slow question</strong> in your mocks by subtopic, with the cause: trap, convention, unit, rounding, misread or time. After three mocks, the log is your personal revision list. The <a href="../gate-cse-mock-test-strategy/">mock test strategy</a> article explains the analysis in detail.</li>
+<li><strong>Do every trace on paper.</strong> That means Gantt charts, K-maps, precedence graphs and cwnd tables, never in your head.</li>
+<li><strong>State the counting convention before you count.</strong> Probes, comparisons and context switches all depend on it.</li>
+<li><strong>In the last weeks, revise traps and formulas daily.</strong> The <a href="../gate-cse-last-month-revision-plan/">last-month revision plan</a> shows how.</li>
+</ul>
+<p>Accuracy work pays well. Turning three wrong 2-mark MCQs into skips gains two marks, and turning them into correct answers gains eight. The book's ten full mocks include a trap-heavy paper built around the misconceptions GATE re-tests (NULL in SQL, negative edges, Belady, MSQ over-selection, C precedence and IEEE-754 rounding), with full worked solutions. <a href="../../#buy">Get the book</a>.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Common%20Mistakes%20That%20Cost%20Marks%20in%20GATE%20CSE%20and%20How%20to%20Avoid%20Them" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What are the most common mistakes in GATE CSE?</summary><p>The costliest are guessing MCQs with no option eliminated, ticking one extra option in an MSQ, unit and rounding slips in NAT answers, and spending more than five minutes on one question in the first pass. Subject traps add to these, such as NULL inside NOT IN in SQL, Belady&#x27;s anomaly applied to LRU, or the wrong window limit for selective repeat.</p></details><details><summary>Is there negative marking for MSQ and NAT questions in GATE CSE?</summary><p>No. Negative marking applies only to MCQs, at minus one third of a mark for a wrong 1-mark MCQ and minus two thirds for a wrong 2-mark MCQ. MSQ and NAT carry no penalty, but an MSQ gives marks only when you select exactly the correct set of options, with no partial credit.</p></details><details><summary>Should I guess MCQ answers in GATE CSE?</summary><p>Only when you can eliminate at least one option. A blind guess among four options has an expected value of exactly zero because of negative marking. With one option eliminated the expected gain is positive, and with two eliminated it is worth a third of a mark on a 1-mark question and two thirds on a 2-mark question.</p></details><details><summary>How can I avoid silly mistakes in GATE NAT questions?</summary><p>Write the unit next to every number, carry full precision and round only the final answer to the stated decimals, and check that you are answering the quantity asked, such as hits rather than faults or bytes rather than bits. Enter the number only, with a minus sign if negative, and no units or commas.</p></details><details><summary>Why do I lose marks in GATE mock tests even when I know the concepts?</summary><p>Usually because of conventions, traps and pacing rather than missing knowledge. Log every wrong, skipped and slow question by subtopic and by cause, such as a trap, a unit slip or overspent time. After about three mocks the pattern becomes clear, and that log becomes the most useful revision list you have.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-msq-nat-mcq-strategy/"><div class="c">Exam</div><b>MCQ, MSQ and NAT in GATE CSE: How to Attempt Each Type</b><span>9 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-mock-test-strategy/"><div class="c">Strategy</div><b>GATE CSE Mock Tests: How to Take, Score and Analyse Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-last-month-revision-plan/"><div class="c">Strategy</div><b>GATE CSE Last-Month Revision Plan: Four Weeks to the Exam</b><span>8 min read</span></a><a class="card" href="../gate-cse-2027-exam-pattern-marking-scheme/"><div class="c">Exam</div><b>GATE CSE 2027 Exam Pattern and Marking Scheme</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Common%20Mistakes%20That%20Cost%20Marks%20in%20GATE%20CSE%20and%20How%20to%20Avoid%20Them" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

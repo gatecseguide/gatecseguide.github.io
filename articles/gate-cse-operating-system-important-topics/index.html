@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE OS Important Topics 2027: Tiers, Patterns, Traps</title>
+<meta name="description" content="GATE OS important topics for CSE 2027, ranked from past papers. Scheduling, synchronization, paging, page replacement and inodes, with traps and a plan.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE OS Important Topics 2027: Tiers, Patterns, Traps">
+<meta property="og:description" content="GATE OS important topics for CSE 2027, ranked from past papers. Scheduling, synchronization, paging, page replacement and inodes, with traps and a plan.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE OS Important Topics 2027: Tiers, Patterns, Traps">
+<meta name="twitter:description" content="GATE OS important topics for CSE 2027, ranked from past papers. Scheduling, synchronization, paging, page replacement and inodes, with traps and a plan.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Operating Systems for GATE CSE 2027: Important Topics", "description": "GATE OS important topics for CSE 2027, ranked from past papers. Scheduling, synchronization, paging, page replacement and inodes, with traps and a plan.", "image": ["https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/", "inLanguage": "en-IN", "keywords": "gate os important topics, gate cse operating system weightage, operating system for gate 2027, gate os previous year question patterns"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Operating Systems for GATE CSE 2027: Important Topics", "item": "https://gatecseguide.github.io/articles/gate-cse-operating-system-important-topics/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which OS topics are most important for GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Five topics sit at the top of the analysis of past papers: CPU scheduling calculations, synchronization code analysis, paging and multi-level page tables, page replacement traces, and inode file-size arithmetic. The next tier is effective access time, deadlock and the minimum-resources formula, fork() and system calls, classical synchronization problems and Banker's algorithm."}}, {"@type": "Question", "name": "How many marks does Operating System carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations put OS at 5 to 16 marks per paper over 2009 to 2026, with an overall average of about 8.8 marks. Since 2018 the range has been a tight 6 to 10 marks, usually 4 to 6 questions. These are unofficial figures, and analysts differ by 2 to 3 marks on borderline questions."}}, {"@type": "Question", "name": "Has the GATE 2027 OS syllabus changed from 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Operating System section of the GATE 2027 CS syllabus is identical to 2026. It names system calls, processes, threads, inter-process communication, concurrency and synchronization, deadlock, CPU and I/O scheduling, memory management and virtual memory, and file systems. Confirm the official text at gate2027.iitm.ac.in before you plan."}}, {"@type": "Question", "name": "What type of OS questions are asked in GATE, NAT or MCQ?", "acceptedAnswer": {"@type": "Answer", "text": "Both, plus MSQ. Calculation items such as scheduling metrics, page-table sizes, page-fault counts and inode file sizes have mostly been NAT since 2014. Property checks on synchronization code, threads and deadlock statements have often been MSQ since 2021. Recent shifts typically carry one or two of each type in the OS block."}}, {"@type": "Question", "name": "Can LRU page replacement suffer from Belady's anomaly?", "acceptedAnswer": {"@type": "Answer", "text": "No. LRU and Optimal are stack algorithms, so adding frames never increases their page faults. FIFO can show Belady's anomaly, where more frames produce more faults for some reference strings. GATE once asked this as a stand-alone MCQ and now tends to place it as one option inside an MSQ."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Subjects</nav>
+<article>
+<h1>Operating Systems for GATE CSE 2027: Important Topics</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">Operating Systems is one of the most predictable subjects in the GATE CSE paper. The GATE OS important topics for 2027 are CPU scheduling, synchronization code analysis, paging arithmetic, page replacement and inode calculations, and their question templates keep returning with new numbers rather than new ideas. This guide covers what the syllabus names, how each topic is asked, a priority table, the traps that cost marks and a short study plan.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-gate-2027-os-syllabus-names">What the GATE 2027 OS syllabus names</a></li><li><a href="#how-many-marks-os-carries">How many marks OS carries</a></li><li><a href="#os-priority-table-for-gate-2027">OS priority table for GATE 2027</a></li><li><a href="#the-most-tested-os-topics-and-how-they-are-asked">The most-tested OS topics and how they are asked</a></li><li><a href="#common-os-traps">Common OS traps</a></li><li><a href="#a-short-os-preparation-plan">A short OS preparation plan</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The Operating System section of the GATE 2027 CS syllabus is identical to 2026.</li>
+<li>Third-party analyst compilations put OS at 6–10 marks per paper since 2018, usually 4–6 questions. These figures are unofficial.</li>
+<li>Four topic groups have appeared in essentially every paper: CPU scheduling, synchronization, paging arithmetic, and page replacement or effective access time.</li>
+<li>Calculations have mostly been NAT since 2014. Property checks on code have often been MSQ since 2021.</li>
+<li>OS marks are rarely lost to hard concepts. They are lost to procedure: a tie-break rule, a unit slip, an off-by-one.</li>
+</ul>
+<h2 id="what-the-gate-2027-os-syllabus-names">What the GATE 2027 OS syllabus names</h2>
+<p>The official GATE 2027 CS syllabus (Section 8) reads:</p>
+<blockquote>
+<p>Operating System: System calls, processes, threads, inter-process communication, concurrency and synchronization. Deadlock. CPU and I/O scheduling. Memory management and virtual memory. File systems.</p>
+</blockquote>
+<p>This text is unchanged from GATE 2026. The last change came in GATE 2021, when "System calls" and "CPU and I/O scheduling" were made explicit. OS has the most stable wording of any section, which is why the patterns below are reliable. If you are tracking changes in other subjects, read <a href="../gate-cse-2027-syllabus-changes/">what changed in the GATE CSE 2027 syllabus</a>. Confirm the final text at gate2027.iitm.ac.in.</p>
+<p>One practical note: "I/O scheduling" has meant disk scheduling in practice. There are no device-queue or I/O-priority questions on record, so disk-head movement is the part to prepare.</p>
+<h2 id="how-many-marks-os-carries">How many marks OS carries</h2>
+<p>The table uses third-party analyst compilations from gateexam.info, GeeksforGeeks, goclasses and PW. They are not official, and analysts differ by 2–3 marks on borderline questions.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Period or paper</th>
+<th>OS marks (analyst figures)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average, 2009–2017</td>
+<td>about 9.3</td>
+</tr>
+<tr>
+<td>Average, 2018–2026</td>
+<td>about 8.3</td>
+</tr>
+<tr>
+<td>Overall average, 2009–2026</td>
+<td>about 8.8 (5–6 questions)</td>
+</tr>
+<tr>
+<td>Lowest and highest</td>
+<td>5 (2015 Set 2) and 16 (2009)</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>6 (two 1-mark and two 2-mark questions)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Since 2018 the band has been a tight 6–10 marks, and OS has not dropped below 5 marks in this series. The topics reported from the 2026 shifts were multilevel-queue scheduling, semaphore-based solutions, Banker's algorithm, multi-level paging with a TLB, page replacement and inode-based file access. To see how OS compares with the other sections, read the <a href="../gate-cse-subject-wise-weightage/">subject-wise weightage for GATE CSE</a>.</p>
+<h2 id="os-priority-table-for-gate-2027">OS priority table for GATE 2027</h2>
+<p>The book scores every OS subtopic on eight weighted factors, including historical frequency, recent frequency, syllabus centrality and fit with NAT or MSQ formats. The tiers below come from that analytical scoring. They are not probabilities of a topic appearing.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Topics</th>
+<th>Usual format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1 (Very High)</td>
+<td>CPU scheduling timelines; synchronization code property checks; paging and multi-level page tables; page replacement traces; inode arithmetic</td>
+<td>NAT or MSQ, mostly 2 marks</td>
+</tr>
+<tr>
+<td>Tier 2 (High)</td>
+<td>TLB and demand-paging effective access time; deadlock conditions and minimum-resources formula; fork() and system calls; classical synchronization problems; Banker's algorithm</td>
+<td>NAT, MSQ or MCQ, 1–2 marks</td>
+</tr>
+<tr>
+<td>Tier 3 (Moderate)</td>
+<td>Threads; Peterson's, TSL and CAS properties; process states and context switch; shared-counter race values; disk scheduling; multilevel queue and MLFQ; deadlock detection; contiguous allocation; FAT and bitmap; segmentation and inverted page tables; thrashing and working set</td>
+<td>Mostly 1-mark MCQ or MSQ, some 2-mark NAT</td>
+</tr>
+<tr>
+<td>Tier 4 (Lower)</td>
+<td>CPU utilization with I/O bursts; IPC mechanisms; monitors and condition variables</td>
+<td>Mostly 1-mark MCQ</td>
+</tr>
+</tbody>
+</table></div>
+<p>This article gives the tiers and, below, the question patterns. The OS chapter of the <a href="../../#buy">GATE CSE 2027 book</a> adds the full factor scores for all 24 subtopics, a year-by-year concept map from 2000 to 2026, and a high-probability question bank with worked solutions built on these patterns.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Operating%20Systems%20for%20GATE%20CSE%202027%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="the-most-tested-os-topics-and-how-they-are-asked">The most-tested OS topics and how they are asked</h2>
+<h3 id="cpu-scheduling">CPU scheduling</h3>
+<p>Expect a table of about four processes with arrival and burst times, sometimes priorities, followed by one NAT. The question asks for average waiting or turnaround time, the completion time of one process, or the number of context switches. SRTF, round robin with a stated quantum and context-switch cost, and preemptive priority are the usual algorithms. A two-queue multilevel queue was reported in 2026.</p>
+<p>Setters like to keep the same process table and change one word, such as preemptive to non-preemptive. Three definitions carry every question: turnaround = completion − arrival, waiting = turnaround − burst, and response = first dispatch − arrival.</p>
+<h3 id="synchronization-code-analysis">Synchronization code analysis</h3>
+<p>A two-process code listing of 10–15 lines is followed by "which of the following is/are true". You decide whether mutual exclusion, progress, bounded waiting and deadlock-freedom hold. The code may use a turn variable, flag variables, a modified Peterson's algorithm, a test-and-set lock, or semaphores acquired in the wrong order. A related form gates print statements with semaphores and asks which output strings are possible.</p>
+<h3 id="paging-and-multi-level-page-tables">Paging and multi-level page tables</h3>
+<p>A three-parameter specification (virtual address bits, page size, page-table entry size) leads to one NAT: number of entries, page-table size, number of levels, bits per level, or memory used by the page tables of a sparse process. In 2024–2026 papers, multi-level paging and the TLB were combined in a single question.</p>
+<h3 id="page-replacement-and-effective-access-time">Page replacement and effective access time</h3>
+<p>A reference string of 10–14 pages, 3 or 4 frames, one algorithm named (FIFO, LRU or Optimal), and a fault count as the answer. Companion items test Belady's anomaly or compute effective access time from a TLB hit ratio or a page-fault rate.</p>
+<h3 id="file-systems-and-inode-arithmetic">File systems and inode arithmetic</h3>
+<p>Given block size, pointer size and the number of direct and indirect pointers, find the maximum file size. A second form, placed in 2019, 2022 and 2026 by the book's reconstruction (approximate), counts the disk accesses needed to reach a byte at a given offset.</p>
+<h3 id="tier-2-regulars">Tier 2 regulars</h3>
+<p>Deadlock appears in most papers through the minimum-resources formula, Banker's algorithm (reported in 2026) or a statement on which condition a strategy breaks. fork() counting and output questions have become more frequent since 2018. Producer–consumer with a wrong wait() order is the classical problem asked most often.</p>
+<p>A short example of the minimum-resources idea: three processes each need at most 4 units of one resource type. Deadlock is impossible only with at least 3 × (4 − 1) + 1 = 10 units. With 9 units, each process can hold 3 and wait forever for its fourth.</p>
+<h2 id="common-os-traps">Common OS traps</h2>
+<p>These mistakes recur in OS questions year after year.</p>
+<ul>
+<li><strong>Response time is not waiting time.</strong> In round robin they differ. Response time = first dispatch − arrival.</li>
+<li><strong>Queue order at a quantum boundary.</strong> When a process arrives just as a quantum expires, the GATE convention puts the new arrival in the ready queue before the preempted process.</li>
+<li><strong>Tie-breaks in SJF and SRTF.</strong> Ties go by arrival time, then process index. SRTF preempts only if the new burst is strictly less than the remaining time.</li>
+<li><strong>Page-table walk on a TLB miss.</strong> An L-level table needs L memory references for the walk plus one for the data.</li>
+<li><strong>The outer page table.</strong> Always count it. A partially used inner table still costs a full page.</li>
+<li><strong>Belady's anomaly.</strong> Possible for FIFO, never for LRU or Optimal.</li>
+<li><strong>Off-by-one in deadlock.</strong> With n processes each needing k units, n(k − 1) units is still deadlock-prone. You need one more.</li>
+<li><strong>Banker's checks.</strong> Need = Max − Allocation. A request must satisfy Request ≤ Need and Request ≤ Available before the safety check runs.</li>
+<li><strong>Double indirect pointers.</strong> They reach p^2 blocks, not 2p.</li>
+<li><strong>Shared-counter minimum.</strong> With non-atomic increments and two or more increments per process, the minimum final value is 2, not 1.</li>
+<li><strong>Units.</strong> Memory sizes use powers of two unless the question says otherwise. Convert milliseconds to nanoseconds before mixing page-fault service time with memory access time.</li>
+</ul>
+<p>For traps across every subject, read <a href="../gate-cse-common-mistakes/">common mistakes that cost marks in GATE CSE</a>.</p>
+<h2 id="a-short-os-preparation-plan">A short OS preparation plan</h2>
+<p>OS rewards drilling fixed procedures more than reading theory twice. A practical order:</p>
+<ol>
+<li><strong>Learn the five Tier 1 templates first.</strong> For each, solve previous-year questions until you can finish one without notes. Draw every Gantt chart and frame table on paper, even for easy questions.</li>
+<li><strong>Write the conventions down.</strong> Tie-breaks, queue insertion order, serial or overlapped TLB lookup, whether the inode is already cached. Check which convention the question states before you start.</li>
+<li><strong>Add Tier 2.</strong> The minimum-resources formula, Banker's safety algorithm, fork() counting and producer–consumer ordering are short topics with a high return.</li>
+<li><strong>Practise MSQ property checks properly.</strong> For synchronization code, test each option by building an interleaving instead of matching patterns. MSQ has no partial credit, so one wrong tick loses the whole question. The <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT strategy guide</a> explains how to attempt each type.</li>
+<li><strong>Cover Tier 3 in one pass.</strong> Threads, process states, disk scheduling, contiguous allocation and FAT sizing are mostly 1-mark items. Learn the rules and work a few examples of each.</li>
+<li><strong>Revise from one formula list.</strong> In the final weeks, keep the core OS formulas in one place. The <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a> has a free selection, and the <a href="../../#buy">book's last-minute revision sheet</a> lists every OS formula with the trap GATE builds around it.</li>
+</ol>
+<p>Prepared this way, OS turns into a set of routines you can run under time pressure, which is exactly what a numerical subject needs.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Operating%20Systems%20for%20GATE%20CSE%202027%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Which OS topics are most important for GATE CSE 2027?</summary><p>Five topics sit at the top of the analysis of past papers: CPU scheduling calculations, synchronization code analysis, paging and multi-level page tables, page replacement traces, and inode file-size arithmetic. The next tier is effective access time, deadlock and the minimum-resources formula, fork() and system calls, classical synchronization problems and Banker&#x27;s algorithm.</p></details><details><summary>How many marks does Operating System carry in GATE CSE?</summary><p>Third-party analyst compilations put OS at 5 to 16 marks per paper over 2009 to 2026, with an overall average of about 8.8 marks. Since 2018 the range has been a tight 6 to 10 marks, usually 4 to 6 questions. These are unofficial figures, and analysts differ by 2 to 3 marks on borderline questions.</p></details><details><summary>Has the GATE 2027 OS syllabus changed from 2026?</summary><p>No. The Operating System section of the GATE 2027 CS syllabus is identical to 2026. It names system calls, processes, threads, inter-process communication, concurrency and synchronization, deadlock, CPU and I/O scheduling, memory management and virtual memory, and file systems. Confirm the official text at gate2027.iitm.ac.in before you plan.</p></details><details><summary>What type of OS questions are asked in GATE, NAT or MCQ?</summary><p>Both, plus MSQ. Calculation items such as scheduling metrics, page-table sizes, page-fault counts and inode file sizes have mostly been NAT since 2014. Property checks on synchronization code, threads and deadlock statements have often been MSQ since 2021. Recent shifts typically carry one or two of each type in the OS block.</p></details><details><summary>Can LRU page replacement suffer from Belady&#x27;s anomaly?</summary><p>No. LRU and Optimal are stack algorithms, so adding frames never increases their page faults. FIFO can show Belady&#x27;s anomaly, where more frames produce more faults for some reference strings. GATE once asked this as a stand-alone MCQ and now tends to place it as one option inside an MSQ.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Operating%20Systems%20for%20GATE%20CSE%202027%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

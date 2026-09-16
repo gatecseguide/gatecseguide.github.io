@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE Data Structures Important Topics for CSE 2027</title>
+<meta name="description" content="GATE data structures important topics for CSE 2027: C pointers, recursion, BSTs, heaps and linked lists, ranked from PYQ trends with traps and a plan.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE Data Structures Important Topics for CSE 2027">
+<meta property="og:description" content="GATE data structures important topics for CSE 2027: C pointers, recursion, BSTs, heaps and linked lists, ranked from PYQ trends with traps and a plan.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE Data Structures Important Topics for CSE 2027">
+<meta name="twitter:description" content="GATE data structures important topics for CSE 2027: C pointers, recursion, BSTs, heaps and linked lists, ranked from PYQ trends with traps and a plan.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Programming and Data Structures for GATE CSE: Important Topics", "description": "GATE data structures important topics for CSE 2027: C pointers, recursion, BSTs, heaps and linked lists, ranked from PYQ trends with traps and a plan.", "image": ["https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/", "inLanguage": "en-IN", "keywords": "gate data structures important topics, gate cse programming and data structures, gate pds weightage, gate c programming questions, gate 2027 data structures preparation"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Programming and Data Structures for GATE CSE: Important Topics", "item": "https://gatecseguide.github.io/articles/gate-cse-programming-data-structures-important-topics/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the most important data structures topics for GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "The top tier is C pointer and array output tracing, recursion tracing, binary search tree sequences and deletion, binary heap array operations, C operator semantics, and binary tree traversals. Linked-list code, counting questions based on Catalan numbers, loop counting, stacks, queues and graph representation form the next tier."}}, {"@type": "Question", "name": "How many marks does Programming and Data Structures carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations put PDS at a mean of about 9.9 marks per paper for 2009 to 2026, excluding 2014 and 2015 where it was merged with Algorithms. The recorded range is 6 marks in 2021 to 13 marks in 2010 and 2016. Sources differ by 2 to 3 marks."}}, {"@type": "Question", "name": "Has the GATE 2027 data structures syllabus changed?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Programming and Data Structures section is unchanged from 2026. It names programming in C, recursion, arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps and graphs. The 2027 revision changed Digital Logic, COA and Computer Networks only. Confirm the text on the official GATE 2027 website."}}, {"@type": "Question", "name": "Which programming language is used in GATE CSE questions?", "acceptedAnswer": {"@type": "Answer", "text": "GATE CSE programming questions use C. Recent papers usually give a short C program and ask for the printed value as a numerical answer, so you need exact knowledge of pointers, operator precedence, integer division, static variables and scope rules, and the habit of tracing code on paper."}}, {"@type": "Question", "name": "Are AVL trees in the GATE CSE 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "AVL trees are not named in the syllabus, which lists binary search trees and binary heaps. AVL questions appeared in some older papers and occasionally later, so a basic grasp of minimum nodes for a given height and rotations after insertion is useful, but treat AVL as lower priority than BSTs and heaps."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Subjects</nav>
+<article>
+<h1>Programming and Data Structures for GATE CSE: Important Topics</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">The most important Programming and Data Structures (PDS) topics for GATE CSE 2027 are C pointer and array tracing, recursion tracing, binary search trees and binary heaps. Analysts place PDS at around 10 marks a paper, and most of those marks now come as numerical-answer questions where you trace code or an array by hand. The subject rewards careful tracing more than theory.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-gate-2027-pds-syllabus-says">What the GATE 2027 PDS syllabus says</a></li><li><a href="#how-many-marks-pds-carries">How many marks PDS carries</a></li><li><a href="#the-most-tested-pds-topics-and-how-they-are-asked">The most-tested PDS topics and how they are asked</a></li><li><a href="#pds-priority-table-for-gate-2027">PDS priority table for GATE 2027</a></li><li><a href="#how-pds-questions-have-changed">How PDS questions have changed</a></li><li><a href="#common-pds-traps">Common PDS traps</a></li><li><a href="#how-to-prepare-pds-for-gate-2027">How to prepare PDS for GATE 2027</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The PDS syllabus is unchanged for 2027: C, recursion, arrays, stacks, queues, linked lists, trees, BSTs, binary heaps and graphs.</li>
+<li>Analyst compilations put PDS at about 9.9 marks per paper on average from 2009 to 2026, and it has been stable for years.</li>
+<li>C output tracing and recursion have appeared in nearly every paper. BST and heap questions come close behind.</li>
+<li>Since 2014 the default format has shifted to NAT code output, and since 2021 MSQs on data structure properties have been added.</li>
+<li>Most lost marks come from carelessness: post-increment, <code>%</code> with negatives, 0-based vs 1-based heap indices, height in edges vs nodes.</li>
+</ul>
+<h2 id="what-the-gate-2027-pds-syllabus-says">What the GATE 2027 PDS syllabus says</h2>
+<p>The official 2027 syllabus lists this section as: "Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs."</p>
+<p>It is identical to 2026. The 2027 revision changed Digital Logic, COA and Computer Networks only. Programming questions are in C. AVL trees, B-trees and advanced heaps are not named. B and B+ trees get tested under Databases instead. Confirm the wording at gate2027.iitm.ac.in.</p>
+<h2 id="how-many-marks-pds-carries">How many marks PDS carries</h2>
+<p>These figures are third-party analyst compilations (gateexam.info, GeeksforGeeks, careers360, goclasses.in), not official data. Loop counting, hashing and graph traversal get classified differently by different analysts, so any single year is uncertain by about 2–3 marks. For 2014 and 2015 the source merged data structures with Algorithms, so those years are left out.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Period</th>
+<th>PDS marks (approx.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009–2013 and 2016–2017 (7 papers)</td>
+<td>mean about 10.3</td>
+</tr>
+<tr>
+<td>2018–2026 (9 paper-years)</td>
+<td>mean about 9.7</td>
+</tr>
+<tr>
+<td>Overall 2009–2026</td>
+<td>mean about 9.9, median about 10</td>
+</tr>
+<tr>
+<td>Lowest / highest</td>
+<td>6 (2021) / 13 (2010, 2016)</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>9 (3 one-mark + 3 two-mark)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Questions per paper typically number 5–9. The dip in 2021 came in the same year analysts reported a high Algorithms figure, which suggests a classification difference rather than a real decline. The two subjects are closely linked, so read this alongside <a href="../gate-cse-algorithms-important-topics/">Algorithms important topics</a> and the <a href="../gate-cse-subject-wise-weightage/">subject-wise weightage table</a>.</p>
+<h2 id="the-most-tested-pds-topics-and-how-they-are-asked">The most-tested PDS topics and how they are asked</h2>
+<p>The years below are reconstructed from PYQ repositories and are approximate.</p>
+<h3 id="1-c-pointers-and-arrays">1. C pointers and arrays</h3>
+<p>This has appeared in almost every paper since 2003. You get a short program and report what it prints. Typical content: pointer arithmetic, <code>*p++</code> vs <code>(*p)++</code>, pointer differences, and 2-D arrays accessed through both <code>int *</code> and row pointers (2013, 2015, 2021, and approx. 2017, 2020, 2023). Since 2014 the usual format is a 2-mark NAT.</p>
+<p>The fastest method is to turn every expression into <code>a[i][j]</code> before adding anything. For <code>int a[5][3]</code> and <code>int *p = &amp;a[0][0]</code>, the expression <code>*(p + 7)</code> is <code>a[7 / 3][7 % 3]</code>, which is <code>a[2][1]</code>.</p>
+<h3 id="2-recursion-tracing">2. Recursion tracing</h3>
+<p>This has appeared nearly every year since 2007. Question forms include the return value of a small function with two recursive calls, the number of calls or printf executions, the printed sequence when printing happens before and after the call, and the final value of a <code>static</code> accumulator (2014, 2016, and approx. 2019, 2021, 2024). Build a table of values from the base case upward. Do not draw the full call tree for large n.</p>
+<h3 id="3-binary-search-trees">3. Binary search trees</h3>
+<p>The most common form: insert keys in a given order, then report height, leaves or preorder. It appeared in 2004, 2006, 2008, 2011, 2013, 2014, 2015, 2017, 2019, 2021, 2022, 2023, 2024 and approx. 2025–2026. Recent questions focus more on properties of sequences: valid preorders, impossible search paths, and the number of insertion orders that give the same BST.</p>
+<h3 id="4-binary-heaps">4. Binary heaps</h3>
+<p>You build a heap bottom-up or run a sequence of inserts and deletes, then give the element at an index or the number of swaps. It has appeared in almost every paper since 2013. Related forms: MSQs on which arrays satisfy the heap property, where the k-th smallest element can sit, and the number of distinct heaps on n keys.</p>
+<h3 id="5-trees-traversals-counting-and-node-relations">5. Trees: traversals, counting and node relations</h3>
+<ul>
+<li>Reconstruct a tree from two traversals, or say which traversal pairs determine a tree uniquely.</li>
+<li>Count binary trees or BSTs (Catalan numbers: 1, 1, 2, 5, 14, 42 for n = 0 to 5). The number of labelled trees is Catalan(n) multiplied by n factorial.</li>
+<li>Node, leaf and height relations: a strict k-ary tree has L = (k − 1)I + 1 leaves, and a complete binary tree with n nodes has ceil(n/2) leaves.</li>
+</ul>
+<h3 id="6-linked-lists-stacks-queues-and-graphs">6. Linked lists, stacks, queues and graphs</h3>
+<ul>
+<li><strong>Linked lists:</strong> fill in the missing statement in a reversal or insertion routine, "what does this function do", and which operations are O(1) given head or tail pointers.</li>
+<li><strong>Stacks:</strong> infix-to-postfix conversion, where <code>^</code> is right-associative, postfix evaluation, and valid pop sequences.</li>
+<li><strong>Queues:</strong> circular queue full and empty conditions, and queues built from two stacks.</li>
+<li><strong>Graphs:</strong> adjacency matrix vs adjacency list costs, usually a short 1-mark item.</li>
+</ul>
+<h2 id="pds-priority-table-for-gate-2027">PDS priority table for GATE 2027</h2>
+<p>Tiers come from a weighted score of eight factors, including historical frequency, recent frequency, syllabus centrality and format suitability. A higher tier means more study time, not a guaranteed question.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Topics</th>
+<th>Likely format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1 (very high)</td>
+<td>C pointers, arrays and 2-D tracing; recursion tracing; BST sequences and deletion; heap array operations; C operators and control flow; tree traversals and reconstruction</td>
+<td>NAT 2-mark, MCQ 1-mark</td>
+</tr>
+<tr>
+<td>Tier 2 (high)</td>
+<td>Linked-list code; counting (Catalan family, insertion orders, heap counts); loop counting from code; stack conversion and evaluation; node/leaf/height relations; recursive tree functions; graph representation; queues; storage classes, scope, sizeof, structs; linked-list complexities</td>
+<td>NAT, MCQ, MSQ</td>
+</tr>
+<tr>
+<td>Tier 3 (moderate)</td>
+<td>Parameter passing and struct copies; strings and char pointers; stack permutations and applications; row/column-major address computation; BFS/DFS on a given representation</td>
+<td>MCQ / NAT</td>
+</tr>
+<tr>
+<td>Tier 4 (lower)</td>
+<td>Expression and threaded trees; AVL trees</td>
+<td>MCQ</td>
+</tr>
+</tbody>
+</table></div>
+<p>The book's PDS chapter scores 23 subtopics individually, sets out 18 question patterns with a solving discipline for each, and includes 46 original practice questions with worked solutions. <a href="../../#buy">See what the book includes</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Programming%20and%20Data%20Structures%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="how-pds-questions-have-changed">How PDS questions have changed</h2>
+<p>From 2000 to 2017, long MCQs with four English options were common ("what does this function do"). From 2018 to 2026 the pattern is different:</p>
+<ul>
+<li><strong>NAT code output is the default.</strong> The program is written so the output is one integer. The 2019 paper had 24 NAT questions, and PDS was the largest NAT contributor.</li>
+<li><strong>MSQs arrived in 2021.</strong> Which arrays are heaps, which list operations are O(1), which statements about a circular queue hold. MSQs have no negative marking, but every correct option has to be chosen for any credit. See <a href="../gate-cse-msq-nat-mcq-strategy/">how to attempt MCQ, MSQ and NAT</a>.</li>
+<li><strong>Counting went numeric.</strong> Catalan-type and insertion-order counts are now asked as NAT, so you need the formulas exactly.</li>
+</ul>
+<p>The IIT Madras papers do not give a clear signal. PDS carried 7 marks in 2011 but 12–14 marks over 9 questions in 2019, when analysts called it the most time-consuming part of the paper. At most, this is a weak hint that 2027 could have lengthy tracing questions.</p>
+<h2 id="common-pds-traps">Common PDS traps</h2>
+<ul>
+<li><strong><code>*p++</code> is not <code>(*p)++</code>.</strong> Post-increment binds to the pointer.</li>
+<li><strong><code>%</code> with negative numbers.</strong> In C, integer division truncates toward zero and the remainder takes the sign of the dividend, so a negative dividend gives a negative remainder.</li>
+<li><strong><code>^</code> is right-associative</strong> in conversion questions. Never pop a <code>^</code> for an incoming <code>^</code>.</li>
+<li><strong>Heap indices.</strong> Parent <code>i/2</code> and children <code>2i</code>, <code>2i+1</code> assume 1-based indexing. Check which convention the question uses.</li>
+<li><strong>Height in edges or nodes.</strong> Read the question's definition. A single node may have height 0.</li>
+<li><strong>Successor vs predecessor</strong> when deleting a BST node with two children.</li>
+<li><strong>Preorder + postorder</strong> does not determine a binary tree uniquely unless it is full. Inorder with preorder, postorder or level order does.</li>
+<li><strong>Insertion orders.</strong> The root must come first. The count is n factorial divided by the product of all subtree sizes.</li>
+<li><strong><code>static</code> locals</strong> are initialised once and keep their value between calls.</li>
+<li><strong>Macros</strong> are plain text substitution. A macro without parentheses changes precedence.</li>
+<li><strong>Singly linked lists.</strong> A tail pointer makes insert-at-end O(1), but deleting the last node still needs its predecessor.</li>
+<li><strong><code>sizeof(int)</code>.</strong> GATE states 4 bytes when it matters. Do not assume 2 from old textbooks.</li>
+</ul>
+<p>A wider list across subjects is in <a href="../gate-cse-common-mistakes/">common mistakes in GATE CSE</a>.</p>
+<h2 id="how-to-prepare-pds-for-gate-2027">How to prepare PDS for GATE 2027</h2>
+<ol>
+<li><strong>C semantics first.</strong> Memorise the precedence table. Practise pointer arithmetic, 2-D arrays with row pointers, <code>static</code> and scope, <code>switch</code> fallthrough, short-circuit evaluation and macros. Trace every program on paper and write down variable values as you go.</li>
+<li><strong>Recursion next.</strong> For each function, fill a table of return values and call counts from the base case up. Do print-before and print-after variants until the output order feels automatic.</li>
+<li><strong>Trees and BSTs.</strong> Traversal reconstruction, insertion sequences, search-path validity, deletion by successor, and the counting formulas.</li>
+<li><strong>Heaps.</strong> Build-heap from the last internal node down, inserts with sift-up, deletes with sift-down. Write the whole array after every operation.</li>
+<li><strong>Linked lists, stacks and queues.</strong> Draw three nodes and apply each candidate statement for "fill the blank" questions. Practise conversions with <code>^</code>.</li>
+<li><strong>PYQs by topic, then mixed.</strong> Solve topic-wise previous year questions first, then timed mixed sets. The method is covered in <a href="../gate-cse-previous-year-papers-analysis/">how to use GATE CSE previous year papers</a>.</li>
+</ol>
+<p>PDS feeds straight into Algorithms (heaps, recurrences, graph traversals), so time spent here pays off twice. The book's last-minute revision sheet collects the PDS formulas and traps alongside every other subject (<a href="../../#buy">details</a>).</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Programming%20and%20Data%20Structures%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What are the most important data structures topics for GATE CSE 2027?</summary><p>The top tier is C pointer and array output tracing, recursion tracing, binary search tree sequences and deletion, binary heap array operations, C operator semantics, and binary tree traversals. Linked-list code, counting questions based on Catalan numbers, loop counting, stacks, queues and graph representation form the next tier.</p></details><details><summary>How many marks does Programming and Data Structures carry in GATE CSE?</summary><p>Third-party analyst compilations put PDS at a mean of about 9.9 marks per paper for 2009 to 2026, excluding 2014 and 2015 where it was merged with Algorithms. The recorded range is 6 marks in 2021 to 13 marks in 2010 and 2016. Sources differ by 2 to 3 marks.</p></details><details><summary>Has the GATE 2027 data structures syllabus changed?</summary><p>No. The Programming and Data Structures section is unchanged from 2026. It names programming in C, recursion, arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps and graphs. The 2027 revision changed Digital Logic, COA and Computer Networks only. Confirm the text on the official GATE 2027 website.</p></details><details><summary>Which programming language is used in GATE CSE questions?</summary><p>GATE CSE programming questions use C. Recent papers usually give a short C program and ask for the printed value as a numerical answer, so you need exact knowledge of pointers, operator precedence, integer division, static variables and scope rules, and the habit of tracing code on paper.</p></details><details><summary>Are AVL trees in the GATE CSE 2027 syllabus?</summary><p>AVL trees are not named in the syllabus, which lists binary search trees and binary heaps. AVL questions appeared in some older papers and occasionally later, so a basic grasp of minimum nodes for a given height and rotations after insertion is useful, but treat AVL as lower priority than BSTs and heaps.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions by topic</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-algorithms-important-topics/"><div class="c">Subjects</div><b>Algorithms for GATE CSE 2027: Important Topics and Patterns</b><span>9 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-msq-nat-mcq-strategy/"><div class="c">Exam</div><b>MCQ, MSQ and NAT in GATE CSE: How to Attempt Each Type</b><span>9 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-previous-year-papers-analysis/"><div class="c">Analysis</div><b>How to Use GATE CSE Previous Year Papers (Topic-Wise Analysis)</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Programming%20and%20Data%20Structures%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

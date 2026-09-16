@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE 2027 Computer Networks Syllabus: What Changed</title>
+<meta name="description" content="The GATE 2027 Computer Networks syllabus drops ARP, DHCP, ICMP, UDP, SMTP and FTP and adds socket API. What each change means and how to re-plan CN.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE 2027 Computer Networks Syllabus: What Changed">
+<meta property="og:description" content="The GATE 2027 Computer Networks syllabus drops ARP, DHCP, ICMP, UDP, SMTP and FTP and adds socket API. What each change means and how to re-plan CN.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE 2027 Computer Networks Syllabus: What Changed">
+<meta name="twitter:description" content="The GATE 2027 Computer Networks syllabus drops ARP, DHCP, ICMP, UDP, SMTP and FTP and adds socket API. What each change means and how to re-plan CN.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GATE 2027 Computer Networks Syllabus Changes Explained", "description": "The GATE 2027 Computer Networks syllabus drops ARP, DHCP, ICMP, UDP, SMTP and FTP and adds socket API. What each change means and how to re-plan CN.", "image": ["https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/", "inLanguage": "en-IN", "keywords": "gate 2027 computer networks syllabus, gate cse networks syllabus changes, gate 2027 cn removed topics, gate 2027 socket api, gate computer networks syllabus 2027"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "GATE 2027 Computer Networks Syllabus Changes Explained", "item": "https://gatecseguide.github.io/articles/gate-2027-computer-networks-syllabus-changes/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is UDP removed from the GATE 2027 Computer Networks syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "UDP is no longer named. The 2026 transport clause listed UDP, TCP and sockets; the 2027 clause names only TCP flow control, congestion control and the socket API. UDP can still appear indirectly, for example as the contrast case in a socket-call question or as the transport under DNS, so keep the basics but do not drill UDP header questions."}}, {"@type": "Question", "name": "Are ARP, DHCP and ICMP in the GATE CSE 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "No. The clause on basic IP support protocols (ARP, DHCP, ICMP), which was made explicit in 2021, is absent from the official 2027 syllabus. Old PYQs on ARP requests, DHCP message flow and ICMP message types are now low priority. They may still show up as a wrong option or as context inside an IPv4 or Ethernet question."}}, {"@type": "Question", "name": "What does socket API mean in the GATE 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "It refers to the sequence and role of socket calls. A TCP server calls socket, bind, listen, accept, then recv or send, and close. A TCP client calls socket, connect, send or recv, and close. Typical questions ask which call sends the SYN, which makes a socket passive and which returns a new descriptor."}}, {"@type": "Question", "name": "Is the OSI model still in the GATE CSE 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "Only as a principle. The 2026 wording named the OSI and TCP/IP protocol stacks; the 2027 wording says Principles of Layering. Encapsulation, service, interface and protocol, and which addresses are used at which layer remain fair. Memorising the seven OSI layer names or which layer a device sits at is no longer explicitly required."}}, {"@type": "Question", "name": "How many marks does Computer Networks carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations put Computer Networks at 6 to 11 marks in every paper from 2009 to 2026, averaging about 8 marks out of 100. These figures are approximate and not official. In recent papers this has meant roughly four to six questions, most of them calculation-based."}}, {"@type": "Question", "name": "Should I solve old GATE questions on SMTP, FTP and email?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you have spare time. SMTP, FTP, POP3, IMAP and email architecture are no longer named in the 2027 syllabus, and these were mostly 1-mark recall questions. Spend that time on retained calculation topics such as sliding windows, CIDR, fragmentation and TCP congestion control, which appear more often."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Syllabus</nav>
+<article>
+<h1>GATE 2027 Computer Networks Syllabus Changes Explained</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">Computer Networks is the section of the GATE CSE 2027 syllabus that changed the most. ARP, DHCP, ICMP, UDP, SMTP, FTP, email, framing, Ethernet bridging, stand-alone shortest-path and flooding routing, and the OSI and TCP/IP stack list are no longer named, while "performance metrics" and "socket API" are now explicit. What remains is the calculation-heavy core: switching and delays, error detection, MAC, routing, IPv4 fragmentation, CIDR, NAT, TCP, DNS and HTTP.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#the-official-wording-clause-by-clause">The official wording, clause by clause</a></li><li><a href="#where-cn-marks-are-likely-to-come-from">Where CN marks are likely to come from</a></li><li><a href="#what-was-removed-in-plain-terms">What was removed, in plain terms</a></li><li><a href="#what-is-newly-explicit">What is newly explicit</a></li><li><a href="#traps-that-survive-the-change">Traps that survive the change</a></li><li><a href="#how-to-use-old-cn-pyqs-now">How to use old CN PYQs now</a></li><li><a href="#a-revised-cn-study-order">A revised CN study order</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The removed items were mostly sources of 1-mark recall questions. The retained items are the sources of calculation questions.</li>
+<li>Analyst compilations put CN at 6–11 marks per paper from 2009 to 2026, about 8 on average (approximate, not official). With the same marks spread over fewer topics, each retained topic becomes a denser target.</li>
+<li><strong>Newly explicit:</strong> performance metrics (delays, RTT, throughput, bandwidth-delay product, utilisation) and the socket API (the order and role of socket calls).</li>
+<li>Old PYQs on removed protocols are low priority, not zero. A removed protocol can still appear inside a question on a retained topic.</li>
+<li>Confirm the final wording in the official PDF at gate2027.iitm.ac.in before you re-plan.</li>
+</ul>
+<h2 id="the-official-wording-clause-by-clause">The official wording, clause by clause</h2>
+<p>The table compares the 2026 and 2027 syllabus texts. The 2027 wording is from the official CS syllabus published by IIT Madras on <a href="https://gate2027.iitm.ac.in/">gate2027.iitm.ac.in</a>. GATE CSE Guide is independent of IIT Madras and the GATE office.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>2026 clause</th>
+<th>2027 clause</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concept of layering: OSI and TCP/IP Protocol Stacks</td>
+<td>Principles of Layering</td>
+<td>Narrowed</td>
+</tr>
+<tr>
+<td>Basics of packet, circuit and virtual circuit-switching</td>
+<td>Basics of switching (circuit, packet and virtual circuit) and performance metrics</td>
+<td>Retained; performance metrics newly explicit</td>
+</tr>
+<tr>
+<td>Data link layer: framing, error detection, Medium Access Control, Ethernet bridging</td>
+<td>Data link layer: error detection, Medium Access Control, Ethernet</td>
+<td>Narrowed</td>
+</tr>
+<tr>
+<td>Routing protocols: shortest path, flooding, distance vector and link state routing</td>
+<td>Distance vector and link state routing</td>
+<td>Narrowed</td>
+</tr>
+<tr>
+<td>Fragmentation and IP addressing, IPv4, CIDR notation</td>
+<td>IPv4 - Fragmentation, CIDR Notation</td>
+<td>Retained, reworded</td>
+</tr>
+<tr>
+<td>Basics of IP support protocols (ARP, DHCP, ICMP)</td>
+<td>—</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>Network Address Translation (NAT)</td>
+<td>Network Address Translation</td>
+<td>Retained</td>
+</tr>
+<tr>
+<td>Transport layer: flow control and congestion control, UDP, TCP, sockets</td>
+<td>TCP - flow control and congestion control, socket API</td>
+<td>Narrowed; socket API explicit</td>
+</tr>
+<tr>
+<td>Application layer protocols: DNS, SMTP, HTTP, FTP, Email</td>
+<td>DNS and HTTP</td>
+<td>Narrowed</td>
+</tr>
+</tbody>
+</table></div>
+<p>For how this fits with the Digital Logic and COA changes, see the <a href="../gate-cse-2027-syllabus-changes/">full GATE CSE 2027 syllabus changes</a>.</p>
+<h2 id="where-cn-marks-are-likely-to-come-from">Where CN marks are likely to come from</h2>
+<p>Analyst compilations (approximate, not official) give CN an average of 8.3 marks in 2009–2017 and 8.0 in 2018–2026, never below 6 and never above 11. The trend is flat. The book's topic-by-topic reconstruction estimates that 75–85 percent of CN marks since 2009 fell on topics that remain in the 2027 syllabus; that is an estimate, not a measurement.</p>
+<p>The book scores every CN topic on eight factors (a model-based analytical score, not a probability). The top two tiers:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1 (very high priority)</td>
+<td>TCP congestion control; CIDR and subnetting; sliding-window ARQ arithmetic; delay arithmetic and performance metrics</td>
+</tr>
+<tr>
+<td>Tier 2 (high priority)</td>
+<td>IPv4 fragmentation; distance vector routing; CSMA/CD computations; TCP connection management; CRC; DNS resolution; switching modes; longest-prefix match; TCP flow control</td>
+</tr>
+</tbody>
+</table></div>
+<p>A likely shape for 2027 is four to six CN questions: two or three NAT calculations, one or two MSQ statement sets, and at most one short MCQ on a principle such as layering, a DNS record or a socket call. None of this is a guarantee. The <a href="../gate-cse-computer-networks-important-topics/">Computer Networks important topics</a> article explains each Tier 1 topic.</p>
+<p>This article shows the top two tiers. <a href="../../#buy">The book ranks all 22 CN topics with their scores and lists the question concepts behind each</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20GATE%202027%20Computer%20Networks%20Syllabus%20Changes%20Explained" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="what-was-removed-in-plain-terms">What was removed, in plain terms</h2>
+<ul>
+<li><strong>Layering trivia.</strong> The seven OSI layer names, which layer a device or protocol sits at, and OSI versus TCP/IP comparisons. Encapsulation, service versus interface versus protocol, and which address (port, IP, MAC) works end to end or per hop all stay.</li>
+<li><strong>Framing.</strong> Bit stuffing, byte stuffing and flag bytes.</li>
+<li><strong>Bridging.</strong> Bridge learning tables and spanning tree. Hubs versus switches, collision domains and Ethernet frame limits stay under "Ethernet".</li>
+<li><strong>Shortest-path and flooding routing</strong> as stand-alone methods. Distance vector and link state stay, and flooding of link-state advertisements is part of link state. Dijkstra itself stays in Algorithms.</li>
+<li><strong>ARP, DHCP and ICMP.</strong> Made explicit in 2021, gone after six exam years.</li>
+<li><strong>UDP</strong> as a named topic, including its header and pseudo-header checksum.</li>
+<li><strong>SMTP, FTP, POP3/IMAP and email architecture.</strong></li>
+</ul>
+<p>Removed topics can still hide inside retained ones. UDP can appear in a "which socket calls does a datagram server need" question or as the transport under DNS. ICMP can surface in a TTL framing of an IPv4 header question. ARP can be a wrong option in an Ethernet MSQ. Keep one page of notes on each; don't practise them as separate topics.</p>
+<h2 id="what-is-newly-explicit">What is newly explicit</h2>
+<h3 id="performance-metrics">Performance metrics</h3>
+<p>These were always tested, mostly inside sliding-window and store-and-forward questions. Now they are named: bandwidth, transmission delay (L/R), propagation delay (d/v), queuing and processing delay, RTT, throughput, bandwidth-delay product and utilisation.</p>
+<p>A quick example. A 1,000-byte packet goes over a 100 Mbps link that is 3,000 km long, with signal speed 2 × 10^8 m/s. Transmission delay is 8,000 bits ÷ 10^8 bps = 80 μs. Propagation delay is 3 × 10^6 m ÷ 2 × 10^8 m/s = 15 ms. The packet is completely received after 15.08 ms.</p>
+<p>The traps are units: km versus m, Mbps as 10^6 versus 2^20, bits versus bytes, and RTT versus one-way delay.</p>
+<h3 id="socket-api">Socket API</h3>
+<p>The call sequence is now examinable:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Call order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP server</td>
+<td>socket → bind → listen → accept → recv/send → close</td>
+</tr>
+<tr>
+<td>TCP client</td>
+<td>socket → (optional bind) → connect → send/recv → close</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>sendto/recvfrom, with no listen or accept</td>
+</tr>
+</tbody>
+</table></div>
+<p>Know which call blocks, which call triggers the SYN (connect), which call makes a socket passive (listen) and which returns a new descriptor (accept). Past papers asked only a handful of 1-mark socket items, such as 2008 (which call sends SYN) and 2014 (which call makes a socket passive). That scarcity understates its 2027 relevance now that the phrase is in the syllabus.</p>
+<h2 id="traps-that-survive-the-change">Traps that survive the change</h2>
+<ul>
+<li>The Go-Back-N sender window is 2^m − 1, not 2^m. The Selective Repeat window is 2^(m−1).</li>
+<li>The fragment offset is in 8-byte units; total length is in bytes.</li>
+<li>SYN and FIN each consume one sequence number. A pure ACK consumes none.</li>
+<li>After a timeout, ssthresh comes from the current cwnd. After a triple duplicate ACK, Reno sets cwnd to the new ssthresh, not to 1 MSS.</li>
+<li>Usable hosts in a block subtract 2; the number of addresses does not.</li>
+<li>Forwarding uses the longest prefix match, not the first match.</li>
+<li>1 KB as 1000 or 1024 bytes can push a NAT answer outside the accepted range. Recent papers state the convention, so read it.</li>
+</ul>
+<h2 id="how-to-use-old-cn-pyqs-now">How to use old CN PYQs now</h2>
+<p><strong>Keep:</strong> sliding window, delay and store-and-forward, CSMA/CD, ALOHA, CRC, subnetting and CIDR, fragmentation, distance vector routing, NAT, TCP, DNS and HTTP counting. Almost every CN calculation question ever set falls in this group.</p>
+<p><strong>Treat as low priority:</strong> ARP, DHCP, ICMP, the UDP header, SMTP, FTP, email, OSI layer identification, bridging and spanning tree, and framing. Papers from 2021 to 2025 carried ARP, DHCP and ICMP items because those protocols were named then.</p>
+<p><strong>Skip entirely:</strong> topics removed in 2021, including IPv6, Wi-Fi basics and network security (cryptography, certificates, firewalls). The <a href="../gate-cse-out-of-syllabus-topics/">out-of-syllabus topics</a> article covers older removals across all subjects.</p>
+<p>Most CN 2-mark questions since 2014 have been NAT, and since 2021 statement questions often come as MSQ. Neither carries negative marking, but an MSQ gives no partial credit, so the <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT attempt strategy</a> matters here.</p>
+<h2 id="a-revised-cn-study-order">A revised CN study order</h2>
+<ol>
+<li><strong>Performance metrics and delay arithmetic.</strong> The bandwidth-delay product underlies sliding windows, TCP window scaling and sequence-number sizing.</li>
+<li><strong>Sliding-window ARQ.</strong> Stop-and-wait, Go-Back-N and Selective Repeat: window, sequence bits, utilisation, throughput.</li>
+<li><strong>IPv4.</strong> CIDR and subnetting, fragmentation, longest-prefix match, NAT.</li>
+<li><strong>TCP.</strong> Congestion control, connection management, flow control, then the socket API.</li>
+<li><strong>Data link layer.</strong> CRC, CSMA/CD, ALOHA and backoff, Ethernet and switches.</li>
+<li><strong>Routing.</strong> Distance vector updates and count-to-infinity, then link state.</li>
+<li><strong>DNS and HTTP.</strong> Query counting, RTT and connection counting, statement sets.</li>
+</ol>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20GATE%202027%20Computer%20Networks%20Syllabus%20Changes%20Explained" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Is UDP removed from the GATE 2027 Computer Networks syllabus?</summary><p>UDP is no longer named. The 2026 transport clause listed UDP, TCP and sockets; the 2027 clause names only TCP flow control, congestion control and the socket API. UDP can still appear indirectly, for example as the contrast case in a socket-call question or as the transport under DNS, so keep the basics but do not drill UDP header questions.</p></details><details><summary>Are ARP, DHCP and ICMP in the GATE CSE 2027 syllabus?</summary><p>No. The clause on basic IP support protocols (ARP, DHCP, ICMP), which was made explicit in 2021, is absent from the official 2027 syllabus. Old PYQs on ARP requests, DHCP message flow and ICMP message types are now low priority. They may still show up as a wrong option or as context inside an IPv4 or Ethernet question.</p></details><details><summary>What does socket API mean in the GATE 2027 syllabus?</summary><p>It refers to the sequence and role of socket calls. A TCP server calls socket, bind, listen, accept, then recv or send, and close. A TCP client calls socket, connect, send or recv, and close. Typical questions ask which call sends the SYN, which makes a socket passive and which returns a new descriptor.</p></details><details><summary>Is the OSI model still in the GATE CSE 2027 syllabus?</summary><p>Only as a principle. The 2026 wording named the OSI and TCP/IP protocol stacks; the 2027 wording says Principles of Layering. Encapsulation, service, interface and protocol, and which addresses are used at which layer remain fair. Memorising the seven OSI layer names or which layer a device sits at is no longer explicitly required.</p></details><details><summary>How many marks does Computer Networks carry in GATE CSE?</summary><p>Third-party analyst compilations put Computer Networks at 6 to 11 marks in every paper from 2009 to 2026, averaging about 8 marks out of 100. These figures are approximate and not official. In recent papers this has meant roughly four to six questions, most of them calculation-based.</p></details><details><summary>Should I solve old GATE questions on SMTP, FTP and email?</summary><p>Only if you have spare time. SMTP, FTP, POP3, IMAP and email architecture are no longer named in the 2027 syllabus, and these were mostly 1-mark recall questions. Spend that time on retained calculation topics such as sliding windows, CIDR, fragmentation and TCP congestion control, which appear more often.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gateqa.in/gate-cse-2027-syllabus-changes/" rel="nofollow noopener" target="_blank">GATEQA, GATE CSE 2027 syllabus changes</a></li><li><a href="https://www.goclasses.in/blog/gate-2027-cse-da-syllabus-analysis-what-has-changed-and-what-hasn-t" rel="nofollow noopener" target="_blank">GO Classes, GATE 2027 CSE syllabus analysis</a></li><li><a href="https://www.shiksha.com/news/engineering-gate-2027-cse-syllabus-released-changes-in-digital-logic-coa-and-computer-networks-blogId-236461" rel="nofollow noopener" target="_blank">Shiksha, GATE 2027 CSE syllabus changes</a></li><li><a href="https://www.gateexam.info/gate-subject-wise-weightage-for-cse-2019-2009/" rel="nofollow noopener" target="_blank">GATE Exam Info, subject-wise weightage 2009–2019</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks, subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-2027-syllabus-changes/"><div class="c">Syllabus</div><b>GATE CSE 2027 Syllabus: What Changed from 2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-computer-networks-important-topics/"><div class="c">Subjects</div><b>Computer Networks for GATE CSE 2027: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-out-of-syllabus-topics/"><div class="c">Syllabus</div><b>Out-of-Syllabus Topics in Old GATE CSE Papers (2016–2027)</b><span>7 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20GATE%202027%20Computer%20Networks%20Syllabus%20Changes%20Explained" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

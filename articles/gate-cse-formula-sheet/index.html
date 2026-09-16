@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CSE Formula Sheet 2027: Key Formulas by Subject</title>
+<meta name="description" content="GATE CSE formula sheet with key formulas for all ten technical subjects, from paging, TCP and CIDR to B+ trees and eigenvalues, plus how to revise them.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-formula-sheet/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE CSE Formula Sheet 2027: Key Formulas by Subject">
+<meta property="og:description" content="GATE CSE formula sheet with key formulas for all ten technical subjects, from paging, TCP and CIDR to B+ trees and eigenvalues, plus how to revise them.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-formula-sheet/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-formula-sheet/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CSE Formula Sheet 2027: Key Formulas by Subject">
+<meta name="twitter:description" content="GATE CSE formula sheet with key formulas for all ten technical subjects, from paging, TCP and CIDR to B+ trees and eigenvalues, plus how to revise them.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-formula-sheet/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GATE CSE Formula Sheet: Key Formulas for Every Subject", "description": "GATE CSE formula sheet with key formulas for all ten technical subjects, from paging, TCP and CIDR to B+ trees and eigenvalues, plus how to revise them.", "image": ["https://gatecseguide.github.io/articles/gate-cse-formula-sheet/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-formula-sheet/", "inLanguage": "en-IN", "keywords": "gate cse formula sheet, gate cs important formulas, gate cse formulas pdf, gate os cn dbms formulas, gate last minute revision formulas"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "GATE CSE Formula Sheet: Key Formulas for Every Subject", "item": "https://gatecseguide.github.io/articles/gate-cse-formula-sheet/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I take a formula sheet into the GATE CSE exam?", "acceptedAnswer": {"@type": "Answer", "text": "No. Candidates cannot carry paper, a calculator, a phone or a watch into the exam hall. The exam provides a virtual calculator, rough sheets and a pen. A useful habit is to write a few easily forgotten formulas on the rough sheet in the first five minutes. Confirm the current exam-day rules at gate2027.iitm.ac.in."}}, {"@type": "Question", "name": "How many usable hosts are there in a CIDR block?", "acceptedAnswer": {"@type": "Answer", "text": "A block with prefix length p has 2^(32 − p) addresses and 2^(32 − p) − 2 usable hosts, because the network and broadcast addresses are excluded. Splitting a /p block into /q subnets gives 2^(q − p) subnets. GATE questions deliberately say hosts or addresses, so read which one is asked."}}, {"@type": "Question", "name": "What is the formula for maximum file size with inode indirect pointers?", "acceptedAnswer": {"@type": "Answer", "text": "Maximum file size = (d + p + p^2 + p^3) × B, where d is the number of direct pointers, B is the block size and p = B / pointer size is the number of pointers in one index block. The double indirect pointer reaches p^2 blocks, not 2p, and units are powers of two unless stated."}}, {"@type": "Question", "name": "How long does a pipeline take to execute n instructions?", "acceptedAnswer": {"@type": "Answer", "text": "For a k-stage pipeline, the cycle time tau = max stage delay + latch delay, and n instructions take (k + n − 1) × tau, never k × n cycles. The non-pipelined time is n × sum of stage delays, with no latch delay. Stalls from hazards add extra cycles on top of k + n − 1."}}, {"@type": "Question", "name": "How should I revise formulas before GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Read a compact formula sheet once a day in the final two weeks and once more on the exam morning. For each formula, know when it applies and the trap built around it. Write the unit next to every number, carry full precision and round only the final numerical answer to the stated decimals."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Strategy</nav>
+<article>
+<h1>GATE CSE Formula Sheet: Key Formulas for Every Subject</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">This GATE CSE formula sheet collects key formulas that past GATE papers have tested repeatedly, grouped by subject, with the trap to watch for where it matters most. It is a free selection from the book's last-minute revision sheet. Use it to check your recall, then practise each formula on previous-year questions.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#how-to-read-this-sheet">How to read this sheet</a></li><li><a href="#operating-system">Operating System</a></li><li><a href="#computer-organization-and-architecture">Computer Organization and Architecture</a></li><li><a href="#computer-networks">Computer Networks</a></li><li><a href="#databases">Databases</a></li><li><a href="#algorithms">Algorithms</a></li><li><a href="#discrete-and-engineering-mathematics">Discrete and Engineering Mathematics</a></li><li><a href="#digital-logic">Digital Logic</a></li><li><a href="#theory-of-computation">Theory of Computation</a></li><li><a href="#compiler-design">Compiler Design</a></li><li><a href="#programming-and-data-structures">Programming and Data Structures</a></li><li><a href="#how-to-revise-with-a-formula-sheet">How to revise with a formula sheet</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Many GATE CSE numerical questions reuse the same formulas with new numbers.</li>
+<li>A formula is only useful with its conventions: log base 2, powers of two for memory, 10^6 for Mbps unless stated.</li>
+<li>Many traps are off-by-one errors: (k + n − 1) cycles, 2^m − 1 windows, n(k − 1) + 1 resources.</li>
+<li>You cannot carry paper into the exam (confirm current rules at gate2027.iitm.ac.in), so formulas must be in memory.</li>
+</ul>
+<h2 id="how-to-read-this-sheet">How to read this sheet</h2>
+<p>Notation: log means log base 2 unless written ln; ceil(x) and floor(x) are ceiling and floor; C(n, k) is the binomial coefficient; x^y is x to the power y. For memory sizes, KB means 2^10 unless the question says otherwise; for data rates, Mbps means 10^6 bits per second unless stated.</p>
+<h2 id="operating-system">Operating System</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Formula</th>
+<th>Watch out for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Turnaround = C − A; Waiting = Turnaround − Burst; Response = first dispatch − A</code></td>
+<td>Response is not waiting in RR</td>
+</tr>
+<tr>
+<td><code>EAT = h × (t_TLB + t_mem) + (1 − h) × (t_TLB + (L + 1) × t_mem)</code></td>
+<td>Serial TLB lookup, L page-table levels; the page-table walk always goes to memory</td>
+</tr>
+<tr>
+<td><code>EAT = (1 − p) × t_mem + p × t_fault</code></td>
+<td>Convert ms to ns</td>
+</tr>
+<tr>
+<td><code>Deadlock impossible iff R ≥ sum_i (need_i − 1) + 1; homogeneous: R ≥ n × (k − 1) + 1</code></td>
+<td>R = n × (k − 1) is still deadlock-prone</td>
+</tr>
+<tr>
+<td><code>Entries per page-table page = page size / PTE size; bits per level = log(that); levels = ceil((v − o) / bits per level)</code></td>
+<td>Forgetting the outer table when counting memory</td>
+</tr>
+<tr>
+<td><code>Max file size = (d + p + p^2 + p^3) × B, p = B / pointer size</code></td>
+<td>p^2 for double indirect (not 2p)</td>
+</tr>
+</tbody>
+</table></div>
+<p>For how these formulas turn into questions, see <a href="../gate-cse-operating-system-important-topics/">Operating Systems for GATE CSE 2027</a>.</p>
+<h2 id="computer-organization-and-architecture">Computer Organization and Architecture</h2>
+<ul>
+<li><code>offset = log(B); sets = C / (k × B); index = log(sets); tag = A − index − offset</code> (B block bytes, C cache bytes, k associativity, A address bits; fully associative has index = 0)</li>
+<li><code>AMAT = t1 + m1 × (t2 + m2 × (t3 + m3 × t_mem))</code> (local miss rates; add lower-level time only on a miss)</li>
+<li><code>Cycle tau = max stage delay + latch delay; T_pipe(n) = (k + n − 1) × tau; T_nonpipe(n) = n × sum of stage delays</code></li>
+<li><code>Branch: CPI = 1 + f_b × (1 − p) × penalty</code> (f_b branch fraction, p predictor accuracy)</li>
+<li><code>Overflow flag = C_in XOR C_out of the MSB</code></li>
+</ul>
+<h2 id="computer-networks">Computer Networks</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Formula</th>
+<th>Watch out for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t_trans = L / R; t_prop = d / v; RTT = 2 × t_prop (ack negligible)</code></td>
+<td>Bytes to bits; km to m</td>
+</tr>
+<tr>
+<td><code>Stop-and-wait efficiency = 1 / (1 + 2a), a = t_prop / t_trans; throughput = L / (t_trans + 2 × t_prop)</code></td>
+<td>With ack transmission time, add t_ack to the throughput denominator</td>
+</tr>
+<tr>
+<td><code>GBN: W_s ≤ 2^m − 1 so m = ceil(log(W_s + 1)); SR: W_s ≤ 2^(m − 1) so m = ceil(log(W_s)) + 1</code></td>
+<td>2^m − 1 vs 2^(m − 1)</td>
+</tr>
+<tr>
+<td><code>CSMA/CD: L_min = 2 × t_prop × R = 2 × d × R / v</code></td>
+<td>Round trip (factor 2), not one way</td>
+</tr>
+<tr>
+<td><code>Data per fragment = 8 × floor((MTU − 20) / 8); fragments = ceil(D / that); offset_k = (data before fragment k) / 8; MF = 1 except the last</code></td>
+<td>Offset in 8-byte units</td>
+</tr>
+<tr>
+<td><code>Addresses in /p = 2^(32 − p); usable hosts = 2^(32 − p) − 2; subnets from /p to /q = 2^(q − p)</code></td>
+<td>Hosts vs addresses</td>
+</tr>
+<tr>
+<td><code>cwnd: below ssthresh double per RTT (cap at ssthresh); at or above, +1 MSS per RTT; timeout: ssthresh = cwnd / 2, cwnd = 1 MSS; triple dup ACK: Tahoe as timeout, Reno cwnd = ssthresh = cwnd / 2</code></td>
+<td>Half the current cwnd, not the old ssthresh</td>
+</tr>
+</tbody>
+</table></div>
+<p>The patterns behind these are covered in <a href="../gate-cse-computer-networks-important-topics/">Computer Networks for GATE CSE 2027</a>.</p>
+<h2 id="databases">Databases</h2>
+<ul>
+<li><code>Internal node: p × ptr + (p − 1) × key ≤ B, so p = floor((B + key) / (ptr + key)); leaf: k × (key + recptr) + ptr ≤ B, so k = floor((B − ptr) / (key + recptr))</code></li>
+<li><code>Levels for N records with fan-out f: ceil(log_f N) (including leaves); block accesses = levels + 1 for the data block</code></li>
+<li><code>Super keys with one candidate key of size k over n attributes = 2^(n − k)</code></li>
+<li><code>Lossless binary decomposition iff (R1 ∩ R2) → R1 or (R1 ∩ R2) → R2 in F+; dependency preserving iff (F1 ∪ F2)+ = F+</code></li>
+<li><code>Interleavings of two transactions with m and n operations = C(m + n, m)</code></li>
+</ul>
+<p>This page gives a selection. The book's last-minute revision sheet has full formula tables for all ten subjects, each row with symbols, when the formula applies and its typical trap, plus the top 50 concepts, the most-asked algorithms step by step, a traps table, edge cases and an exam-day checklist. It is part of the <a href="../../#buy">GATE CSE 2027 book</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20GATE%20CSE%20Formula%20Sheet%3A%20Key%20Formulas%20for%20Every%20Subject" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="algorithms">Algorithms</h2>
+<ul>
+<li>Standard recurrences, each result a Theta bound: <code>T(n − 1) + n = n^2; T(n / 2) + 1 = log n; 2T(n / 2) + n = n log n; T(sqrt n) + 1 = log log n; T(n / 3) + T(2n / 3) + n = n log n</code></li>
+<li>Master theorem trap: 2T(n/2) + n log n is Case 2 with k = 1, so <code>Theta(n log^2 n)</code>, not n log n</li>
+<li><code>Max and min together: ceil(3n / 2) − 2; second largest: n + ceil(log n) − 2; binary search worst: floor(log n) + 1 comparisons</code></li>
+<li><code>Catalan C_n = C(2n, n) / (n + 1): 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796</code> for n = 0..10 (BSTs on n keys, stack permutations)</li>
+<li><code>Build-heap: floor(n / 2) sift-downs, at most 2n comparisons, Theta(n)</code></li>
+</ul>
+<h2 id="discrete-and-engineering-mathematics">Discrete and Engineering Mathematics</h2>
+<ul>
+<li><code>v − e + f = 2 (connected planar; f counts the outer face); e ≤ 3v − 6 (v ≥ 3); bipartite or triangle-free planar e ≤ 2v − 4</code></li>
+<li><code>Spanning trees: K_n has n^(n − 2); K_m,n has m^(n − 1) × n^(m − 1); C_n has n</code></li>
+<li>Relations: <code>relations on an n-set: 2^(n^2); reflexive: 2^(n^2 − n); symmetric: 2^(n(n + 1)/2); reflexive and symmetric: 2^(n(n − 1)/2)</code></li>
+<li><code>Eigenvalues: sum = trace, product = det; A^k has lambda^k, A^-1 has 1/lambda, A + cI has lambda + c</code></li>
+<li><code>Bayes: P(A_i | B) = P(B | A_i) P(A_i) / sum_j P(B | A_j) P(A_j)</code></li>
+<li><code>Uniform(a, b): mean (a + b) / 2, variance (b − a)^2 / 12; Exponential(lambda): mean 1 / lambda, variance 1 / lambda^2</code></li>
+</ul>
+<h2 id="digital-logic">Digital Logic</h2>
+<ul>
+<li><code>n-bit 2's complement range −2^(n − 1) .. 2^(n − 1) − 1</code></li>
+<li><code>IEEE-754 single: 1 sign, 8 exponent (bias 127), 23 fraction; value = (−1)^S × 1.F × 2^(E − 127) for 1 ≤ E ≤ 254</code></li>
+<li><code>Functions of n variables: 2^(2^n); self-dual: 2^(2^(n − 1))</code></li>
+<li><code>Counter: mod-N needs ceil(log N) flip-flops; ring counter with n flip-flops has n states, Johnson 2n</code></li>
+</ul>
+<h2 id="theory-of-computation">Theory of Computation</h2>
+<ul>
+<li><code>#a ≡ r (mod p): p states; #a mod p and #b mod q independent: p × q</code></li>
+<li><code>Contains w as a substring: |w| + 1; ends with w: |w| + 1; starts with w: |w| + 2 (dead state); k-th symbol from the right is a: 2^k (NFA k + 1)</code></li>
+<li><code>NFA with n states: minimal DFA has at most 2^n states</code></li>
+<li><code>CNF derivation of a string of length n takes exactly 2n − 1 steps; GNF takes n</code></li>
+</ul>
+<h2 id="compiler-design">Compiler Design</h2>
+<ul>
+<li><code>LR(0) items = sum over productions of (|RHS| + 1), including S' → S which contributes 2; an ε-production contributes 1</code></li>
+<li><code>LALR states = LR(0)/SLR states; merging can add only reduce–reduce conflicts</code></li>
+<li><code>live-in(B) = use(B) ∪ (live-out(B) − def(B)); live-out(B) = ∪ live-in(successors)</code></li>
+<li>Basic-block leaders: the first instruction; any jump target; any instruction immediately after a jump (conditional or unconditional)</li>
+</ul>
+<h2 id="programming-and-data-structures">Programming and Data Structures</h2>
+<ul>
+<li><code>Row-major A[i][j] with bounds [l1..u1][l2..u2]: base + ((i − l1) × (u2 − l2 + 1) + (j − l2)) × w</code></li>
+<li><code>Full (strict) binary tree: L = I + 1, n = 2L − 1; k-ary strict tree: L = (k − 1) I + 1, n = k I + 1</code></li>
+<li><code>Heap (1-based): parent floor(i / 2), children 2i and 2i + 1; 0-based: parent floor((i − 1) / 2), children 2i + 1 and 2i + 2</code></li>
+<li><code>Binary tree of height h (edges): max nodes 2^(h + 1) − 1, min nodes h + 1</code></li>
+</ul>
+<h2 id="how-to-revise-with-a-formula-sheet">How to revise with a formula sheet</h2>
+<ol>
+<li><strong>Read it daily in the final two weeks,</strong> and once more on the morning of the exam.</li>
+<li><strong>Attach a trap to every formula.</strong> Knowing (k + n − 1) is half the job; knowing that k × n is the classic wrong answer is the other half. <a href="../gate-cse-common-mistakes/">Common mistakes that cost marks in GATE CSE</a> lists the traps subject by subject.</li>
+<li><strong>Write the unit next to every number.</strong> ms versus µs versus ns, KB as 1,000 or 1,024, bits versus bytes. Unit slips are a common cause of wrong NAT answers.</li>
+<li><strong>Carry full precision.</strong> Round only the final answer, to the decimals the question asks for. The <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT strategy guide</a> covers answer entry for each type.</li>
+<li><strong>Use the rough sheet early.</strong> In the first five minutes, write the few formulas you are most likely to forget under pressure, such as the effective access time formula, (k + n − 1), the Go-Back-N and Selective Repeat window limits, and the minimum-resources formula.</li>
+</ol>
+<p>To place this inside a full revision schedule, follow the <a href="../gate-cse-last-month-revision-plan/">GATE CSE last-month revision plan</a>.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20GATE%20CSE%20Formula%20Sheet%3A%20Key%20Formulas%20for%20Every%20Subject" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Can I take a formula sheet into the GATE CSE exam?</summary><p>No. Candidates cannot carry paper, a calculator, a phone or a watch into the exam hall. The exam provides a virtual calculator, rough sheets and a pen. A useful habit is to write a few easily forgotten formulas on the rough sheet in the first five minutes. Confirm the current exam-day rules at gate2027.iitm.ac.in.</p></details><details><summary>How many usable hosts are there in a CIDR block?</summary><p>A block with prefix length p has 2^(32 − p) addresses and 2^(32 − p) − 2 usable hosts, because the network and broadcast addresses are excluded. Splitting a /p block into /q subnets gives 2^(q − p) subnets. GATE questions deliberately say hosts or addresses, so read which one is asked.</p></details><details><summary>What is the formula for maximum file size with inode indirect pointers?</summary><p>Maximum file size = (d + p + p^2 + p^3) × B, where d is the number of direct pointers, B is the block size and p = B / pointer size is the number of pointers in one index block. The double indirect pointer reaches p^2 blocks, not 2p, and units are powers of two unless stated.</p></details><details><summary>How long does a pipeline take to execute n instructions?</summary><p>For a k-stage pipeline, the cycle time tau = max stage delay + latch delay, and n instructions take (k + n − 1) × tau, never k × n cycles. The non-pipelined time is n × sum of stage delays, with no latch delay. Stalls from hazards add extra cycles on top of k + n − 1.</p></details><details><summary>How should I revise formulas before GATE CSE?</summary><p>Read a compact formula sheet once a day in the final two weeks and once more on the exam morning. For each formula, know when it applies and the trap built around it. Write the unit next to every number, carry full precision and round only the final numerical answer to the stated decimals.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-last-month-revision-plan/"><div class="c">Strategy</div><b>GATE CSE Last-Month Revision Plan: Four Weeks to the Exam</b><span>8 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-msq-nat-mcq-strategy/"><div class="c">Exam</div><b>MCQ, MSQ and NAT in GATE CSE: How to Attempt Each Type</b><span>9 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20GATE%20CSE%20Formula%20Sheet%3A%20Key%20Formulas%20for%20Every%20Subject" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

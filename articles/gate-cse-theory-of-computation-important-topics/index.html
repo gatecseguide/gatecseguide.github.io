@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE TOC Important Topics for CSE 2027 (PYQ-Based)</title>
+<meta name="description" content="GATE TOC important topics for CSE 2027: language classification, minimal DFA, regular expressions, CFGs, closure and decidability, with traps and a plan.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE TOC Important Topics for CSE 2027 (PYQ-Based)">
+<meta property="og:description" content="GATE TOC important topics for CSE 2027: language classification, minimal DFA, regular expressions, CFGs, closure and decidability, with traps and a plan.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE TOC Important Topics for CSE 2027 (PYQ-Based)">
+<meta name="twitter:description" content="GATE TOC important topics for CSE 2027: language classification, minimal DFA, regular expressions, CFGs, closure and decidability, with traps and a plan.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Theory of Computation for GATE CSE: Important Topics", "description": "GATE TOC important topics for CSE 2027: language classification, minimal DFA, regular expressions, CFGs, closure and decidability, with traps and a plan.", "image": ["https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/", "inLanguage": "en-IN", "keywords": "gate toc important topics, gate theory of computation weightage, gate toc previous year questions, minimum state dfa gate, gate 2027 toc preparation"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Theory of Computation for GATE CSE: Important Topics", "item": "https://gatecseguide.github.io/articles/gate-cse-theory-of-computation-important-topics/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the most important TOC topics for GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "The top tier is language-class identification (which languages are regular or context-free), regular expressions, minimum-state DFA counts, decidable versus undecidable problem lists, CFG language and ambiguity questions, and closure properties. Rice's theorem, PDA questions, NFA to DFA bounds and counting strings of a given length form the next tier."}}, {"@type": "Question", "name": "How many marks does Theory of Computation carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations place TOC between 6 and 10 marks in every full paper from 2009 to 2025, most often 7 to 9 marks, or about four to six questions. GATE 2026 Shift 1 had 7 TOC marks. These are analyst figures, not official data, and differ by 1 to 2 marks."}}, {"@type": "Question", "name": "Has the GATE 2027 TOC syllabus changed?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Theory of Computation section is unchanged from 2026 and has been essentially the same since the 2016 revision. It covers regular expressions and finite automata, context-free grammars and push-down automata, regular and context-free languages with the pumping lemma, and Turing machines and undecidability."}}, {"@type": "Question", "name": "Is TOC hard for GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Post-exam analyses rate TOC among the two most difficult subjects, along with Algorithms, because almost every question needs a short argument rather than a formula. The question forms repeat very regularly, though, so a candidate who practises the recurring forms can score reliably. MSQs on closure and decidability are all-or-nothing, which makes them harder than they look."}}, {"@type": "Question", "name": "Is the pumping lemma important for GATE TOC?", "acceptedAnswer": {"@type": "Answer", "text": "It is named in the syllabus, but it is rarely asked as a direct question. It matters more as a tool for deciding whether a language is regular or context-free, which is asked in nearly every paper. Remember that the pumping lemma is a necessary condition, not a sufficient one."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Subjects</nav>
+<article>
+<h1>Theory of Computation for GATE CSE: Important Topics</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">The most important Theory of Computation (TOC) topics for GATE CSE 2027 are deciding which languages are regular or context-free, regular expressions, minimum-state DFAs, decidability, CFGs and closure properties. TOC reliably carries about 7–9 marks. The topics barely change from year to year. The skill being tested is short, exact reasoning.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-gate-2027-toc-syllabus-says">What the GATE 2027 TOC syllabus says</a></li><li><a href="#how-many-marks-toc-carries">How many marks TOC carries</a></li><li><a href="#the-most-tested-toc-topics-and-how-they-are-asked">The most-tested TOC topics and how they are asked</a></li><li><a href="#toc-priority-table-for-gate-2027">TOC priority table for GATE 2027</a></li><li><a href="#closure-and-decidability-at-a-glance">Closure and decidability at a glance</a></li><li><a href="#common-toc-traps">Common TOC traps</a></li><li><a href="#what-past-iit-madras-papers-suggest">What past IIT Madras papers suggest</a></li><li><a href="#how-to-prepare-toc-for-gate-2027">How to prepare TOC for GATE 2027</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The TOC syllabus is unchanged for 2027 and has been essentially stable since 2016.</li>
+<li>Analyst compilations put TOC at 6–10 marks in every full paper from 2009 to 2025, most often 7–9.</li>
+<li>Four question forms have supplied most of the marks since 2018: which languages are regular or CFL, the minimum-state DFA NAT, closure and decidability statements, and "what language does this generate".</li>
+<li>Since 2021, MSQ has become the default format for classification and closure questions. One wrong tick costs the whole question.</li>
+<li>The specific languages change every year, but the tricks and traps repeat.</li>
+</ul>
+<h2 id="what-the-gate-2027-toc-syllabus-says">What the GATE 2027 TOC syllabus says</h2>
+<p>The official 2027 syllabus reads: "Regular expressions and finite automata. Context-free grammars and push-down automata. Regular and context-free languages, pumping lemma. Turing machines and undecidability."</p>
+<p>This is identical to 2026. TOC also supports Compiler Design, which uses grammars, ambiguity and parsing, so the effort helps with two subjects. See <a href="../gate-cse-compiler-design-important-topics/">Compiler Design important topics</a>. Confirm the wording at gate2027.iitm.ac.in.</p>
+<h2 id="how-many-marks-toc-carries">How many marks TOC carries</h2>
+<p>These figures come from third-party analyst compilations (gateexam.info, GeeksforGeeks, careers360, goclasses.in, PW), not official data. Questions on grammars sometimes get counted under Compiler Design, so figures vary by 1–2 marks.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>TOC marks (approx.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range in full papers 2009–2025</td>
+<td>6 to 10 (single sets in 2014–2015 went as low as 3)</td>
+</tr>
+<tr>
+<td>Most common value</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Average 2009–2017</td>
+<td>about 7.6</td>
+</tr>
+<tr>
+<td>Average 2018–2026</td>
+<td>about 8.0</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>7 (1 one-mark + 3 two-mark questions)</td>
+</tr>
+<tr>
+<td>2026 Shift 2</td>
+<td>3 questions (about 4–6 marks, estimated)</td>
+</tr>
+</tbody>
+</table></div>
+<p>TOC behaves like a fixed slot of 7–9 marks. There is no rising or falling trend, only a small dip in 2026. For the full picture across subjects, see <a href="../gate-cse-subject-wise-weightage/">GATE CSE subject-wise weightage</a>.</p>
+<h2 id="the-most-tested-toc-topics-and-how-they-are-asked">The most-tested TOC topics and how they are asked</h2>
+<p>The years are reconstructed from PYQ repositories and are approximate.</p>
+<h3 id="1-which-languages-are-regular-cfl-or-neither">1. Which languages are regular, CFL or neither</h3>
+<p>This is the most reliable TOC question. It has appeared essentially every year since 2004. You get four languages in set-builder form and must mark which are regular (or context-free, or not context-free). Since 2021 it usually comes as a 2-mark MSQ.</p>
+<p>The recurring trick is a "free middle" segment. When part of a string can be any string, the constraint on the rest may collapse to something a finite automaton can check. Comparisons of unbounded counts are never regular. Three-way count equalities and copy languages like ww are not context-free. A good test: how many independent counters would a machine need, and could a single stack handle them in LIFO order?</p>
+<h3 id="2-regular-expressions">2. Regular expressions</h3>
+<p>Two forms dominate: pick the regular expression for a language described in words, or say what a given expression or automaton generates. Seen in 2003, 2010, 2014, 2016, 2022 and 2026 Shift 1, and approx. in several other years. Test each option with three strings: ε, the shortest string that should be in the language, and the shortest that should not.</p>
+<h3 id="3-minimum-state-dfa">3. Minimum-state DFA</h3>
+<p>This appeared in about 13 of 27 years and was a regular fixture from 2015 to 2023. It is usually a 2-mark NAT. Typical languages: residue or divisibility conditions, substring or suffix conditions, and positional conditions such as "the k-th symbol from the right".</p>
+<p>A quick example: strings over {a, b} with an even number of a's and a number of b's divisible by 3 need 2 × 3 = 6 states, because the two counters are independent. When conditions interact, states can merge, so always check for merges before you answer.</p>
+<h3 id="4-decidable-vs-undecidable-problems">4. Decidable vs undecidable problems</h3>
+<p>This appeared in about 14 of 27 years, with a steady run from 2012 to 2021. You get four problems about DFAs, CFGs or Turing machines and pick the decidable ones. The pool is small: membership, emptiness, finiteness, universality, equivalence, inclusion, regularity, ambiguity and a few halting variants. Newer versions (2020, 2021) define sets of Turing machine encodings with step bounds, which is Rice's theorem in disguise.</p>
+<h3 id="5-cfg-language-ambiguity-and-parse-trees">5. CFG language, ambiguity and parse trees</h3>
+<p>Identify the language of a short grammar, find the string it cannot generate, or count parse trees. Analysts reported CFG questions in both 2026 shifts, including one in Shift 2 that overlapped with LL(1) parsing.</p>
+<h3 id="6-closure-properties">6. Closure properties</h3>
+<p>True/false statements about regular, DCFL, CFL, recursive and RE languages under union, intersection, complement and other operations. These appeared in about 13 of 27 years and are now mostly MSQs.</p>
+<h3 id="rising-forms">Rising forms</h3>
+<p>NATs that count strings of a given length (2021, 2024) and Turing machine encoding languages with step bounds (2020, 2021) have grown. Pure "trace this PDA" questions and regular grammar equations have faded.</p>
+<h2 id="toc-priority-table-for-gate-2027">TOC priority table for GATE 2027</h2>
+<p>These tiers come from an eight-factor weighted score: historical and recent frequency, variety of question forms, syllabus centrality, time since last asked, format fit, IIT Madras history and other evidence. They set study priority, not a guarantee.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Topics</th>
+<th>Likely format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1 (very high)</td>
+<td>Language-class identification; regular expressions; minimum-state DFA; decidability lists; CFG language, ambiguity and parse-tree counts; closure properties</td>
+<td>MSQ, NAT, MCQ (1–2 marks)</td>
+</tr>
+<tr>
+<td>Tier 2 (high)</td>
+<td>RE vs recursive, Rice's theorem, reductions; PDA (DPDA vs NPDA, acceptance, language of a PDA); NFA to DFA bounds; counting strings of length n; TM variants and computable functions</td>
+<td>MCQ, MSQ, NAT</td>
+</tr>
+<tr>
+<td>Tier 3 (moderate)</td>
+<td>Pumping lemma as a direct question; Myhill–Nerode and minimisation; DCFL vs CFL subtleties; Kleene closure and powers of a language; Chomsky hierarchy, CSL, LBA</td>
+<td>MCQ / NAT</td>
+</tr>
+<tr>
+<td>Tier 4 (lower)</td>
+<td>Countability; regular grammars</td>
+<td>MCQ</td>
+</tr>
+</tbody>
+</table></div>
+<p>The book's TOC chapter scores all 18 subtopics individually, sets out the likely question shapes for each top topic, and includes 40 practice questions (14 MCQ, 13 MSQ, 13 NAT) with full solutions. <a href="../../#buy">See what the book includes</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Theory%20of%20Computation%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="closure-and-decidability-at-a-glance">Closure and decidability at a glance</h2>
+<p>Most TOC MSQs come down to these facts, so learn them cold.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Union</th>
+<th>Intersection</th>
+<th>Complement</th>
+<th>Concatenation, star</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regular</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>DCFL</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>CFL</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Recursive</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>RE</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Also remember: CFL intersected with a regular language is CFL. Regular languages are not closed under infinite union or under taking subsets. For decidability: every standard question about DFAs and regular expressions is decidable. For CFGs, membership, emptiness and finiteness are decidable, while ambiguity, universality, equivalence and regularity are not. For Turing machines, syntactic or step-bounded properties are decidable, and non-trivial properties of the accepted language are not (Rice's theorem).</p>
+<h2 id="common-toc-traps">Common TOC traps</h2>
+<ul>
+<li><strong>The dead state.</strong> Check whether the minimal DFA needs a dead state. Complementing can turn a dead state into an accepting one that must be counted (2015).</li>
+<li><strong>False product size.</strong> Conditions that look independent may merge. "Number of a's and number of b's have the same parity" is just "length is even", so 2 states.</li>
+<li><strong>Position from the right vs left.</strong> "k-th symbol from the right" needs 2^k states. "k-th from the left" needs k + 2, including the dead state.</li>
+<li><strong>Subsets.</strong> A subset of a regular language need not be regular.</li>
+<li><strong>Unions.</strong> If L1 ∪ L2 is regular, that does not make L1 and L2 regular.</li>
+<li><strong>CFL complement.</strong> The complement of a CFL need not be CFL, but it is always recursive. DCFLs are closed under complement.</li>
+<li><strong>∅* = {ε}</strong>, not ∅.</li>
+<li><strong>Ambiguity.</strong> An ambiguous grammar is not the same as an inherently ambiguous language.</li>
+<li><strong>Reduction direction.</strong> If A reduces to B, decidability passes from B down to A, and undecidability passes from A up to B.</li>
+<li><strong>"Some input" vs "all inputs".</strong> A property checkable on some input within bounded steps is RE. "On all inputs" is co-RE.</li>
+<li><strong>Pumping lemma.</strong> It is necessary, not sufficient. A language can satisfy it and still be non-regular.</li>
+<li><strong>MSQ all-or-nothing.</strong> One wrong tick loses the whole question, so leave out any option you have not verified. See <a href="../gate-cse-msq-nat-mcq-strategy/">how to attempt MSQs</a>.</li>
+</ul>
+<h2 id="what-past-iit-madras-papers-suggest">What past IIT Madras papers suggest</h2>
+<p>IIT Madras set the CS paper in 2003, 2011 and 2019. TOC was never under-represented: 9 marks in 2011 (top of the normal range), 6–8 in 2019, and heavy content in 2003. All three had at least one language-classification question and at least one on machine power or undecidability. The 2019 paper also asked two rare forms: a numeric pumping-length question and a countability question. Three papers are too few to predict from, so treat 2027 as a normal 7–9 mark year and do not ignore the rare topics completely.</p>
+<h2 id="how-to-prepare-toc-for-gate-2027">How to prepare TOC for GATE 2027</h2>
+<ol>
+<li><strong>Automata and regular expressions first.</strong> Build minimal DFAs for residue, substring and positional languages until you count states correctly every time, including the dead state.</li>
+<li><strong>Classification drills.</strong> Take four languages at a time and label each regular, DCFL, CFL or not CFL, with a one-line reason. This is the highest-yield habit in TOC.</li>
+<li><strong>Memorise the closure and decidability tables</strong> above, then practise MSQ statement sets without looking.</li>
+<li><strong>Grammars and PDAs.</strong> Write the first few strings of a grammar, generalise, and learn DPDA vs NPDA facts.</li>
+<li><strong>Turing machines last.</strong> Rice's theorem, RE vs recursive inferences and reduction direction.</li>
+<li><strong>Solve post-2018 PYQs in MSQ and NAT form.</strong> Older papers teach the same concepts, but newer ones show the format you will face. Pure PDA tracing and grammar equations are low priority.</li>
+</ol>
+<p>TOC and <a href="../gate-cse-algorithms-important-topics/">Algorithms</a> are the two subjects analysts rate hardest, so give both regular timed practice. The book's 10 full mock tests include TOC in paper-length sets, which helps you pace the MSQs (<a href="../../#buy">details</a>).</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Theory%20of%20Computation%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What are the most important TOC topics for GATE CSE 2027?</summary><p>The top tier is language-class identification (which languages are regular or context-free), regular expressions, minimum-state DFA counts, decidable versus undecidable problem lists, CFG language and ambiguity questions, and closure properties. Rice&#x27;s theorem, PDA questions, NFA to DFA bounds and counting strings of a given length form the next tier.</p></details><details><summary>How many marks does Theory of Computation carry in GATE CSE?</summary><p>Third-party analyst compilations place TOC between 6 and 10 marks in every full paper from 2009 to 2025, most often 7 to 9 marks, or about four to six questions. GATE 2026 Shift 1 had 7 TOC marks. These are analyst figures, not official data, and differ by 1 to 2 marks.</p></details><details><summary>Has the GATE 2027 TOC syllabus changed?</summary><p>No. The Theory of Computation section is unchanged from 2026 and has been essentially the same since the 2016 revision. It covers regular expressions and finite automata, context-free grammars and push-down automata, regular and context-free languages with the pumping lemma, and Turing machines and undecidability.</p></details><details><summary>Is TOC hard for GATE CSE?</summary><p>Post-exam analyses rate TOC among the two most difficult subjects, along with Algorithms, because almost every question needs a short argument rather than a formula. The question forms repeat very regularly, though, so a candidate who practises the recurring forms can score reliably. MSQs on closure and decidability are all-or-nothing, which makes them harder than they look.</p></details><details><summary>Is the pumping lemma important for GATE TOC?</summary><p>It is named in the syllabus, but it is rarely asked as a direct question. It matters more as a tool for deciding whether a language is regular or context-free, which is asked in nearly every paper. Remember that the pumping lemma is a necessary condition, not a sufficient one.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions by topic</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://www.geeksforgeeks.org/gate/gate-cse-2026-shift-1-comprehensive-paper-analysis-with-answer-key/" rel="nofollow noopener" target="_blank">GeeksforGeeks GATE CSE 2026 Shift 1 paper analysis</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-compiler-design-important-topics/"><div class="c">Subjects</div><b>Compiler Design for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-algorithms-important-topics/"><div class="c">Subjects</div><b>Algorithms for GATE CSE 2027: Important Topics and Patterns</b><span>9 min read</span></a><a class="card" href="../gate-cse-msq-nat-mcq-strategy/"><div class="c">Exam</div><b>MCQ, MSQ and NAT in GATE CSE: How to Attempt Each Type</b><span>9 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Theory%20of%20Computation%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>

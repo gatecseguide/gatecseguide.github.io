@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE DBMS Important Topics 2027: Tiers, Patterns, Traps</title>
+<meta name="description" content="GATE DBMS important topics for CSE 2027, ranked from past papers. SQL row counts, serializability, normal forms and B+ trees, with common traps and a plan.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE DBMS Important Topics 2027: Tiers, Patterns, Traps">
+<meta property="og:description" content="GATE DBMS important topics for CSE 2027, ranked from past papers. SQL row counts, serializability, normal forms and B+ trees, with common traps and a plan.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-17"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE DBMS Important Topics 2027: Tiers, Patterns, Traps">
+<meta name="twitter:description" content="GATE DBMS important topics for CSE 2027, ranked from past papers. SQL row counts, serializability, normal forms and B+ trees, with common traps and a plan.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DBMS for GATE CSE 2027: Important Topics and Patterns", "description": "GATE DBMS important topics for CSE 2027, ranked from past papers. SQL row counts, serializability, normal forms and B+ trees, with common traps and a plan.", "image": ["https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/og.png"], "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/", "inLanguage": "en-IN", "keywords": "gate dbms important topics, gate cse dbms weightage, dbms for gate 2027, gate sql and normalization questions, gate transactions serializability"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Free guides", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "DBMS for GATE CSE 2027: Important Topics and Patterns", "item": "https://gatecseguide.github.io/articles/gate-cse-dbms-important-topics/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which DBMS topics are most important for GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Four topics rank highest in the analysis of past papers: SQL queries evaluated on a printed table, conflict serializability of a schedule, normal forms and decomposition, and B+ tree capacity or height. The next tier is candidate and super keys, relational algebra, recoverability and 2PL, SQL NULL semantics, ER-to-table mapping and join tuple bounds."}}, {"@type": "Question", "name": "How many marks does DBMS carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations place DBMS at 3 to 11 marks per paper over 2009 to 2026, with an overall average of about 6.9 marks. From 2019 onward it has been steady at 7 to 8 marks in most papers, which usually means 4 to 5 questions. These figures are unofficial and can differ by 1 to 2 marks."}}, {"@type": "Question", "name": "Has the DBMS syllabus changed for GATE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Databases section of the GATE 2027 CS syllabus is unchanged from 2026. It names the ER model, relational algebra, tuple calculus, SQL, integrity constraints, normal forms, file organization, indexing with B and B+ trees, and transactions and concurrency control. Confirm the official text at gate2027.iitm.ac.in."}}, {"@type": "Question", "name": "Is query optimization part of the GATE CSE DBMS syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "No. Query processing and optimization and distributed databases are not named in the GATE 2027 syllabus. In the 100-mark era they have not been asked except as an occasional join-cost or index-choice item, which is really an indexing question. That time is better spent on SQL, normalization and transactions."}}, {"@type": "Question", "name": "What is the NOT IN and NULL trap in GATE SQL questions?", "acceptedAnswer": {"@type": "Answer", "text": "If the subquery used with NOT IN returns a NULL, the NOT IN condition can never be true, so the outer query returns no rows. Any comparison with NULL is UNKNOWN, and WHERE keeps only TRUE rows. NOT EXISTS does not behave this way. Evaluating the query row by row, rather than by intent, avoids the trap."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE Guide</a><nav class="nav"><a href="../../articles/"><span class="l">Free guides</span><span class="s">Guides</span></a><a class="btn sm" href="../../#buy">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Free guides</a> › Subjects</nav>
+<article>
+<h1>DBMS for GATE CSE 2027: Important Topics and Patterns</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 17 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">Databases is short on paper and steady in marks. The GATE DBMS important topics for 2027 are SQL queries evaluated on a printed table, conflict serializability, normal forms with decomposition, and B+ tree arithmetic. Almost nothing in DBMS is asked as a pure definition: you compute, then decide. This guide covers what the syllabus names, a priority table, how each topic is asked, the traps and a short plan.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-gate-2027-dbms-syllabus-names">What the GATE 2027 DBMS syllabus names</a></li><li><a href="#how-many-marks-dbms-carries">How many marks DBMS carries</a></li><li><a href="#dbms-priority-table-for-gate-2027">DBMS priority table for GATE 2027</a></li><li><a href="#the-most-tested-dbms-topics-and-how-they-are-asked">The most-tested DBMS topics and how they are asked</a></li><li><a href="#common-dbms-traps">Common DBMS traps</a></li><li><a href="#a-short-dbms-preparation-plan">A short DBMS preparation plan</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The Databases section of the GATE 2027 CS syllabus is two sentences long and identical to 2026.</li>
+<li>Analyst compilations put DBMS at 7–8 marks in most papers since 2019, usually 4–5 questions. These figures are unofficial.</li>
+<li>SQL, serializability and functional dependencies have each appeared in almost every paper since 2009–2010, according to the book's reconstruction of past papers.</li>
+<li>SQL row counts are NAT items. Statement bundles on transactions and decompositions have often been MSQ since 2021.</li>
+<li>Most lost marks come from four traps: NULL logic, &gt; ALL over an empty subquery, recoverability classes and the B+ tree order convention.</li>
+</ul>
+<h2 id="what-the-gate-2027-dbms-syllabus-names">What the GATE 2027 DBMS syllabus names</h2>
+<p>The official GATE 2027 CS syllabus (Section 9) reads:</p>
+<blockquote>
+<p>Databases: ER-model. Relational model: relational algebra, tuple calculus, SQL. Integrity constraints, normal forms. File organization, indexing (e.g., B and B+ trees). Transactions and concurrency control.</p>
+</blockquote>
+<p>The text is unchanged from GATE 2026, and this section has not been reworded since the 2016 revision. Query processing, query optimization and distributed databases are not in the syllabus. By the book's reconstruction, triggers, embedded SQL and RAID have not been asked as stand-alone questions in the 100-mark era either. Confirm the final text at gate2027.iitm.ac.in.</p>
+<h2 id="how-many-marks-dbms-carries">How many marks DBMS carries</h2>
+<p>The figures below are third-party analyst compilations from gateexam.info, GeeksforGeeks, careers360, goclasses and PW. They are not official, and borderline questions are classified differently by different analysts, so treat each number as ±1–2 marks.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Period or paper</th>
+<th>DBMS marks (analyst figures)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average, 2009–2017</td>
+<td>about 6.6</td>
+</tr>
+<tr>
+<td>Average, 2018–2026</td>
+<td>about 7.2</td>
+</tr>
+<tr>
+<td>Overall average, 2009–2026</td>
+<td>about 6.9 (median 7)</td>
+</tr>
+<tr>
+<td>Lowest and highest</td>
+<td>3 (2014 Set 1) and 11 (2012)</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>7 (three 1-mark and two 2-mark questions)</td>
+</tr>
+</tbody>
+</table></div>
+<p>From 2019 the subject has held at 7–8 marks, broken only by 2023 (5). For 2026 Shift 1, GeeksforGeeks reported the DBMS topics as SQL, normalization and transactions; for Shift 2, PW and GeeksforGeeks counted 4 DBMS questions. The 2019 paper, organized by IIT Madras (which also organizes GATE 2027), carried 8–9 DBMS marks and was described by analysts as tricky. For the full picture across subjects, see the <a href="../gate-cse-subject-wise-weightage/">GATE CSE subject-wise weightage</a>.</p>
+<h2 id="dbms-priority-table-for-gate-2027">DBMS priority table for GATE 2027</h2>
+<p>The book ranks every DBMS subtopic with an eight-factor analytical score covering historical and recent frequency, variety of question forms, syllabus wording and fit with NAT or MSQ. The tiers are that ranking, not probabilities of a topic appearing.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Topics</th>
+<th>Usual format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1 (Very High)</td>
+<td>SQL row count and query meaning; conflict serializability; normal forms and decomposition; B+ tree capacity, height and block accesses</td>
+<td>NAT 2 marks; MCQ or MSQ 1–2 marks</td>
+</tr>
+<tr>
+<td>Tier 2 (High)</td>
+<td>Candidate and super key counting; relational algebra meaning, division and equivalence; recoverability and 2PL variants; SQL NULL semantics and aggregates; ER minimum tables; join and outer-join tuple bounds</td>
+<td>NAT, MCQ or MSQ, 1–2 marks</td>
+</tr>
+<tr>
+<td>Tier 3 (Moderate)</td>
+<td>Integrity constraints and referential actions; canonical cover and FD equivalence; index types, sparse and dense sizing, hashing; B+ tree insertion; timestamp ordering and deadlock prevention</td>
+<td>Mostly 1-mark MCQ or MSQ; some NAT</td>
+</tr>
+<tr>
+<td>Tier 4 (Lower)</td>
+<td>Log-based recovery; ACID and view-serializability statements; tuple relational calculus</td>
+<td>1-mark MCQ or MSQ</td>
+</tr>
+</tbody>
+</table></div>
+<p>On this analysis, a sensible 2027 target is to be ready for one SQL row-count NAT, one normalization item, one transactions item, one B+ tree or indexing NAT and one 1-mark item from keys, ER, relational algebra or constraints. This article gives the tiers. The DBMS chapter of the <a href="../../#buy">GATE CSE 2027 book</a> shows the factor scores for all 18 subtopics, a year-by-year concept map and a high-probability question bank with worked solutions.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 752-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20DBMS%20for%20GATE%20CSE%202027%3A%20Important%20Topics%20and%20Patterns" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="../../#look-inside">See real pages</a></div></div></aside>
+<h2 id="the-most-tested-dbms-topics-and-how-they-are-asked">The most-tested DBMS topics and how they are asked</h2>
+<h3 id="sql-on-a-printed-instance">SQL on a printed instance</h3>
+<p>Typically three small tables of 4–8 rows and a query with one or two levels of nesting. The answer is a small integer entered as a NAT. The devices setters use, roughly in order of how likely the analysis rates them: a correlated NOT EXISTS for "all" queries (division), a NULL inside a NOT IN subquery, an aggregate subquery compared with a per-row value, &gt; ALL over an empty result, and GROUP BY with HAVING on a count.</p>
+<p>The vacuous-ALL device shows how patterns return. The 2012 and 2017 Set 2 papers both used a &gt; ALL comparison whose inner query was empty, five years apart. When the inner result is empty, &gt; ALL is true for every outer row and &gt; ANY is false.</p>
+<h3 id="conflict-serializability-and-schedule-classes">Conflict serializability and schedule classes</h3>
+<p>Two shapes dominate. Either "which serial schedule is S equivalent to", with three transactions and 6–8 operations, or an MSQ listing four properties of one schedule: conflict serializable, recoverable, cascadeless, strict. A counting variant, the number of conflict-serializable interleavings of two transactions, appeared in 2017 Set 1. The analyst reconstruction finds a serializability or recoverability item in every paper since 2019.</p>
+<h3 id="normal-forms-and-decomposition">Normal forms and decomposition</h3>
+<p>A schema with 4–6 attributes and 3–4 functional dependencies. Find every candidate key first, then decide the highest normal form, or test a decomposition MSQ: is it lossless, is it dependency preserving, is each component in BCNF. The "3NF but not BCNF" characterisation was asked in 2018 and 2019.</p>
+<h3 id="b-tree-arithmetic">B+ tree arithmetic</h3>
+<p>Block size, key size and pointer sizes give the maximum keys in an internal node or a leaf, followed by levels or block accesses for N records. The same template was reused in 2010, 2015 and 2020.</p>
+<p>A short example: block 1,024 bytes, key 12 bytes, block pointer 8 bytes. An internal node with p pointers needs p × 8 + (p − 1) × 12 ≤ 1,024, so 20p ≤ 1,036 and p = 51. A leaf stores record pointers plus one sibling pointer, so it uses a different inequality. Mixing the two is a common error.</p>
+<h3 id="tier-2-regulars">Tier 2 regulars</h3>
+<p>Candidate keys are counted with attribute closure. Relational algebra questions often use a self-join with rename and a difference to express "not the maximum" or "more than every". ER-to-table mapping (minimum number of relations) has had a long gap since its last strong appearance in 2018, which is why the analysis still rates it High. NULL questions test COUNT(*) against COUNT(column) and grouping on a nullable column.</p>
+<h2 id="common-dbms-traps">Common DBMS traps</h2>
+<ul>
+<li><strong>NOT IN with a NULL.</strong> If the subquery returns a NULL, NOT IN returns no rows. NOT EXISTS gives the intended meaning.</li>
+<li><strong>Empty subqueries.</strong> &gt; ALL, &gt;= ALL and &lt; ALL are true; &gt; ANY and IN are false; NOT EXISTS is true.</li>
+<li><strong>Aggregates and NULL.</strong> COUNT(*) counts rows. COUNT(column) and the other aggregates skip NULLs. GROUP BY puts all NULLs in one group.</li>
+<li><strong>Conflicts.</strong> Read–read is not a conflict, and operations of the same transaction never conflict.</li>
+<li><strong>Recoverability.</strong> A schedule where the reader commits after the writer it read from is recoverable. Cascadeless forbids reading uncommitted data; strict forbids reading or writing it.</li>
+<li><strong>2PL guarantees.</strong> Basic 2PL gives conflict serializability but prevents neither deadlock nor cascading aborts.</li>
+<li><strong>F versus F+.</strong> Test losslessness and dependency preservation using F+, not only the listed F.</li>
+<li><strong>All-prime schemas.</strong> If every attribute is prime, the schema is already in 3NF. Only BCNF needs checking.</li>
+<li><strong>B+ tree order.</strong> Check whether order means children or keys, include the leaf's sibling pointer, and add one access for the data block.</li>
+<li><strong>Keys.</strong> Attributes that appear on no right-hand side belong to every candidate key.</li>
+</ul>
+<p>These traps and their counterparts in other subjects are collected in <a href="../gate-cse-common-mistakes/">common mistakes that cost marks in GATE CSE</a>.</p>
+<h2 id="a-short-dbms-preparation-plan">A short DBMS preparation plan</h2>
+<ol>
+<li><strong>Master three procedures first.</strong> Attribute closure, the precedence graph and row-by-row SQL evaluation. According to the book's recurrence analysis, a candidate who runs these three flawlessly under time pressure has historically secured 4–6 of the DBMS marks.</li>
+<li><strong>Practise SQL on tiny tables with NULLs.</strong> Write the intermediate result after each clause, in the order FROM, WHERE, GROUP BY, HAVING, SELECT. Never answer by guessing what the query intends.</li>
+<li><strong>Work the FD chain in one sitting.</strong> Keys, then highest normal form, then a decomposition check. Repeat on schemas with cyclic dependencies.</li>
+<li><strong>Classify schedules against all four properties.</strong> For every practice schedule, decide conflict serializability, recoverability, cascadelessness and strictness together, the way an MSQ asks. The <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT strategy guide</a> covers how to mark such items.</li>
+<li><strong>Drill B+ tree capacity and height.</strong> Then do one insertion sequence by hand, noting that a leaf split copies a key up while an internal split pushes it up.</li>
+<li><strong>Finish Tier 3 and Tier 4 in one pass.</strong> Index types, canonical cover, timestamp ordering and log-based recovery are mostly 1-mark statements.</li>
+</ol>
+<p>For revision, the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a> has the core DBMS formulas, and the <a href="../gate-cse-most-repeated-topics/">most repeated topics in GATE CSE</a> shows where DBMS sits among the highest-priority concepts across the paper.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20DBMS%20for%20GATE%20CSE%202027%3A%20Important%20Topics%20and%20Patterns" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../">Look inside the book</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Which DBMS topics are most important for GATE CSE 2027?</summary><p>Four topics rank highest in the analysis of past papers: SQL queries evaluated on a printed table, conflict serializability of a schedule, normal forms and decomposition, and B+ tree capacity or height. The next tier is candidate and super keys, relational algebra, recoverability and 2PL, SQL NULL semantics, ER-to-table mapping and join tuple bounds.</p></details><details><summary>How many marks does DBMS carry in GATE CSE?</summary><p>Third-party analyst compilations place DBMS at 3 to 11 marks per paper over 2009 to 2026, with an overall average of about 6.9 marks. From 2019 onward it has been steady at 7 to 8 marks in most papers, which usually means 4 to 5 questions. These figures are unofficial and can differ by 1 to 2 marks.</p></details><details><summary>Has the DBMS syllabus changed for GATE 2027?</summary><p>No. The Databases section of the GATE 2027 CS syllabus is unchanged from 2026. It names the ER model, relational algebra, tuple calculus, SQL, integrity constraints, normal forms, file organization, indexing with B and B+ trees, and transactions and concurrency control. Confirm the official text at gate2027.iitm.ac.in.</p></details><details><summary>Is query optimization part of the GATE CSE DBMS syllabus?</summary><p>No. Query processing and optimization and distributed databases are not named in the GATE 2027 syllabus. In the 100-mark era they have not been asked except as an occasional join-cost or index-choice item, which is really an indexing question. That time is better spent on SQL, normalization and transactions.</p></details><details><summary>What is the NOT IN and NULL trap in GATE SQL questions?</summary><p>If the subquery used with NOT IN returns a NULL, the NOT IN condition can never be true, so the outer query returns no rows. Any comparison with NULL is UNKNOWN, and WHERE keeps only TRUE rows. NOT EXISTS does not behave this way. Evaluating the query row by row, rather than by intent, avoids the trap.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://www.geeksforgeeks.org/gate/gate-cse-2026-shift-1-comprehensive-paper-analysis-with-answer-key/" rel="nofollow noopener" target="_blank">GeeksforGeeks GATE CSE 2026 Shift 1 paper analysis</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE 2027 book</a><a href="../../articles/">Free guides</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE Guide is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>752 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20DBMS%20for%20GATE%20CSE%202027%3A%20Important%20Topics%20and%20Patterns" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+</body>
+</html>
