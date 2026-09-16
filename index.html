@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A 752-page evidence book for GATE Computer Science 2027: 27 years of papers analysed topic by topic, 1,120 new questions with full solutions, 10 mock tests in the official 2027 pattern, and a week-by-week study plan to the exam. ₹250.">
+<meta name="author" content="MD ANISH AHAMAD">
+<link rel="canonical" href="https://gatecseguide.github.io/">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://gatecseguide.github.io/">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="Predicted GATE CSE 2027 — Deep PYQ Analysis &amp; Question Bank">
+<meta property="og:description" content="27 years of GATE CS papers analysed topic by topic. 1,120 new questions with full solutions, 10 mock tests, and a week-by-week plan to the exam. ₹250.">
+<meta property="og:image" content="https://gatecseguide.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GATE CSE 2027 book cover with the headline: Revise what the paper actually asks. Price ₹250.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Predicted GATE CSE 2027">
+<meta name="twitter:description" content="Stop revising the syllabus. Revise what the paper actually asks. ₹250.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/og.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Book",
+ "name":"GATE CSE 2027 — Deep PYQ Analysis & High-Probability Question Bank",
+ "url":"https://gatecseguide.github.io/","image":"https://gatecseguide.github.io/og.png",
+ "author":{"@type":"Person","name":"MD ANISH AHAMAD"},
+ "bookFormat":"https://schema.org/EBook","numberOfPages":752,"inLanguage":"en",
+ "offers":{"@type":"Offer","price":"250","priceCurrency":"INR","availability":"https://schema.org/InStock","url":"https://gatecseguide.github.io/"}}
+</script>
+<style>html{-webkit-text-size-adjust:100%} img{max-width:100%} [hidden]{display:none!important}</style>
+<title>Predicted GATE CSE 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --ground:#ffffff;
+  --paper:#f4f6fa;
+  --paper-2:#eaeff7;
+  --ink:#10203a;
+  --ink-2:#3b4a63;
+  --ink-3:#6b7890;
+  --line:#dbe2ee;
+  --line-2:#c3cddf;
+
+  --hot:#e0452f;        /* single bold accent: CTA + emphasis */
+  --hot-ink:#b32d1c;
+  --hot-wash:#fdefec;
+
+  /* semantic confidence ramp - these are data colours, not the accent */
+  --t1:#0d8f63;
+  --t2:#2563eb;
+  --t3:#d98207;
+  --t4:#8390a6;
+
+  --shadow:0 1px 2px rgba(16,32,58,.06), 0 8px 24px -12px rgba(16,32,58,.18);
+  --radius:10px;
+  --maxw:1120px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0e141f;
+    --paper:#141c2b;
+    --paper-2:#1b2536;
+    --ink:#eef2f9;
+    --ink-2:#b8c4d8;
+    --ink-3:#8b98ae;
+    --line:#26324a;
+    --line-2:#33415c;
+    --hot:#ff6a52;
+    --hot-ink:#ff8a75;
+    --hot-wash:#2a1712;
+    --t1:#2fbd8a;
+    --t2:#5b8dfb;
+    --t3:#f0a63c;
+    --t4:#8390a6;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0e141f; --paper:#141c2b; --paper-2:#1b2536;
+  --ink:#eef2f9; --ink-2:#b8c4d8; --ink-3:#8b98ae;
+  --line:#26324a; --line-2:#33415c;
+  --hot:#ff6a52; --hot-ink:#ff8a75; --hot-wash:#2a1712;
+  --t1:#2fbd8a; --t2:#5b8dfb; --t3:#f0a63c; --t4:#8390a6;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding-inline:20px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif; text-wrap:balance; margin:0; line-height:1.14; letter-spacing:-.012em}
+h1{font-size:clamp(2.1rem,5.4vw,3.55rem); font-weight:700}
+h2{font-size:clamp(1.5rem,3.2vw,2.15rem); font-weight:600}
+h3{font-size:1.12rem; font-weight:600; font-family:"IBM Plex Sans",sans-serif; letter-spacing:0}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:.72rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+.lede{font-size:1.09rem; color:var(--ink-2); max-width:62ch}
+.tnum{font-variant-numeric:tabular-nums}
+
+section{padding-block:clamp(44px,7vw,84px); border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.stack{display:flex; flex-direction:column; gap:18px}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--ground) 92%,transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+}
+.bar .wrap{display:flex; align-items:center; gap:14px; justify-content:space-between; padding-block:11px}
+.brand{display:flex; align-items:center; gap:9px; font-weight:600; font-size:.95rem}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot); flex:none}
+.bar .right{display:flex; align-items:center; gap:14px}
+.bar .price{font-size:.9rem; color:var(--ink-3)}
+.bar .price b{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  background:var(--hot); color:#fff; border:0; cursor:pointer;
+  padding:13px 22px; border-radius:var(--radius); font:600 .97rem/1 "IBM Plex Sans",sans-serif;
+  text-decoration:none; box-shadow:var(--shadow); transition:transform .15s ease, filter .15s ease;
+}
+.btn:hover{filter:brightness(1.06); transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--t2); outline-offset:3px}
+.btn.sm{padding:10px 16px; font-size:.9rem}
+.btn.ghost{background:transparent; color:var(--ink); border:1px solid var(--line-2); box-shadow:none}
+
+/* ---------- hero ---------- */
+.hero{display:grid; grid-template-columns:1.12fr .88fr; gap:clamp(28px,4vw,56px); align-items:center}
+.hero .badges{display:flex; flex-wrap:wrap; gap:7px}
+.chip{
+  font-family:"IBM Plex Mono",monospace; font-size:.73rem; padding:4px 9px; border-radius:99px;
+  border:1px solid var(--line-2); color:var(--ink-2); background:var(--paper); white-space:nowrap;
+}
+.chip.live{border-color:var(--hot); color:var(--hot-ink); background:var(--hot-wash)}
+.buyrow{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+.pricetag{display:flex; align-items:baseline; gap:9px}
+.pricetag .now{font:700 2rem/1 "IBM Plex Sans",sans-serif; letter-spacing:-.02em}
+.pricetag .was{color:var(--ink-3); text-decoration:line-through; font-size:1rem}
+.microcopy{font-size:.85rem; color:var(--ink-3)}
+
+/* ---------- book object ---------- */
+.book{
+  position:relative; aspect-ratio:1400/1982; width:100%;
+  border-radius:4px 9px 9px 4px; color:#fff; overflow:hidden;
+  background:linear-gradient(152deg,#16305a 0%,#0f2144 46%,#1c3d6e 100%);
+  box-shadow:0 2px 3px rgba(16,32,58,.3), 0 26px 52px -22px rgba(16,32,58,.75);
+  padding:26px 22px 22px 30px; display:flex; flex-direction:column;
+}
+.book::before{content:""; position:absolute; inset:0 auto 0 0; width:13px;
+  background:linear-gradient(90deg,rgba(0,0,0,.42),rgba(255,255,255,.12) 62%,rgba(0,0,0,.18));}
+.book .bk-eye{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.17em; text-transform:uppercase; color:#8fb4ee}
+.book .bk-title{font-family:Fraunces,serif; font-weight:700; font-size:2.05rem; line-height:1.03; margin-top:10px; letter-spacing:-.02em}
+.book .bk-sub{font-size:.83rem; color:#c2d6f5; margin-top:11px; line-height:1.45}
+.book .bk-rule{height:2px; background:var(--hot); width:52px; margin:15px 0 0}
+.book .bk-spark{margin-top:auto; display:flex; align-items:flex-end; gap:4px; height:52px}
+.book .bk-spark i{flex:1; background:rgba(143,180,238,.5); border-radius:1px}
+.book .bk-spark i.on{background:var(--hot)}
+.book .bk-auth{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.1em; color:#dce8fa; margin-top:16px}
+.book .bk-help{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.06em; color:#93b2de; margin-top:3px}
+
+/* ---------- generic cards / grids ---------- */
+.grid{display:grid; gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:18px}
+.card h3{margin-bottom:6px}
+.card p{color:var(--ink-2); font-size:.94rem}
+
+/* ---------- confidence readout ---------- */
+.readout{border:1px solid var(--line-2); border-radius:var(--radius); overflow:hidden; background:var(--ground)}
+.readout .rhead{padding:13px 16px; background:var(--paper-2); border-bottom:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--ink-2); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+.readout .rbody{padding:6px 16px 14px}
+.crow{display:grid; grid-template-columns:150px 1fr 52px; gap:12px; align-items:center; padding-block:9px; border-bottom:1px dashed var(--line)}
+.crow:last-child{border-bottom:0}
+.crow .lbl{font-size:.88rem; color:var(--ink-2)}
+.crow .track{height:9px; border-radius:99px; background:var(--paper-2); overflow:hidden}
+.crow .fill{height:100%; border-radius:99px}
+.crow .val{font-family:"IBM Plex Mono",monospace; font-size:.85rem; text-align:right; color:var(--ink)}
+.note{font-size:.84rem; color:var(--ink-3); border-left:2px solid var(--line-2); padding-left:12px}
+
+/* ---------- weightage chart ---------- */
+.chart{display:flex; flex-direction:column; gap:7px}
+.brow{display:grid; grid-template-columns:132px 1fr 44px; gap:12px; align-items:center}
+.brow .bname{font-size:.88rem; color:var(--ink-2)}
+.brow .btrack{height:20px; background:var(--paper); border:1px solid var(--line); border-radius:4px; overflow:hidden}
+.brow .bfill{height:100%; background:var(--t2); opacity:.86}
+.brow .bfill.hi{background:var(--t1)}
+.brow .bfill.lo{background:var(--t4)}
+.brow .bval{font-family:"IBM Plex Mono",monospace; font-size:.83rem; text-align:right}
+
+/* ---------- spec list ---------- */
+.spec{width:100%; border-collapse:collapse; font-size:.93rem}
+.spec td{padding:11px 0; border-bottom:1px solid var(--line); vertical-align:top}
+.spec td:first-child{color:var(--ink-2); width:52%; padding-right:16px}
+.spec td:last-child{font-family:"IBM Plex Mono",monospace; text-align:right; white-space:nowrap}
+.spec tr:last-child td{border-bottom:0}
+
+/* ---------- sample question ---------- */
+.q{border:1px solid var(--line-2); border-radius:var(--radius); background:var(--ground); overflow:hidden}
+.q .qhead{background:var(--paper-2); padding:11px 16px; border-bottom:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace; font-size:.75rem; color:var(--ink-2)}
+.q .qbody{padding:16px}
+.q .opts{list-style:none; padding:0; margin:12px 0 0; display:grid; gap:6px}
+.q .opts li{font-size:.94rem; padding-left:26px; position:relative}
+.q .opts li span{position:absolute; left:0; font-family:"IBM Plex Mono",monospace; color:var(--ink-3)}
+.q .opts li.ok{color:var(--t1); font-weight:600}
+.q .opts li.ok span{color:var(--t1)}
+.q .qmeta{margin-top:14px; padding-top:12px; border-top:1px dashed var(--line); font-size:.85rem; color:var(--ink-3);
+  display:flex; flex-wrap:wrap; gap:6px 14px}
+
+/* ---------- change callout ---------- */
+.change{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.change .col{border-radius:var(--radius); padding:16px; border:1px solid var(--line)}
+.change .out{background:var(--paper)}
+.change .in{background:var(--hot-wash); border-color:var(--hot)}
+.change ul{margin:9px 0 0; padding-left:18px; font-size:.9rem; color:var(--ink-2)}
+.change li{margin:3px 0}
+.change .out li{text-decoration:line-through; color:var(--ink-3)}
+
+/* ---------- honesty block ---------- */
+.honest{background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--t3); border-radius:var(--radius); padding:20px}
+.honest h3{margin-bottom:8px}
+.honest p{color:var(--ink-2); font-size:.94rem; margin-bottom:8px}
+.honest p:last-child{margin-bottom:0}
+
+/* ---------- pricing ---------- */
+.buybox{border:1px solid var(--line-2); border-radius:14px; padding:26px; background:var(--paper); box-shadow:var(--shadow)}
+.buybox ul{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:8px; font-size:.94rem; color:var(--ink-2)}
+.buybox li{padding-left:24px; position:relative}
+.buybox li::before{content:"✓"; position:absolute; left:0; color:var(--t1); font-weight:700}
+
+/* ---------- faq ---------- */
+details{border-bottom:1px solid var(--line); padding:14px 0}
+summary{cursor:pointer; font-weight:600; font-size:1rem; list-style:none; display:flex; justify-content:space-between; gap:14px; align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+"; color:var(--ink-3); font-family:"IBM Plex Mono",monospace; flex:none}
+details[open] summary::after{content:"−"}
+details p{margin-top:9px; color:var(--ink-2); font-size:.94rem; max-width:70ch}
+
+footer{border-top:1px solid var(--line); padding-block:32px; color:var(--ink-3); font-size:.88rem}
+footer a{color:var(--ink-2)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .hero .bookwrap{order:-1}
+  .g3,.g2,.change{grid-template-columns:1fr}
+  .crow{grid-template-columns:120px 1fr 46px}
+  .brow{grid-template-columns:104px 1fr 40px}
+  .bar .price{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+
+/* ---------- roadmap ---------- */
+.routes{display:inline-flex; flex-wrap:wrap; gap:4px; padding:4px; border:1px solid var(--line-2); border-radius:12px; background:var(--paper); align-self:flex-start}
+.routes button{font:600 .9rem/1 "IBM Plex Sans",sans-serif; color:var(--ink-2); background:transparent; border:0; padding:10px 15px; border-radius:9px; cursor:pointer}
+.routes button[aria-selected="true"]{background:var(--ground); color:var(--ink); box-shadow:var(--shadow)}
+.routes button:focus-visible{outline:3px solid var(--t2); outline-offset:2px}
+.span-bar{display:flex; gap:3px; height:12px; border-radius:99px; overflow:hidden}
+.span-bar i{display:block; height:100%}
+.span-ends{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:8px;
+  font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--ink-3)}
+.phases{display:grid; grid-template-columns:repeat(var(--n,4),minmax(0,1fr)); gap:12px}
+.phase{--pc:var(--t2); display:flex; flex-direction:column; gap:8px; padding:16px; background:var(--ground);
+  border:1px solid var(--line); border-top:4px solid var(--pc); border-radius:var(--radius)}
+.phase .ph-num{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--pc)}
+.phase .ph-when{font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--ink-3)}
+.phase .ph-name{font-family:Fraunces,Georgia,serif; font-weight:600; font-size:1.1rem; line-height:1.22}
+.phase ul{margin:0; padding-left:17px; font-size:.9rem; color:var(--ink-2)}
+.phase li{margin:3px 0}
+.phase .chips{display:flex; flex-wrap:wrap; gap:5px}
+.phase .chips span{font-family:"IBM Plex Mono",monospace; font-size:.7rem; padding:2px 7px; border-radius:99px;
+  background:var(--paper-2); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap}
+.phase .ph-book{margin-top:auto; padding-top:10px; border-top:1px dashed var(--line); font-size:.8rem; color:var(--ink-3)}
+.phase .ph-book b{color:var(--ink-2); font-weight:600}
+@media (max-width:1000px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.phases{grid-template-columns:1fr}}
+
+/* ---------- look inside ---------- */
+.pages{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+.pagecard{display:flex; flex-direction:column; gap:10px; padding:0; border:0; background:none; color:inherit; font:inherit; text-align:left; cursor:zoom-in}
+.pagecard .sheet{position:relative; aspect-ratio:1400 / 1982; overflow:hidden; background:#fff; border:1px solid var(--line-2); border-radius:4px;
+  box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .2s ease}
+.pagecard:hover .sheet{transform:translateY(-3px); box-shadow:0 2px 4px rgba(16,32,58,.08), 0 20px 38px -18px rgba(16,32,58,.4)}
+.pagecard:focus-visible .sheet{outline:3px solid var(--t2); outline-offset:3px}
+.pagecard img{display:block; width:100%; height:100%; object-fit:cover; object-position:top}
+.pagecard .pno{position:absolute; bottom:8px; left:8px; font-family:"IBM Plex Mono",monospace; font-size:.68rem; padding:3px 8px; border-radius:99px; background:#10203a; color:#fff}
+.pagecard .cap{font-size:.88rem; line-height:1.45; color:var(--ink-2)}
+.pagecard .cap b{display:block; margin-bottom:2px; font-size:.95rem; font-weight:600; color:var(--ink)}
+@media (max-width:860px){.pages{grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}}
+dialog.viewer{width:min(900px,94vw); max-width:none; padding:0; border:0; background:transparent}
+dialog.viewer::backdrop{background:rgba(10,16,28,.84)}
+.viewer .vbox{display:flex; flex-direction:column; max-height:92vh; overflow:hidden; border-radius:12px; background:var(--ground)}
+.viewer .vbar{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 12px 10px 16px; border-bottom:1px solid var(--line)}
+.viewer .vcap{font-size:.9rem; color:var(--ink-2)}
+.viewer .vctl{display:flex; gap:6px; flex:none}
+.viewer .vctl button{font:600 .85rem/1 "IBM Plex Sans",sans-serif; padding:8px 11px; border-radius:8px; border:1px solid var(--line-2); background:var(--ground); color:var(--ink); cursor:pointer}
+.viewer .vctl button:focus-visible{outline:3px solid var(--t2); outline-offset:2px}
+.viewer .vimg{overflow:auto; background:#e8ecf2}
+.viewer .vimg img{display:block; width:100%; height:auto}
+
+/* ---------- hero flip-through ---------- */
+.flip{position:relative; width:100%; max-width:340px; margin-inline:auto}
+.flip-track{display:flex; gap:14px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory;
+  scroll-behavior:smooth; scroll-padding-inline:6px; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  /* room for the page shadows inside the scroll box, taken back with negative margins so layout is unchanged */
+  padding:16px 6px 64px; margin:-16px -6px -40px}
+.flip-track::-webkit-scrollbar{display:none}
+.flip-track:focus-visible{outline:3px solid var(--t2); outline-offset:2px; border-radius:6px}
+.flip-slide{position:relative; flex:0 0 calc(100% - 44px); scroll-snap-align:start}
+.flip-page{display:block; width:100%; aspect-ratio:1400/1982; padding:0; overflow:hidden; cursor:zoom-in; background:#fff;
+  border:1px solid var(--line-2); border-radius:3px 7px 7px 3px;
+  box-shadow:0 2px 3px rgba(16,32,58,.12), 0 24px 44px -24px rgba(16,32,58,.6)}
+.flip-page:focus-visible{outline:3px solid var(--t2); outline-offset:3px}
+.flip-page img{display:block; width:100%; height:100%; object-fit:cover; object-position:top}
+.flip-badge{position:absolute; bottom:10px; left:10px; z-index:2; pointer-events:none; padding:4px 8px; border-radius:99px;
+  font:600 .66rem/1 "IBM Plex Mono",monospace; letter-spacing:.05em; background:#10203a; color:#fff}
+.flip-ui{display:flex; align-items:center; justify-content:center; gap:12px}
+.flip-ui .arrow{width:38px; height:38px; border-radius:50%; border:1px solid var(--line-2); background:var(--ground); color:var(--ink);
+  font:600 1rem/1 "IBM Plex Sans",sans-serif; cursor:pointer}
+.flip-ui .arrow:hover:not(:disabled){border-color:var(--ink)}
+.flip-ui .arrow:disabled{opacity:.35; cursor:default}
+.flip-ui .arrow:focus-visible{outline:3px solid var(--t2); outline-offset:2px}
+.flip-dots{display:flex; gap:6px; align-items:center}
+.flip-dots button{width:7px; height:7px; padding:0; border:0; border-radius:99px; background:var(--line-2); cursor:pointer; transition:width .2s ease, background .2s ease}
+.flip-dots button[aria-current="true"]{width:20px; background:var(--hot)}
+.flip-hint{margin-top:10px; text-align:center; font-size:.84rem; color:var(--ink-3)}
+.flip-hint b{color:var(--hot-ink); font-weight:600}
+@media (prefers-reduced-motion:reduce){.flip-track{scroll-behavior:auto}}
+.wa-short{display:none}
+@media (max-width:480px){.wa-long{display:none} .wa-short{display:inline}}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="./" style="text-decoration:none" title="Predicted GATE CSE 2027"><span class="dot"></span> Predicted GATE CSE 2027</a>
+    <div class="right">
+      <span class="price mono"><b>₹250</b> <span style="color:var(--ink-3);text-decoration:line-through">₹300</span></span>
+      <a class="btn sm" style="white-space:nowrap" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29." target="_blank" rel="noopener"><span class="wa-long">Buy on WhatsApp</span><span class="wa-short">Buy now</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="hero">
+    <div class="stack">
+      <div class="badges">
+        <span class="chip live">Exam: 6–21 Feb 2027</span>
+        <span class="chip">Organiser verified: IIT Madras</span>
+        <span class="chip">2027 syllabus revision mapped</span>
+      </div>
+      <h1>Stop revising the syllabus. Revise what the paper actually asks.</h1>
+      <p class="lede">A 752-page evidence book for GATE Computer Science 2027. Twenty-seven years of question papers analysed topic by topic, an eight-factor model that ranks every concept, 1,120 new questions, and ten full-length mock tests in the official 2027 pattern.</p>
+
+      <div class="buyrow">
+        <div class="pricetag">
+          <span class="now mono">₹250</span>
+          <span class="was mono">₹300</span>
+        </div>
+        <a class="btn" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29." target="_blank" rel="noopener">Buy on WhatsApp</a>
+      </div>
+      <p class="microcopy">Order on WhatsApp · PDF sent after payment · One price for every student · Free updates until the exam</p>
+    </div>
+
+    <div class="bookwrap">
+      <div class="flip" id="flip">
+        <div class="flip-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Flip through the book: use the arrow keys" data-viewer-group="hero">
+          <div class="flip-slide" data-label="Cover">
+            <div class="book" role="img" aria-label="Book cover: GATE CSE 2027, Deep PYQ Analysis and High-Probability Question Bank by MD ANISH AHAMAD">
+        <div class="bk-eye">Deep PYQ Analysis</div>
+        <div class="bk-title">GATE<br>CSE<br>2027</div>
+        <div class="bk-rule"></div>
+        <div class="bk-sub">High-Probability Question Bank<br>&amp; 10 Predicted Mock Tests</div>
+        <div class="bk-spark" aria-hidden="true">
+          <i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:67%"></i>
+          <i style="height:58%"></i><i class="on" style="height:88%"></i><i style="height:71%"></i><i style="height:49%"></i>
+          <i class="on" style="height:96%"></i><i style="height:62%"></i><i style="height:74%"></i><i style="height:55%"></i>
+        </div>
+        <div class="bk-auth">MD ANISH AHAMAD</div>
+        <div class="bk-help">with Claude Fable 5.1 &amp; Opus 5</div>
+      </div>
+          </div>
+          <div class="flip-slide" data-label="Title page">
+            <span class="flip-badge">Title page</span>
+            <button type="button" class="flip-page" data-full="pages/title.webp" data-cap="Title page">
+              <img src="pages/title-md.webp" srcset="pages/title-thumb.webp 560w, pages/title-md.webp 800w, pages/title.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Title page">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="Contents">
+            <span class="flip-badge">Contents</span>
+            <button type="button" class="flip-page" data-full="pages/contents.webp" data-cap="Contents">
+              <img src="pages/contents-md.webp" srcset="pages/contents-thumb.webp 560w, pages/contents-md.webp 800w, pages/contents.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Contents">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="p. 4">
+            <span class="flip-badge">p. 4</span>
+            <button type="button" class="flip-page" data-full="pages/syllabus.webp" data-cap="Page 4 · The official 2027 syllabus, verified">
+              <img src="pages/syllabus-md.webp" srcset="pages/syllabus-thumb.webp 560w, pages/syllabus-md.webp 800w, pages/syllabus.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Page 4 · The official 2027 syllabus, verified">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="p. 12">
+            <span class="flip-badge">p. 12</span>
+            <button type="button" class="flip-page" data-full="pages/weightage.webp" data-cap="Page 12 · Eighteen years of marks, in one table">
+              <img src="pages/weightage-md.webp" srcset="pages/weightage-thumb.webp 560w, pages/weightage-md.webp 800w, pages/weightage.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Page 12 · Eighteen years of marks, in one table">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="p. 80">
+            <span class="flip-badge">p. 80</span>
+            <button type="button" class="flip-page" data-full="pages/question.webp" data-cap="Page 80 · A question, with its evidence">
+              <img src="pages/question-md.webp" srcset="pages/question-thumb.webp 560w, pages/question-md.webp 800w, pages/question.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Page 80 · A question, with its evidence">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="p. 363">
+            <span class="flip-badge">p. 363</span>
+            <button type="button" class="flip-page" data-full="pages/top100.webp" data-cap="Page 363 · The Top 100, ranked">
+              <img src="pages/top100-md.webp" srcset="pages/top100-thumb.webp 560w, pages/top100-md.webp 800w, pages/top100.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Page 363 · The Top 100, ranked">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="p. 713">
+            <span class="flip-badge">p. 713</span>
+            <button type="button" class="flip-page" data-full="pages/diagram.webp" data-cap="Page 713 · Diagram questions, actually drawn">
+              <img src="pages/diagram-md.webp" srcset="pages/diagram-thumb.webp 560w, pages/diagram-md.webp 800w, pages/diagram.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Page 713 · Diagram questions, actually drawn">
+            </button>
+          </div>
+          <div class="flip-slide" data-label="p. 435">
+            <span class="flip-badge">p. 435</span>
+            <button type="button" class="flip-page" data-full="pages/mockkey.webp" data-cap="Page 435 · Every mock test ends with its key">
+              <img src="pages/mockkey-md.webp" srcset="pages/mockkey-thumb.webp 560w, pages/mockkey-md.webp 800w, pages/mockkey.webp 1400w"
+                   sizes="290px" width="800" height="1133" loading="lazy" decoding="async" alt="Page 435 · Every mock test ends with its key">
+            </button>
+          </div>
+        </div>
+        <div class="flip-ui">
+          <button type="button" class="arrow flip-prev" aria-label="Previous page">←</button>
+          <div class="flip-dots" aria-label="Pages"></div>
+          <button type="button" class="arrow flip-next" aria-label="Next page">→</button>
+        </div>
+        <p class="flip-hint"><b>Look inside:</b> swipe the book, or use the arrows</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:26px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">The problem</span>
+      <h2>Twenty weeks. Eleven subjects. Most of them unequal.</h2>
+      <p class="lede">Spending your weeks in proportion to the syllabus is not the same as spending them in proportion to the evidence. Some topics have been examined in almost every recent paper. Several have not appeared in a decade. Both facts are knowable from the archive, and almost nobody checks.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>37 papers, not opinions</h3>
+        <p>Every GATE CS paper and set from 2000 to 2026, analysed for marks per subject and for which concept was tested in which year and format.</p>
+      </div>
+      <div class="card">
+        <h3>An eight-factor model</h3>
+        <p>Long-term frequency, recent frequency, concept breadth, syllabus centrality, time since last appearance, format fit, organiser signal, and other evidence. The weights are published, not hidden.</p>
+      </div>
+      <div class="card">
+        <h3>The 2027 revision, mapped</h3>
+        <p>The official syllabus PDF was extracted and compared word by word with 2026. Three sections changed. One of them changed a lot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="roadmap">
+  <div class="stack" style="gap:22px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">Study plan · from today to the exam hall</span>
+      <h2>Exactly what to study, week by week</h2>
+      <p class="lede">The book does not just predict topics. It tells you what order to study them in: the highest-mark subjects first, then practice, then all ten mock tests at the real exam time. Pick the route that matches the time you have left.</p>
+    </div>
+    <div class="routes" role="tablist" aria-label="How much time you have left">
+      <button type="button" role="tab" id="tab-20" aria-controls="route-20" aria-selected="true">20 weeks</button>
+      <button type="button" role="tab" id="tab-8" aria-controls="route-8" aria-selected="false" tabindex="-1">8 weeks</button>
+      <button type="button" role="tab" id="tab-2" aria-controls="route-2" aria-selected="false" tabindex="-1">2 weeks</button>
+    </div>
+    <div role="tabpanel" id="route-20" aria-labelledby="tab-20" class="stack" style="gap:16px">
+      <div>
+        <div class="span-bar" aria-hidden="true">
+          <i style="flex:9;background:var(--t2)"></i><i style="flex:4;background:var(--t1)"></i><i style="flex:6;background:var(--t3)"></i><i style="flex:2;background:var(--hot)"></i>
+        </div>
+        <div class="span-ends"><span>Tue 15 Sep 2026 · week 1</span><span>Sat 6 Feb 2027 · first exam day</span></div>
+      </div>
+      <div class="phases" style="--n:4">
+        <div class="phase" style="--pc:var(--t2)"><span class="ph-num">Phase 1</span><span class="ph-when">Weeks 1–9 · 15 Sep – 15 Nov</span><span class="ph-name">Finish concepts, in order of marks</span><ul><li>One subject a week: Maths (two weeks), Programming &amp; DS, Algorithms, OS, COA, Computer Networks, then TOC with DBMS, then Compiler Design with Digital Logic</li><li>Priority A concepts to exam standard; Priority B covered once</li><li>General Aptitude, 20 minutes every day</li></ul><div class="ph-book"><b>In the book:</b> subject chapters, Top 100 concepts</div></div>
+        <div class="phase" style="--pc:var(--t1)"><span class="ph-num">Phase 2</span><span class="ph-when">Weeks 10–13 · 16 Nov – 13 Dec</span><span class="ph-name">Previous-year papers and the question bank</span><ul><li>Topic-wise PYQs, 2014–2026 first, skipping topics removed in 2027</li><li>The book’s question bank, two subjects a week</li><li>Mocks 1 and 2 as diagnostics, not scores</li></ul><div class="chips"><span>Mock 1 · 29 Nov</span><span>Mock 2 · 13 Dec</span></div><div class="ph-book"><b>In the book:</b> 1,120 questions with solutions</div></div>
+        <div class="phase" style="--pc:var(--t3)"><span class="ph-num">Phase 3</span><span class="ph-when">Weeks 14–19 · 14 Dec – 24 Jan</span><span class="ph-name">All ten mock tests</span><ul><li>Mocks 3 to 10 in order, at the real exam clock time</li><li>Full 180 minutes, official negative marking</li><li>Next day: a written review of every wrong, skipped and slow question</li></ul><div class="chips"><span>3 · 20 Dec</span><span>4 · 27 Dec</span><span>5 · 3 Jan</span><span>6 · 10 Jan</span><span>7 · 13 Jan</span><span>8 · 17 Jan</span><span>9 · 20 Jan</span><span>10 · 24 Jan</span></div><div class="ph-book"><b>In the book:</b> 10 mock tests, keys and worked solutions</div></div>
+        <div class="phase" style="--pc:var(--hot)"><span class="ph-num">Phase 4</span><span class="ph-when">Weeks 20–21 · 25 Jan – 6 Feb</span><span class="ph-name">Final two weeks: nothing new</span><ul><li>Last-minute sheet, read once a day</li><li>Do-not-skip checklist, ticked only from memory</li><li>Error log cut to one page; one timed re-attempt of your weakest mock</li></ul><div class="ph-book"><b>In the book:</b> last-minute sheet, do-not-skip checklist</div></div>
+      </div>
+      <p class="note">This is the plan from Section 14 of the book, which assumes about 35–40 study hours a week. Exam slot on 13–14 or 20–21 February? Repeat the final week.</p>
+    </div>
+    <div role="tabpanel" id="route-8" aria-labelledby="tab-8" class="stack" style="gap:16px" hidden>
+      <div>
+        <div class="span-bar" aria-hidden="true"><i style="flex:4;background:var(--t2)"></i><i style="flex:4;background:var(--t3)"></i></div>
+        <div class="span-ends"><span>Week 1</span><span>Week 8 · exam</span></div>
+      </div>
+      <div class="phases" style="--n:2">
+        <div class="phase" style="--pc:var(--t2)"><span class="ph-num">Weeks 1–4</span><span class="ph-when">Concepts</span><span class="ph-name">Only what ranks highest</span><ul><li>Skip the analysis chapters on the first pass</li><li>Let the Top 100 list and the do-not-skip list decide the order</li><li>Tier 1 and Tier 2 questions only, subject by subject</li></ul><div class="ph-book"><b>In the book:</b> Top 100 concepts, do-not-skip list, subject chapters</div></div>
+        <div class="phase" style="--pc:var(--t3)"><span class="ph-num">Weeks 5–8</span><span class="ph-when">Mock tests</span><span class="ph-name">Five mocks, analysed properly</span><ul><li>Mocks 1, 3, 5, 9 and 10 under full exam timing</li><li>Review each one the next day and fix only what it exposed</li><li>Keep the last-minute sheet beside you from week 6</li></ul><div class="chips"><span>Mock 1</span><span>Mock 3</span><span>Mock 5</span><span>Mock 9</span><span>Mock 10</span></div><div class="ph-book"><b>In the book:</b> mock tests, solutions, last-minute sheet</div></div>
+      </div>
+      <p class="note">This is the short route from “How to Use This Book”, for students who start in December.</p>
+    </div>
+    <div role="tabpanel" id="route-2" aria-labelledby="tab-2" class="stack" style="gap:16px" hidden>
+      <div>
+        <div class="span-bar" aria-hidden="true"><i style="flex:1;background:var(--t3)"></i><i style="flex:1;background:var(--hot)"></i></div>
+        <div class="span-ends"><span>Day 1</span><span>Day 14 · exam</span></div>
+      </div>
+      <div class="phases" style="--n:2">
+        <div class="phase" style="--pc:var(--t3)"><span class="ph-num">Days 1–7</span><span class="ph-when">Revision</span><span class="ph-name">Formulas and traps</span><ul><li>Last-minute sheet, read every day</li><li>Do-not-skip checklist, ticked only from memory</li><li>Mock 9 on day 7, strict timing</li></ul><div class="chips"><span>Mock 9 · day 7</span></div><div class="ph-book"><b>In the book:</b> last-minute sheet, do-not-skip checklist</div></div>
+        <div class="phase" style="--pc:var(--hot)"><span class="ph-num">Days 8–14</span><span class="ph-when">Final paper</span><span class="ph-name">The final predicted paper</span><ul><li>Mock 10 on day 9, strict timing</li><li>Review only what the two mocks exposed</li><li>Nothing new in the last three days</li></ul><div class="chips"><span>Mock 10 · day 9</span></div><div class="ph-book"><b>In the book:</b> Mock 10 and its worked solutions</div></div>
+      </div>
+      <p class="note">Two weeks out, more topics will not move your rank. Accuracy on the ones you already know will.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="look-inside">
+  <div class="stack" style="gap:24px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">Look inside · real pages from the book</span>
+      <h2>Judge it by its pages, not by this page</h2>
+      <p class="lede">Six unedited pages from the 752-page edition, exactly as they appear in the PDF you get. Tap any page to read it full size.</p>
+    </div>
+    <div class="pages" data-viewer-group="inside">
+      <button type="button" class="pagecard" data-full="pages/syllabus.webp" data-cap="Page 4 · The official 2027 syllabus, verified">
+        <span class="sheet"><img src="pages/syllabus-thumb.webp" width="560" height="793" loading="lazy" decoding="async" alt="Page 4 of the book: The official 2027 syllabus, verified"><span class="pno">p. 4</span></span>
+        <span class="cap"><b>The official 2027 syllabus, verified</b>Official wording expanded to subtopics, with how each line was verified.</span>
+      </button>
+      <button type="button" class="pagecard" data-full="pages/weightage.webp" data-cap="Page 12 · Eighteen years of marks, in one table">
+        <span class="sheet"><img src="pages/weightage-thumb.webp" width="560" height="793" loading="lazy" decoding="async" alt="Page 12 of the book: Eighteen years of marks, in one table"><span class="pno">p. 12</span></span>
+        <span class="cap"><b>Eighteen years of marks, in one table</b>Subject-wise marks per paper from 2009 to 2026, with sources named.</span>
+      </button>
+      <button type="button" class="pagecard" data-full="pages/question.webp" data-cap="Page 80 · A question, with its evidence">
+        <span class="sheet"><img src="pages/question-thumb.webp" width="560" height="793" loading="lazy" decoding="async" alt="Page 80 of the book: A question, with its evidence"><span class="pno">p. 80</span></span>
+        <span class="cap"><b>A question, with its evidence</b>Four confidence scores, the GATE years behind the concept, and a full solution.</span>
+      </button>
+      <button type="button" class="pagecard" data-full="pages/top100.webp" data-cap="Page 363 · The Top 100, ranked">
+        <span class="sheet"><img src="pages/top100-thumb.webp" width="560" height="793" loading="lazy" decoding="async" alt="Page 363 of the book: The Top 100, ranked"><span class="pno">p. 363</span></span>
+        <span class="cap"><b>The Top 100, ranked</b>Every concept scored by the eight-factor model, with the reason for its rank.</span>
+      </button>
+      <button type="button" class="pagecard" data-full="pages/diagram.webp" data-cap="Page 713 · Diagram questions, actually drawn">
+        <span class="sheet"><img src="pages/diagram-thumb.webp" width="560" height="793" loading="lazy" decoding="async" alt="Page 713 of the book: Diagram questions, actually drawn"><span class="pno">p. 713</span></span>
+        <span class="cap"><b>Diagram questions, actually drawn</b>Figure-based questions, the way GATE sets them, with worked solutions.</span>
+      </button>
+      <button type="button" class="pagecard" data-full="pages/mockkey.webp" data-cap="Page 435 · Every mock test ends with its key">
+        <span class="sheet"><img src="pages/mockkey-thumb.webp" width="560" height="793" loading="lazy" decoding="async" alt="Page 435 of the book: Every mock test ends with its key"><span class="pno">p. 435</span></span>
+        <span class="cap"><b>Every mock test ends with its key</b>65 answers per test; the full working is in the solutions section.</span>
+      </button>
+    </div>
+  </div>
+  <dialog class="viewer" id="viewer" aria-label="Book page viewer">
+    <div class="vbox">
+      <div class="vbar">
+        <span class="vcap" id="viewer-cap"></span>
+        <div class="vctl">
+          <button type="button" id="viewer-prev" aria-label="Previous page">←</button>
+          <button type="button" id="viewer-next" aria-label="Next page">→</button>
+          <button type="button" id="viewer-close">Close</button>
+        </div>
+      </div>
+      <div class="vimg"><img id="viewer-img" alt=""></div>
+    </div>
+  </dialog>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:24px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">What makes it different</span>
+      <h2>Four confidence scores, not one number</h2>
+      <p class="lede">Being sure that cache mapping will be examined is not the same as being sure about one particular cache question. Every question in the book separates those claims, and the last one is deliberately capped low.</p>
+    </div>
+
+    <div class="readout">
+      <div class="rhead">
+        <span>QCOA.1 · Memory hierarchy → Cache mapping → tag directory size</span>
+        <span>NAT · 2 marks</span>
+      </div>
+      <div class="rbody">
+        <div class="crow">
+          <span class="lbl">Topic</span>
+          <span class="track"><span class="fill" style="width:92%;background:var(--t1)"></span></span>
+          <span class="val">92%</span>
+        </div>
+        <div class="crow">
+          <span class="lbl">Concept</span>
+          <span class="track"><span class="fill" style="width:83%;background:var(--t2)"></span></span>
+          <span class="val">83%</span>
+        </div>
+        <div class="crow">
+          <span class="lbl">Question pattern</span>
+          <span class="track"><span class="fill" style="width:73%;background:var(--t2)"></span></span>
+          <span class="val">73%</span>
+        </div>
+        <div class="crow">
+          <span class="lbl">Exact question</span>
+          <span class="track"><span class="fill" style="width:22%;background:var(--t3)"></span></span>
+          <span class="val">22%</span>
+        </div>
+      </div>
+    </div>
+    <p class="note">Exact-question confidence never exceeds 35% anywhere in the book. Across 2000–2026 what GATE repeats is the concept and the computation, not the wording. Any higher number would be a lie told to sell a book.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:24px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">Sample finding · marks per paper, averaged 2018–2026</span>
+      <h2>Where the marks have actually been</h2>
+    </div>
+    <div class="chart">
+      <div class="brow"><span class="bname">General Aptitude</span><span class="btrack"><span class="bfill hi" style="width:100%"></span></span><span class="bval">15.0</span></div>
+      <div class="brow"><span class="bname">Mathematics</span><span class="btrack"><span class="bfill hi" style="width:87%"></span></span><span class="bval">13.0</span></div>
+      <div class="brow"><span class="bname">Programming &amp; DS</span><span class="btrack"><span class="bfill hi" style="width:65%"></span></span><span class="bval">9.7</span></div>
+      <div class="brow"><span class="bname">COA</span><span class="btrack"><span class="bfill" style="width:61%"></span></span><span class="bval">9.2</span></div>
+      <div class="brow"><span class="bname">Operating System</span><span class="btrack"><span class="bfill" style="width:55%"></span></span><span class="bval">8.3</span></div>
+      <div class="brow"><span class="bname">Computer Networks</span><span class="btrack"><span class="bfill" style="width:53%"></span></span><span class="bval">8.0</span></div>
+      <div class="brow"><span class="bname">Algorithms</span><span class="btrack"><span class="bfill" style="width:54%"></span></span><span class="bval">8.1</span></div>
+      <div class="brow"><span class="bname">Theory of Computation</span><span class="btrack"><span class="bfill" style="width:54%"></span></span><span class="bval">8.1</span></div>
+      <div class="brow"><span class="bname">Databases</span><span class="btrack"><span class="bfill" style="width:48%"></span></span><span class="bval">7.2</span></div>
+      <div class="brow"><span class="bname">Compiler Design</span><span class="btrack"><span class="bfill lo" style="width:36%"></span></span><span class="bval">5.4</span></div>
+      <div class="brow"><span class="bname">Digital Logic</span><span class="btrack"><span class="bfill lo" style="width:34%"></span></span><span class="bval">5.1</span></div>
+    </div>
+    <p class="note">Compiled from independent published paper analyses, cited in the book. Low weight is not low value: Digital Logic and Compiler Design are the most formula-stable subjects in the paper and give the best marks per hour of study. The book says which hours those are.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:24px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">Syllabus alert</span>
+      <h2>Computer Networks lost a third of its topic list for 2027</h2>
+      <p class="lede">If you prepare from a 2026 book, you will spend days on protocols that are no longer in the syllabus, and under-prepare the ones that now absorb the entire Computer Networks allocation.</p>
+    </div>
+    <div class="change">
+      <div class="col out">
+        <span class="eyebrow">No longer in the 2027 syllabus</span>
+        <ul>
+          <li>OSI / TCP-IP stack enumeration</li>
+          <li>ARP, DHCP, ICMP</li>
+          <li>UDP</li>
+          <li>SMTP, FTP, Email</li>
+          <li>Framing, Ethernet bridging</li>
+          <li>Shortest-path and flooding routing</li>
+        </ul>
+      </div>
+      <div class="col in">
+        <span class="eyebrow" style="color:var(--hot-ink)">Now carrying the full weight</span>
+        <ul>
+          <li>TCP flow and congestion control</li>
+          <li>IPv4, fragmentation, CIDR, NAT</li>
+          <li>Distance-vector and link-state routing</li>
+          <li>Error detection, MAC, Ethernet</li>
+          <li>Switching and performance metrics</li>
+          <li>Socket API, DNS, HTTP</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Digital Logic and Computer Organisation also changed. The tabular minimisation method and hardwired versus microprogrammed control unit design are now named explicitly, and those have almost no previous-year history to practise from. The book writes fresh questions for exactly those gaps.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:24px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">A page from the book</span>
+      <h2>Every question carries its evidence</h2>
+    </div>
+    <div class="q">
+      <div class="qhead">QOS.1 · Operating System → System calls → fork() process counting · NAT, 1 mark</div>
+      <div class="qbody">
+        <p>A process executes the following code. Assume every <span class="mono">fork()</span> succeeds and no process terminates early.</p>
+        <p class="mono" style="margin-top:10px;font-size:.9rem;color:var(--ink-2)">for (i = 0; i &lt; 4; i++) fork();</p>
+        <p style="margin-top:10px">The total number of <em>child</em> processes created is ______.</p>
+        <ul class="opts">
+          <li class="ok"><span>=</span>15</li>
+        </ul>
+        <div class="qmeta">
+          <span><b>Based on PYQs:</b> GATE 2005, 2008, 2012, 2019, 2021, 2024</span>
+          <span><b>Last tested:</b> 2024</span>
+          <span><b>Confidence:</b> Topic 80 · Concept 72 · Pattern 64 · Exact 20</span>
+        </div>
+      </div>
+    </div>
+    <p class="note">No question in the book is a reprint of a past paper. The years name where the <em>concept</em> was examined, so you can see at a glance whether something is live or dormant.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:24px">
+    <div class="stack" style="gap:10px">
+      <span class="eyebrow">What you get</span>
+      <h2>One file. Everything in it.</h2>
+    </div>
+    <div class="grid g2">
+      <table class="spec">
+        <tr><td>Total pages</td><td>752</td></tr>
+        <tr><td>New questions, with full solutions</td><td>1,120</td></tr>
+        <tr><td>Subject-wise question bank</td><td>440</td></tr>
+        <tr><td>Diagram-based questions (Appendix A)</td><td>30</td></tr>
+        <tr><td>Full-length mock tests</td><td>10 × 65 Q</td></tr>
+        <tr><td>GATE papers analysed</td><td>37 (2000–2026)</td></tr>
+      </table>
+      <table class="spec">
+        <tr><td>Ranked high-priority concepts</td><td>Top 100</td></tr>
+        <tr><td>Topic-level master analysis table</td><td>216 rows</td></tr>
+        <tr><td>Do-not-skip checklist</td><td>160 items</td></tr>
+        <tr><td>Week-by-week roadmap</td><td>20 weeks</td></tr>
+        <tr><td>Last-minute revision sheet</td><td>Formulas + traps</td></tr>
+        <tr><td>Format</td><td>PDF, searchable</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="honest">
+    <h3>How this book was made, and what it will not claim</h3>
+    <p>The research, the topic-level analysis and the drafting were carried out with <b>Claude Fable 5.1</b> and <b>Claude Opus 5</b>, AI systems from Anthropic, working to a brief I set. I defined the scope and the standards, directed the method, reviewed the output and take responsibility for the finished book. It says so on the title page too. A book that asks you to judge every claim by its evidence has to hold itself to the same test.</p>
+    <p>It will not tell you it knows the paper. GATE questions are set by committees and the year-to-year variation is real. Every prediction here is a ranking built from historical evidence, labelled as analysis rather than fact, with the reasoning shown so you can disagree with it.</p>
+    <p>It is an independent study aid. It is not published, endorsed or approved by IIT Madras, IISc or any GATE organising institute. Verify the official syllabus and dates yourself at gate2027.iitm.ac.in.</p>
+  </div>
+</section>
+
+<section class="wrap" id="buy">
+  <div class="grid g2" style="align-items:center; gap:34px">
+    <div class="stack" style="gap:12px">
+      <span class="eyebrow">Price</span>
+      <h2>₹250. The same for everyone.</h2>
+      <p class="lede">No tiers, no timers, no coupon games. You get the current edition as soon as your payment is confirmed, and every update until the February 2027 exam, at no extra cost.</p>
+      <p class="microcopy">Questions before buying? Message <a href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29." target="_blank" rel="noopener">+91 70339 35778</a> on WhatsApp, or write to <a href="mailto:mdanisahamad2003@gmail.com">mdanisahamad2003@gmail.com</a> and you will get a straight answer.</p>
+    </div>
+    <div class="buybox">
+      <div class="pricetag">
+        <span class="now mono">₹250</span>
+        <span class="was mono">₹300</span>
+      </div>
+      <ul>
+        <li>752-page PDF, sent on WhatsApp or email</li>
+        <li>1,120 questions with worked solutions</li>
+        <li>10 mock tests with answer keys</li>
+        <li>Free updates until the exam</li>
+      </ul>
+      <!-- BUY LINK: set BUY_MODE in site-src/build_book_page.py -->
+      <a class="btn" style="width:100%; margin-top:20px" id="buy-link" href="https://wa.me/917033935778?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29." target="_blank" rel="noopener">Buy on WhatsApp — ₹250</a>
+      <p class="microcopy" style="margin-top:10px; text-align:center">Opens a WhatsApp chat with +91 70339 35778</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stack" style="gap:8px">
+    <span class="eyebrow">Questions people ask</span>
+    <div>
+      <details open>
+        <summary>Are these real previous-year questions?</summary>
+        <p>No, and that is deliberate. Every question is newly written. Past papers are freely available and you should solve them too. What this book adds is the analysis of which concepts those papers keep returning to, and fresh questions built on exactly those patterns, so you are practising prediction rather than memory.</p>
+      </details>
+      <details>
+        <summary>Is the 2027 syllabus really different?</summary>
+        <p>Yes, in three sections. Computer Networks lost a large part of its topic list, Computer Organisation gained control-unit design and cache mapping as explicitly named items, and Digital Logic named the tabular minimisation method for the first time. The book shows the old and new wording side by side and re-weights everything accordingly.</p>
+      </details>
+      <details>
+        <summary>Can you guarantee these questions will appear?</summary>
+        <p>No. Nobody honestly can. The book gives you a ranked, reasoned view of what the evidence supports, with confidence figures that are explicitly analytical estimates rather than probabilities. Exact-question confidence is capped at 35% throughout for that reason.</p>
+      </details>
+      <details>
+        <summary>I have only two months left. Is it still useful?</summary>
+        <p>Yes. There is a short-path route built in: the Top 100 concept list, the do-not-skip checklist, the Tier 1 and Tier 2 questions only, and four of the ten mocks. That plan is written out in the revision section.</p>
+      </details>
+      <details>
+        <summary>How do I get updates?</summary>
+        <p>Updates are sent to the email address you buy with, until the February 2027 exam. If a correction is found, everyone gets the corrected edition.</p>
+      </details>
+      <details>
+        <summary>How much work went into this?</summary>
+        <p>A lot more than ₹250 suggests. I invested about 5 million output tokens of Claude model time in it: Claude Fable 5.1 for the research, the past-paper analysis and the subject chapters, and Claude Opus 5 for the mock-test rebuilds, the four-score confidence ratings, the previous-year tags and the diagram appendix. That ran across more than sixty separate research, writing and checking passes, with my own direction and review throughout. The price is low on purpose, so that evidence-based preparation reaches as many GATE 2027 candidates as possible.</p>
+      </details>
+      <details>
+        <summary>Was this written with AI?</summary>
+        <p>Yes, and the book says so on its title page rather than hiding it. The research, analysis and drafting were done with Claude Fable 5.1 and Claude Opus 5 under my direction; I set the scope and standards, reviewed the work and stand behind it. Every question was also machine-checked for a stated answer, a worked solution, consistent confidence scores and a previous-year tag citing only years in which a GATE paper was actually held, and every mock test was checked against the official pattern with its key matched row by row to its solutions. Those checks establish consistency, not infallibility. If you find an error, tell me and everyone gets the fix.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><b>Predicted GATE CSE 2027</b> — Deep PYQ Analysis &amp; High-Probability Question Bank</p>
+  <p style="margin-top:10px; display:flex; flex-wrap:wrap; gap:6px 16px"><a href="contact/">Contact Us</a> <a href="terms/">Terms and Conditions</a> <a href="refund-policy/">Refund and Cancellation Policy</a> <a href="shipping-delivery-policy/">Shipping and Delivery Policy</a> <a href="privacy-policy/">Privacy Policy</a></p>
+  <p style="margin-top:6px">By MD ANISH AHAMAD · <a href="mailto:mdanisahamad2003@gmail.com">mdanisahamad2003@gmail.com</a></p>
+  <p style="margin-top:6px">Research and analysis assistants: Claude Fable 5.1 and Claude Opus 5 (Anthropic). Direction, review and final responsibility: the author.</p>
+  <p style="margin-top:6px">© 2026 MD ANISH AHAMAD. All rights reserved. GATE is conducted by IISc Bengaluru and the IITs; this book is an independent study aid and is not endorsed by them.</p>
+</footer>
+
+<script>
+(function roadmapTabs(){
+  const tabs = [...document.querySelectorAll('.routes [role="tab"]')];
+  if (!tabs.length) return;
+  function select(tab, focus){
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t, false));
+    t.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+    });
+  });
+})();
+
+(function pageViewer(){
+  const dlg = document.getElementById('viewer');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  const img = document.getElementById('viewer-img'), cap = document.getElementById('viewer-cap');
+  let list = [], at = 0, opener = null;
+  function show(i){
+    at = (i + list.length) % list.length;
+    const c = list[at];
+    img.src = c.dataset.full; img.alt = c.dataset.cap; cap.textContent = c.dataset.cap;
+    dlg.querySelector('.vimg').scrollTop = 0;
+  }
+  document.querySelectorAll('[data-viewer-group]').forEach(group => {
+    const items = [...group.querySelectorAll('[data-full]')];
+    items.forEach((c, i) => c.addEventListener('click', () => { list = items; opener = c; show(i); dlg.showModal(); }));
+  });
+  document.getElementById('viewer-prev').addEventListener('click', () => show(at - 1));
+  document.getElementById('viewer-next').addEventListener('click', () => show(at + 1));
+  document.getElementById('viewer-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') show(at + 1);
+    if (e.key === 'ArrowLeft') show(at - 1);
+  });
+  dlg.addEventListener('close', () => { if (opener) opener.focus(); });
+})();
+
+(function heroFlip(){
+  const root = document.getElementById('flip');
+  if (!root) return;
+  const track = root.querySelector('.flip-track');
+  const slides = [...track.querySelectorAll(':scope > .flip-slide')];
+  const prev = root.querySelector('.flip-prev'), next = root.querySelector('.flip-next');
+  const dotsBox = root.querySelector('.flip-dots');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const dots = slides.map((slide, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Show ' + (slide.dataset.label || 'page ' + (i + 1)));
+    b.addEventListener('click', () => go(i));
+    dotsBox.appendChild(b);
+    return b;
+  });
+  // `target` holds the page an arrow, dot or key asked for while the smooth scroll is still
+  // running, so quick repeated taps each advance one page instead of re-reading a half-way position.
+  let at = 0, target = null, frame = 0, settle = 0;
+  const offset = i => slides[i].offsetLeft - slides[0].offsetLeft;
+  function mark(i){
+    at = i;
+    dots.forEach((d, j) => d.setAttribute('aria-current', j === i ? 'true' : 'false'));
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  }
+  function nearest(){
+    let best = 0, gap = Infinity;
+    slides.forEach((_, i) => { const d = Math.abs(offset(i) - track.scrollLeft); if (d < gap) { gap = d; best = i; } });
+    return best;
+  }
+  function go(i){
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    target = i;
+    mark(i);
+    track.scrollTo({ left: offset(i), behavior: reduce.matches ? 'auto' : 'smooth' });
+  }
+  track.addEventListener('scroll', () => {
+    clearTimeout(settle);
+    settle = setTimeout(() => { target = null; mark(nearest()); }, 140);
+    if (target === null) { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => mark(nearest())); }
+  }, { passive: true });
+  window.addEventListener('resize', () => mark(nearest()));
+  prev.addEventListener('click', () => go(at - 1));
+  next.addEventListener('click', () => go(at + 1));
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(at + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); go(at - 1); }
+  });
+  mark(0);
+})();
+</script>
+
+</body>
+</html>
