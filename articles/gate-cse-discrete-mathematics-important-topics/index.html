@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discrete Mathematics GATE CSE: Important Topics</title>
+<meta name="description" content="Discrete mathematics for GATE CSE 2027 ranked from past papers. Logic, relations, graphs, counting, groups and lattices with formulas and traps.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="Discrete Mathematics GATE CSE: Important Topics">
+<meta property="og:description" content="Discrete mathematics for GATE CSE 2027 ranked from past papers. Logic, relations, graphs, counting, groups and lattices with formulas and traps.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-21"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discrete Mathematics GATE CSE: Important Topics">
+<meta name="twitter:description" content="Discrete mathematics for GATE CSE 2027 ranked from past papers. Logic, relations, graphs, counting, groups and lattices with formulas and traps.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Discrete Mathematics for GATE CSE: Important Topics", "description": "Discrete mathematics for GATE CSE 2027 ranked from past papers. Logic, relations, graphs, counting, groups and lattices with formulas and traps.", "image": ["https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/og.png"], "datePublished": "2026-09-21", "dateModified": "2026-09-21", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/", "inLanguage": "en-IN", "keywords": "discrete mathematics gate, gate cse discrete maths important topics, discrete mathematics for gate 2027, gate graph theory questions, gate cse maths weightage"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Discrete Mathematics for GATE CSE: Important Topics", "item": "https://gatecseguide.github.io/articles/gate-cse-discrete-mathematics-important-topics/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which discrete mathematics topics are most important for GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "On past-paper evidence the two strongest are graph degree and edge counting with Euler's formula, and propositional logic. The next group is first-order logic, counting by pigeonhole and inclusion-exclusion, relations and functions counting, recurrence relations, and connectivity and spanning trees. Groups, lattices and colouring follow close behind."}}, {"@type": "Question", "name": "How many marks does discrete mathematics carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Third-party analyst compilations that separate it from the rest of mathematics put discrete mathematics at 3 to 12 marks per paper between 2016 and 2026, with a median near 6 or 7. These figures are unofficial and analysts differ by 2 to 3 marks because some count graph and counting questions under other subjects."}}, {"@type": "Question", "name": "Is discrete mathematics part of engineering mathematics in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The official GATE CS syllabus places discrete mathematics inside Section 1, Engineering Mathematics, alongside linear algebra, calculus, and probability and statistics. Many paper analyses report it separately, which is why published weightage numbers for the two differ from source to source."}}, {"@type": "Question", "name": "Has the discrete mathematics syllabus changed for GATE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "No. The discrete mathematics wording in the GATE 2027 CS syllabus is unchanged from 2026. The last change was in GATE 2021, when Monoids was added to the line. Numerical Methods left the paper in 2016 and has not returned. Confirm the current text at gate2027.iitm.ac.in before you plan."}}, {"@type": "Question", "name": "Is graph theory important for GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Very. Degree-sum and edge counting has appeared in most papers since 2004, and planarity through Euler's formula is a recurring 2-mark item. Graph theory also feeds algorithms directly, since spanning-tree counts, bipartiteness and connectivity arguments reappear in minimum spanning tree and traversal questions."}}, {"@type": "Question", "name": "Are groups and lattices still asked in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, though less often than graphs or logic. Group axiom checks, order of an element and Lagrange's theorem recur, and lattice questions ask whether a described poset is a lattice or whether a divisor lattice is distributive or Boolean. Since 2021 these appear more often as multiple-select questions."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE GUIDE</a><nav class="nav"><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../gate-cse-2027-book/">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Discrete Mathematics for GATE CSE: Important Topics</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 21 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">Discrete mathematics is the half of the GATE CSE mathematics block that computer science students already half-know, and it is the half that repeats most reliably. Graph counting and propositional logic top the evidence from past papers, followed by first-order logic, counting, relations and functions, and recurrences. This guide gives the syllabus, the marks, a priority order, the formulas that carry the questions and the traps built into the distractors.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-gate-2027-syllabus-names">What the GATE 2027 syllabus names</a></li><li><a href="#how-many-marks-discrete-mathematics-carries">How many marks discrete mathematics carries</a></li><li><a href="#priority-order-for-gate-2027">Priority order for GATE 2027</a></li><li><a href="#the-most-tested-topics-and-how-they-are-asked">The most-tested topics and how they are asked</a></li><li><a href="#formulas-that-carry-the-questions">Formulas that carry the questions</a></li><li><a href="#traps-that-repeat">Traps that repeat</a></li><li><a href="#a-study-order-that-works">A study order that works</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Discrete mathematics sits inside Section 1 of the official syllabus, not as a separate subject, and its wording is unchanged from 2026.</li>
+<li>Where analysts separate it out, it has carried roughly 3–12 marks per paper since 2016, with a median near 6–7. These are unofficial figures.</li>
+<li>Graph degree and edge counting with Euler's formula is the single most repeated computation in the block.</li>
+<li>Since 2014 most counting questions are numerical-answer type; since 2021 the "which of the following are true" items on groups, lattices and quantifiers are multiple-select with no partial credit.</li>
+<li>The subject is wide and shallow. Twenty standard forms, each solved once, beat deep mastery of any three.</li>
+</ul>
+<h2 id="what-the-gate-2027-syllabus-names">What the GATE 2027 syllabus names</h2>
+<p>The discrete mathematics part of Section 1 reads: propositional and first order logic; sets, relations, functions, partial orders and lattices; monoids, groups; graphs covering connectivity, matching and colouring; and combinatorics covering counting, recurrence relations and generating functions.</p>
+<p>This wording is identical to GATE 2026. The last substantive change came in GATE 2021, when "Monoids" was added to the line. If you are checking what moved elsewhere in the paper, see <a href="../gate-cse-2027-syllabus-changes/">what changed in the GATE CSE 2027 syllabus</a>. Always confirm the final text at gate2027.iitm.ac.in.</p>
+<h2 id="how-many-marks-discrete-mathematics-carries">How many marks discrete mathematics carries</h2>
+<p>The official pattern allots about 13 marks to Engineering Mathematics as a whole, against 15 for General Aptitude and about 72 for core subjects. Analysts who split the block report the figures below. They come from third-party compilations, not from the organising institute, and sources differ by 2–3 marks because questions on graphs, counting and recurrences are sometimes credited to Algorithms instead.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Paper</th>
+<th>Discrete maths marks (analyst figures)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2016</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>7</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>5 (one source counted 11)</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2021 (two shifts)</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>6</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<p>The 2024 papers are not reported with a discrete and non-discrete split. Read across the full paper in the <a href="../gate-cse-subject-wise-weightage/">GATE CSE subject-wise weightage table</a>. The practical reading: discrete mathematics and the linear algebra, calculus and probability half trade places from year to year, so neither can be dropped. Discrete was the heavier half in 2018, 2020 and 2022; the other half was heavier in 2016, 2017 and 2025.</p>
+<h2 id="priority-order-for-gate-2027">Priority order for GATE 2027</h2>
+<p>The tiers below come from the analytical scoring used in the book, which weighs long-term frequency, recent frequency, the number of distinct variants a topic generates, syllabus centrality, a "due" signal, format fit and other evidence. They rank the strength of the evidence; they are not probabilities that a topic appears.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Discrete maths topics</th>
+<th>Usual format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1</td>
+<td>Graph degree and edge counting, Euler's formula and planarity; propositional logic</td>
+<td>NAT 1–2 marks; MCQ or MSQ 1 mark</td>
+</tr>
+<tr>
+<td>Tier 2</td>
+<td>First-order logic; counting (permutations, pigeonhole, inclusion–exclusion); sets and relations counting; recurrence relations; connectivity, trees and spanning trees; colouring; functions counting; groups and monoids; posets and lattices</td>
+<td>NAT and MSQ, 1–2 marks</td>
+</tr>
+<tr>
+<td>Tier 3</td>
+<td>Generating functions; matching</td>
+<td>MCQ or NAT, 2 marks</td>
+</tr>
+</tbody>
+</table></div>
+<p>Matching is the one graph topic the syllabus names explicitly that has been asked sparsely, which is why it carries a genuine "due" signal rather than a frequency signal.</p>
+<p>This article ranks the topic groups. The mathematics chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> scores all 25 mathematics subtopics on eight weighted factors, lists the years each was asked with its confidence marked where the reconstruction is approximate, and backs each pattern with worked questions.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/whatsapp/blog/?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Discrete%20Mathematics%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="the-most-tested-topics-and-how-they-are-asked">The most-tested topics and how they are asked</h2>
+<h3 id="graphs">Graphs</h3>
+<p>The workhorse is counting. You are given part of a degree distribution and asked for vertices or edges, or told a planar graph has all faces of one length and asked for edges or faces. The recent pattern combines two constraints in one numerical answer, such as planarity plus a degree condition, or chromatic number plus an edge count.</p>
+<p>A short worked example of the planarity form: a connected planar graph on 8 vertices has every face bounded by exactly 4 edges. Each edge borders two faces, so 4f = 2e, giving f = e/2. Euler's formula v − e + f = 2 becomes 8 − e + e/2 = 2, so e = 12 and f = 6.</p>
+<p>Connectivity, spanning-tree counts and colouring form the second layer: maximum edges in a disconnected graph, the number of labelled trees, the chromatic number of a wheel or a complement, and bipartite tests through odd cycles.</p>
+<h3 id="logic">Logic</h3>
+<p>Propositional logic is a reliable 1-mark item: identify the formula that is not a tautology, rewrite an implication, or count the assignments that make a formula false. First-order logic is the most repeated conceptual trap in the block. Translation questions punish pairing a universal quantifier with a conjunction, or an existential quantifier with an implication, and quantifier-order questions ask whether one nested form implies the other. Both have been mostly multiple-choice; the "which statements are valid" variants moved to multiple-select after 2021.</p>
+<h3 id="sets-relations-and-functions">Sets, relations and functions</h3>
+<p>Counting dominates. You are asked for the number of relations on a small set with stated properties, the number of equivalence relations with a given number of classes, or the number of onto functions from one small set to another. Property questions ask whether a described relation such as divisibility or congruence is reflexive, symmetric, antisymmetric or transitive, and these now appear as multiple-select sets.</p>
+<h3 id="combinatorics">Combinatorics</h3>
+<p>Recurrences are almost always 2 marks: solve a second-order linear recurrence and evaluate it at a specific index, or set up a recurrence from a string-counting description such as strings avoiding two consecutive zeros. The counting group covers pigeonhole minimum picks, inclusion–exclusion on divisibility or derangements, non-adjacent selections and bounded integer solutions. Generating functions are named in the syllabus but have appeared roughly seven times in 27 years, so learn coefficient extraction and move on.</p>
+<h3 id="groups-posets-and-lattices">Groups, posets and lattices</h3>
+<p>Group questions test the axioms for a defined operation, the order of an element from an equation such as a to the power k equals the identity, the number of generators of an additive group of integers modulo n, and the consequences of Lagrange's theorem for subgroup sizes. Lattice questions ask whether a described poset is a lattice, or whether a divisor lattice is distributive, complemented or Boolean. Both groups became more common as multiple-select items after 2021.</p>
+<h2 id="formulas-that-carry-the-questions">Formulas that carry the questions</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Idea</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Handshaking</td>
+<td>sum of degrees = 2e</td>
+</tr>
+<tr>
+<td>Planarity</td>
+<td>v − e + f = 2; e ≤ 3v − 6; bipartite planar e ≤ 2v − 4</td>
+</tr>
+<tr>
+<td>Labelled trees</td>
+<td>n to the power (n − 2)</td>
+</tr>
+<tr>
+<td>Spanning trees of a complete bipartite graph</td>
+<td>m to the power (n − 1) times n to the power (m − 1)</td>
+</tr>
+<tr>
+<td>Perfect matchings of a complete graph on 2n vertices</td>
+<td>the double factorial (2n − 1)!!</td>
+</tr>
+<tr>
+<td>Relations on an n-set</td>
+<td>reflexive 2^(n² − n); symmetric 2^(n(n+1)/2); reflexive and symmetric 2^(n(n−1)/2)</td>
+</tr>
+<tr>
+<td>Onto functions onto a 3-set</td>
+<td>3^n − 3·2^n + 3</td>
+</tr>
+<tr>
+<td>Self-complementary graphs</td>
+<td>exist only when n is 0 or 1 modulo 4</td>
+</tr>
+<tr>
+<td>Cyclic groups</td>
+<td>the number of generators of the integers modulo n is Euler's totient of n</td>
+</tr>
+</tbody>
+</table></div>
+<p>For example, the number of relations on a 3-element set that are both reflexive and symmetric is 2 raised to 3(3 − 1)/2, that is 8: the diagonal is forced, and the three off-diagonal pairs are free. Keep these in one place with the rest of the paper's formulas in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="traps-that-repeat">Traps that repeat</h2>
+<ul>
+<li>Pairing the universal quantifier with a conjunction, or the existential quantifier with an implication, in a translation question.</li>
+<li>Assuming that "for all x there exists y" and "there exists y for all x" are interchangeable. Only one direction holds.</li>
+<li>Forgetting that reflexivity fixes the diagonal when counting symmetric relations, and using the wrong exponent.</li>
+<li>Using the bound e ≤ 3v − 6 for a bipartite planar graph, where the correct bound is 2v − 4.</li>
+<li>Treating "connected" and "has n − 1 edges" as one condition. A tree needs both.</li>
+<li>Counting a perfect-matching total as a plain factorial quotient instead of the double factorial.</li>
+<li>Treating the integers modulo n without zero as a group under multiplication for composite n. That works only when n is prime.</li>
+<li>Off-by-one in pigeonhole: guaranteeing a repeat needs one more pick than the number of classes.</li>
+</ul>
+<p>A wider list across every subject is in <a href="../gate-cse-common-mistakes/">common mistakes that cost marks in GATE CSE</a>.</p>
+<h2 id="a-study-order-that-works">A study order that works</h2>
+<ol>
+<li><strong>Graphs first.</strong> Degree sums, Euler's formula, tree and spanning-tree counts, chromatic numbers. This is the largest and most repeated group and it pays again in Algorithms.</li>
+<li><strong>Logic next.</strong> One sitting on propositional forms and one on quantifiers, with translation and negation drilled until they are automatic.</li>
+<li><strong>Counting and relations together.</strong> They share the inclusion–exclusion machinery, and the formulas above cover most variants.</li>
+<li><strong>Recurrences.</strong> The characteristic-equation method is enough. It also serves the recurrence questions in <a href="../gate-cse-algorithms-important-topics/">Algorithms</a>.</li>
+<li><strong>Groups and lattices.</strong> Short topics, high return, now mostly multiple-select.</li>
+<li><strong>Generating functions and matching last.</strong> One worked example each.</li>
+</ol>
+<p>Treat every numerical answer as a precision test. The recent papers are described by analysts as calculation-intensive rather than conceptually deeper, so the marks go to whoever counts carefully, not to whoever knows more theory.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/whatsapp/blog/?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Discrete%20Mathematics%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Which discrete mathematics topics are most important for GATE CSE 2027?</summary><p>On past-paper evidence the two strongest are graph degree and edge counting with Euler&#x27;s formula, and propositional logic. The next group is first-order logic, counting by pigeonhole and inclusion-exclusion, relations and functions counting, recurrence relations, and connectivity and spanning trees. Groups, lattices and colouring follow close behind.</p></details><details><summary>How many marks does discrete mathematics carry in GATE CSE?</summary><p>Third-party analyst compilations that separate it from the rest of mathematics put discrete mathematics at 3 to 12 marks per paper between 2016 and 2026, with a median near 6 or 7. These figures are unofficial and analysts differ by 2 to 3 marks because some count graph and counting questions under other subjects.</p></details><details><summary>Is discrete mathematics part of engineering mathematics in GATE CSE?</summary><p>Yes. The official GATE CS syllabus places discrete mathematics inside Section 1, Engineering Mathematics, alongside linear algebra, calculus, and probability and statistics. Many paper analyses report it separately, which is why published weightage numbers for the two differ from source to source.</p></details><details><summary>Has the discrete mathematics syllabus changed for GATE 2027?</summary><p>No. The discrete mathematics wording in the GATE 2027 CS syllabus is unchanged from 2026. The last change was in GATE 2021, when Monoids was added to the line. Numerical Methods left the paper in 2016 and has not returned. Confirm the current text at gate2027.iitm.ac.in before you plan.</p></details><details><summary>Is graph theory important for GATE CSE?</summary><p>Very. Degree-sum and edge counting has appeared in most papers since 2004, and planarity through Euler&#x27;s formula is a recurring 2-mark item. Graph theory also feeds algorithms directly, since spanning-tree counts, bipartiteness and connectivity arguments reappear in minimum spanning tree and traversal questions.</p></details><details><summary>Are groups and lattices still asked in GATE CSE?</summary><p>Yes, though less often than graphs or logic. Group axiom checks, order of an element and Lagrange&#x27;s theorem recur, and lattice questions ask whether a described poset is a lattice or whether a divisor lattice is distributive or Boolean. Since 2021 these appear more often as multiple-select questions.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://www.gateexam.info/gate-subject-wise-weightage-for-cse-2019-2009/" rel="nofollow noopener" target="_blank">gateexam.info subject-wise weightage 2009–2019</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-engineering-mathematics-important-topics/"><div class="c">Subjects</div><b>Engineering Mathematics for GATE CSE: Important Topics</b><span>8 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-algorithms-important-topics/"><div class="c">Subjects</div><b>Algorithms for GATE CSE 2027: Important Topics and Patterns</b><span>9 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/whatsapp/blog/?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Discrete%20Mathematics%20for%20GATE%20CSE%3A%20Important%20Topics" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b27ba65e8bac481da326ea172ecff1bd"}'></script>
+</body>
+</html>

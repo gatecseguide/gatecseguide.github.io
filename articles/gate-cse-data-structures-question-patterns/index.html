@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Structures GATE Questions: Patterns That Repeat</title>
+<meta name="description" content="The data structures GATE questions that repeat every year. BST, heap, tree, linked list, stack, queue and counting patterns, with formulas and traps.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="Data Structures GATE Questions: Patterns That Repeat">
+<meta property="og:description" content="The data structures GATE questions that repeat every year. BST, heap, tree, linked list, stack, queue and counting patterns, with formulas and traps.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-21"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Structures GATE Questions: Patterns That Repeat">
+<meta name="twitter:description" content="The data structures GATE questions that repeat every year. BST, heap, tree, linked list, stack, queue and counting patterns, with formulas and traps.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Data Structures in GATE CSE: The Question Patterns That Repeat", "description": "The data structures GATE questions that repeat every year. BST, heap, tree, linked list, stack, queue and counting patterns, with formulas and traps.", "image": ["https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/og.png"], "datePublished": "2026-09-21", "dateModified": "2026-09-21", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/", "inLanguage": "en-IN", "keywords": "data structures gate questions, gate cse data structures patterns, gate binary heap questions, gate bst questions, data structures for gate 2027"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Data Structures in GATE CSE: The Question Patterns That Repeat", "item": "https://gatecseguide.github.io/articles/gate-cse-data-structures-question-patterns/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which data structures questions repeat most in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Four question shapes appear in most papers. Build a binary search tree from an insertion sequence and report a structural quantity. Run heap operations on an array and report the element at an index. Reconstruct a tree from two traversals. Count structures with a Catalan or subtree-product formula. Linked list, stack and queue items rotate around these."}}, {"@type": "Question", "name": "How many data structures questions come in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Programming and Data Structures has typically supplied five to nine questions per paper, averaging about 9.9 marks in analyst compilations from 2009 to 2026. A recent shift usually carries one C output item, one recursion item, one heap item, one tree or binary search tree item and one linked list, stack or queue item. These figures are unofficial."}}, {"@type": "Question", "name": "Are AVL trees asked in GATE CSE 2027?", "acceptedAnswer": {"@type": "Answer", "text": "The syllabus names binary search trees and binary heaps, not AVL trees. AVL questions appeared in some older papers and sporadically since, so the minimum-nodes recurrence and a basic grasp of rotations are worth an hour, but AVL should sit well below binary search trees and heaps in your plan."}}, {"@type": "Question", "name": "Is hashing part of the data structures syllabus for GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Hashing is listed under Algorithms in the official syllabus, not under Programming and Data Structures, but it is implemented with arrays and chained lists. The recurring question forms are the final slot and probe count under linear or double probing, and expected chain length, which is a probability question in disguise."}}, {"@type": "Question", "name": "How should I practise data structures for GATE?", "acceptedAnswer": {"@type": "Answer", "text": "Practise with paper, not with a compiler. Draw the array after every heap operation, draw the tree after every insertion, and draw three nodes before any pointer rewiring. Then time yourself against a target of a ten-key heap build in two minutes and a twelve-key binary search tree in two minutes."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE GUIDE</a><nav class="nav"><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../gate-cse-2027-book/">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Data Structures in GATE CSE: The Question Patterns That Repeat</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 21 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">Data structures questions in GATE CSE change their numbers, not their shape. The same handful of templates has been reused for two decades: build a binary search tree from an insertion order, run heap operations on an array, reconstruct a tree from two traversals, count structures with a Catalan-type formula, and fill in the missing pointer statement. This guide names the patterns, gives the formulas each one runs on, and lists the traps built into the distractors.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-these-questions-sit-in-the-paper">Where these questions sit in the paper</a></li><li><a href="#binary-search-trees">Binary search trees</a></li><li><a href="#binary-heaps">Binary heaps</a></li><li><a href="#binary-trees-traversals-and-counting">Binary trees, traversals and counting</a></li><li><a href="#stacks-and-queues">Stacks and queues</a></li><li><a href="#linked-lists-and-graph-representation">Linked lists and graph representation</a></li><li><a href="#the-traps-to-write-on-your-error-log">The traps to write on your error log</a></li><li><a href="#a-practice-routine">A practice routine</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The syllabus names only two specific structures, binary search trees and binary heaps, and both are asked in most papers.</li>
+<li>A recent shift usually carries five to six Programming and Data Structures questions worth 9 to 12 marks. Analyst figures, not official ones.</li>
+<li>Counting questions are now numerical rather than multiple choice, so the formulas must be exact, not recognised.</li>
+<li>Multiple-select property questions arrived in 2021: which arrays satisfy the heap property, which operations run in constant time, which traversal pairs determine a tree.</li>
+<li>Every one of these patterns is solved by drawing. Nothing here needs cleverness; it needs a clean diagram and a rule applied consistently.</li>
+</ul>
+<h2 id="where-these-questions-sit-in-the-paper">Where these questions sit in the paper</h2>
+<p>Programming and Data Structures has averaged roughly 9.9 marks per paper in third-party analyst compilations from 2009 to 2026, with a range of 6 to 13 and a median near 10. Sources differ by 2 to 3 marks because loop counting, hashing and graph traversal are credited to Algorithms by some analysts. The comparison across every subject is in the <a href="../gate-cse-subject-wise-weightage/">GATE CSE subject-wise weightage table</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Recurring question shape</th>
+<th>Usual format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary search trees</td>
+<td>tree from an insertion sequence; impossible search path; deletion by successor; insertion orders giving the same tree</td>
+<td>MCQ or NAT, 1–2 marks</td>
+</tr>
+<tr>
+<td>Binary heaps</td>
+<td>array after build, inserts or deletes; element at an index; number of swaps; which arrays are heaps</td>
+<td>NAT or MSQ, 2 marks</td>
+</tr>
+<tr>
+<td>Binary trees</td>
+<td>reconstruct from two traversals; node, leaf and height relations; recursive function applied to a drawn tree</td>
+<td>MCQ or NAT, 1–2 marks</td>
+</tr>
+<tr>
+<td>Counting</td>
+<td>binary trees, binary search trees, heaps, stack permutations</td>
+<td>NAT, 1–2 marks</td>
+</tr>
+<tr>
+<td>Linked lists</td>
+<td>fill the blank in a pointer rewiring; what the routine does; which operations are constant time</td>
+<td>MCQ or MSQ, 1–2 marks</td>
+</tr>
+<tr>
+<td>Stacks and queues</td>
+<td>infix to postfix, postfix evaluation, valid pop sequences, circular queue indices</td>
+<td>MCQ or NAT, 1–2 marks</td>
+</tr>
+<tr>
+<td>Graph representation</td>
+<td>matrix against list costs; number of ones; non-tree edges in a traversal</td>
+<td>MSQ or NAT, 1 mark</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="binary-search-trees">Binary search trees</h2>
+<p>The base template gives eight to twelve keys and an insertion order, then asks for the height, the number of leaves, a position in the preorder, or the tree after one deletion. Inserting 5, 3, 8, 2, 4, 7, 9 into an empty tree gives a perfectly balanced tree of height 2 with four leaves and the preorder 5, 3, 2, 4, 8, 7, 9.</p>
+<p>Three variants sit on top of it.</p>
+<p><strong>The impossible search path.</strong> Four sequences of visited keys are given and exactly one cannot occur. Maintain a low and high bound as you walk: going left lowers the upper bound, going right raises the lower bound, and every later key must lie strictly inside the current window.</p>
+<p><strong>Deletion by successor.</strong> A node with two children is replaced by the minimum of its right subtree, and that successor's right child, if any, moves up. Questions choose the predecessor in the distractors.</p>
+<p><strong>Counting insertion orders.</strong> The number of insertion orders producing a given tree is n factorial divided by the product, over all nodes, of the size of the subtree rooted at that node. For the seven-key tree above the product is 7 times 3 times 3, so the count is 5040 divided by 63, which is 80.</p>
+<h2 id="binary-heaps">Binary heaps</h2>
+<p>Heap questions are pure procedure, which is why they suit the numerical format. The array is one-based in almost every question: the parent of index i is at i divided by 2, and the children are at 2i and 2i + 1.</p>
+<p>For a bottom-up build, heapify from index n/2 down to 1, and in each sift-down compare with the larger child. Building a max-heap from the array 3, 9, 2, 1, 8, 5 gives 9, 8, 5, 1, 3, 2 after three swaps: index 3 swaps 2 with 5, index 2 needs nothing, and index 1 sends 3 down past 9 and then past 8.</p>
+<p>The other forms:</p>
+<ul>
+<li>A sequence of inserts followed by one or two delete-min operations, asking for the element at a given index. On a delete, the last element moves to the root and sifts down against the smaller child.</li>
+<li>Where the k-th smallest element can sit in a min-heap. Its depth is at most k − 1, and the maximum of a min-heap is always a leaf, so it lies in the second half of the array.</li>
+<li>The number of distinct heaps on n distinct keys. For four keys the complete shape has a left subtree of two nodes and a right subtree of one, so the count is 3 choose 2 times 1 times 1, which is 3.</li>
+<li>A multiple-select item asking which of four arrays satisfy the heap property. Check every parent-child pair; there is no partial credit.</li>
+</ul>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/whatsapp/blog/?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Data%20Structures%20in%20GATE%20CSE%3A%20The%20Question%20Patterns%20That%20Repeat" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="binary-trees-traversals-and-counting">Binary trees, traversals and counting</h2>
+<p>The reconstruction template gives two traversals and asks for the third. With preorder A B D E C and inorder D B E A C, the preorder's first symbol A is the root, the inorder splits into D B E on the left and C on the right, and recursing gives the postorder D E B C A. Preorder with inorder, postorder with inorder and level order with inorder each determine the tree; preorder with postorder does not, unless the tree is full.</p>
+<p>Relations that carry the one-mark items: in a strict binary tree the number of leaves is one more than the number of internal nodes; in a strict k-ary tree the leaves equal (k − 1) times the internal nodes plus one; a complete binary tree with n nodes has the ceiling of n/2 leaves; an inorder-threaded tree with n nodes has n + 1 threads, because that is the number of null links.</p>
+<p>The counting family runs on the Catalan numbers 1, 1, 2, 5, 14, 42, 132, 429: the number of unlabelled binary trees on n nodes, the number of binary search trees on n keys, the number of valid stack pop sequences and the number of balanced parenthesis strings are all the same count. Labelled binary trees are the Catalan number times n factorial. This is the same combinatorial machinery as the counting questions in <a href="../gate-cse-discrete-mathematics-important-topics/">discrete mathematics</a>.</p>
+<h2 id="stacks-and-queues">Stacks and queues</h2>
+<p>Infix to postfix conversion turns on two rules: exponentiation is right-associative, so an incoming exponentiation operator never pops an equal one, and for left-associative operators you pop while the stack top has greater or equal precedence. Evaluation questions use integer division, so truncation matters.</p>
+<p>Valid pop sequences are the second form. With 1, 2, 3 pushed in order, five of the six permutations are achievable; 3, 1, 2 is not, because once 3 is popped the stack holds 2 above 1 and they can only come out in that order.</p>
+<p>Circular queues are examined through the convention, not the concept. Fix whether the rear index holds the last element or the next free slot, then the element count is the rear minus the front, plus the capacity, modulo the capacity. A queue built from two stacks is asked as an operation count: each element is pushed twice and popped twice over its lifetime.</p>
+<h2 id="linked-lists-and-graph-representation">Linked lists and graph representation</h2>
+<p>Linked list questions come as a code fragment with one statement removed, or as four statements about which operations run in constant time. The answers follow from what pointers you hold: deleting the last node of a singly linked list needs its predecessor, so it costs linear time even with a tail pointer, while a circular list with only a tail pointer gives constant-time insertion at both ends.</p>
+<p>Graph representation supplies a one-mark item. In an undirected graph the adjacency matrix holds twice as many ones as there are edges, and the diagonal of the squared matrix holds the degrees. Any depth-first search of a connected undirected graph produces exactly E − (V − 1) non-tree edges. These facts carry into <a href="../gate-cse-algorithms-important-topics/">Algorithms</a>, where the same representations decide the running times.</p>
+<h2 id="the-traps-to-write-on-your-error-log">The traps to write on your error log</h2>
+<ul>
+<li>Zero-based against one-based heap indices. Read the question's convention before you touch the array.</li>
+<li>Height measured in edges against height measured in nodes. The paper states it; the distractors assume you did not read it.</li>
+<li>Choosing the inorder predecessor when the question says successor.</li>
+<li>Forgetting that the root must come first when counting insertion orders.</li>
+<li>Counting labelled trees where the question asks for unlabelled, or the reverse.</li>
+<li>Popping an equal-precedence exponentiation operator during infix conversion.</li>
+<li>Assuming a tail pointer makes every list operation constant time.</li>
+</ul>
+<h2 id="a-practice-routine">A practice routine</h2>
+<p>Work one pattern at a time until it is automatic, then mix them. A reasonable standard: a twelve-key binary search tree drawn in two minutes, a ten-key heap built in two minutes, a traversal reconstruction in ninety seconds, and every counting formula recalled without hesitation. Keep the formulas with the rest of the paper's in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<p>This guide gives the patterns and the formulas. The Programming and Data Structures chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> adds the year-by-year record for each pattern, the full factor scoring behind the ranking, and a question bank of original items with worked solutions on every form above.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/whatsapp/blog/?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Data%20Structures%20in%20GATE%20CSE%3A%20The%20Question%20Patterns%20That%20Repeat" target="_blank" rel="noopener">Buy on WhatsApp</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Which data structures questions repeat most in GATE CSE?</summary><p>Four question shapes appear in most papers. Build a binary search tree from an insertion sequence and report a structural quantity. Run heap operations on an array and report the element at an index. Reconstruct a tree from two traversals. Count structures with a Catalan or subtree-product formula. Linked list, stack and queue items rotate around these.</p></details><details><summary>How many data structures questions come in GATE CSE?</summary><p>Programming and Data Structures has typically supplied five to nine questions per paper, averaging about 9.9 marks in analyst compilations from 2009 to 2026. A recent shift usually carries one C output item, one recursion item, one heap item, one tree or binary search tree item and one linked list, stack or queue item. These figures are unofficial.</p></details><details><summary>Are AVL trees asked in GATE CSE 2027?</summary><p>The syllabus names binary search trees and binary heaps, not AVL trees. AVL questions appeared in some older papers and sporadically since, so the minimum-nodes recurrence and a basic grasp of rotations are worth an hour, but AVL should sit well below binary search trees and heaps in your plan.</p></details><details><summary>Is hashing part of the data structures syllabus for GATE CSE?</summary><p>Hashing is listed under Algorithms in the official syllabus, not under Programming and Data Structures, but it is implemented with arrays and chained lists. The recurring question forms are the final slot and probe count under linear or double probing, and expected chain length, which is a probability question in disguise.</p></details><details><summary>How should I practise data structures for GATE?</summary><p>Practise with paper, not with a compiler. Draw the array after every heap operation, draw the tree after every insertion, and draw three nodes before any pointer rewiring. Then time yourself against a target of a ten-key heap build in two minutes and a twelve-key binary search tree in two minutes.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-programming-data-structures-important-topics/"><div class="c">Subjects</div><b>Programming and Data Structures for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-c-programming-output-questions/"><div class="c">Subjects</div><b>C Programming Output Questions in GATE CSE: Patterns and Traps</b><span>8 min read</span></a><a class="card" href="../gate-cse-algorithms-important-topics/"><div class="c">Subjects</div><b>Algorithms for GATE CSE 2027: Important Topics and Patterns</b><span>9 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/whatsapp/blog/?text=Hi%2C%20I%20want%20to%20buy%20the%20GATE%20CSE%202027%20book%20%28%E2%82%B9250%29.%20I%20found%20you%20through%3A%20Data%20Structures%20in%20GATE%20CSE%3A%20The%20Question%20Patterns%20That%20Repeat" target="_blank" rel="noopener">Buy on WhatsApp</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b27ba65e8bac481da326ea172ecff1bd"}'></script>
+</body>
+</html>
