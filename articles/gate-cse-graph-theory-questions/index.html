@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CSE Graph Theory Questions: Patterns and Traps</title>
+<meta name="description" content="Graph theory questions in GATE CSE, family by family - degree and edge counting, spanning trees, Euler&#x27;s formula, colouring, matching and connectivity.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE CSE Graph Theory Questions: Patterns and Traps">
+<meta property="og:description" content="Graph theory questions in GATE CSE, family by family - degree and edge counting, spanning trees, Euler&#x27;s formula, colouring, matching and connectivity.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-22"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CSE Graph Theory Questions: Patterns and Traps">
+<meta name="twitter:description" content="Graph theory questions in GATE CSE, family by family - degree and edge counting, spanning trees, Euler&#x27;s formula, colouring, matching and connectivity.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Graph Theory Questions in GATE CSE: Patterns and Formulas", "description": "Graph theory questions in GATE CSE, family by family - degree and edge counting, spanning trees, Euler's formula, colouring, matching and connectivity.", "image": ["https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/og.png"], "datePublished": "2026-09-22", "dateModified": "2026-09-22", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/", "inLanguage": "en-IN", "keywords": "gate cse graph theory questions, graph theory for gate, gate discrete mathematics graphs, gate cse euler formula questions, gate graph colouring questions"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Graph Theory Questions in GATE CSE: Patterns and Formulas", "item": "https://gatecseguide.github.io/articles/gate-cse-graph-theory-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many graph theory questions come in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "There is no fixed count. Graph theory sits inside the Discrete Mathematics half of Engineering Mathematics, which analyst compilations put at roughly 3 to 12 marks per paper between 2016 and 2026, with a median near 6 or 7. Most papers carry one or two graph items, usually numeric answer type worth 1 or 2 marks each."}}, {"@type": "Question", "name": "Which graph theory topic is asked most often in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Degree and edge counting, often combined with Euler's formula for planar graphs. In the book's eight-factor model it scores 88.5 out of 100, the highest of any graph topic and third highest in the whole mathematics section. Years reconstructed from public archives show it in most papers from 2004 onward, so treat it as the default graph question."}}, {"@type": "Question", "name": "Is matching important for GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "It is named in the official syllabus line that lists connectivity, matching and colouring, but the reconstructed record shows only a handful of appearances, around 2003, 2010, 2020, 2022 and 2025. It scores 60.5, the lowest graph row, yet it carries a genuine due signal. Two formulas cover almost every past variant, so it is cheap to prepare."}}, {"@type": "Question", "name": "What formulas should I memorise for GATE graph theory?", "acceptedAnswer": {"@type": "Answer", "text": "Sum of degrees equals twice the edge count, a tree on n vertices has n minus 1 edges, Euler's formula v minus e plus f equals 2 for connected planar graphs, e at most 3v minus 6, and e at most 2v minus 4 when the graph is bipartite or triangle free. Add the spanning tree and matching counts for complete and complete bipartite graphs."}}, {"@type": "Question", "name": "Is graph theory in GATE CSE the same as graph algorithms?", "acceptedAnswer": {"@type": "Answer", "text": "No. Graph theory in Engineering Mathematics asks you to count and classify edges, spanning trees, chromatic numbers and cut vertices. Graph algorithms in the Algorithms section ask you to run a procedure such as Dijkstra, Kruskal or depth first search on a small instance. The underlying objects overlap, the questions do not."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE GUIDE</a><nav class="nav"><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../gate-cse-2027-book/">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Graph Theory Questions in GATE CSE: Patterns and Formulas</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 22 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">Graph theory in GATE CSE is a counting subject, not a drawing subject. Almost every past question reduces to one of six families: degree and edge counting, trees and spanning trees, planarity through Euler's formula, colouring, matching, and connectivity. This guide names each family, gives the formula that carries it, and works one short example.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-graph-theory-sits-in-the-paper">Where graph theory sits in the paper</a></li><li><a href="#the-six-families-at-a-glance">The six families at a glance</a></li><li><a href="#family-1-degree-and-edge-counting">Family 1: degree and edge counting</a></li><li><a href="#family-2-trees-and-spanning-trees">Family 2: trees and spanning trees</a></li><li><a href="#family-3-planarity-and-eulers-formula">Family 3: planarity and Euler&#x27;s formula</a></li><li><a href="#family-4-colouring">Family 4: colouring</a></li><li><a href="#family-5-matching-and-family-6-connectivity">Family 5: matching, and Family 6: connectivity</a></li><li><a href="#the-traps-that-repeat">The traps that repeat</a></li><li><a href="#how-to-practise-this">How to practise this</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The official syllabus line is short: "Graphs: connectivity, matching, colouring", inside the Discrete Mathematics part of Engineering Mathematics.</li>
+<li>Degree and edge counting combined with Euler's formula is the highest scoring graph concept in the book's model, at 88.5 out of 100.</li>
+<li>Nearly every graph question is a numeric answer type worth 1 or 2 marks, so there is no negative marking on an attempt.</li>
+<li>Recent papers combine two constraints in one question, for example planarity plus a face length, or colouring plus an edge count.</li>
+<li>Matching is the one syllabus-named graph topic with a thin record and a real due signal.</li>
+</ul>
+<h2 id="where-graph-theory-sits-in-the-paper">Where graph theory sits in the paper</h2>
+<p>The official GATE 2027 pattern page allots about 13 marks to Engineering Mathematics. Graph theory is one slice of the Discrete Mathematics half of that section. Third-party analyst compilations that separate the two halves, covering 2016 to 2026, report Discrete Mathematics between 3 and 12 marks with a median near 6 or 7. Those figures are approximate and differ by about 2 to 3 marks between sources, because analysts disagree about where a graph question belongs.</p>
+<p>The practical reading: expect one or two graph items in a shift, worth 1 to 3 marks together, on a topic you can finish in under three minutes if you know the formula. For the wider picture of how the mathematics section is built, see <a href="../gate-cse-engineering-mathematics-important-topics/">Engineering Mathematics important topics</a> and the broader <a href="../gate-cse-discrete-mathematics-important-topics/">Discrete Mathematics guide</a>.</p>
+<h2 id="the-six-families-at-a-glance">The six families at a glance</h2>
+<p>Years are an analyst reconstruction from public question archives and are approximate. Scores are model based analytical confidence values on a 0 to 100 scale, not probabilities that a question will appear.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Years asked (approximate)</th>
+<th>Usual format</th>
+<th>Model score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Degree sum, edge and vertex counting</td>
+<td>2004, 2006, 2010, 2012-2017, 2019, 2021, 2022, 2024-2026</td>
+<td>NAT 1-2M</td>
+<td>88.5</td>
+</tr>
+<tr>
+<td>Connectivity, cut vertices, trees, spanning trees</td>
+<td>2003, 2005, 2006, 2009, 2014, 2015, 2019, 2021, 2023</td>
+<td>NAT or MSQ 1-2M</td>
+<td>76.5</td>
+</tr>
+<tr>
+<td>Colouring and chromatic number</td>
+<td>2004, 2009, 2016, 2018, 2020, 2022, 2024, 2025</td>
+<td>MCQ or NAT 1-2M</td>
+<td>73.5</td>
+</tr>
+<tr>
+<td>Planarity and Euler's formula</td>
+<td>2005, 2008, 2015, 2019, 2021, 2023, 2025</td>
+<td>NAT 2M</td>
+<td>part of 88.5</td>
+</tr>
+<tr>
+<td>Matching</td>
+<td>2003, 2010, 2020, 2022, 2025</td>
+<td>NAT 2M</td>
+<td>60.5</td>
+</tr>
+<tr>
+<td>Isomorphism, complements, bipartite counts</td>
+<td>2004, 2012, 2014, 2015, 2019, 2023</td>
+<td>MCQ or NAT 1-2M</td>
+<td>within 76.5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="family-1-degree-and-edge-counting">Family 1: degree and edge counting</h2>
+<p>Everything here comes from one identity: the sum of all vertex degrees equals twice the number of edges. Consequences worth memorising are that the number of odd-degree vertices is always even, that a k-regular graph on n vertices has nk/2 edges and exists only when nk is even, and that a degree sequence whose sum is odd is impossible.</p>
+<p>A typical shape: a simple graph has 12 edges, three vertices of degree 5, and every remaining vertex of degree 3. How many vertices does it have? The degree sum is 24. The three high-degree vertices contribute 15, leaving 9, which is three vertices of degree 3. The answer is 6.</p>
+<p>The same identity handles trees. In a tree on n vertices the edge count is fixed at n minus 1, so the degree sum is 2(n − 1), and leaf counts follow from the internal degrees.</p>
+<h2 id="family-2-trees-and-spanning-trees">Family 2: trees and spanning trees</h2>
+<p>Three counting formulas cover most of what has been asked:</p>
+<ul>
+<li>The complete graph K(n) has n^(n−2) labelled spanning trees, which is Cayley's formula.</li>
+<li>The complete bipartite graph K(m, n) has m^(n−1) times n^(m−1) spanning trees.</li>
+<li>The cycle C(n) has exactly n spanning trees, one for each edge you delete.</li>
+</ul>
+<p>For example, K(2, 3) has 2^2 times 3^1, which is 12 spanning trees. Small cases like this are what the paper actually asks, because the answer has to be typed in.</p>
+<p>The definitional trap matters as much as the formulas. A tree is connected, acyclic and has n minus 1 edges, and any two of those three imply the third. A graph with n minus 1 edges alone is not a tree, and past distractors have been built on exactly that confusion.</p>
+<p>This guide gives one example per family. <a href="../../gate-cse-2027-book/#buy">The book</a> scores all 25 Engineering Mathematics concepts on the same eight-factor model and pairs each graph family with practice questions built around its recurring variants.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹300</span><span class="was">₹350</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹300</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="family-3-planarity-and-eulers-formula">Family 3: planarity and Euler's formula</h2>
+<p>For a connected planar simple graph, v − e + f = 2, where f counts the outer face. Two bounds follow: e is at most 3v − 6 for v at least 3, and e is at most 2v − 4 when the graph is bipartite or triangle free. If every face is bounded by exactly g edges, then g·f = 2e, which pins down the remaining unknown.</p>
+<p>Worked example: a connected planar simple graph has 10 vertices and every face is bounded by exactly 4 edges. How many edges? From 4f = 2e we get f = e/2. Substituting into Euler's formula, 10 − e + e/2 = 2, so e = 16. It sits exactly on the bipartite bound of 2v − 4, which is a useful sanity check.</p>
+<p>The classic slip is applying e ≤ 3v − 6 to a triangle-free graph. Recent papers favour exactly this combined-constraint shape, mixing planarity with a face length or a degree condition in one numeric answer.</p>
+<h2 id="family-4-colouring">Family 4: colouring</h2>
+<p>Chromatic numbers of standard graphs are worth knowing cold: the cycle C(n) needs 2 colours when n is even and 3 when n is odd; the complete graph K(n) needs n; a wheel needs 3 for an even rim and 4 for an odd rim; a graph is bipartite exactly when its chromatic number is at most 2, which happens exactly when it has no odd cycle. Every planar graph needs at most 4.</p>
+<p>Bounds fill the gaps: the clique number is a lower bound, and one more than the maximum degree is an upper bound. So a wheel built on a 7-vertex rim needs 3 colours for the odd rim plus one more for the hub, which is 4.</p>
+<p>Harder variants ask for the chromatic number of a complement, or of a complete graph with a perfect matching removed. Those need a small clique-cover argument rather than a formula.</p>
+<h2 id="family-5-matching-and-family-6-connectivity">Family 5: matching, and Family 6: connectivity</h2>
+<p>Matching has the thinnest record of any syllabus-named graph topic, but it is cheap. The number of perfect matchings of K(2n) is the double factorial (2n − 1)!!, so K(6) has 5 × 3 × 1 = 15. The number of perfect matchings of K(n, n) is n factorial. The common wrong answer treats the first count as (2n)!/2.</p>
+<p>Connectivity questions are extremal counts. The maximum number of edges in a disconnected simple graph on n vertices is C(n − 1, 2), so on 8 vertices it is 21. A simple graph is guaranteed connected if every degree is at least n/2, or if the edge count exceeds C(n − 1, 2). The chain vertex connectivity at most edge connectivity at most minimum degree is the source of most multiple-select statements here.</p>
+<h2 id="the-traps-that-repeat">The traps that repeat</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Trap</th>
+<th>The correct rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Using e ≤ 3v − 6 on a bipartite planar graph</td>
+<td>Bipartite or triangle free: e ≤ 2v − 4</td>
+</tr>
+<tr>
+<td>Calling a graph with n − 1 edges a tree</td>
+<td>It also has to be connected, or acyclic</td>
+</tr>
+<tr>
+<td>Counting perfect matchings of K(2n) as (2n)!/2</td>
+<td>It is the double factorial (2n − 1)!!</td>
+</tr>
+<tr>
+<td>Accepting a degree sequence with an odd sum</td>
+<td>Impossible; the degree sum is always even</td>
+</tr>
+<tr>
+<td>Forgetting the outer face in Euler's formula</td>
+<td>f includes it</td>
+</tr>
+</tbody>
+</table></div>
+<p>The same list, alongside the traps of every other subject, is collected in the <a href="../gate-cse-common-mistakes/">common mistakes guide</a>, and the formulas above appear in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="how-to-practise-this">How to practise this</h2>
+<p>Do not read graph theory; compute it. Take each of the six families and write the formula from memory, then build two instances of your own and check them against the formula. The rewarding part is that the instances in the paper are small, with 5 to 10 vertices, because the answer has to be entered as a number.</p>
+<p>Then do a mixed set where you cannot see which family a question belongs to, because recognising the family is the actual skill under exam pressure. Pair this with the <a href="../gate-cse-most-repeated-topics/">most repeated topics list</a> so that graph theory gets the share of your revision time its weight deserves, and no more.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹300</span><span class="was">₹350</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹300</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How many graph theory questions come in GATE CSE?</summary><p>There is no fixed count. Graph theory sits inside the Discrete Mathematics half of Engineering Mathematics, which analyst compilations put at roughly 3 to 12 marks per paper between 2016 and 2026, with a median near 6 or 7. Most papers carry one or two graph items, usually numeric answer type worth 1 or 2 marks each.</p></details><details><summary>Which graph theory topic is asked most often in GATE CSE?</summary><p>Degree and edge counting, often combined with Euler&#x27;s formula for planar graphs. In the book&#x27;s eight-factor model it scores 88.5 out of 100, the highest of any graph topic and third highest in the whole mathematics section. Years reconstructed from public archives show it in most papers from 2004 onward, so treat it as the default graph question.</p></details><details><summary>Is matching important for GATE CSE?</summary><p>It is named in the official syllabus line that lists connectivity, matching and colouring, but the reconstructed record shows only a handful of appearances, around 2003, 2010, 2020, 2022 and 2025. It scores 60.5, the lowest graph row, yet it carries a genuine due signal. Two formulas cover almost every past variant, so it is cheap to prepare.</p></details><details><summary>What formulas should I memorise for GATE graph theory?</summary><p>Sum of degrees equals twice the edge count, a tree on n vertices has n minus 1 edges, Euler&#x27;s formula v minus e plus f equals 2 for connected planar graphs, e at most 3v minus 6, and e at most 2v minus 4 when the graph is bipartite or triangle free. Add the spanning tree and matching counts for complete and complete bipartite graphs.</p></details><details><summary>Is graph theory in GATE CSE the same as graph algorithms?</summary><p>No. Graph theory in Engineering Mathematics asks you to count and classify edges, spanning trees, chromatic numbers and cut vertices. Graph algorithms in the Algorithms section ask you to run a procedure such as Dijkstra, Kruskal or depth first search on a small instance. The underlying objects overlap, the questions do not.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">Official GATE 2027 CS syllabus (PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year question archive</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-discrete-mathematics-important-topics/"><div class="c">Subjects</div><b>Discrete Mathematics for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-engineering-mathematics-important-topics/"><div class="c">Subjects</div><b>Engineering Mathematics for GATE CSE: Important Topics</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹300 <s>₹350</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹300</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b27ba65e8bac481da326ea172ecff1bd"}'></script>
+</body>
+</html>

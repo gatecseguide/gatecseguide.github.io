@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CSE Probability Questions: Bayes and Expectation</title>
+<meta name="description" content="Probability for GATE CSE through the question types that repeat - conditional probability and Bayes, expectation and variance, and the base-rate trap.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-probability-questions/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE CSE Probability Questions: Bayes and Expectation">
+<meta property="og:description" content="Probability for GATE CSE through the question types that repeat - conditional probability and Bayes, expectation and variance, and the base-rate trap.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-probability-questions/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-probability-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-22"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CSE Probability Questions: Bayes and Expectation">
+<meta name="twitter:description" content="Probability for GATE CSE through the question types that repeat - conditional probability and Bayes, expectation and variance, and the base-rate trap.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-probability-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Probability Questions in GATE CSE: Bayes, Expectation, Traps", "description": "Probability for GATE CSE through the question types that repeat - conditional probability and Bayes, expectation and variance, and the base-rate trap.", "image": ["https://gatecseguide.github.io/articles/gate-cse-probability-questions/og.png"], "datePublished": "2026-09-22", "dateModified": "2026-09-22", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-probability-questions/", "inLanguage": "en-IN", "keywords": "gate cse probability questions, probability for gate cse, gate bayes theorem questions, gate cse expectation variance, gate probability distributions"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Probability Questions in GATE CSE: Bayes, Expectation, Traps", "item": "https://gatecseguide.github.io/articles/gate-cse-probability-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is probability important for GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Conditional probability and Bayes theorem score 94.0 out of 100 in the book's eight-factor model, tied for the highest score in the whole mathematics section. The reconstructed record shows a conditional probability item in some form in every paper from 2010 to 2026. Expectation and variance follow at 84.5, with a rising recent trend."}}, {"@type": "Question", "name": "Which probability distributions are in the GATE CSE syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "The official syllabus names uniform, normal, exponential, Poisson and binomial distributions, along with random variables and the descriptive measures mean, median, mode and standard deviation. Geometric waiting times appear through questions about the number of trials to a first success, even though the name is not in the syllabus text."}}, {"@type": "Question", "name": "How many marks does probability carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "There is no separate official allotment. The whole Engineering Mathematics section is about 13 marks on the official pattern page, and probability is one of its four sub-areas. Analyst compilations covering 2016 to 2026 put linear algebra, calculus and probability together between 4 and 14 marks, a range that is approximate and varies by source."}}, {"@type": "Question", "name": "What is the base-rate trap in GATE probability questions?", "acceptedAnswer": {"@type": "Answer", "text": "It is the habit of reading a test accuracy as a posterior probability. When a condition is rare, most positive results are false positives even for an accurate test. The fix is mechanical. Write Bayes with the full total-probability denominator summed over every source, and never reuse the given conditional in the wrong direction."}}, {"@type": "Question", "name": "Do probability questions come as numeric answer type?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly, yes. Bayes posteriors, expectations, variances and Poisson probabilities are almost always numeric answer type worth 1 or 2 marks, which means no negative marking on an attempt. Multiple-select questions appear for statements about independence, memorylessness and the properties of named distributions."}}, {"@type": "Question", "name": "How should I revise probability in the last month?", "acceptedAnswer": {"@type": "Answer", "text": "Revise the formula card rather than the theory. Bayes with the denominator written out, linearity of expectation with indicator variables, the variance identity, the uniform variance, exponential memorylessness and the Poisson rescaling rule cover almost every past pattern. Then solve timed sets so the arithmetic, not the concept, becomes the limiting factor."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE GUIDE</a><nav class="nav"><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../gate-cse-2027-book/">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Probability Questions in GATE CSE: Bayes, Expectation, Traps</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 22 Sep 2026</span><span>7 min read</span></div>
+<p class="lead">Probability is the most reliable part of GATE CSE mathematics. Conditional probability and Bayes theorem score 94.0 out of 100 in the book's evidence model, tied with eigenvalues for the top of the section, and a conditional probability item appears in some form in essentially every paper reconstructed from 2010 to 2026. This guide covers the four patterns that generate almost all of it.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-syllabus-actually-names">What the syllabus actually names</a></li><li><a href="#pattern-1-conditional-probability-and-bayes">Pattern 1: conditional probability and Bayes</a></li><li><a href="#pattern-2-the-base-rate-trap">Pattern 2: the base-rate trap</a></li><li><a href="#pattern-3-expectation-and-variance">Pattern 3: expectation and variance</a></li><li><a href="#pattern-4-the-named-distributions">Pattern 4: the named distributions</a></li><li><a href="#the-traps-that-repeat">The traps that repeat</a></li><li><a href="#how-to-practise-probability-for-the-exam">How to practise probability for the exam</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Four patterns cover the ground: conditional probability and Bayes, expectation and variance, the named distributions, and descriptive statistics.</li>
+<li>Bayes questions change their story every year and keep their arithmetic. Practise the arithmetic.</li>
+<li>The base-rate trap is deliberate. A highly accurate test on a rare condition still produces mostly false positives.</li>
+<li>Almost all of these items are numeric answer type, so an attempt cannot cost you marks.</li>
+<li>Descriptive statistics is named in the syllabus but scores only 53.0. It is cheap to prepare and should not eat Tier 1 time.</li>
+</ul>
+<h2 id="what-the-syllabus-actually-names">What the syllabus actually names</h2>
+<p>The official GATE 2027 CS syllabus lists, under Probability and Statistics, random variables, the uniform, normal, exponential, Poisson and binomial distributions, mean, median, mode and standard deviation, and conditional probability and Bayes theorem. That wording is unchanged from 2026.</p>
+<p>Nothing beyond that list is in scope. Regression, hypothesis testing and confidence intervals are not named and have not been tested in the recent papers. Confirm the current syllabus yourself at gate2027.iitm.ac.in before you plan around it.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Years asked (approximate)</th>
+<th>Usual format</th>
+<th>Model score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conditional probability, total probability, Bayes</td>
+<td>2005, 2008, 2010-2026 in some form</td>
+<td>NAT 2M</td>
+<td>94.0</td>
+</tr>
+<tr>
+<td>Expectation, variance, linearity with indicators</td>
+<td>2011, 2013-2015, 2017-2025</td>
+<td>NAT 1-2M</td>
+<td>84.5</td>
+</tr>
+<tr>
+<td>Named distributions (uniform, exponential, Poisson, binomial, normal)</td>
+<td>2011, 2013-2016, 2019, 2021, 2023, 2024, 2025</td>
+<td>NAT or MCQ 1-2M</td>
+<td>81.0</td>
+</tr>
+<tr>
+<td>Mean, median, mode, standard deviation</td>
+<td>2015, 2018, 2021, 2023, 2025</td>
+<td>NAT 1M</td>
+<td>53.0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Years are an analyst reconstruction from public archives and are approximate. Scores are model based analytical confidence values, not probabilities that a question will appear in 2027.</p>
+<h2 id="pattern-1-conditional-probability-and-bayes">Pattern 1: conditional probability and Bayes</h2>
+<p>The template has barely changed in twenty years. Two or three sources contribute known shares of a population, each with its own error or defect rate, an item is drawn and found defective, and you are asked which source it probably came from. The framing rotates through machines, suppliers, students, urns, dice and medical tests.</p>
+<p>The method never rotates. Write the posterior as the one path you care about divided by the sum over every path:</p>
+<p>A factory takes 60 percent of its parts from supplier A with a 2 percent defect rate, and 40 percent from supplier B with a 5 percent defect rate. A part is found defective. The probability it came from B is 0.4 times 0.05, divided by 0.6 times 0.02 plus 0.4 times 0.05, which is 0.02 divided by 0.032, or 0.625.</p>
+<p>Two habits protect you. Write the denominator in full before dividing anything, and label which conditional you have been given. The single most repeated trap in this pattern is answering with the probability of the evidence given the source when the question asked for the source given the evidence.</p>
+<h2 id="pattern-2-the-base-rate-trap">Pattern 2: the base-rate trap</h2>
+<p>This is Pattern 1 with numbers chosen so that intuition fails. Suppose a test detects a condition in 99 percent of the people who have it and returns a negative result for 95 percent of those who do not, and the condition affects 1 person in 1,000. A person tests positive. The posterior is 0.001 times 0.99 divided by the sum of 0.001 times 0.99 and 0.999 times 0.05, which is about 0.0194, or under 2 percent.</p>
+<p>The reason is the base rate. Out of 100,000 people, about 99 true positives are swamped by about 4,995 false positives. Nothing about the test is faulty; the prior is doing the work. If a GATE probability answer looks surprising, check whether the prior was small before you assume you made an arithmetic error.</p>
+<p><a href="../../gate-cse-2027-book/#buy">The book</a> scores all 25 Engineering Mathematics concepts on the same model and pairs each probability pattern with worked practice questions covering its variants.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹300</span><span class="was">₹350</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹300</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="pattern-3-expectation-and-variance">Pattern 3: expectation and variance</h2>
+<p>Linearity of expectation is the highest-value idea in this pattern because it needs no independence. Define an indicator variable for each event you want to count, take the expectation of each, and add them.</p>
+<p>A fair die is rolled six times. What is the expected number of faces that never appear? For each face, the probability it is missed on all six rolls is (5/6)^6. Summing six such indicators gives 6 times (5/6)^6, which is about 2.01. The same trick counts expected fixed points of a permutation, expected matches, and expected hash collisions.</p>
+<p>For variance, three identities carry almost everything: the variance equals the expectation of the square minus the square of the expectation, scaling by a constant multiplies the variance by the square of that constant, and for independent variables the variances add whether you take the sum or the difference.</p>
+<p>A quick check: if X is uniform on the interval from 2 to 8, its variance is 36 divided by 12, which is 3, and its mean is 5, so the expectation of X squared is 3 plus 25, which is 28. Notice that the variance identity, not integration, did the work.</p>
+<h2 id="pattern-4-the-named-distributions">Pattern 4: the named distributions</h2>
+<p>Each named distribution contributes one or two standard computations.</p>
+<ul>
+<li><strong>Uniform.</strong> Mean is the midpoint; variance is the square of the width divided by 12; interval probabilities are ratios of lengths.</li>
+<li><strong>Exponential.</strong> Mean is 1 divided by the rate, and the distribution is memoryless. If a component's lifetime is exponential with a mean of 4 hours, the probability it survives 2 more hours given that it has already lasted 3 is just the probability it survives 2 hours from new, which is e raised to minus 0.5, about 0.607.</li>
+<li><strong>Poisson.</strong> Mean equals variance equals the rate times the window. Rescaling the rate to the window asked is where marks are lost. If requests arrive at 6 per hour, the rate for a 10-minute window is 1, so the probability of exactly 2 requests is e to the minus 1 divided by 2, about 0.184.</li>
+<li><strong>Binomial.</strong> Mean is n times p, variance is n times p times one minus p, and the questions ask for at-least-k probabilities.</li>
+<li><strong>Normal.</strong> Rarely more than symmetry, the fact that mean, median and mode coincide, and manipulation of the standard normal.</li>
+</ul>
+<p>Geometric waiting times sit alongside these. The expected number of trials to a first success is the reciprocal of the success probability, which is the backbone of the "a die is thrown until" family.</p>
+<h2 id="the-traps-that-repeat">The traps that repeat</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Trap</th>
+<th>The correct rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Swapping the two conditionals in Bayes</td>
+<td>Write the total-probability denominator explicitly</td>
+</tr>
+<tr>
+<td>Using a per-hour Poisson rate for a 10-minute window</td>
+<td>Rescale the rate to the interval asked</td>
+</tr>
+<tr>
+<td>Taking the exponential mean as the rate</td>
+<td>The mean is 1 divided by the rate</td>
+</tr>
+<tr>
+<td>Subtracting variances for a difference of variables</td>
+<td>For independent variables the variances add</td>
+</tr>
+<tr>
+<td>Confusing independence with mutual exclusivity</td>
+<td>Independent means the product rule holds, which mutually exclusive events with non-zero probability never satisfy</td>
+</tr>
+</tbody>
+</table></div>
+<p>These sit alongside every other subject's traps in the <a href="../gate-cse-common-mistakes/">common mistakes guide</a>, and the formulas appear in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="how-to-practise-probability-for-the-exam">How to practise probability for the exam</h2>
+<p>Work in the format the paper uses. Since most of this is numeric answer type, practise typing three-decimal answers and keep a written record of where your rounding differs from the key, as described in the <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT strategy guide</a>.</p>
+<p>Build a single-page card with the Bayes template, the indicator trick, the variance identity and the five distribution lines, and rewrite it from memory once a week. Then read the rest of the section's priorities in <a href="../gate-cse-engineering-mathematics-important-topics/">Engineering Mathematics important topics</a> and check where probability sits in the wider <a href="../gate-cse-most-repeated-topics/">most repeated topics ranking</a>.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹300</span><span class="was">₹350</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹300</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Is probability important for GATE CSE?</summary><p>Yes. Conditional probability and Bayes theorem score 94.0 out of 100 in the book&#x27;s eight-factor model, tied for the highest score in the whole mathematics section. The reconstructed record shows a conditional probability item in some form in every paper from 2010 to 2026. Expectation and variance follow at 84.5, with a rising recent trend.</p></details><details><summary>Which probability distributions are in the GATE CSE syllabus?</summary><p>The official syllabus names uniform, normal, exponential, Poisson and binomial distributions, along with random variables and the descriptive measures mean, median, mode and standard deviation. Geometric waiting times appear through questions about the number of trials to a first success, even though the name is not in the syllabus text.</p></details><details><summary>How many marks does probability carry in GATE CSE?</summary><p>There is no separate official allotment. The whole Engineering Mathematics section is about 13 marks on the official pattern page, and probability is one of its four sub-areas. Analyst compilations covering 2016 to 2026 put linear algebra, calculus and probability together between 4 and 14 marks, a range that is approximate and varies by source.</p></details><details><summary>What is the base-rate trap in GATE probability questions?</summary><p>It is the habit of reading a test accuracy as a posterior probability. When a condition is rare, most positive results are false positives even for an accurate test. The fix is mechanical. Write Bayes with the full total-probability denominator summed over every source, and never reuse the given conditional in the wrong direction.</p></details><details><summary>Do probability questions come as numeric answer type?</summary><p>Mostly, yes. Bayes posteriors, expectations, variances and Poisson probabilities are almost always numeric answer type worth 1 or 2 marks, which means no negative marking on an attempt. Multiple-select questions appear for statements about independence, memorylessness and the properties of named distributions.</p></details><details><summary>How should I revise probability in the last month?</summary><p>Revise the formula card rather than the theory. Bayes with the denominator written out, linearity of expectation with indicator variables, the variance identity, the uniform variance, exponential memorylessness and the Poisson rescaling rule cover almost every past pattern. Then solve timed sets so the arithmetic, not the concept, becomes the limiting factor.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">Official GATE 2027 CS syllabus (PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year question archive</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-engineering-mathematics-important-topics/"><div class="c">Subjects</div><b>Engineering Mathematics for GATE CSE: Important Topics</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-msq-nat-mcq-strategy/"><div class="c">Exam</div><b>MCQ, MSQ and NAT in GATE CSE: How to Attempt Each Type</b><span>9 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹300 <s>₹350</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹300</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b27ba65e8bac481da326ea172ecff1bd"}'></script>
+</body>
+</html>
