@@ -158,16 +158,25 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
     .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
     .then(function (res) {
       if (res.ok && res.j.ok) {
+        sessionStorage.removeItem("tries");
         lead.textContent = "Tap the button to download the full 1,016-page PDF. Save it before you close this page.";
         show('<div class="dl">'
           + '<a class="btn big" href="' + WORKER + '/book?pid=' + encodeURIComponent(pid) + '">Download the book (PDF, 30 MB)</a>'
           + '<a class="btn ghost" href="/gate-cse-2027-book/GATE-CSE-2027-Free-Preview.pdf" download>Download the 35-page preview</a>'
           + '<p class="pid">Payment id ' + pid + ' · ' + res.j.left + ' downloads left</p></div>');
       } else if (res.j && res.j.error === "payment not found yet") {
+        // the webhook usually lands within a couple of seconds; give it three tries, then hand over to WhatsApp
+        var tries = Number(sessionStorage.getItem("tries") || 0) + 1;
+        sessionStorage.setItem("tries", tries);
+        if (tries > 3) {
+          sessionStorage.removeItem("tries");
+          askForHelp("We could not confirm this payment. If you have paid, send your payment id on WhatsApp and you will get the book.");
+          return;
+        }
         lead.textContent = "Your payment is still being confirmed. This takes a few seconds.";
         show('<div class="dl"><a class="btn big" href="' + location.href + '">Try again</a>'
           + '<p class="pid">Payment id ' + pid + '</p></div>');
-        setTimeout(function () { location.reload(); }, 6000);
+        setTimeout(function () { location.reload(); }, 5000);
       } else {
         askForHelp("We could not confirm this payment automatically.");
       }
