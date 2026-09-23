@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE Recurrence Relations: Master Theorem and Traps</title>
+<meta name="description" content="How to solve recurrence relations for GATE CSE - the three Master theorem cases and their limits, substitution, recursion trees and non-standard forms.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE CSE Guide">
+<meta property="og:title" content="GATE Recurrence Relations: Master Theorem and Traps">
+<meta property="og:description" content="How to solve recurrence relations for GATE CSE - the three Master theorem cases and their limits, substitution, recursion trees and non-standard forms.">
+<meta property="og:url" content="https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/">
+<meta property="og:image" content="https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-23"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE Recurrence Relations: Master Theorem and Traps">
+<meta name="twitter:description" content="How to solve recurrence relations for GATE CSE - the three Master theorem cases and their limits, substitution, recursion trees and non-standard forms.">
+<meta name="twitter:image" content="https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2310203a%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23e0452f%22>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--hot)}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Recurrence Relations for GATE CSE: Master Theorem and More", "description": "How to solve recurrence relations for GATE CSE - the three Master theorem cases and their limits, substitution, recursion trees and non-standard forms.", "image": ["https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/og.png"], "datePublished": "2026-09-23", "dateModified": "2026-09-23", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE CSE Guide", "url": "https://gatecseguide.github.io/"}, "mainEntityOfPage": "https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/", "inLanguage": "en-IN", "keywords": "gate cse recurrence relations, master theorem gate, solving recurrences for gate, gate cse algorithms recurrence, gate recursion tree method"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gatecseguide.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gatecseguide.github.io/articles/"}, {"@type": "ListItem", "position": 3, "name": "Recurrence Relations for GATE CSE: Master Theorem and More", "item": "https://gatecseguide.github.io/articles/gate-cse-recurrence-relations/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Master theorem enough for GATE recurrences?", "acceptedAnswer": {"@type": "Answer", "text": "No. It covers only recurrences of the divide-and-conquer form where the subproblem size is the input divided by a constant, and the comparison must differ by a polynomial factor. Subtract-and-conquer forms, unequal splits and square-root recurrences all fall outside it. GATE has repeatedly chosen exactly those forms, so substitution and recursion trees are needed too."}}, {"@type": "Question", "name": "What is the answer for a recurrence with two halves and an n log n term?", "acceptedAnswer": {"@type": "Answer", "text": "It is n times log squared n, not n log n. This is the extended second case of the Master theorem, where the driving function matches the critical exponent up to a log factor raised to some power, and the solution gains one more log. Applying the basic form and answering n log n is one of the most repeated algorithm traps."}}, {"@type": "Question", "name": "How often are recurrences asked in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "The reconstructed record shows a recurrence or loop-complexity item in essentially every paper. In the book's model, recurrences score 85.5 out of 100 and sit in the Very High band, ranked fourth among algorithm concepts. Typical weight is one item of 1 or 2 marks per shift, often as a numeric answer for the exponent."}}, {"@type": "Question", "name": "Are recurrence relations part of mathematics or algorithms in GATE?", "acceptedAnswer": {"@type": "Answer", "text": "Both, under different names. The Engineering Mathematics syllabus names recurrence relations under combinatorics, where they are solved with characteristic equations for counting problems. The Algorithms syllabus reaches them through asymptotic analysis of divide-and-conquer methods. The techniques differ, so prepare both rather than assuming one covers the other."}}, {"@type": "Question", "name": "How do I solve a recurrence where the size becomes a square root?", "acceptedAnswer": {"@type": "Answer", "text": "Change the variable. Substituting the input as two raised to some power turns a square-root step into a halving step, so the recurrence becomes a familiar halving one and its solution is a log of a log. Then substitute back. The same trick handles recurrences that take a logarithm of the size at each step."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><span class="dot"></span>GATE CSE GUIDE</a><nav class="nav"><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../gate-cse-2027-book/">Get the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Recurrence Relations for GATE CSE: Master Theorem and More</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 23 Sep 2026</span><span>7 min read</span></div>
+<p class="lead">Recurrence relations are asked in almost every GATE CSE paper, and the papers deliberately choose the forms the Master theorem does not cover. This guide sets out the three Master cases and where they stop applying, then the substitution and recursion-tree methods that handle the rest, with one short example each.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-recurrences-sit-in-the-paper">Where recurrences sit in the paper</a></li><li><a href="#the-master-theorem-stated-for-the-exam">The Master theorem, stated for the exam</a></li><li><a href="#where-the-master-theorem-stops">Where the Master theorem stops</a></li><li><a href="#substitution-and-change-of-variable">Substitution and change of variable</a></li><li><a href="#recursion-trees-for-unequal-splits">Recursion trees for unequal splits</a></li><li><a href="#counting-recurrences-from-discrete-mathematics">Counting recurrences from discrete mathematics</a></li><li><a href="#how-to-practise-recurrences">How to practise recurrences</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Recurrences score 85.5 out of 100 in the book's evidence model, fourth among algorithm concepts and inside the Very High band.</li>
+<li>The Master theorem needs a polynomial gap between the driving function and the critical exponent. Two of GATE's favourite recurrences sit in the gap.</li>
+<li>Subtract-and-conquer forms, unequal splits and square-root recurrences are outside the Master theorem entirely.</li>
+<li>The recent format is a numeric answer asking for the exponent, which carries no negative marking.</li>
+<li>Counting recurrences from discrete mathematics use characteristic equations and are a separate skill.</li>
+</ul>
+<h2 id="where-recurrences-sit-in-the-paper">Where recurrences sit in the paper</h2>
+<p>The official Algorithms syllabus line names asymptotic worst case time and space complexity along with divide-and-conquer as a design technique, which is where recurrences enter. Separately, the Engineering Mathematics line names recurrence relations under combinatorics.</p>
+<p>Analyst compilations, which are not official and differ by 2 to 3 marks between sources, put Algorithms at roughly 8.3 marks per paper averaged over 2009 to 2026, with a reported range of about 6 to 11. Within that, expect one recurrence or loop-complexity item per shift. The reconstructed record lists Master-theorem forms in 2002, 2004 to 2006, 2008, 2009, 2012, 2014 to 2017, 2019 to 2021, and 2023 to 2026, and non-standard substitution forms across a similar spread.</p>
+<h2 id="the-master-theorem-stated-for-the-exam">The Master theorem, stated for the exam</h2>
+<p>For a recurrence where a subproblems of size n over b are solved plus a driving cost, let the critical exponent be the logarithm of a to the base b.</p>
+<ul>
+<li><strong>Case 1.</strong> The driving cost is smaller than the critical power by a polynomial factor. The answer is the critical power.</li>
+<li><strong>Case 2.</strong> The driving cost matches the critical power up to a log factor raised to some power k at least 0. The answer gains one more log.</li>
+<li><strong>Case 3.</strong> The driving cost is larger than the critical power by a polynomial factor, and a regularity condition holds. The answer is the driving cost.</li>
+</ul>
+<p>Worked example for Case 1: eight subproblems of half size with a quadratic driving cost. The critical exponent is the logarithm of 8 to base 2, which is 3. The driving cost is a lower power, so the answer is n cubed and the numeric answer for the exponent is 3.</p>
+<h2 id="where-the-master-theorem-stops">Where the Master theorem stops</h2>
+<p>The word "polynomial" in Cases 1 and 3 is the whole exam. A gap of a log factor is not polynomial, so those recurrences fall into the extended Case 2 or out of the theorem altogether.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Recurrence shape</th>
+<th>Correct solution</th>
+<th>Common wrong answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two halves plus n log n</td>
+<td>n log squared n</td>
+<td>n log n</td>
+</tr>
+<tr>
+<td>Two halves plus n divided by log n</td>
+<td>n log log n</td>
+<td>n</td>
+</tr>
+<tr>
+<td>Four halves plus n squared</td>
+<td>n squared log n</td>
+<td>n squared</td>
+</tr>
+<tr>
+<td>Subproblem of square-root size plus constant</td>
+<td>log log n</td>
+<td>log n</td>
+</tr>
+<tr>
+<td>One third and two thirds plus n</td>
+<td>n log n</td>
+<td>n</td>
+</tr>
+<tr>
+<td>Size minus one plus n</td>
+<td>n squared</td>
+<td>n log n</td>
+</tr>
+<tr>
+<td>Size minus one plus log n</td>
+<td>n log n</td>
+<td>n</td>
+</tr>
+<tr>
+<td>Two of size minus one plus constant</td>
+<td>2 to the n</td>
+<td>n squared</td>
+</tr>
+</tbody>
+</table></div>
+<p>The first two rows are the boundary cases. Two halves plus n log n is Case 2 with the log exponent equal to 1, so the solution picks up a second log. Two halves plus n over log n sits at the exponent minus one boundary, where the sum of the levels is a harmonic series rather than a geometric one, and the answer is n log log n rather than a clean n.</p>
+<h2 id="substitution-and-change-of-variable">Substitution and change of variable</h2>
+<p>When the subproblem size does not shrink by a constant factor, expand the recurrence a few levels and find the pattern.</p>
+<p>For a recurrence that reduces the size by one and adds n each time, expanding gives the sum of the first n integers, which is quadratic. Reducing by one and adding log n gives the log of n factorial, which is n log n. Reducing by one with two recursive calls and a constant doubles the work each level and gives 2 to the n.</p>
+<p>For square-root steps, change the variable. Write the input as 2 raised to some power m. A step down to the square root halves m, so the recurrence becomes a halving one with constant work, whose solution is the log of m. Substituting back, m is the log of n, so the answer is log log n.</p>
+<p><a href="../../gate-cse-2027-book/#buy">The book</a> works through all of these forms with practice questions built around the shapes that have recurred, and ranks recurrences alongside the other 27 algorithm concepts on the same evidence model.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹300</span><span class="was">₹350</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹300</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="recursion-trees-for-unequal-splits">Recursion trees for unequal splits</h2>
+<p>When the two subproblems have different sizes, draw the tree and read off the cost per level. For a recurrence that splits into one third and two thirds with a linear driving cost, every level costs about n until branches start bottoming out. The shortest root-to-leaf path has length log to base 3 of n, and the longest has length log to base 3 over 2 of n. Both are proportional to log n, so the total is n log n.</p>
+<p>The same reading handles a split into one half and one quarter with a linear cost. The per-level cost now shrinks geometrically, by three quarters each level, so the sum is dominated by the root and the answer is linear in n.</p>
+<p>The rule to remember from these two: when the per-level cost is constant, multiply it by the number of levels; when it shrinks geometrically, the root dominates; when it grows geometrically, the leaves dominate.</p>
+<h2 id="counting-recurrences-from-discrete-mathematics">Counting recurrences from discrete mathematics</h2>
+<p>The other family is asked under combinatorics, where you are given a linear recurrence with constant coefficients and asked for a closed form or a specific term. The method is the characteristic equation.</p>
+<p>Suppose a sequence satisfies the rule that each term is five times the previous minus six times the one before, with the first two terms 1 and 4. The characteristic equation has roots 2 and 3, so the closed form combines 2 to the n and 3 to the n. Fitting the two starting values gives twice 3 to the n minus 2 to the n. Checking the third term, twice 9 minus 4 is 14, which matches five times 4 minus six times 1.</p>
+<p>Repeated roots change the shape: the closed form then multiplies one of the terms by n. The usual slips are a sign error in the characteristic equation and confusing which starting index the question uses. Counting problems, such as the number of binary strings with no two consecutive ones, reduce to this family after you set up the recurrence yourself, which is the harder half of the work.</p>
+<h2 id="how-to-practise-recurrences">How to practise recurrences</h2>
+<p>Keep the table above on one page and rewrite it from memory every week until the boundary rows are automatic. Then practise in the paper's own format, which is increasingly a numeric answer for an exponent or for a specific term rather than a choice among four asymptotic forms.</p>
+<p>For the wider subject, the priorities and the other algorithm patterns are in <a href="../gate-cse-algorithms-important-topics/">Algorithms important topics</a>; the counting side is covered in the <a href="../gate-cse-discrete-mathematics-important-topics/">Discrete Mathematics guide</a>; the standard solutions are collected in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>; and the wrong answers built into past distractors are catalogued in the <a href="../gate-cse-common-mistakes/">common mistakes guide</a>.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹300</span><span class="was">₹350</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹300</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Is the Master theorem enough for GATE recurrences?</summary><p>No. It covers only recurrences of the divide-and-conquer form where the subproblem size is the input divided by a constant, and the comparison must differ by a polynomial factor. Subtract-and-conquer forms, unequal splits and square-root recurrences all fall outside it. GATE has repeatedly chosen exactly those forms, so substitution and recursion trees are needed too.</p></details><details><summary>What is the answer for a recurrence with two halves and an n log n term?</summary><p>It is n times log squared n, not n log n. This is the extended second case of the Master theorem, where the driving function matches the critical exponent up to a log factor raised to some power, and the solution gains one more log. Applying the basic form and answering n log n is one of the most repeated algorithm traps.</p></details><details><summary>How often are recurrences asked in GATE CSE?</summary><p>The reconstructed record shows a recurrence or loop-complexity item in essentially every paper. In the book&#x27;s model, recurrences score 85.5 out of 100 and sit in the Very High band, ranked fourth among algorithm concepts. Typical weight is one item of 1 or 2 marks per shift, often as a numeric answer for the exponent.</p></details><details><summary>Are recurrence relations part of mathematics or algorithms in GATE?</summary><p>Both, under different names. The Engineering Mathematics syllabus names recurrence relations under combinatorics, where they are solved with characteristic equations for counting problems. The Algorithms syllabus reaches them through asymptotic analysis of divide-and-conquer methods. The techniques differ, so prepare both rather than assuming one covers the other.</p></details><details><summary>How do I solve a recurrence where the size becomes a square root?</summary><p>Change the variable. Substituting the input as two raised to some power turns a square-root step into a halving step, so the recurrence becomes a familiar halving one and its solution is a log of a log. Then substitute back. The same trick handles recurrences that take a logarithm of the size at each step.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">Official GATE 2027 CS syllabus (PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year question archive</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-algorithms-important-topics/"><div class="c">Subjects</div><b>Algorithms for GATE CSE 2027: Important Topics and Patterns</b><span>9 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-discrete-mathematics-important-topics/"><div class="c">Subjects</div><b>Discrete Mathematics for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE CSE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE CSE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹300 <s>₹350</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹300</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b27ba65e8bac481da326ea172ecff1bd"}'></script>
+</body>
+</html>
