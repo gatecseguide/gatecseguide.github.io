@@ -4,4 +4,4 @@ Disallow: /go/
 Disallow: /d/
 Disallow: /thank-you/
 
-Sitemap: https://gatecseguide.github.io/sitemap.xml
+Sitemap: https://gateguide.co.in/sitemap.xml
