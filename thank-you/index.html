@@ -122,7 +122,7 @@ ol{padding-left:20px} ol li{margin:8px 0;color:var(--ink-2)}
   <h2 style="margin-top:0;font-size:1.15rem">What to read first</h2>
   <ol>
     <li>Section 1, the executive summary: what the evidence says about the 2027 paper.</li>
-    <li>Section 9, the Top 100 ranked concepts, and Section 10, the do-not-skip checklist.</li>
+    <li>Section 9, where the concepts are ranked, and Section 10, the do-not-skip checklist.</li>
     <li>Then take Mock Test 01 under exam conditions and score it with Section 12.</li>
   </ol>
   <p style="margin-bottom:0">The free guides on the <a href="/articles/">blog</a> cover exam dates, syllabus changes and subject-wise plans.</p>
@@ -159,10 +159,18 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
     .then(function (res) {
       if (res.ok && res.j.ok) {
         sessionStorage.removeItem("tries");
-        lead.textContent = "Tap the button to download the full 1,016-page PDF. Save it before you close this page.";
-        show('<div class="dl">'
-          + '<a class="btn big" href="' + WORKER + '/book?pid=' + encodeURIComponent(pid) + '">Download the book (PDF, 30 MB)</a>'
-          + '<a class="btn ghost" href="/gate-cse-2027-book/GATE-CSE-2027-Free-Preview.pdf" download>Download the 35-page preview</a>'
+        // The worker says which book this payment bought and how big it is, so this page tells the
+        // truth for either book without being rebuilt when a new one is added.
+        var title = res.j.title || "the book";
+        var size = res.j.mb ? " (PDF, " + res.j.mb + " MB)" : " (PDF)";
+        lead.textContent = "Tap the button to download your " + title + " PDF. Save it before you close this page.";
+        var buttons = '<a class="btn big" href="' + WORKER + '/book?pid=' + encodeURIComponent(pid) + '">Download ' + title + size + '</a>';
+        // The free preview exists for the CSE book only; offering it to an ECE buyer would send
+        // them a different book's sample.
+        if ((res.j.title || "").indexOf("CSE") !== -1) {
+          buttons += '<a class="btn ghost" href="/gate-cse-2027-book/GATE-CSE-2027-Free-Preview.pdf" download>Download the 35-page preview</a>';
+        }
+        show('<div class="dl">' + buttons
           + '<p class="pid">Payment id ' + pid + ' · ' + res.j.left + ' downloads left</p></div>');
       } else if (res.j && res.j.error === "payment not found yet") {
         // the webhook usually lands within a couple of seconds; give it three tries, then hand over to WhatsApp
