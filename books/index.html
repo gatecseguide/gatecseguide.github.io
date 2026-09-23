@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE Guide books — one deep book per branch</title>
+<meta name="description" content="Every GATE Guide book in one place. The GATE CSE 2027 book is out now at ₹300: 1,016 pages built from 27 years of papers. Other branches are on the way.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/books/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="GATE Guide books — one deep book per branch">
+<meta property="og:description" content="Every GATE Guide book in one place. The GATE CSE 2027 book is out now at ₹300: 1,016 pages built from 27 years of papers. Other branches are on the way.">
+<meta property="og:url" content="https://gateguide.co.in/books/">
+<meta property="og:image" content="https://gateguide.co.in/og-home.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE Guide books — one deep book per branch">
+<meta name="twitter:description" content="Every GATE Guide book in one place. The GATE CSE 2027 book is out now at ₹300: 1,016 pages built from 27 years of papers. Other branches are on the way.">
+<meta name="twitter:image" content="https://gateguide.co.in/og-home.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}.nav .btn.sm{padding-inline:11px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+
+.books{display:grid;gap:16px;max-width:780px;margin:26px auto 0}
+.bk{border:1px solid var(--line);border-radius:16px;background:var(--ground);overflow:hidden}
+.bk.live{border-color:var(--line-2);box-shadow:var(--shadow)}
+.bk-in{display:grid;grid-template-columns:132px 1fr;gap:20px;padding:20px}
+.bk-in img{width:100%;border-radius:3px 7px 7px 3px;box-shadow:0 14px 28px -14px rgba(16,32,58,.8);display:block}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.code{font:700 .74rem "IBM Plex Mono",monospace;letter-spacing:.1em;background:var(--ink);color:#fff;padding:4px 9px;border-radius:6px}
+.state{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:99px}
+.state.out{background:var(--hot-wash);color:var(--hot-ink)}
+.state.soon{background:var(--paper);color:var(--ink-3);border:1px solid var(--line)}
+.bk h2{font-family:Fraunces,Georgia,serif;font-size:1.32rem;margin:0 0 6px;line-height:1.2}
+.bk p{margin:0 0 12px;color:var(--ink-2)}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.facts span{font:500 .78rem "IBM Plex Mono",monospace;border:1px solid var(--line);border-radius:99px;padding:4px 10px;color:var(--ink-2)}
+.buy{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.rupee{font-family:Fraunces,Georgia,serif;font-size:1.5rem;font-weight:700}
+.rupee s{font-family:"IBM Plex Sans",sans-serif;font-size:.95rem;font-weight:400;color:var(--ink-3);margin-left:7px}
+details.bk{padding:0}
+details.bk summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+details.bk summary::-webkit-details-marker{display:none}
+details.bk summary:hover{background:var(--paper)}
+.sumtext{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.sumtext b{font-family:Fraunces,Georgia,serif;font-size:1.1rem;font-weight:600}
+.sumtext em{font-style:normal;color:var(--ink-3);font-size:.92rem}
+.plus{color:var(--ink-3);font-size:1.3rem;line-height:1;flex:none}
+details.bk[open] .plus{transform:rotate(45deg)}
+.soonbody{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-1px}
+.soonbody p{margin:14px 0}
+.note{max-width:780px;margin:26px auto 0;font-size:.94rem;color:var(--ink-3)}
+@media (max-width:640px){.bk-in{grid-template-columns:1fr}.bk-in img{max-width:150px}
+details.bk summary{flex-wrap:wrap}.sumtext{gap:6px}.sumtext em{flex-basis:100%}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "GATE Guide books — one deep book per branch", "description": "Every GATE Guide book in one place. The GATE CSE 2027 book is out now at ₹300: 1,016 pages built from 27 years of papers. Other branches are on the way.", "url": "https://gateguide.co.in/books/", "inLanguage": "en-IN", "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "GATE CSE book", "item": "https://gateguide.co.in/gate-cse-2027-book/"}, {"@type": "ListItem", "position": 2, "name": "GATE DA book", "item": "https://gateguide.co.in/books/"}, {"@type": "ListItem", "position": 3, "name": "GATE ECE book", "item": "https://gateguide.co.in/books/"}, {"@type": "ListItem", "position": 4, "name": "GATE EE book", "item": "https://gateguide.co.in/books/"}, {"@type": "ListItem", "position": 5, "name": "GATE ME book", "item": "https://gateguide.co.in/books/"}, {"@type": "ListItem", "position": 6, "name": "GATE CE book", "item": "https://gateguide.co.in/books/"}]}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Books", "item": "https://gateguide.co.in/books/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><a class="l" href="../books/">Books</a><a href="../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../books/">Buy the book</a></nav></div></header>
+<main class="wrap" style="padding-block:40px 60px">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › Books</nav>
+<h1>GATE Guide books</h1>
+<p class="lead">One deep book per branch, built from the real papers rather than a syllabus list.
+1 of 6 is out so far — the rest are being written one at a time, in the order people ask for them.</p>
+
+<div class="books"><article class="bk live">
+  <div class="bk-in">
+    <a href="../gate-cse-2027-book/"><img src="../assets/cover-360.jpg" width="360" height="510" alt="GATE CSE 2027 book cover"></a>
+    <div>
+      <div class="tagrow"><span class="code">CS</span><span class="state out">Out now</span></div>
+      <h2>GATE CSE 2027 — Deep PYQ Analysis &amp; High-Probability Question Bank</h2>
+      <p>Computer Science & Information Technology. 27 years of papers analysed topic by topic, with the evidence behind every ranking.</p>
+      <div class="facts"><span>1,016 pages</span><span>1,120 questions solved</span><span>10 mock tests</span><span>Top 100 concepts ranked</span></div>
+      <div class="buy">
+        <span class="rupee">₹300<s>₹350</s></span>
+        <a class="btn" href="/go/buy/books/">Buy now — ₹300</a>
+        <a class="btn ghost" href="../gate-cse-2027-book/">See what is inside</a>
+      </div>
+    </div>
+  </div>
+</article><details class="bk">
+  <summary>
+    <span class="sumtext"><span class="code">DA</span><b>GATE DA</b><em>Data Science & AI</em></span>
+    <span class="tagrow" style="margin:0"><span class="state soon">Coming soon</span><span class="plus">+</span></span>
+  </summary>
+  <div class="soonbody">
+    <p>Closest to the CS book: programming, data structures, algorithms, probability and linear algebra overlap, so this one comes next.</p>
+    <p>Which branch comes next is decided by how many people ask for it. Ask for this one and you will be
+    told the day it is ready — no list, no spam, just one message.</p>
+    <div class="buy">
+      <a class="btn ghost" href="/go/whatsapp/books/?text=Hi%2C%20I%20want%20the%20GATE%20DA%20book%20%28Data%20Science%20%26%20AI%29.%20Please%20tell%20me%20when%20it%20is%20ready." target="_blank" rel="noopener">Tell me when the GATE DA book is ready</a>
+    </div>
+  </div>
+</details><details class="bk">
+  <summary>
+    <span class="sumtext"><span class="code">EC</span><b>GATE ECE</b><em>Electronics & Communication Engineering</em></span>
+    <span class="tagrow" style="margin:0"><span class="state soon">Coming soon</span><span class="plus">+</span></span>
+  </summary>
+  <div class="soonbody">
+    <p>The GATE ECE book has not been written yet. Each book takes months of paper-by-paper analysis, so they are written one at a time.</p>
+    <p>Which branch comes next is decided by how many people ask for it. Ask for this one and you will be
+    told the day it is ready — no list, no spam, just one message.</p>
+    <div class="buy">
+      <a class="btn ghost" href="/go/whatsapp/books/?text=Hi%2C%20I%20want%20the%20GATE%20ECE%20book%20%28Electronics%20%26%20Communication%20Engineering%29.%20Please%20tell%20me%20when%20it%20is%20ready." target="_blank" rel="noopener">Tell me when the GATE ECE book is ready</a>
+    </div>
+  </div>
+</details><details class="bk">
+  <summary>
+    <span class="sumtext"><span class="code">EE</span><b>GATE EE</b><em>Electrical Engineering</em></span>
+    <span class="tagrow" style="margin:0"><span class="state soon">Coming soon</span><span class="plus">+</span></span>
+  </summary>
+  <div class="soonbody">
+    <p>The GATE EE book has not been written yet. Each book takes months of paper-by-paper analysis, so they are written one at a time.</p>
+    <p>Which branch comes next is decided by how many people ask for it. Ask for this one and you will be
+    told the day it is ready — no list, no spam, just one message.</p>
+    <div class="buy">
+      <a class="btn ghost" href="/go/whatsapp/books/?text=Hi%2C%20I%20want%20the%20GATE%20EE%20book%20%28Electrical%20Engineering%29.%20Please%20tell%20me%20when%20it%20is%20ready." target="_blank" rel="noopener">Tell me when the GATE EE book is ready</a>
+    </div>
+  </div>
+</details><details class="bk">
+  <summary>
+    <span class="sumtext"><span class="code">ME</span><b>GATE ME</b><em>Mechanical Engineering</em></span>
+    <span class="tagrow" style="margin:0"><span class="state soon">Coming soon</span><span class="plus">+</span></span>
+  </summary>
+  <div class="soonbody">
+    <p>The GATE ME book has not been written yet. Each book takes months of paper-by-paper analysis, so they are written one at a time.</p>
+    <p>Which branch comes next is decided by how many people ask for it. Ask for this one and you will be
+    told the day it is ready — no list, no spam, just one message.</p>
+    <div class="buy">
+      <a class="btn ghost" href="/go/whatsapp/books/?text=Hi%2C%20I%20want%20the%20GATE%20ME%20book%20%28Mechanical%20Engineering%29.%20Please%20tell%20me%20when%20it%20is%20ready." target="_blank" rel="noopener">Tell me when the GATE ME book is ready</a>
+    </div>
+  </div>
+</details><details class="bk">
+  <summary>
+    <span class="sumtext"><span class="code">CE</span><b>GATE CE</b><em>Civil Engineering</em></span>
+    <span class="tagrow" style="margin:0"><span class="state soon">Coming soon</span><span class="plus">+</span></span>
+  </summary>
+  <div class="soonbody">
+    <p>The GATE CE book has not been written yet. Each book takes months of paper-by-paper analysis, so they are written one at a time.</p>
+    <p>Which branch comes next is decided by how many people ask for it. Ask for this one and you will be
+    told the day it is ready — no list, no spam, just one message.</p>
+    <div class="buy">
+      <a class="btn ghost" href="/go/whatsapp/books/?text=Hi%2C%20I%20want%20the%20GATE%20CE%20book%20%28Civil%20Engineering%29.%20Please%20tell%20me%20when%20it%20is%20ready." target="_blank" rel="noopener">Tell me when the GATE CE book is ready</a>
+    </div>
+  </div>
+</details></div>
+
+<p class="note">Every book is written by MD ANISH AHAMAD. Payment is handled by Razorpay; the PDF download
+opens the moment the payment is confirmed. Questions before buying:
+<a href="/go/whatsapp/books/?text=Hi%2C%20I%20have%20a%20question%20about%20the%20GATE%20Guide%20books." target="_blank" rel="noopener">WhatsApp</a>
+or <a href="../contact/">contact us</a>.</p>
+</main>
+<footer><div class="wrap wide"><nav><a href="../">GATE GUIDE</a><a href="../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../articles/">Blog</a><a href="../contact/">Contact Us</a> <a href="../terms/">Terms</a> <a href="../refund-policy/">Refund Policy</a> <a href="../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>

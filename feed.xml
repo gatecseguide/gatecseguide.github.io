@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0'><channel>
-<title>GATE CSE Guide — free GATE CSE guides</title><link>https://gateguide.co.in/articles/</link>
+<title>GATE Guide — free GATE CSE guides</title><link>https://gateguide.co.in/articles/</link>
 <description>Free guides on the GATE CSE syllabus, weightage, subject topics and preparation, by MD ANISH AHAMAD.</description>
 <language>en-in</language><lastBuildDate>Wed, 23 Sep 2026 09:00:00 +0530</lastBuildDate>
 <item><title>Recurrence Relations for GATE CSE: Master Theorem and More</title><link>https://gateguide.co.in/articles/gate-cse-recurrence-relations/</link><guid isPermaLink='true'>https://gateguide.co.in/articles/gate-cse-recurrence-relations/</guid><pubDate>Wed, 23 Sep 2026 09:00:00 +0530</pubDate><description>How to solve recurrence relations for GATE CSE - the three Master theorem cases and their limits, substitution, recursion trees and non-standard forms.</description><category>Subjects</category></item>
