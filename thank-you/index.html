@@ -170,8 +170,14 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
         if ((res.j.title || "").indexOf("CSE") !== -1) {
           buttons += '<a class="btn ghost" href="/gate-cse-2027-book/GATE-CSE-2027-Free-Preview.pdf" download>Download the 35-page preview</a>';
         }
+        // When the worker could not tell which book the payment was for it falls back to the one
+        // that used to be the only one. Say so, rather than let a buyer discover it after opening
+        // an 806-page PDF for the wrong branch.
+        var note = res.j.inferred
+          ? '<p class="pid">If this is not the book you paid for, message on WhatsApp with this payment id and you will get the right one.</p>'
+          : '';
         show('<div class="dl">' + buttons
-          + '<p class="pid">Payment id ' + pid + ' · ' + res.j.left + ' downloads left</p></div>');
+          + '<p class="pid">Payment id ' + pid + ' · ' + res.j.left + ' downloads left</p>' + note + '</div>');
       } else if (res.j && res.j.error === "payment not found yet") {
         // the webhook usually lands within a couple of seconds; give it three tries, then hand over to WhatsApp
         var tries = Number(sessionStorage.getItem("tries") || 0) + 1;
