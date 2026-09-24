@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CSE Time Complexity Questions: Loops and Traps</title>
+<meta name="description" content="How to read loops and code fragments for time complexity in GATE CSE, the asymptotic comparisons that repeat, and the wrong answers built into the options.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-time-complexity-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="GATE CSE Time Complexity Questions: Loops and Traps">
+<meta property="og:description" content="How to read loops and code fragments for time complexity in GATE CSE, the asymptotic comparisons that repeat, and the wrong answers built into the options.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-time-complexity-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-time-complexity-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-24"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CSE Time Complexity Questions: Loops and Traps">
+<meta name="twitter:description" content="How to read loops and code fragments for time complexity in GATE CSE, the asymptotic comparisons that repeat, and the wrong answers built into the options.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-time-complexity-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}.nav .btn.sm{padding-inline:11px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Time Complexity Questions in GATE CSE: Reading Code Fast", "description": "How to read loops and code fragments for time complexity in GATE CSE, the asymptotic comparisons that repeat, and the wrong answers built into the options.", "image": ["https://gateguide.co.in/articles/gate-cse-time-complexity-questions/og.png"], "datePublished": "2026-09-24", "dateModified": "2026-09-24", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/"}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-time-complexity-questions/", "inLanguage": "en-IN", "keywords": "gate cse time complexity questions, time complexity of loops gate, gate asymptotic notation questions, gate cse big o questions, complexity analysis for gate"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "Time Complexity Questions in GATE CSE: Reading Code Fast", "item": "https://gateguide.co.in/articles/gate-cse-time-complexity-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How often does GATE CSE ask time complexity of a code fragment?", "acceptedAnswer": {"@type": "Answer", "text": "In essentially every paper. In the book's eight-factor model the concept scores 86.5 out of 100 and is ranked the top algorithm concept, with a stated expectation of one or two items per shift. The reconstruction from public archives lists it continuously from 2010 to 2026 and in several earlier papers as well."}}, {"@type": "Question", "name": "What is the complexity of an inner loop that advances by the outer variable?", "acceptedAnswer": {"@type": "Answer", "text": "It is n log n, not n squared. For each outer value the inner loop runs about n divided by that value times, and summing those terms over all outer values gives a harmonic series, which is about n times the natural log of n. Reading it as two nested full loops and answering n squared is the standard trap."}}, {"@type": "Question", "name": "Does f in big O of g imply two to the f is in big O of two to the g?", "acceptedAnswer": {"@type": "Answer", "text": "No. That implication is false and appears repeatedly as a distractor. The related statement that the log of f is in big O of the log of g is true when both functions are at least 2 eventually. Multiple-select questions often mix the true version and the false version in the same option set."}}, {"@type": "Question", "name": "How do I count the exact number of times a statement executes?", "acceptedAnswer": {"@type": "Answer", "text": "Write the loop variable's values as a sequence rather than reasoning in asymptotics. For a doubling loop up to 64 the values are 1, 2, 4, 8, 16, 32, 64, and if the inner loop runs that many times the total is their sum, 127. Numeric answer questions want the exact count, so the sequence has to be written out."}}, {"@type": "Question", "name": "Which space complexity facts does GATE test?", "acceptedAnswer": {"@type": "Answer", "text": "Mainly the auxiliary space of the standard sorts and the depth of a recursion. Merge sort on arrays needs linear extra space, quicksort needs stack depth that is logarithmic at best and linear at worst, and heapsort is in place. These appear as one-mark statement questions rather than as computations."}}, {"@type": "Question", "name": "Should I attempt a complexity question I am unsure about?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the format. Numeric answer and multiple-select questions carry no negative marking, so an informed attempt costs nothing but time. A multiple choice question costs one third of a mark for a one-mark item and two thirds for a two-mark item, so guess only when you have eliminated at least two options."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../books/">Buy the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Time Complexity Questions in GATE CSE: Reading Code Fast</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 24 Sep 2026</span><span>7 min read</span></div>
+<p class="lead">Reading a code fragment for its time complexity is the single most frequent algorithm task in GATE CSE. It scores 86.5 out of 100 in the book's evidence model, the top score among algorithm concepts, and the reconstruction from public archives finds some form of it in every paper from 2010 onward. The skill is narrow and drillable: recognise the loop shape, count the executions, then name the growth rate.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-the-syllabus-asks-for">What the syllabus asks for</a></li><li><a href="#the-six-loop-shapes">The six loop shapes</a></li><li><a href="#counting-exactly-not-approximately">Counting exactly, not approximately</a></li><li><a href="#asymptotic-comparison">Asymptotic comparison</a></li><li><a href="#space-complexity-in-one-paragraph">Space complexity in one paragraph</a></li><li><a href="#turning-this-into-practice">Turning this into practice</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Six loop shapes generate almost every past question. Learn the count each one produces, not a rule of thumb.</li>
+<li>The paper increasingly asks for an exact execution count as a numeric answer rather than an asymptotic class.</li>
+<li>Asymptotic statement sets are multiple-select with no partial credit, so one wrong tick scores zero.</li>
+<li>The recurring wrong answers are predictable and are built into the options on purpose.</li>
+<li>Space complexity appears as short statement questions about the standard sorts and recursion depth.</li>
+</ul>
+<h2 id="what-the-syllabus-asks-for">What the syllabus asks for</h2>
+<p>The official Algorithms line names asymptotic worst case time and space complexity. That is the whole mandate, and it is enough to support one or two items per shift. The expectation stated in the book for 2027 is one one-mark multiple choice item and possibly one two-mark numeric answer on this concept.</p>
+<p>Analyst compilations, which are not official and differ by about 2 to 3 marks between sources, put Algorithms at roughly 8.3 marks per paper averaged across 2009 to 2026, with a reported range of 6 to 11. Complexity reading is the part of that total you can make almost automatic.</p>
+<h2 id="the-six-loop-shapes">The six loop shapes</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Loop shape</th>
+<th>Number of executions</th>
+<th>Complexity</th>
+<th>Common wrong answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outer variable doubles up to n</td>
+<td>about log n</td>
+<td>log n</td>
+<td>n</td>
+</tr>
+<tr>
+<td>Outer doubles, inner runs to the outer value</td>
+<td>1 + 2 + 4 + ... + n</td>
+<td>n</td>
+<td>n log n</td>
+</tr>
+<tr>
+<td>Outer runs to n, inner advances by the outer value</td>
+<td>sum of n over i</td>
+<td>n log n</td>
+<td>n squared</td>
+</tr>
+<tr>
+<td>Loop runs while the square of the variable is at most n</td>
+<td>about the square root of n</td>
+<td>square root of n</td>
+<td>log n</td>
+</tr>
+<tr>
+<td>Variable is replaced by its own square each step</td>
+<td>about log log n</td>
+<td>log log n</td>
+<td>log n</td>
+</tr>
+<tr>
+<td>Two recursive calls on half the input plus a linear pass</td>
+<td>n per level, log n levels</td>
+<td>n log n</td>
+<td>n</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two of these deserve working through.</p>
+<p><strong>Doubling outer, linear inner.</strong> Suppose the outer variable starts at 1 and doubles until it exceeds n, and the inner loop runs from 1 up to the current outer value. For n equal to 64 the outer values are 1, 2, 4, 8, 16, 32 and 64, so the statement executes 127 times. In general the sum is just under twice n, so the growth is linear even though a log appears in the structure.</p>
+<p><strong>Inner advancing by the outer variable.</strong> Now the outer variable runs from 1 to n and the inner loop starts at the outer value and advances by it each time. The inner loop then runs about n divided by the outer value times. Summing that over all outer values gives n times a harmonic sum, which is about n times the natural log of n. The shape looks like two nested full loops, which is why n squared is the built-in wrong answer.</p>
+<p>The square-root shape is worth a sanity check too. If the loop condition compares the square of the variable against n and the variable increases by one each step, it runs about the square root of n times, so for n equal to one million it runs a thousand times.</p>
+<p><a href="../../gate-cse-2027-book/#buy">The book</a> ranks this concept alongside the other 27 algorithm concepts on the same evidence model and pairs each loop shape with practice questions covering its variants.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="counting-exactly-not-approximately">Counting exactly, not approximately</h2>
+<p>The format has shifted. Numeric answer questions now carry a large share of the algorithm marks, and they ask how many times a statement executes for a stated n rather than which asymptotic class the fragment belongs to. Asymptotics will not answer those.</p>
+<p>The reliable method is mechanical. Write the outer variable's values as an explicit sequence. For each one, write the inner loop's count. Add them. If the sequence is geometric, use the closed form; if it is harmonic, sum the small number of terms the question actually needs. Never convert to big O before the arithmetic is done, because constants and off-by-one terms are exactly what the answer depends on.</p>
+<p>A related shape asks for the value returned by a recursive function rather than its complexity. Those belong to programming rather than algorithms and are covered in the <a href="../gate-cse-programming-data-structures-important-topics/">Programming and Data Structures guide</a>, but the counting habit is the same: tabulate from the base case upward.</p>
+<h2 id="asymptotic-comparison">Asymptotic comparison</h2>
+<p>The second half of this topic is comparison rather than counting, and since multiple-select questions arrived it has become an all-or-nothing format. The facts worth memorising:</p>
+<ul>
+<li>The log of n factorial grows like n log n.</li>
+<li>Any power of log n is eventually smaller than any positive power of n.</li>
+<li>n raised to the power log n grows more slowly than two to the n. Compare their logarithms, which are the square of log n against n, and n wins.</li>
+<li>If f is in big O of g, then the log of f is in big O of the log of g, provided both are eventually at least 2.</li>
+<li>If f is in big O of g, it does not follow that two to the f is in big O of two to the g.</li>
+<li>Big O is an upper bound and does not imply theta. Both directions are needed for theta.</li>
+</ul>
+<p>The last three lines are the ones the setters combine. A statement set typically pairs a true theorem with its false cousin, so the discipline is to test each option separately rather than pattern-match the group. Because multiple-select carries no partial credit, half-certainty is worth nothing here; the approach is set out in the <a href="../gate-cse-exam-day-time-management/">exam-day time management guide</a>.</p>
+<h2 id="space-complexity-in-one-paragraph">Space complexity in one paragraph</h2>
+<p>Space questions are short and factual. Merge sort on arrays needs linear auxiliary space, and it is not in place. Quicksort needs only the recursion stack, which is logarithmic when the splits are balanced and linear in the worst case. Heapsort is in place and needs constant extra space. A recursive function's space is its maximum depth times the frame size. These turn up as one-mark statement items, often mixed with stability facts, where quicksort and heapsort are not stable and merge sort is.</p>
+<h2 id="turning-this-into-practice">Turning this into practice</h2>
+<p>Three passes work well. First, write the six loop shapes and their counts from memory until you can do it without hesitation. Second, take code fragments and compute exact counts for a specific n, checking your arithmetic rather than your instinct. Third, do mixed multiple-select sets on asymptotic statements, marking every option individually as true or false before you select anything.</p>
+<p>Then place the topic in context. It sits at rank 24 in the wider <a href="../gate-cse-most-repeated-topics/">most repeated topics ranking</a>, the rest of the subject is mapped in <a href="../gate-cse-algorithms-important-topics/">Algorithms important topics</a>, and the recurring wrong answers listed above appear again in the <a href="../gate-cse-common-mistakes/">common mistakes guide</a>.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How often does GATE CSE ask time complexity of a code fragment?</summary><p>In essentially every paper. In the book&#x27;s eight-factor model the concept scores 86.5 out of 100 and is ranked the top algorithm concept, with a stated expectation of one or two items per shift. The reconstruction from public archives lists it continuously from 2010 to 2026 and in several earlier papers as well.</p></details><details><summary>What is the complexity of an inner loop that advances by the outer variable?</summary><p>It is n log n, not n squared. For each outer value the inner loop runs about n divided by that value times, and summing those terms over all outer values gives a harmonic series, which is about n times the natural log of n. Reading it as two nested full loops and answering n squared is the standard trap.</p></details><details><summary>Does f in big O of g imply two to the f is in big O of two to the g?</summary><p>No. That implication is false and appears repeatedly as a distractor. The related statement that the log of f is in big O of the log of g is true when both functions are at least 2 eventually. Multiple-select questions often mix the true version and the false version in the same option set.</p></details><details><summary>How do I count the exact number of times a statement executes?</summary><p>Write the loop variable&#x27;s values as a sequence rather than reasoning in asymptotics. For a doubling loop up to 64 the values are 1, 2, 4, 8, 16, 32, 64, and if the inner loop runs that many times the total is their sum, 127. Numeric answer questions want the exact count, so the sequence has to be written out.</p></details><details><summary>Which space complexity facts does GATE test?</summary><p>Mainly the auxiliary space of the standard sorts and the depth of a recursion. Merge sort on arrays needs linear extra space, quicksort needs stack depth that is logarithmic at best and linear at worst, and heapsort is in place. These appear as one-mark statement questions rather than as computations.</p></details><details><summary>Should I attempt a complexity question I am unsure about?</summary><p>It depends on the format. Numeric answer and multiple-select questions carry no negative marking, so an informed attempt costs nothing but time. A multiple choice question costs one third of a mark for a one-mark item and two thirds for a two-mark item, so guess only when you have eliminated at least two options.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">Official GATE 2027 CS syllabus (PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year question archive</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-algorithms-important-topics/"><div class="c">Subjects</div><b>Algorithms for GATE CSE 2027: Important Topics and Patterns</b><span>9 min read</span></a><a class="card" href="../gate-cse-programming-data-structures-important-topics/"><div class="c">Subjects</div><b>Programming and Data Structures for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-exam-day-time-management/"><div class="c">Strategy</div><b>GATE CSE Exam Day: How to Spend the Three Hours</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>

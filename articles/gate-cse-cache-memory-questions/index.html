@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cache Memory Questions in GATE CSE: Tags, Sets, AMAT</title>
+<meta name="description" content="How GATE CSE asks cache memory questions. Tag, index and offset splits, associativity, tag directory size, hit and miss counting and AMAT, worked out.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-cache-memory-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="Cache Memory Questions in GATE CSE: Tags, Sets, AMAT">
+<meta property="og:description" content="How GATE CSE asks cache memory questions. Tag, index and offset splits, associativity, tag directory size, hit and miss counting and AMAT, worked out.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-cache-memory-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-cache-memory-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-24"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cache Memory Questions in GATE CSE: Tags, Sets, AMAT">
+<meta name="twitter:description" content="How GATE CSE asks cache memory questions. Tag, index and offset splits, associativity, tag directory size, hit and miss counting and AMAT, worked out.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-cache-memory-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}.nav .btn.sm{padding-inline:11px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cache Memory Questions in GATE CSE: Patterns and Arithmetic", "description": "How GATE CSE asks cache memory questions. Tag, index and offset splits, associativity, tag directory size, hit and miss counting and AMAT, worked out.", "image": ["https://gateguide.co.in/articles/gate-cse-cache-memory-questions/og.png"], "datePublished": "2026-09-24", "dateModified": "2026-09-24", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/"}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-cache-memory-questions/", "inLanguage": "en-IN", "keywords": "cache memory questions gate, gate cache mapping problems, tag index offset gate, amat questions gate cse, cache memory for gate 2027"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "Cache Memory Questions in GATE CSE: Patterns and Arithmetic", "item": "https://gateguide.co.in/articles/gate-cse-cache-memory-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you calculate tag, index and offset bits in a cache?", "acceptedAnswer": {"@type": "Answer", "text": "Offset bits equal the base-two logarithm of the block size in bytes. Index bits equal the logarithm of the number of sets, where sets equal cache size divided by block size and associativity. Tag bits are whatever is left of the physical address. The three widths always add up to the full address width."}}, {"@type": "Question", "name": "Are cache questions asked every year in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Cache mapping arithmetic has appeared in essentially every paper from 2014 onward, by the analyst reconstruction this guide uses, often as a one-mark item and sometimes again as a two-mark item. That record makes it a high-priority topic for 2027, but no topic is guaranteed to appear in a given paper."}}, {"@type": "Question", "name": "What is the formula for average memory access time?", "acceptedAnswer": {"@type": "Answer", "text": "For a hierarchical two-level cache, AMAT equals L1 hit time plus L1 miss rate times the sum of L2 hit time and L2 local miss rate times memory access time. GATE almost always intends this hierarchical model, in which the next level's time is added only on a miss, not a parallel access model."}}, {"@type": "Question", "name": "How many bits does a cache tag directory need?", "acceptedAnswer": {"@type": "Answer", "text": "Count the metadata bits stored per line, which is the tag width plus a valid bit, plus a dirty bit for a write-back cache, plus any replacement bits the question specifies. Multiply by the number of lines, not the number of sets. The replacement-bit convention varies, so use the one the question states."}}, {"@type": "Question", "name": "What is the difference between a conflict miss and a capacity miss?", "acceptedAnswer": {"@type": "Answer", "text": "A conflict miss would have been a hit in a fully associative cache of the same total size with the same replacement policy. A capacity miss would still miss there, because the working set exceeds the cache. Compulsory misses are the first reference to each block. Checking against a fully associative run settles the classification."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="/go/preview/header/">Free preview</a><a class="btn sm" href="../../books/">Buy the book</a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Cache Memory Questions in GATE CSE: Patterns and Arithmetic</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 24 Sep 2026</span><span>9 min read</span></div>
+<p class="lead">Cache memory questions in GATE CSE are built from four repeating templates: split an address into tag, index and offset; size the tag directory; count hits and misses on a trace; and compute average memory access time. The numbers change every year, the procedure does not. This guide works each template with a short example you can redo on paper, and lists the traps that turn a correct method into a wrong answer.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-cache-questions-sit-in-the-paper">Where cache questions sit in the paper</a></li><li><a href="#the-address-split-every-question-starts-from">The address split every question starts from</a></li><li><a href="#associativity-which-field-moves">Associativity: which field moves</a></li><li><a href="#tag-directory-size">Tag directory size</a></li><li><a href="#counting-hits-and-misses-on-a-trace">Counting hits and misses on a trace</a></li><li><a href="#average-memory-access-time">Average memory access time</a></li><li><a href="#the-traps-that-cost-marks">The traps that cost marks</a></li><li><a href="#how-to-practise-cache-questions">How to practise cache questions</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Four templates cover almost every cache question: the address split, the tag directory, the trace count and AMAT.</li>
+<li>Cache mapping arithmetic has appeared in essentially every paper from 2014 onward in the reconstruction used here, usually as a NAT item.</li>
+<li>Every split starts from one identity: tag bits + index bits + offset bits = address width.</li>
+<li>The number of sets, not the number of lines, decides the index width. This is the single most common slip.</li>
+<li>GATE intends the hierarchical AMAT model unless the question says otherwise: the next level's time is added only on a miss.</li>
+</ul>
+<h2 id="where-cache-questions-sit-in-the-paper">Where cache questions sit in the paper</h2>
+<p>Third-party analyst compilations place Computer Organization and Architecture at 3 to 12 marks per paper from 2009 to 2026, typically 8 to 11 marks, which is five to seven questions. These figures are unofficial and analysts differ by two to three marks on borderline items, because floating-point and memory-decoding questions are sometimes counted under Digital Logic instead.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Period or paper</th>
+<th>COA marks (analyst figures)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average, 2009–2017</td>
+<td>about 7.7</td>
+</tr>
+<tr>
+<td>Average, 2018–2026</td>
+<td>about 9.2</td>
+</tr>
+<tr>
+<td>Average, 2009–2026</td>
+<td>about 8.5</td>
+</tr>
+<tr>
+<td>Lowest and highest</td>
+<td>4 (2019) and 12 (2023)</td>
+</tr>
+<tr>
+<td>2026 Shift 1</td>
+<td>9 (three 1-mark and three 2-mark questions)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Within that budget, the memory hierarchy and pipelining are the two pillars; the book's analysis estimates that together they have supplied roughly 60 to 70 per cent of COA marks since 2014. The 2027 syllabus wording, "Memory interfacing and hierarchy: performance, cache memory mapping", names both cache mapping and hierarchy performance explicitly, so the historical core is confirmed rather than displaced. For the wider subject picture, read the <a href="../gate-cse-coa-important-topics/">COA important topics guide</a> and the <a href="../gate-2027-coa-syllabus-changes/">2027 COA syllabus changes</a>.</p>
+<h2 id="the-address-split-every-question-starts-from">The address split every question starts from</h2>
+<p>Work in this fixed order and the split never goes wrong.</p>
+<ol>
+<li>Offset bits = log2(block size in bytes).</li>
+<li>Number of lines = cache size / block size.</li>
+<li>Number of sets = number of lines / associativity.</li>
+<li>Index bits = log2(number of sets).</li>
+<li>Tag bits = address width − index bits − offset bits.</li>
+</ol>
+<p>A worked example. Byte-addressable memory with 32-bit physical addresses, a 64 KB 4-way set-associative cache, 32-byte blocks.</p>
+<ul>
+<li>Offset = log2(32) = 5 bits.</li>
+<li>Lines = 64 KB / 32 B = 2048.</li>
+<li>Sets = 2048 / 4 = 512, so index = 9 bits.</li>
+<li>Tag = 32 − 9 − 5 = 18 bits.</li>
+</ul>
+<p>The inverse form is asked just as often: the tag is given and you must find the cache size or the associativity. Run the same five steps backwards. With an 18-bit tag on a 32-bit address and 32-byte blocks, the index must be 32 − 18 − 5 = 9 bits, so there are 512 sets, and the associativity follows from the cache size.</p>
+<p>Two special cases fall out of the same identity. A direct-mapped cache is 1-way, so sets equal lines. A fully associative cache has one set, so the index is zero bits wide and the tag takes every non-offset bit. That fully associative form was asked in 2019, the last IIT Madras paper.</p>
+<h2 id="associativity-which-field-moves">Associativity: which field moves</h2>
+<p>Setters like to change one parameter and ask which field width changes. Hold the identity in mind and it is immediate.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Change, cache size fixed</th>
+<th>Offset</th>
+<th>Index</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Associativity doubles</td>
+<td>unchanged</td>
+<td>−1 bit</td>
+<td>+1 bit</td>
+</tr>
+<tr>
+<td>Block size doubles</td>
+<td>+1 bit</td>
+<td>−1 bit</td>
+<td>unchanged</td>
+</tr>
+<tr>
+<td>Cache size doubles, other things fixed</td>
+<td>unchanged</td>
+<td>+1 bit</td>
+<td>−1 bit</td>
+</tr>
+</tbody>
+</table></div>
+<p>The row worth memorising is the first one: doubling associativity halves the number of sets, so one bit moves from the index into the tag and the block offset is guaranteed untouched.</p>
+<h2 id="tag-directory-size">Tag directory size</h2>
+<p>The tag directory is the metadata, not the data. Count the bits stored per line, then multiply by the number of lines.</p>
+<p>Take the same cache: 2048 lines, 18-bit tag, write-back, with a valid bit, a dirty bit and 2 bits per line to maintain LRU order inside a 4-way set. Per line that is 18 + 1 + 1 + 2 = 22 bits, so the directory holds 2048 × 22 = 45,056 bits = 5632 bytes = 5.5 KB.</p>
+<p>Two cautions. Multiply by lines, not by sets. And the replacement-bit convention varies between questions: some state a fixed number of bits per line, others give bits per set. Use exactly what the question says and do not import a convention from a solved example.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="counting-hits-and-misses-on-a-trace">Counting hits and misses on a trace</h2>
+<p>Trace questions give a sequence of block addresses and ask for the miss count, the hit ratio, which block survives at the end, or how many misses are conflict misses. Map each block with block number mod number of sets, then apply the replacement policy inside the set.</p>
+<p>A small example. A 2-way set-associative cache with 4 lines total, so 2 sets, LRU replacement, initially empty. Block reference sequence 0, 1, 2, 0, 3, 4, 2, 0.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Set</th>
+<th>Result</th>
+<th>Set contents after (LRU first)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>miss</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>miss</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>miss</td>
+<td>0, 2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>hit</td>
+<td>2, 0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>miss</td>
+<td>1, 3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>miss, evict 2</td>
+<td>0, 4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>miss, evict 0</td>
+<td>4, 2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>miss, evict 4</td>
+<td>2, 0</td>
+</tr>
+</tbody>
+</table></div>
+<p>That is 7 misses and 1 hit, a hit ratio of 12.5 per cent. Classifying them: 5 blocks are touched, so 5 misses are compulsory. Running the same sequence on a fully associative 4-line LRU cache gives only those 5 misses, so the remaining 2 misses are conflict misses and none is a capacity miss. That comparison is the definition, and it is worth doing once by hand so the three categories stop blurring.</p>
+<h2 id="average-memory-access-time">Average memory access time</h2>
+<p>AMAT is the second pillar of the memory hierarchy questions, and GATE intends the hierarchical model: the lower level's time is added only when the level above misses.</p>
+<p>For two levels, AMAT = t1 + m1 × (t2 + m2 × t_mem), where m2 is the L2 local miss rate. Example: t1 = 1 ns, m1 = 5 per cent, t2 = 8 ns, L2 local miss rate 20 per cent, memory 100 ns.</p>
+<p>AMAT = 1 + 0.05 × (8 + 0.20 × 100) = 1 + 0.05 × 28 = 2.4 ns.</p>
+<p>The companion concept is the local versus global miss rate. L2's local miss rate is measured over the accesses that reach L2; its global miss rate is measured over all accesses, here 0.05 × 0.20 = 1 per cent. Questions that give misses per thousand instructions and accesses per instruction are asking you to convert between the two. The inverse form gives the AMAT and asks for a miss rate, or asks for the minimum hit rate that keeps AMAT unchanged after a design change.</p>
+<h2 id="the-traps-that-cost-marks">The traps that cost marks</h2>
+<ul>
+<li><strong>Sets, not lines.</strong> Index width comes from the set count. Forgetting to divide by the associativity is the most frequent error in this family.</li>
+<li><strong>Byte versus word addressing.</strong> If memory is word-addressable, the offset counts words, not bytes. Unit confusion is the classic wrong-answer generator in COA.</li>
+<li><strong>KB means 2^10.</strong> GATE uses powers of two for memory sizes unless a question states otherwise.</li>
+<li><strong>Block size in words.</strong> A block given as "8 words" with 4-byte words is 32 bytes, so the offset is 5 bits, not 3.</li>
+<li><strong>Fully associative caches have no index.</strong> The whole non-offset part is the tag.</li>
+<li><strong>Hierarchical versus parallel access.</strong> Adding the lower level's time on every access instead of only on a miss produces a plausible but wrong AMAT.</li>
+<li><strong>Miss penalty inclusive or not.</strong> "50 ns on a miss" is usually the total time, not an extra amount added to the hit time. Read the sentence, not the number.</li>
+<li><strong>LRU order updates on hits.</strong> A hit makes that line the most recently used, which changes the next eviction.</li>
+<li><strong>Tag directory counts lines.</strong> Valid, dirty and replacement bits are per line, and the dirty bit only exists for write-back.</li>
+</ul>
+<p>A wider list across every subject is in the guide to <a href="../gate-cse-common-mistakes/">common mistakes that cost marks</a>, and the core formulas sit in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="how-to-practise-cache-questions">How to practise cache questions</h2>
+<p>Do the five-step split from scratch on ten different parameter sets until it takes under a minute, including the inverse forms where the tag width is given. Then take one trace and run it twice, once on the given cache and once on a fully associative cache of the same size, so the miss classification becomes mechanical. Finish with AMAT in both directions: compute the time from the rates, then recover a rate from a stated time.</p>
+<p>Keep one page of conventions next to you while practising: addressability, block units, KB base, replacement bits, whether the miss penalty includes the hit time. Cache questions are not conceptually hard. They are won by candidates who read the conventions before touching the numbers, which is exactly the habit that the <a href="../gate-cse-most-repeated-topics/">most repeated topics analysis</a> shows pays off across the whole paper. The COA chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> extends these four templates into the full pattern list, with a question bank of worked solutions built on them.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How do you calculate tag, index and offset bits in a cache?</summary><p>Offset bits equal the base-two logarithm of the block size in bytes. Index bits equal the logarithm of the number of sets, where sets equal cache size divided by block size and associativity. Tag bits are whatever is left of the physical address. The three widths always add up to the full address width.</p></details><details><summary>Are cache questions asked every year in GATE CSE?</summary><p>Cache mapping arithmetic has appeared in essentially every paper from 2014 onward, by the analyst reconstruction this guide uses, often as a one-mark item and sometimes again as a two-mark item. That record makes it a high-priority topic for 2027, but no topic is guaranteed to appear in a given paper.</p></details><details><summary>What is the formula for average memory access time?</summary><p>For a hierarchical two-level cache, AMAT equals L1 hit time plus L1 miss rate times the sum of L2 hit time and L2 local miss rate times memory access time. GATE almost always intends this hierarchical model, in which the next level&#x27;s time is added only on a miss, not a parallel access model.</p></details><details><summary>How many bits does a cache tag directory need?</summary><p>Count the metadata bits stored per line, which is the tag width plus a valid bit, plus a dirty bit for a write-back cache, plus any replacement bits the question specifies. Multiply by the number of lines, not the number of sets. The replacement-bit convention varies, so use the one the question states.</p></details><details><summary>What is the difference between a conflict miss and a capacity miss?</summary><p>A conflict miss would have been a hit in a fully associative cache of the same total size with the same replacement policy. A capacity miss would still miss there, because the working set exceeds the cache. Compulsory misses are the first reference to each block. Checking against a fully associative run settles the classification.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-coa-important-topics/"><div class="c">Subjects</div><b>Computer Organization and Architecture for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-2027-coa-syllabus-changes/"><div class="c">Syllabus</div><b>GATE 2027 COA Syllabus Changes: Control Unit, Memory, Cache</b><span>7 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
