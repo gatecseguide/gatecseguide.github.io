@@ -44,7 +44,27 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 .nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
 .nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
 .nav .s{display:none}
-@media (max-width:430px){.nav .l{display:none}.nav .s{display:inline}.nav{gap:10px}.nav .btn.sm{padding-inline:11px}}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' be';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:58px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+.nav .btn.sm{padding-inline:11px}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
 padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
 .btn:hover{filter:brightness(1.06)}
