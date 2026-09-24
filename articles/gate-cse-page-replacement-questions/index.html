@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Replacement Questions in GATE CSE: FIFO, LRU, OPT</title>
+<meta name="description" content="How GATE CSE asks page replacement questions. FIFO, LRU and Optimal traces, page-fault counting, Belady anomaly, working sets and demand-paging time.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-page-replacement-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="Page Replacement Questions in GATE CSE: FIFO, LRU, OPT">
+<meta property="og:description" content="How GATE CSE asks page replacement questions. FIFO, LRU and Optimal traces, page-fault counting, Belady anomaly, working sets and demand-paging time.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-page-replacement-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-page-replacement-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-25"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page Replacement Questions in GATE CSE: FIFO, LRU, OPT">
+<meta name="twitter:description" content="How GATE CSE asks page replacement questions. FIFO, LRU and Optimal traces, page-fault counting, Belady anomaly, working sets and demand-paging time.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-page-replacement-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:58px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+.nav .btn.sm{padding-inline:11px}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Page Replacement Questions in GATE CSE: FIFO, LRU, Optimal", "description": "How GATE CSE asks page replacement questions. FIFO, LRU and Optimal traces, page-fault counting, Belady anomaly, working sets and demand-paging time.", "image": ["https://gateguide.co.in/articles/gate-cse-page-replacement-questions/og.png"], "datePublished": "2026-09-25", "dateModified": "2026-09-25", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/"}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-page-replacement-questions/", "inLanguage": "en-IN", "keywords": "page replacement questions gate, gate page fault counting, belady anomaly gate, lru fifo optimal gate cse, virtual memory questions gate 2027"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "Page Replacement Questions in GATE CSE: FIFO, LRU, Optimal", "item": "https://gateguide.co.in/articles/gate-cse-page-replacement-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you count page faults for a reference string?", "acceptedAnswer": {"@type": "Answer", "text": "Walk the string one reference at a time. If the page is already in a frame it is a hit, otherwise it is a fault and you load it, evicting a page if every frame is full. The first reference to each distinct page is always a fault, so the fault count can never be lower than the number of distinct pages."}}, {"@type": "Question", "name": "Which page replacement algorithm gives the fewest page faults?", "acceptedAnswer": {"@type": "Answer", "text": "Optimal, which evicts the page whose next use is furthest in the future. It is a lower bound that no implementable algorithm can beat, because it needs future knowledge. LRU usually comes close, but it is not guaranteed to beat FIFO on every reference string, and on some strings the two tie or FIFO wins."}}, {"@type": "Question", "name": "What is Belady's anomaly and which algorithms suffer from it?", "acceptedAnswer": {"@type": "Answer", "text": "Belady's anomaly is the effect where giving an algorithm more frames produces more page faults. FIFO can suffer from it; the standard demonstration string gives nine faults with three frames and ten with four. LRU and Optimal are stack algorithms and never suffer from it, because their contents with n frames always include their contents with fewer frames."}}, {"@type": "Question", "name": "How is effective access time calculated in demand paging?", "acceptedAnswer": {"@type": "Answer", "text": "Effective access time equals one minus the page-fault rate times the memory access time, plus the page-fault rate times the fault service time. The usual slip is the unit mismatch: service times are given in milliseconds and memory times in nanoseconds, so convert before adding. A tiny fault rate still dominates the average."}}, {"@type": "Question", "name": "Are page replacement questions asked every year in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Page-replacement traces are placed in most papers in the reconstruction this guide uses, including recent years, and analysts reported a page-replacement item in 2026. Along with scheduling, synchronization and paging arithmetic it is one of the four topics present in nearly every Operating System block. No topic is guaranteed for 2027."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><details class="brmenu"><summary>Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../books/"><b>GATE DA</b><span>Coming soon</span></a><a href="../../books/"><b>GATE EE</b><span>Coming soon</span></a><a href="../../books/"><b>GATE ME</b><span>Coming soon</span></a><a href="../../books/"><b>GATE CE</b><span>Coming soon</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Page Replacement Questions in GATE CSE: FIFO, LRU, Optimal</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 25 Sep 2026</span><span>7 min read</span></div>
+<p class="lead">Page replacement questions in GATE CSE almost always take the same shape: a reference string of ten to fourteen pages, three or four frames, one algorithm named, and a page-fault count as the answer. Around that core sit three companions: Belady's anomaly, the working-set model and demand-paging access time. This guide works the trace by hand, shows the anomaly with a verified example, and lists the conventions that decide close answers.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-these-questions-sit-in-the-paper">Where these questions sit in the paper</a></li><li><a href="#running-a-trace-by-hand">Running a trace by hand</a></li><li><a href="#beladys-anomaly">Belady&#x27;s anomaly</a></li><li><a href="#working-sets-and-thrashing">Working sets and thrashing</a></li><li><a href="#demand-paging-access-time">Demand-paging access time</a></li><li><a href="#the-conventions-and-traps-that-decide-answers">The conventions and traps that decide answers</a></li><li><a href="#how-to-practise">How to practise</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The standard question is a fault count. Frames start empty, so the first touch of each distinct page is always a fault.</li>
+<li>Optimal is a lower bound, not an implementable policy. LRU is not guaranteed to beat FIFO on a given string.</li>
+<li>Belady's anomaly is possible for FIFO and impossible for LRU and Optimal, which are stack algorithms.</li>
+<li>Demand-paging access time is dominated by the fault term. Convert milliseconds to nanoseconds before adding.</li>
+<li>The working set at a moment is the set of distinct pages in the last window of references, and its size drives the frame allocation.</li>
+</ul>
+<h2 id="where-these-questions-sit-in-the-paper">Where these questions sit in the paper</h2>
+<p>Third-party analyst compilations put Operating System at 5 to 16 marks per paper across 2009 to 2026, typically 6 to 10 marks in the 100-mark era, which is roughly four to six questions. The overall average across that series is about 8.8 marks; the 2009 to 2017 average is about 9.3 and the 2018 to 2026 average about 8.3. These figures are unofficial and analysts differ by two to three marks on borderline questions. In 2026 Shift 1, one analyst counted two one-mark and two two-mark Operating System questions, and the reported topics across the two shifts included page replacement, multi-level paging with a TLB, multilevel-queue scheduling, semaphores, Banker's algorithm and inode-based file access.</p>
+<p>Page replacement belongs to the group of four topics that the analysis finds in nearly every paper, alongside scheduling calculations, synchronization code analysis and paging arithmetic. The full subject ranking is in the <a href="../gate-cse-operating-system-important-topics/">Operating Systems important topics guide</a>.</p>
+<h2 id="running-a-trace-by-hand">Running a trace by hand</h2>
+<p>Take the reference string 4, 7, 6, 1, 7, 6, 1, 2, 7, 2 with three frames, all initially empty. The table below runs all three algorithms on it.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>FIFO</th>
+<th>LRU</th>
+<th>Optimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>fault</td>
+<td>fault</td>
+<td>fault</td>
+</tr>
+<tr>
+<td>7</td>
+<td>fault</td>
+<td>fault</td>
+<td>fault</td>
+</tr>
+<tr>
+<td>6</td>
+<td>fault</td>
+<td>fault</td>
+<td>fault</td>
+</tr>
+<tr>
+<td>1</td>
+<td>fault, evict 4</td>
+<td>fault, evict 4</td>
+<td>fault, evict 4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>hit</td>
+<td>hit</td>
+<td>hit</td>
+</tr>
+<tr>
+<td>6</td>
+<td>hit</td>
+<td>hit</td>
+<td>hit</td>
+</tr>
+<tr>
+<td>1</td>
+<td>hit</td>
+<td>hit</td>
+<td>hit</td>
+</tr>
+<tr>
+<td>2</td>
+<td>fault, evict 7</td>
+<td>fault, evict 7</td>
+<td>fault, evict 6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>fault, evict 6</td>
+<td>fault, evict 6</td>
+<td>hit</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hit</td>
+<td>hit</td>
+<td>hit</td>
+</tr>
+<tr>
+<td><strong>Faults</strong></td>
+<td><strong>6</strong></td>
+<td><strong>6</strong></td>
+<td><strong>5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Three things are worth taking away. First, FIFO and LRU tie here at six faults; LRU is often better but is not guaranteed to be. Second, Optimal beats both because at the eighth reference it looks forward and sees that page 7 is needed again while 6 and 1 are not. Third, five of the faults are unavoidable: five distinct pages are touched, so no algorithm can do better than five on this string.</p>
+<p>The mechanical differences between the policies are small but decisive. FIFO evicts by load order and a hit changes nothing. LRU evicts by last-use order and every hit refreshes that page's position. Optimal evicts the page whose next reference is furthest ahead, and a page never referenced again is the first to go.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="beladys-anomaly">Belady's anomaly</h2>
+<p>More frames should mean fewer faults. For FIFO, that is not always true. On the standard demonstration string 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5, FIFO takes 9 faults with three frames and 10 faults with four frames. Both counts are worth verifying on paper once, because the reason is instructive: with four frames the pages 1 and 2 stay long enough to become the oldest entries just before they are needed again.</p>
+<p>LRU and Optimal cannot behave this way. They are stack algorithms: the set of pages held with n frames is always a superset of the set held with n − 1 frames, so adding a frame can only convert faults into hits. That property is the reason the classification matters, and it has been examined both as a stand-alone statement and, more recently, as one option inside a multiple-select question.</p>
+<h2 id="working-sets-and-thrashing">Working sets and thrashing</h2>
+<p>The working set at time t with window Δ is the set of distinct pages among the last Δ references. On the string above with Δ = 4, the working set at the seventh reference covers references four to seven, that is 1, 7, 6, 1, giving the set {1, 6, 7} of size 3. At the tenth reference the window covers 1, 2, 7, 2, giving {1, 2, 7}, again size 3.</p>
+<p>The model is used in two ways in questions. Either you are asked for the working-set size at a given instant, which is a counting exercise, or you are asked what happens when the sum of the working sets exceeds the available frames. The answer to the second is thrashing: paging activity rises, CPU utilisation falls, and the remedy is to reduce the degree of multiprogramming, not to increase it. That last point is a standard one-mark trap.</p>
+<h2 id="demand-paging-access-time">Demand-paging access time</h2>
+<p>The formula is short: effective access time = (1 − p) × memory access time + p × page-fault service time, where p is the page-fault rate.</p>
+<p>Example: memory access time 100 ns, page-fault rate 0.001, fault service time 5 ms.</p>
+<ul>
+<li>5 ms = 5,000,000 ns.</li>
+<li>Effective access time = 0.999 × 100 + 0.001 × 5,000,000 = 99.9 + 5000 = 5099.9 ns, about 5.1 µs.</li>
+</ul>
+<p>One fault per thousand accesses makes the average fifty times worse than memory. The inverse form asks for the largest fault rate that keeps the effective time within a target. For a 200 ns target here, 100 + p × 4,999,900 ≤ 200 gives p ≤ about 2 × 10⁻⁵, which is one fault in fifty thousand accesses. When a question splits the service time by whether the victim page is dirty, take the weighted average of the two service times first, then substitute.</p>
+<h2 id="the-conventions-and-traps-that-decide-answers">The conventions and traps that decide answers</h2>
+<ul>
+<li><strong>Count the compulsory misses.</strong> Frames start empty unless stated otherwise, so distinct pages set the floor.</li>
+<li><strong>LRU updates on hits.</strong> Forgetting this changes which page is evicted a few steps later.</li>
+<li><strong>Optimal ties.</strong> When two candidate pages are never referenced again, either choice gives the same fault count; state the tie rule you used.</li>
+<li><strong>Belady never applies to LRU or Optimal.</strong> Answering that it might is a common multiple-select slip.</li>
+<li><strong>Units.</strong> Service times come in milliseconds, memory times in nanoseconds. Convert first.</li>
+<li><strong>Dirty pages.</strong> A weighted service time applies when the question gives separate times for clean and dirty victims.</li>
+<li><strong>Thrashing remedy.</strong> Reduce the degree of multiprogramming.</li>
+<li><strong>Read the algorithm name.</strong> Second-chance and clock are FIFO variants with a reference bit, not LRU.</li>
+</ul>
+<p>A wider list of the same kind is in <a href="../gate-cse-common-mistakes/">common mistakes that cost marks in GATE CSE</a>, and the formulas here also appear in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="how-to-practise">How to practise</h2>
+<p>Take any ten-page reference string and run it three times, once for each algorithm, on the same sheet. Compare the fault counts, then repeat with one more frame to see whether anything moves in the wrong direction. Ten minutes of that does more than reading the definitions again.</p>
+<p>Then drill the access-time formula in both directions until the unit conversion is automatic, because that is where most of the lost marks in this topic actually go. Page replacement is one of the highest-frequency Operating System templates in the <a href="../gate-cse-most-repeated-topics/">most repeated topics analysis</a>, and the Operating System chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> works the full set of variants with solutions, including the frames-versus-faults and minimum-frames forms.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How do you count page faults for a reference string?</summary><p>Walk the string one reference at a time. If the page is already in a frame it is a hit, otherwise it is a fault and you load it, evicting a page if every frame is full. The first reference to each distinct page is always a fault, so the fault count can never be lower than the number of distinct pages.</p></details><details><summary>Which page replacement algorithm gives the fewest page faults?</summary><p>Optimal, which evicts the page whose next use is furthest in the future. It is a lower bound that no implementable algorithm can beat, because it needs future knowledge. LRU usually comes close, but it is not guaranteed to beat FIFO on every reference string, and on some strings the two tie or FIFO wins.</p></details><details><summary>What is Belady&#x27;s anomaly and which algorithms suffer from it?</summary><p>Belady&#x27;s anomaly is the effect where giving an algorithm more frames produces more page faults. FIFO can suffer from it; the standard demonstration string gives nine faults with three frames and ten with four. LRU and Optimal are stack algorithms and never suffer from it, because their contents with n frames always include their contents with fewer frames.</p></details><details><summary>How is effective access time calculated in demand paging?</summary><p>Effective access time equals one minus the page-fault rate times the memory access time, plus the page-fault rate times the fault service time. The usual slip is the unit mismatch: service times are given in milliseconds and memory times in nanoseconds, so convert before adding. A tiny fault rate still dominates the average.</p></details><details><summary>Are page replacement questions asked every year in GATE CSE?</summary><p>Page-replacement traces are placed in most papers in the reconstruction this guide uses, including recent years, and analysts reported a page-replacement item in 2026. Along with scheduling, synchronization and paging arithmetic it is one of the four topics present in nearly every Operating System block. No topic is guaranteed for 2027.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-operating-system-important-topics/"><div class="c">Subjects</div><b>Operating Systems for GATE CSE 2027: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
