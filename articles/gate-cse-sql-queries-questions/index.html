@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL Questions in GATE CSE: Row Counts and NULLs</title>
+<meta name="description" content="How GATE CSE asks SQL query questions. Counting rows on a printed instance, NULL behaviour, GROUP BY and HAVING, NOT IN versus NOT EXISTS and joins.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-sql-queries-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="SQL Questions in GATE CSE: Row Counts and NULLs">
+<meta property="og:description" content="How GATE CSE asks SQL query questions. Counting rows on a printed instance, NULL behaviour, GROUP BY and HAVING, NOT IN versus NOT EXISTS and joins.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-sql-queries-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-sql-queries-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-26"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SQL Questions in GATE CSE: Row Counts and NULLs">
+<meta name="twitter:description" content="How GATE CSE asks SQL query questions. Counting rows on a printed instance, NULL behaviour, GROUP BY and HAVING, NOT IN versus NOT EXISTS and joins.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-sql-queries-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:58px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+.nav .btn.sm{padding-inline:11px}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SQL Query Questions in GATE CSE: Patterns and Traps", "description": "How GATE CSE asks SQL query questions. Counting rows on a printed instance, NULL behaviour, GROUP BY and HAVING, NOT IN versus NOT EXISTS and joins.", "image": ["https://gateguide.co.in/articles/gate-cse-sql-queries-questions/og.png"], "datePublished": "2026-09-26", "dateModified": "2026-09-26", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-sql-queries-questions/", "inLanguage": "en-IN", "keywords": "sql questions for gate cse, gate sql row count questions, not in vs not exists gate, null semantics sql gate, dbms sql questions gate 2027"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "SQL Query Questions in GATE CSE: Patterns and Traps", "item": "https://gateguide.co.in/articles/gate-cse-sql-queries-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you count the rows returned by a SQL query in an exam?", "acceptedAnswer": {"@type": "Answer", "text": "Evaluate the clauses in their real order: FROM, then WHERE, then GROUP BY, then HAVING, then SELECT, then ORDER BY. Work row by row on the printed instance and write the surviving rows down. Never reason from what the query looks like it means, because the traps are built exactly on that gap."}}, {"@type": "Question", "name": "Why does NOT IN return no rows when the subquery contains a NULL?", "acceptedAnswer": {"@type": "Answer", "text": "A row qualifies for NOT IN only if it differs from every value in the subquery. Comparing anything with NULL gives UNKNOWN, not TRUE, so the condition can never be TRUE for any row and the query returns nothing. Rewriting it with NOT EXISTS gives a different and usually intended answer."}}, {"@type": "Question", "name": "What is the difference between COUNT(*) and COUNT(column)?", "acceptedAnswer": {"@type": "Answer", "text": "COUNT(*) counts rows, including rows where every column is NULL. COUNT(column) counts only the rows where that column is not NULL, and COUNT(DISTINCT column) counts distinct non-NULL values. SUM, AVG, MIN and MAX also ignore NULLs, so an average is taken over the non-NULL rows only."}}, {"@type": "Question", "name": "Does GROUP BY create a separate group for NULL?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All rows whose grouping column is NULL form one single group, because GROUP BY treats NULLs as equal to each other even though the equality comparison does not. That is why a question can print a table with two NULL departments and still expect three groups rather than four."}}, {"@type": "Question", "name": "Are SQL questions asked every year in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "SQL query semantics on a printed instance is placed in essentially every paper since 2010 in the reconstruction this guide uses, and analysts listed SQL among the 2026 topics. It is usually a numerical-answer row count worth two marks. That record makes it a high-priority topic for 2027 without guaranteeing any particular question."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><details class="brmenu"><summary>Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../books/"><b>GATE DA</b><span>Coming soon</span></a><a href="../../books/"><b>GATE EE</b><span>Coming soon</span></a><a href="../../books/"><b>GATE ME</b><span>Coming soon</span></a><a href="../../books/"><b>GATE CE</b><span>Coming soon</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>SQL Query Questions in GATE CSE: Patterns and Traps</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 26 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">SQL questions in GATE CSE are almost always the same exercise: a small table is printed, a query is applied to it, and you count the rows in the result. The difficulty is never the syntax. It is that the intended meaning of a query and its actual evaluation diverge, usually because of a NULL, an empty subquery or a duplicate. This guide works the traps on one tiny instance you can carry in your head.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-sql-sits-in-the-paper">Where SQL sits in the paper</a></li><li><a href="#one-instance-to-reason-on">One instance to reason on</a></li><li><a href="#bag-semantics-and-duplicates">Bag semantics and duplicates</a></li><li><a href="#null-and-three-valued-logic">NULL and three-valued logic</a></li><li><a href="#aggregates-group-by-and-having">Aggregates, GROUP BY and HAVING</a></li><li><a href="#not-in-versus-not-exists">NOT IN versus NOT EXISTS</a></li><li><a href="#all-and-any-over-an-empty-subquery">ALL and ANY over an empty subquery</a></li><li><a href="#joins-and-row-counts">Joins and row counts</a></li><li><a href="#the-traps-in-one-list">The traps in one list</a></li><li><a href="#how-to-practise">How to practise</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The answer is produced by evaluation, not by intent. Work row by row on the printed instance.</li>
+<li>Clause order is FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY. HAVING filters groups, WHERE filters rows.</li>
+<li>Any comparison involving NULL is UNKNOWN, and WHERE keeps only rows that are TRUE.</li>
+<li>NOT IN with a NULL anywhere in the subquery returns nothing. NOT EXISTS does not behave that way.</li>
+<li>A comparison with ALL over an empty subquery is true for every row; with ANY it is false for every row.</li>
+</ul>
+<h2 id="where-sql-sits-in-the-paper">Where SQL sits in the paper</h2>
+<p>Third-party analyst compilations place Databases at 3 to 11 marks per paper from 2009 to 2026, and at 7 to 8 marks in most papers from 2019 onward, which is four to five questions. The overall average is about 6.9 marks with a median of 7. These figures are unofficial and borderline questions are classified differently by different analysts. For 2026 Shift 1 one analyst counted three one-mark and two two-mark Databases questions and listed the topics as SQL, normalization and transactions.</p>
+<p>Within the subject, SQL row counting is the highest-frequency item: the reconstruction places it in essentially every paper since 2010, usually as a two-mark numerical answer. The full subject ranking, including serializability, normal forms and B+ trees, is in the <a href="../gate-cse-dbms-important-topics/">DBMS important topics guide</a>.</p>
+<h2 id="one-instance-to-reason-on">One instance to reason on</h2>
+<p>Every example below uses these two tables. The NULLs are deliberate, because that is where the questions live.</p>
+<pre><code>emp(eid, name, dept, salary)          work(pid, eid)
+ 1  Asha    CS    60                   101  1
+ 2  Bimal   CS    45                   101  2
+ 3  Chitra  EE    NULL                  102  1
+ 4  Dev     NULL  55                    102  3
+ 5  Esha    EE    45                    103  4
+ 6  Farid   NULL  NULL
+</code></pre>
+<h2 id="bag-semantics-and-duplicates">Bag semantics and duplicates</h2>
+<p>SQL works on multisets. <code>SELECT salary FROM emp</code> returns six rows including repeats, while <code>SELECT DISTINCT salary FROM emp</code> returns four: 60, 45, 55 and one NULL. DISTINCT keeps a single NULL row, which is a different rule from the one used by COUNT. A row-count question that omits DISTINCT is usually testing exactly this.</p>
+<h2 id="null-and-three-valued-logic">NULL and three-valued logic</h2>
+<p><code>WHERE salary = 45</code> returns 2 rows and <code>WHERE salary &lt;&gt; 45</code> also returns 2 rows. Together that is 4, not 6, because the two rows with a NULL salary satisfy neither condition: the comparison evaluates to UNKNOWN and WHERE keeps only TRUE. The only way to reach those rows is <code>IS NULL</code>.</p>
+<p>This one fact generates most of the SQL traps in the paper. Whenever you see a column that contains a NULL in the printed instance, check every predicate that touches it before counting anything.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="aggregates-group-by-and-having">Aggregates, GROUP BY and HAVING</h2>
+<p>On the same table:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Result</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COUNT(*)</code></td>
+<td>6</td>
+<td>counts rows</td>
+</tr>
+<tr>
+<td><code>COUNT(salary)</code></td>
+<td>4</td>
+<td>ignores the two NULLs</td>
+</tr>
+<tr>
+<td><code>COUNT(DISTINCT salary)</code></td>
+<td>3</td>
+<td>60, 45, 55; NULL is not counted</td>
+</tr>
+<tr>
+<td><code>SUM(salary)</code></td>
+<td>205</td>
+<td>NULLs ignored</td>
+</tr>
+<tr>
+<td><code>AVG(salary)</code></td>
+<td>51.25</td>
+<td>205 divided by 4, not by 6</td>
+</tr>
+</tbody>
+</table></div>
+<p>Grouping by a nullable column produces three groups here, not four: CS, EE and one group holding both NULL departments. GROUP BY treats NULLs as belonging together even though <code>NULL = NULL</code> is UNKNOWN, and that asymmetry is a favourite one-mark item.</p>
+<p>Now add HAVING. <code>SELECT dept FROM emp GROUP BY dept HAVING COUNT(salary) = 1</code> returns two groups: the EE group, whose two rows carry one non-NULL salary, and the NULL-department group, which is the same shape. The CS group has two non-NULL salaries and is filtered out. Had the condition been <code>COUNT(*) = 1</code>, the answer would have been zero groups, since every group has two rows.</p>
+<p>One more distinction worth rehearsing. A subquery computing an average can be correlated or not. <code>WHERE salary &gt; (SELECT AVG(salary) FROM emp)</code> compares each row against 51.25 and returns Asha and Dev. The correlated version, comparing each row against the average of its own department, returns only Asha: the CS average is 52.5 and Asha's 60 clears it, Esha's 45 does not clear the EE average of 45, and Dev's department is NULL so the correlated subquery matches no rows, returns NULL, and the comparison is UNKNOWN.</p>
+<h2 id="not-in-versus-not-exists">NOT IN versus NOT EXISTS</h2>
+<p>These two are often described as interchangeable. On real data with NULLs they are not.</p>
+<pre><code>SELECT * FROM emp e
+WHERE e.salary NOT IN (SELECT salary FROM emp WHERE dept = 'EE');
+</code></pre>
+<p>The subquery returns NULL and 45. For any row, <code>NOT IN</code> needs the salary to differ from every value in that list, and the comparison against NULL is UNKNOWN, so no row is ever TRUE. The query returns <strong>0 rows</strong>, even for Asha, whose salary of 60 is obviously not 45.</p>
+<p>The NOT EXISTS form asks a different question and answers it sensibly:</p>
+<pre><code>SELECT * FROM emp e
+WHERE NOT EXISTS (SELECT 1 FROM emp f
+                  WHERE f.dept = 'EE' AND f.salary = e.salary);
+</code></pre>
+<p>This returns <strong>4 rows</strong>: Asha, Chitra, Dev and Farid. NOT EXISTS is about whether a matching row can be found, and an unmatched NULL simply fails to match rather than poisoning the whole condition.</p>
+<p>The same construction handles division queries, which ask for rows related to every member of a set. Doubly nested NOT EXISTS is the standard translation, and on this instance "employees who work on every project that employee 3 works on" returns Asha and Chitra.</p>
+<h2 id="all-and-any-over-an-empty-subquery">ALL and ANY over an empty subquery</h2>
+<p>Suppose no employee is in department ME, so <code>SELECT salary FROM emp WHERE dept = 'ME'</code> is empty. Then:</p>
+<ul>
+<li><code>salary &gt; ALL (...)</code> is TRUE for every one of the 6 rows, because there is no counterexample. Vacuous truth.</li>
+<li><code>salary &gt; ANY (...)</code> is FALSE for every row, so 0 rows come back.</li>
+<li><code>salary &gt; (SELECT MAX(salary) FROM emp WHERE dept = 'ME')</code> also returns 0 rows, because MAX over an empty set is NULL and the comparison becomes UNKNOWN.</li>
+</ul>
+<p>Those three lines look like the same query and give 6, 0 and 0. This device has been used more than once in past papers, and it is worth practising until the emptiness of the inner result is the first thing you check.</p>
+<h2 id="joins-and-row-counts">Joins and row counts</h2>
+<p>On the instance above, the inner join of emp and work on eid gives <strong>5 rows</strong>, one per assignment. The left outer join gives <strong>7 rows</strong>: employee 1 contributes two rows because she has two assignments, employees 2, 3 and 4 contribute one each, and employees 5 and 6 contribute one padded row each with NULLs on the work side.</p>
+<p>The general bounds are worth knowing. For a natural join without constraints the maximum is the product of the two cardinalities and the minimum is zero. If the join column is a foreign key with no NULLs, the count is exactly the size of the referencing relation. For a full outer join the minimum is the larger of the two cardinalities.</p>
+<h2 id="the-traps-in-one-list">The traps in one list</h2>
+<ul>
+<li><code>NOT IN</code> with any NULL in the subquery returns nothing.</li>
+<li><code>&lt;&gt;</code> does not reach NULL rows; only <code>IS NULL</code> does.</li>
+<li><code>COUNT(*)</code> counts rows, <code>COUNT(col)</code> skips NULLs, and DISTINCT keeps one NULL row while COUNT DISTINCT ignores it.</li>
+<li>All rows with a NULL grouping key form one group.</li>
+<li><code>&gt; ALL</code> over an empty subquery is true; <code>&gt; ANY</code> and <code>&gt; (SELECT MAX ...)</code> are not.</li>
+<li>Missing DISTINCT leaves duplicates in the result, and the answer is a row count, not a value count.</li>
+<li>HAVING filters groups after aggregation; WHERE filters rows before it.</li>
+<li>A correlated subquery is recomputed per row; an uncorrelated one is computed once.</li>
+</ul>
+<p>The cross-subject version of this list is in <a href="../gate-cse-common-mistakes/">common mistakes that cost marks in GATE CSE</a>, and the short formulas for join bounds and key counting are in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="how-to-practise">How to practise</h2>
+<p>Write out one six-row table with two nullable columns and keep reusing it. Run each device against it on paper: the NOT IN and NOT EXISTS pair, the COUNT variants, the group with a NULL key, the empty-subquery comparison. If a database client is available, type the queries and compare your hand answer with the engine's; a mismatch is more instructive than any explanation.</p>
+<p>Then practise reading a query bottom-up, innermost subquery first, and writing the surviving rows in a column. That single habit converts a two-mark trap into a two-mark gift. The method for deciding which topics deserve that drilling is covered in the guide to <a href="../gate-cse-important-questions-2027/">what the evidence says about important questions</a>, and the Databases chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> works a full bank of these instance-driven queries with step-by-step solutions.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How do you count the rows returned by a SQL query in an exam?</summary><p>Evaluate the clauses in their real order: FROM, then WHERE, then GROUP BY, then HAVING, then SELECT, then ORDER BY. Work row by row on the printed instance and write the surviving rows down. Never reason from what the query looks like it means, because the traps are built exactly on that gap.</p></details><details><summary>Why does NOT IN return no rows when the subquery contains a NULL?</summary><p>A row qualifies for NOT IN only if it differs from every value in the subquery. Comparing anything with NULL gives UNKNOWN, not TRUE, so the condition can never be TRUE for any row and the query returns nothing. Rewriting it with NOT EXISTS gives a different and usually intended answer.</p></details><details><summary>What is the difference between COUNT(*) and COUNT(column)?</summary><p>COUNT(*) counts rows, including rows where every column is NULL. COUNT(column) counts only the rows where that column is not NULL, and COUNT(DISTINCT column) counts distinct non-NULL values. SUM, AVG, MIN and MAX also ignore NULLs, so an average is taken over the non-NULL rows only.</p></details><details><summary>Does GROUP BY create a separate group for NULL?</summary><p>Yes. All rows whose grouping column is NULL form one single group, because GROUP BY treats NULLs as equal to each other even though the equality comparison does not. That is why a question can print a table with two NULL departments and still expect three groups rather than four.</p></details><details><summary>Are SQL questions asked every year in GATE CSE?</summary><p>SQL query semantics on a printed instance is placed in essentially every paper since 2010 in the reconstruction this guide uses, and analysts listed SQL among the 2026 topics. It is usually a numerical-answer row count worth two marks. That record makes it a high-priority topic for 2027 without guaranteeing any particular question.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-dbms-important-topics/"><div class="c">Subjects</div><b>DBMS for GATE CSE 2027: Important Topics and Patterns</b><span>8 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-important-questions-2027/"><div class="c">Analysis</div><b>Important Questions for GATE CSE 2027: What the Evidence Says</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
