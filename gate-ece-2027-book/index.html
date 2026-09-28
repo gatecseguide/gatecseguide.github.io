@@ -140,22 +140,23 @@ footer a{color:var(--ink-2)}
 .facts{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 0}
 .facts span{font:500 .8rem "IBM Plex Mono",monospace;border:1px solid var(--line);border-radius:99px;padding:5px 11px;color:var(--ink-2)}
 
-/* The book cover. render_book_cover.py screenshots this object, so edits here change the book. */
+/* The book cover. render_book_cover.py screenshots this object, so edits here change the book.
+   Deep purple, so the three covers are told apart at a glance: CSE navy, CE green, ECE purple. */
 .book{position:relative;aspect-ratio:1400/1982;width:100%;border-radius:4px 9px 9px 4px;color:#fff;
-  overflow:hidden;background:linear-gradient(152deg,#16305a 0%,#0f2144 46%,#1c3d6e 100%);
+  overflow:hidden;background:linear-gradient(152deg,#2e1a55 0%,#1f1040 46%,#40246e 100%);
   box-shadow:0 2px 3px rgba(16,32,58,.3),0 26px 52px -22px rgba(16,32,58,.75);
   padding:26px 22px 22px 30px;display:flex;flex-direction:column}
 .book::before{content:"";position:absolute;inset:0 auto 0 0;width:13px;
   background:linear-gradient(90deg,rgba(0,0,0,.42),rgba(255,255,255,.12) 62%,rgba(0,0,0,.18))}
-.book .bk-eye{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.17em;text-transform:uppercase;color:#8fb4ee}
+.book .bk-eye{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.17em;text-transform:uppercase;color:#c3a9f0}
 .book .bk-title{font-family:Fraunces,serif;font-weight:700;font-size:2.05rem;line-height:1.03;margin-top:10px;letter-spacing:-.02em}
 .book .bk-rule{height:2px;background:var(--hot);width:52px;margin:15px 0 0}
-.book .bk-sub{font-size:.83rem;color:#c2d6f5;margin-top:11px;line-height:1.45}
+.book .bk-sub{font-size:.83rem;color:#dccff6;margin-top:11px;line-height:1.45}
 .book .bk-spark{margin-top:auto;display:flex;align-items:flex-end;gap:5px;height:56px}
-.book .bk-spark i{flex:1;background:rgba(143,180,238,.5);border-radius:1px}
+.book .bk-spark i{flex:1;background:rgba(195,169,240,.5);border-radius:1px}
 .book .bk-spark i.on{background:var(--hot)}
-.book .bk-scale{font-family:"IBM Plex Mono",monospace;font-size:.56rem;letter-spacing:.06em;color:#8fb4ee;margin-top:7px}
-.book .bk-auth{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;color:#dce8fa;margin-top:14px}
+.book .bk-scale{font-family:"IBM Plex Mono",monospace;font-size:.56rem;letter-spacing:.06em;color:#c3a9f0;margin-top:7px}
+.book .bk-auth{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;color:#eee6fb;margin-top:14px}
 
 .band{border-top:1px solid var(--line);padding-block:44px}
 .band h2{font-family:Fraunces,Georgia,serif;font-size:1.72rem;margin:0 0 14px;line-height:1.16}

@@ -170,8 +170,29 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
       + '<a class="btn ghost" href="/preview/">See the free previews</a></div>');
   }
 
+  // Razorpay adds ?razorpay_payment_id= when it sends a buyer here, but not always: after a UPI QR
+  // payment on 28 Sep 2026 it redirected with no id at all, and the page could only offer WhatsApp.
+  // The id is on the Razorpay receipt (email and SMS), so the buyer can paste it here instead.
   if (!pid) {
-    askForHelp("This page hands over the book after a payment. Open it from the link you were sent after paying, or message on WhatsApp and you will get the file.");
+    lead.textContent = "Enter your payment id to download the book. It starts with pay_ and is in the "
+      + "Razorpay receipt sent to your email and phone.";
+    show('<form class="dl" id="pidform" autocomplete="off">'
+      + '<input id="pidin" name="pid" placeholder="pay_XXXXXXXXXXXXXX" aria-label="Payment id" required '
+      + 'style="width:100%;max-width:420px;padding:12px 14px;font:500 1rem \'IBM Plex Mono\',monospace;'
+      + 'border:1px solid var(--line-2);border-radius:8px">'
+      + '<button class="btn big" type="submit">Get my book</button>'
+      + '<p class="pid" id="piderr"></p>'
+      + '<p class="pid">No receipt? <a href="https://wa.me/917033935778?text=Hi%2C%20I%20paid%20for%20a%20GATE%202027%20book%20and%20need%20help%20with%20the%20download.%20My%20payment%20id%20is%3A%20" target="_blank" rel="noopener">Message on WhatsApp</a> '
+      + 'and you will get the file.</p></form>');
+    document.getElementById("pidform").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = document.getElementById("pidin").value.trim();
+      if (!/^pay_[A-Za-z0-9]{6,}$/.test(v)) {
+        document.getElementById("piderr").textContent = "That does not look like a payment id - it starts with pay_.";
+        return;
+      }
+      location.search = "?pid=" + encodeURIComponent(v);
+    });
     return;
   }
 
