@@ -233,6 +233,14 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
         show('<div class="dl"><a class="btn big" href="' + location.href + '">Try again</a>'
           + '<p class="pid">Payment id ' + pid + '</p></div>');
         setTimeout(function () { location.reload(); }, 5000);
+      } else if (res.j && res.j.error === "book not identified") {
+        // Paid, but the Worker could not tell which book: it refuses to guess rather than hand over
+        // the wrong one. The payment id goes into the WhatsApp message so the reply can be immediate.
+        lead.textContent = "Your payment is confirmed, but we could not tell automatically which book it was for. "
+          + "Send the message below on WhatsApp and you will get the right book.";
+        show('<div class="dl"><a class="btn big" href="https://wa.me/917033935778?text=Hi%2C%20I%20paid%20for%20a%20GATE%202027%20book%20and%20need%20help%20with%20the%20download.%20My%20payment%20id%20is%3A%20' + encodeURIComponent(pid)
+          + '" target="_blank" rel="noopener">Get my book on WhatsApp</a>'
+          + '<p class="pid">Payment id ' + pid + '</p></div>');
       } else {
         askForHelp("We could not confirm this payment automatically.");
       }
