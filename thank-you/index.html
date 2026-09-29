@@ -134,7 +134,7 @@ ol{padding-left:20px} ol li{margin:8px 0;color:var(--ink-2)}
   <ol>
     <li>The file is about 30 MB. Use Wi-Fi if you can; on a slow connection it takes a few minutes.</li>
     <li>On a phone the PDF lands in your Downloads folder. Open it in Adobe Acrobat or the Google Drive PDF viewer to use the clickable contents and bookmarks.</li>
-    <li>Your link works for 30 days and up to 8 downloads, so you can save it on both your phone and your laptop.</li>
+    <li>Each purchase downloads <strong>once</strong>. Save the PDF on your device as soon as it downloads. Need it again? <a href="https://wa.me/917033935778?text=Hi%2C%20I%20paid%20for%20a%20GATE%202027%20book%20and%20need%20help%20with%20the%20download.%20My%20payment%20id%20is%3A%20" target="_blank" rel="noopener">Message on WhatsApp</a> with your payment id.</li>
     <li>Still stuck? <a href="https://wa.me/917033935778?text=Hi%2C%20I%20paid%20for%20a%20GATE%202027%20book%20and%20need%20help%20with%20the%20download.%20My%20payment%20id%20is%3A%20" target="_blank" rel="noopener">Message on WhatsApp</a> with your payment id and you will get the file directly.</li>
   </ol>
 </div>
@@ -205,7 +205,17 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
         // truth for either book without being rebuilt when a new one is added.
         var title = res.j.title || "the book";
         var size = res.j.mb ? " (PDF, " + res.j.mb + " MB)" : " (PDF)";
-        lead.textContent = "Tap the button to download your " + title + " PDF. Save it before you close this page.";
+        // Each purchase downloads once. After that the page hands over to WhatsApp, with the payment id
+        // already in the message, instead of showing a button that would only return an error.
+        if (!(res.j.left > 0)) {
+          lead.textContent = "Your " + title + " PDF has already been downloaded once for this payment. "
+            + "Need it again? Message on WhatsApp and you will get the file.";
+          show('<div class="dl"><a class="btn big" href="https://wa.me/917033935778?text=Hi%2C%20I%20paid%20for%20a%20GATE%202027%20book%20and%20need%20help%20with%20the%20download.%20My%20payment%20id%20is%3A%20' + encodeURIComponent(pid)
+            + '" target="_blank" rel="noopener">Get the file again on WhatsApp</a>'
+            + '<p class="pid">Payment id ' + pid + '</p></div>');
+          return;
+        }
+        lead.textContent = "Tap the button to download your " + title + " PDF. It downloads once, so save it on your device.";
         var buttons = '<a class="btn big" href="' + WORKER + '/book?pid=' + encodeURIComponent(pid) + '">Download ' + title + size + '</a>';
         // The free preview exists for the CSE book only; offering it to an ECE buyer would send
         // them a different book's sample.
@@ -220,7 +230,7 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
           : '';
         if (res.j.emailed) { buttons += '<p class="pid">This download link has also been emailed to you.</p>'; }
         show('<div class="dl">' + buttons
-          + '<p class="pid">Payment id ' + pid + ' · ' + res.j.left + ' downloads left</p>' + note + '</div>');
+          + '<p class="pid">Payment id ' + pid + ' · one download: save the PDF when it opens</p>' + note + '</div>');
       } else if (res.j && res.j.error === "payment not found yet") {
         // the webhook usually lands within a couple of seconds; give it three tries, then hand over to WhatsApp
         var tries = Number(sessionStorage.getItem("tries") || 0) + 1;
