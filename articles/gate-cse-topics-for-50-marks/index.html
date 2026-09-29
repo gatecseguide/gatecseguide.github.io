@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CSE Topics for 50 Marks: The Arithmetic</title>
+<meta name="description" content="Which GATE CSE topics add up to about 50 marks, with the arithmetic. Marks per subject from past papers, a realistic hit rate for each, and what to skip.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="GATE CSE Topics for 50 Marks: The Arithmetic">
+<meta property="og:description" content="Which GATE CSE topics add up to about 50 marks, with the arithmetic. Marks per subject from past papers, a realistic hit rate for each, and what to skip.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-09-30"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CSE Topics for 50 Marks: The Arithmetic">
+<meta name="twitter:description" content="Which GATE CSE topics add up to about 50 marks, with the arithmetic. Marks per subject from past papers, a realistic hit rate for each, and what to skip.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:58px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+.nav .btn.sm{padding-inline:11px}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GATE CSE Topics for 50 Marks: Which Subjects Add Up and Why", "description": "Which GATE CSE topics add up to about 50 marks, with the arithmetic. Marks per subject from past papers, a realistic hit rate for each, and what to skip.", "image": ["https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/og.png"], "datePublished": "2026-09-30", "dateModified": "2026-09-30", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/", "inLanguage": "en-IN", "keywords": "gate cse topics for 50 marks, how to score 50 in gate cse, gate cse important topics for 50 marks, gate cse marks distribution, gate cse target score"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "GATE CSE Topics for 50 Marks: Which Subjects Add Up and Why", "item": "https://gateguide.co.in/articles/gate-cse-topics-for-50-marks/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which topics are enough to score 50 in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "General Aptitude plus the concepts tested in almost every paper, in every subject. By the book's analysis, that core carries about 55 to 60 percent of the marks. Collecting a little over half of the marks each subject usually offers, and keeping wrong MCQs to a handful, lands near 50. It is a target the arithmetic supports, not a guaranteed score."}}, {"@type": "Question", "name": "Can I skip a whole subject and still score 50 in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "It is risky. Even the smallest subjects, Compiler Design and Digital Logic, have averaged about 5 marks a paper since 2018, and both are formula-stable, so their core forms are among the cheapest marks to prepare. Skipping a subject also removes your buffer if a larger subject comes in lighter than its average that year."}}, {"@type": "Question", "name": "How many questions do I need to answer correctly for 50 marks?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the mix. Recent papers have had 30 one-mark and 35 two-mark questions in all. For example, 12 marks from General Aptitude plus 15 correct one-mark and 13 correct two-mark technical questions gives 53 before penalties. A few wrong MCQs would bring that close to 50. This is an illustration, not a formula."}}, {"@type": "Question", "name": "Is 50 marks a good score in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "The GATE 2026 CS qualifying mark for General candidates was 30, on IIT Guwahati's official cut-off page, so 50 is well above that year's figure and a sensible first target. What it is worth for admission or recruitment depends on the paper's difficulty, the number of candidates and the programme you want. Check the result notification for qualifying marks and each institute's own closing data for admissions."}}, {"@type": "Question", "name": "How much negative marking should I allow for when targeting 50?", "acceptedAnswer": {"@type": "Answer", "text": "Plan for about 3 marks. Three wrong 1-mark MCQs and three wrong 2-mark MCQs cost 1 plus 2 marks. MSQ and NAT carry no negative marking, so a wrong answer there only scores zero. Build a buffer of a few marks above 50 so that penalties and one weak subject do not pull you under."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><details class="brmenu"><summary>Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../gate-ce-2027-book/"><b>GATE CE</b><span>Out now · ₹250</span></a><a href="../../books/"><b>GATE DA</b><span>Coming soon</span></a><a href="../../books/"><b>GATE EE</b><span>Coming soon</span></a><a href="../../books/"><b>GATE ME</b><span>Coming soon</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Strategy</nav>
+<article>
+<h1>GATE CSE Topics for 50 Marks: Which Subjects Add Up and Why</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 30 Sep 2026</span><span>8 min read</span></div>
+<p class="lead">To reach about 50 marks in GATE CSE, you need General Aptitude plus the core, always-tested concepts of every subject, not the whole syllabus. Using the book's averages from past papers, collecting a little under 60 % of the marks each subject usually offers gives about 56 marks, and a small allowance for negative marking brings that to about 53. The rest of this guide shows that arithmetic, subject by subject, and the topics behind it.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#start-from-what-the-paper-contains">Start from what the paper contains</a></li><li><a href="#marks-available-in-each-subject">Marks available in each subject</a></li><li><a href="#the-arithmetic-a-realistic-share-of-each-subject">The arithmetic: a realistic share of each subject</a></li><li><a href="#the-topics-that-carry-those-marks">The topics that carry those marks</a></li><li><a href="#what-you-can-leave-out">What you can leave out</a></li><li><a href="#why-50-rather-than-just-qualifying">Why 50 rather than just qualifying</a></li><li><a href="#protect-the-target-from-negative-marking">Protect the target from negative marking</a></li></ol></details>
+<p>Treat 50 as a target the plan aims at. No topic list can promise a score, because the paper changes every year.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>General Aptitude is 15 fixed marks and the easiest section. Plan for 12 of them.</li>
+<li>The remaining 38 marks have to come from 85 technical marks, which is a hit rate of about 45 %.</li>
+<li>By the book's analysis, the Priority A concepts (tested in almost every paper) carry about 55–60 % of the marks. A 50-mark target is roughly the size of that core.</li>
+<li>Do not drop a subject. Aim for a share of every subject, so that one light subject in your paper does not sink the total.</li>
+<li>Keep wrong MCQs to a handful. About half the marks carry no negative marking at all.</li>
+</ul>
+<h2 id="start-from-what-the-paper-contains">Start from what the paper contains</h2>
+<p>The GATE 2027 CS paper has 65 questions for 100 marks in 3 hours. General Aptitude is 10 questions for 15 marks, Engineering Mathematics about 13 marks and the core CS subjects about 72. Recent papers have used 30 one-mark and 35 two-mark questions in all, although that split is an observation, not a published rule. The <a href="../gate-cse-2027-exam-pattern-marking-scheme/">GATE CSE exam pattern and marking scheme</a> covers it in full.</p>
+<p>Negative marking applies only to MCQs: minus 1/3 for a wrong 1-mark question and minus 2/3 for a wrong 2-mark question. MSQ and NAT carry none, and MSQ gives no partial credit. In 2021–2026 papers, MSQ and NAT together made up roughly half of the questions.</p>
+<h2 id="marks-available-in-each-subject">Marks available in each subject</h2>
+<p>Only General Aptitude is fixed, at 15 marks; Engineering Mathematics has usually been about 13. How the rest splits is never published, so every subject figure is reconstructed by counting past papers. The table below uses the book's 2018–2026 averages, which come from analyst compilations (gateexam.info, GeeksforGeeks, Careers360, GO Classes and PW) and are approximate.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>Average marks per paper, 2018–2026</th>
+<th>What the book says about the core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General Aptitude</td>
+<td>15 (fixed)</td>
+<td>Rated easy every year</td>
+</tr>
+<tr>
+<td>Engineering Mathematics (with Discrete)</td>
+<td>13 (official)</td>
+<td>Six topics carry about 6–8 of the 13 marks</td>
+</tr>
+<tr>
+<td>Programming and DS</td>
+<td>9.7</td>
+<td>The largest NAT generator</td>
+</tr>
+<tr>
+<td>COA</td>
+<td>9.2</td>
+<td>Cache and pipelining appear every year since 2014</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>8.3</td>
+<td>Four perennials present in every paper</td>
+</tr>
+<tr>
+<td>Algorithms</td>
+<td>8.1</td>
+<td>Among the two hardest subjects</td>
+</tr>
+<tr>
+<td>Theory of Computation</td>
+<td>8.1</td>
+<td>MSQ all-or-nothing sets since 2021</td>
+</tr>
+<tr>
+<td>Computer Networks</td>
+<td>8.0</td>
+<td>Four templates in most papers for a decade</td>
+</tr>
+<tr>
+<td>Databases</td>
+<td>7.2</td>
+<td>Three procedures have historically secured 4–6 marks</td>
+</tr>
+<tr>
+<td>Compiler Design</td>
+<td>5.4</td>
+<td>Best marks per hour in the paper</td>
+</tr>
+<tr>
+<td>Digital Logic</td>
+<td>5.1</td>
+<td>A Boolean or number-representation item almost every paper</td>
+</tr>
+</tbody>
+</table></div>
+<p>Rounded, these add up to about 97. The gap to 100 is classification noise: a recurrence can be counted under Discrete Mathematics or Algorithms, and a C complexity question under PDS or Algorithms. The <a href="../gate-cse-subject-wise-weightage/">GATE CSE subject-wise weightage</a> guide explains the ranges and trends behind each number.</p>
+<h2 id="the-arithmetic-a-realistic-share-of-each-subject">The arithmetic: a realistic share of each subject</h2>
+<p>Now apply a hit rate. The shares below are my judgement of what a well-prepared candidate at this level can collect, set higher for formula-stable subjects and lower for the ones rated hardest. They are planning figures, not predictions.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>Marks available (average)</th>
+<th>Share to aim for</th>
+<th>Target marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General Aptitude</td>
+<td>15</td>
+<td>about 80 %</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Engineering Mathematics</td>
+<td>13</td>
+<td>about 45 %</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Programming and DS</td>
+<td>9.7</td>
+<td>about 60 %</td>
+<td>6</td>
+</tr>
+<tr>
+<td>COA</td>
+<td>9.2</td>
+<td>about 55 %</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>8.3</td>
+<td>about 60 %</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Algorithms</td>
+<td>8.1</td>
+<td>about 50 %</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Theory of Computation</td>
+<td>8.1</td>
+<td>about 50 %</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Computer Networks</td>
+<td>8.0</td>
+<td>about 50 %</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Databases</td>
+<td>7.2</td>
+<td>about 55 %</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Compiler Design</td>
+<td>5.4</td>
+<td>about 55 %</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Digital Logic</td>
+<td>5.1</td>
+<td>about 60 %</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>about 97</strong></td>
+<td><strong>about 58 %</strong></td>
+<td><strong>56</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Take away an allowance for negative marking. Three wrong 1-mark MCQs and three wrong 2-mark MCQs cost 1 + 2 = 3 marks, which leaves about 53. Those 3 marks above 50 are the buffer for a paper in which one of your stronger subjects comes in lighter than its average, as PDS did in 2021 with about 6 marks.</p>
+<p>Two things stand out. First, no single subject needs to be mastered. Second, the target relies on breadth: dropping Algorithms and TOC entirely would remove 8 target marks, and no other subject has that much slack.</p>
+<p>This table uses averages. The book prints the full year-by-year table from 2009 to 2026, so you can see how far each subject has swung, and then ranks the Top 100 concepts behind those marks. <a href="../../gate-cse-2027-book/#buy">See what the book covers</a>.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,016-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="the-topics-that-carry-those-marks">The topics that carry those marks</h2>
+<p>Each subject's target comes from its Priority A concepts, the ones the book's analysis finds in almost every paper. In short:</p>
+<ul>
+<li><strong>General Aptitude:</strong> reading comprehension, grammar, data interpretation, percentages, ratio, work and time, speed, and spatial items.</li>
+<li><strong>Engineering Mathematics:</strong> eigenvalues and Cayley–Hamilton, conditional probability and Bayes, graph degree counting and Euler's formula, expectation and variance, the named distributions, propositional logic.</li>
+<li><strong>Programming and DS:</strong> C pointer and 2-D array tracing, recursion tracing, BST insertion and search paths, heap operations on arrays, operator precedence.</li>
+<li><strong>COA:</strong> cache tag, index and offset; pipeline cycle counting with hazards; AMAT.</li>
+<li><strong>Operating System:</strong> scheduling timelines, synchronisation code checks, paging arithmetic, page-replacement traces, inode arithmetic.</li>
+<li><strong>Algorithms:</strong> loop complexity, recurrences, Dijkstra, MST properties, DFS edge types, dynamic programming.</li>
+<li><strong>Theory of Computation:</strong> language-class identification, regular expressions, minimum-state DFAs, closure and decidability.</li>
+<li><strong>Computer Networks:</strong> TCP congestion control, CIDR and subnetting, sliding-window arithmetic, delay calculations.</li>
+<li><strong>Databases:</strong> SQL row counts, conflict serialisability, normal forms, B+ tree capacity.</li>
+<li><strong>Compiler Design:</strong> syntax-directed translation, LR conflicts, LL(1) tables.</li>
+<li><strong>Digital Logic:</strong> Boolean identities, K-maps, 2's complement, IEEE-754.</li>
+</ul>
+<p>The <a href="../gate-cse-most-repeated-topics/">most repeated topics in GATE CSE</a> guide ranks the top 25 of these with the evidence. Where a subject's target is above half, as in PDS, OS and Digital Logic, add the one or two Priority B forms that most often supply the next question, such as TLB access time or Banker's algorithm in OS, or counters in Digital Logic.</p>
+<h2 id="what-you-can-leave-out">What you can leave out</h2>
+<p>A 50-mark target frees you from the long tail of the syllabus. By the book's roadmap, these are the last things to study:</p>
+<ul>
+<li>Computer Networks topics removed in 2027: OSI and TCP/IP layer identification, framing, bridging, ARP, DHCP, ICMP, UDP, SMTP, FTP and email.</li>
+<li>NP-completeness and searching variants, which are not in the 2027 syllabus text.</li>
+<li>Disk geometry arithmetic, RISC/CISC and register windows in COA.</li>
+<li>Gray, BCD and excess-3 codes.</li>
+</ul>
+<p>One caution: a few items have little exam history but are named in the 2027 syllabus, such as the Quine–McCluskey method, hardwired versus microprogrammed control and the socket API. The syllabus decides what can be asked, so read each once.</p>
+<h2 id="why-50-rather-than-just-qualifying">Why 50 rather than just qualifying</h2>
+<p>The qualifying mark is computed from each year's paper by the organising institute, so no one can tell you the 2027 figure in advance. The <a href="../gate-cse-qualifying-marks-cutoff/">GATE CSE qualifying marks guide</a> explains the official formula; for the 2027 value, check the result notification.</p>
+<p>The book's scoring benchmarks describe what separates the bands. Its 40–50 band requires GA at 12 or more, Priority A of every subject and no more than two wrong MCQs. Its 50–60 band adds Priority B, NAT accuracy above 80 % and mock scores consistently at 55 or more. So 50 sits right at the boundary: all of the core, plus the best slice of the second tier.</p>
+<h2 id="protect-the-target-from-negative-marking">Protect the target from negative marking</h2>
+<p>Most of your penalty risk sits in MCQs you half-know. A blind guess on a four-option MCQ has an expected value of zero, while one eliminated option makes it slightly positive. MSQs and NATs cost nothing when wrong, so answer every one. The <a href="../gate-cse-msq-nat-mcq-strategy/">MCQ, MSQ and NAT strategy</a> guide sets out the rules for each type.</p>
+<p>The book turns this arithmetic into practice: 1,120 questions with worked solutions across 1,016 pages, including 10 full mock tests in the 2027 pattern, so you can check whether your hit rate per subject is really where the table needs it. <a href="../../gate-cse-2027-book/#buy">Get the book</a>.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Which topics are enough to score 50 in GATE CSE?</summary><p>General Aptitude plus the concepts tested in almost every paper, in every subject. By the book&#x27;s analysis, that core carries about 55 to 60 percent of the marks. Collecting a little over half of the marks each subject usually offers, and keeping wrong MCQs to a handful, lands near 50. It is a target the arithmetic supports, not a guaranteed score.</p></details><details><summary>Can I skip a whole subject and still score 50 in GATE CSE?</summary><p>It is risky. Even the smallest subjects, Compiler Design and Digital Logic, have averaged about 5 marks a paper since 2018, and both are formula-stable, so their core forms are among the cheapest marks to prepare. Skipping a subject also removes your buffer if a larger subject comes in lighter than its average that year.</p></details><details><summary>How many questions do I need to answer correctly for 50 marks?</summary><p>It depends on the mix. Recent papers have had 30 one-mark and 35 two-mark questions in all. For example, 12 marks from General Aptitude plus 15 correct one-mark and 13 correct two-mark technical questions gives 53 before penalties. A few wrong MCQs would bring that close to 50. This is an illustration, not a formula.</p></details><details><summary>Is 50 marks a good score in GATE CSE?</summary><p>The GATE 2026 CS qualifying mark for General candidates was 30, on IIT Guwahati&#x27;s official cut-off page, so 50 is well above that year&#x27;s figure and a sensible first target. What it is worth for admission or recruitment depends on the paper&#x27;s difficulty, the number of candidates and the programme you want. Check the result notification for qualifying marks and each institute&#x27;s own closing data for admissions.</p></details><details><summary>How much negative marking should I allow for when targeting 50?</summary><p>Plan for about 3 marks. Three wrong 1-mark MCQs and three wrong 2-mark MCQs cost 1 plus 2 marks. MSQ and NAT carry no negative marking, so a wrong answer there only scores zero. Build a buffer of a few marks above 50 so that penalties and one weak subject do not pull you under.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2026.iitg.ac.in/cut-off.html" rel="nofollow noopener" target="_blank">GATE 2026 cut-off marks (IIT Guwahati, official)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://www.gateexam.info/gate-subject-wise-weightage-for-cse-2019-2009/" rel="nofollow noopener" target="_blank">gateexam.info subject-wise weightage 2009–2019</a></li><li><a href="https://www.geeksforgeeks.org/gate/subject-wise-weightage-for-gate-cs/" rel="nofollow noopener" target="_blank">GeeksforGeeks subject-wise weightage for GATE CS</a></li><li><a href="https://www.goclasses.in/blog/a-strategic-analysis-of-subject-wise-weightage-trends-in-gate-cse-2023-2025" rel="nofollow noopener" target="_blank">GO Classes weightage trends 2023–2025</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-2027-exam-pattern-marking-scheme/"><div class="c">Exam</div><b>GATE CSE 2027 Exam Pattern and Marking Scheme</b><span>8 min read</span></a><a class="card" href="../gate-cse-qualifying-marks-cutoff/"><div class="c">Exam</div><b>GATE CSE Qualifying Marks and Cutoffs Explained</b><span>8 min read</span></a><a class="card" href="../gate-cse-msq-nat-mcq-strategy/"><div class="c">Exam</div><b>MCQ, MSQ and NAT in GATE CSE: How to Attempt Each Type</b><span>9 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,016 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
