@@ -122,7 +122,7 @@ footer a{color:var(--ink-2)}
 <main class="wrap" style="padding-block:44px 60px">
 <p class="crumbs">Secure checkout</p>
 <h1 id="title">Buy the book</h1>
-<p class="lead" id="lead">Opening secure checkout&hellip;</p>
+<p class="lead" id="lead">Loading&hellip;</p>
 <div id="state" class="dl"></div>
 <p class="note" style="text-align:center;margin-top:22px">Payments are processed by Razorpay. UPI, cards and netbanking are accepted.
 The PDF download opens on this site as soon as the payment goes through.</p>
@@ -145,22 +145,38 @@ The PDF download opens on this site as soon as the payment goes through.</p>
   document.getElementById("title").textContent = "Buy the " + book.title + " book";
   document.title = book.title + " book - checkout";
   function fallback(msg) {
-    lead.textContent = msg;
-    show('<button class="btn big" id="again">Try again</button>'
-      + '<a class="btn ghost" href="' + book.fallback + '">Pay on Razorpay\'s page instead</a>');
-    document.getElementById("again").onclick = start;
+    ask(msg + " You can try again.");
+  }
+  // The email is asked here, before Razorpay opens: Razorpay's own window asks only for a mobile
+  // number, and the download link is emailed as soon as the payment arrives.
+  var email = "";
+  try { email = localStorage.getItem("buyer_email") || ""; } catch (e) {}
+  function ask(msg) {
+    lead.textContent = msg || "Enter the email address the download link should be sent to, then pay.";
+    show('<form id="f" class="dl" style="margin-top:0">'
+      + '<input id="em" type="email" required autocomplete="email" placeholder="you@example.com" value="' + email.replace(/"/g, "") + '" '
+      + 'style="width:100%;padding:13px 14px;font-size:1rem;border:1px solid var(--line-2);border-radius:8px">'
+      + '<button class="btn big" type="submit">Pay ₹250 securely</button>'
+      + '<a class="btn ghost" href="' + book.fallback + '">Pay on Razorpay\'s page instead</a></form>');
+    document.getElementById("f").onsubmit = function (e) {
+      e.preventDefault();
+      email = document.getElementById("em").value.trim();
+      try { localStorage.setItem("buyer_email", email); } catch (err) {}
+      start();
+    };
   }
   function start() {
     lead.textContent = "Opening secure checkout…";
     show("");
     fetch(WORKER + "/order", { method: "POST", headers: { "content-type": "application/json" },
-                               body: JSON.stringify({ book: key }) })
+                               body: JSON.stringify({ book: key, email: email }) })
       .then(function (r) { return r.json(); })
       .then(function (o) {
         if (!o.ok || !window.Razorpay) { fallback("Checkout could not open here."); return; }
         var rzp = new Razorpay({
           key: o.key_id, order_id: o.order_id, amount: o.amount, currency: "INR",
           name: o.name, description: o.description, theme: { color: "#e0452f" },
+          prefill: { email: email },
           handler: function (res) {
             lead.textContent = "Payment received. Preparing your download…";
             show("");
@@ -174,13 +190,11 @@ The PDF download opens on this site as soon as the payment goes through.</p>
         });
         rzp.on("payment.failed", function () { fallback("The payment did not go through. Nothing has been charged."); });
         lead.textContent = "Complete the payment in the Razorpay window.";
-        show('<button class="btn big" id="pay">Pay ₹' + (o.amount / 100) + ' securely</button>');
-        document.getElementById("pay").onclick = function () { rzp.open(); };
         rzp.open();
       })
       .catch(function () { fallback("Checkout could not open here."); });
   }
-  start();
+  ask();
 })();
 </script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
