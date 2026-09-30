@@ -155,6 +155,30 @@ footer a{color:var(--ink-2)}
 .coverbox.six-up img:nth-of-type(6){transform:rotate(5deg) translateY(-6px);z-index:6}
 .coverbox.six-up .badge{top:-8px;left:0;right:auto;z-index:7}
 .coverbox.six-up .pricepill{left:auto;right:-4px;bottom:-6px;z-index:7}
+/* The hero carousel: the same six covers in a row that scrolls sideways. The cover in the middle is
+   shown full size; its neighbours peek in at either side, smaller and dimmed. CSE starts in the middle. */
+.coverbox.cf{max-width:470px;padding:0}
+.cf-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:26px 0 30px;outline:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.cf-track::-webkit-scrollbar{display:none}
+.cf-track::before,.cf-track::after{content:"";flex:0 0 24%}
+.cf-slide{flex:0 0 52%;scroll-snap-align:center;display:block;transform:scale(.8);opacity:.5;
+  transition:transform .35s ease,opacity .35s ease}
+.cf-slide.on{transform:scale(1);opacity:1}
+.cf-slide img{width:100%;display:block;border-radius:3px 8px 8px 3px;
+  box-shadow:0 26px 50px -22px rgba(16,32,58,.8)}
+.cf-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:8;width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line-2);background:var(--ground);color:var(--ink);font:700 1.1rem/1 "IBM Plex Sans",sans-serif;
+  cursor:pointer;box-shadow:var(--shadow);display:grid;place-items:center}
+.cf-arrow:disabled{opacity:.35;cursor:default}
+.cf-prev{left:-6px}.cf-next{right:-6px}
+.cf-dots{display:flex;justify-content:center;gap:8px;margin-top:-10px}
+.cf-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--line-2);cursor:pointer}
+.cf-dots button.on{background:var(--hot);width:22px;border-radius:99px}
+.cf-name{text-align:center;font:600 .92rem "IBM Plex Sans",sans-serif;color:var(--ink-2);margin-top:10px;min-height:1.3em}
+.coverbox.cf .badge{top:4px;left:4px;right:auto;z-index:8}
+.coverbox.cf .pricepill{left:auto;right:4px;bottom:64px;z-index:8}
+@media (prefers-reduced-motion:reduce){.cf-slide{transition:none}}
 .wide-lead{font-size:1.06rem;max-width:720px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
 .step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -230,7 +254,7 @@ background:var(--ink);color:#fff;padding:3px 6px;border-radius:5px}
 .ed span{color:var(--ink-3);font-size:.9rem}
 .tag{font:600 .72rem "IBM Plex Mono",monospace;padding:4px 8px;border-radius:99px;background:var(--hot-wash);color:var(--hot-ink);white-space:nowrap}
 @media (max-width:860px){.hero,.feature,.two{grid-template-columns:1fr}.coverbox{max-width:260px;order:-1}.stats{grid-template-columns:repeat(2,1fr)}
-.coverbox.six-up{max-width:380px}}
+.coverbox.six-up{max-width:380px}.coverbox.cf{max-width:400px}}
 @media (max-width:560px){.pvgrid{grid-template-columns:1fr}.feature{padding:22px}}
 /* On a phone the grid above has already shown every cover, so the book blocks drop theirs and stay short.
    The CSE block keeps its three real pages, which the grid does not show. */
@@ -257,11 +281,15 @@ background:var(--ink);color:#fff;padding:3px 6px;border-radius:5px}
       <span class="chip">Organiser: IIT Madras</span>
     </div>
   </div>
-  <a class="coverbox six-up" href="#books" aria-label="The GATE CSE, ECE, EE, ME, Civil and DA 2027 books">
-    <img src="assets/cover-da-360.jpg" width="360" height="509" alt="GATE DA 2027 book cover" loading="lazy"><img src="assets/cover-me-360.jpg" width="360" height="509" alt="GATE ME 2027 book cover" loading="lazy"><img src="assets/cover-ee-360.jpg" width="360" height="509" alt="GATE EE 2027 book cover" loading="lazy"><img src="assets/cover-ce-360.jpg" width="360" height="509" alt="GATE CE 2027 book cover" loading="lazy"><img src="assets/cover-ece-360.jpg" width="360" height="509" alt="GATE ECE 2027 book cover" loading="lazy"><img src="assets/cover-360.jpg" width="360" height="509" alt="GATE CSE 2027 book cover">
+  <div class="coverbox cf" id="cf" aria-roledescription="carousel" aria-label="The GATE CSE, ECE, EE, ME, Civil and DA 2027 books">
+    <div class="cf-track" id="cf-track" tabindex="0"><a class="cf-slide" href="gate-ee-2027-book/" data-k="ee" data-name="GATE EE 2027 · 643 pages" aria-label="GATE EE 2027 book"><img src="assets/cover-ee-360.jpg" width="360" height="509" alt="GATE EE 2027 book cover"></a><a class="cf-slide" href="gate-ece-2027-book/" data-k="ece" data-name="GATE ECE 2027 · 814 pages" aria-label="GATE ECE 2027 book"><img src="assets/cover-ece-360.jpg" width="360" height="509" alt="GATE ECE 2027 book cover"></a><a class="cf-slide on" href="gate-cse-2027-book/" data-k="cse" data-name="GATE CSE 2027 · 1,020 pages" aria-label="GATE CSE 2027 book"><img src="assets/cover-360.jpg" width="360" height="509" alt="GATE CSE 2027 book cover"></a><a class="cf-slide" href="gate-ce-2027-book/" data-k="ce" data-name="GATE CE 2027 · 623 pages" aria-label="GATE CE 2027 book"><img src="assets/cover-ce-360.jpg" width="360" height="509" alt="GATE CE 2027 book cover"></a><a class="cf-slide" href="gate-da-2027-book/" data-k="da" data-name="GATE DA 2027 · 614 pages" aria-label="GATE DA 2027 book"><img src="assets/cover-da-360.jpg" width="360" height="509" alt="GATE DA 2027 book cover"></a><a class="cf-slide" href="gate-me-2027-book/" data-k="me" data-name="GATE ME 2027 · 688 pages" aria-label="GATE ME 2027 book"><img src="assets/cover-me-360.jpg" width="360" height="509" alt="GATE ME 2027 book cover"></a></div>
+    <button class="cf-arrow cf-prev" type="button" id="cf-prev" aria-label="Previous book">&#8249;</button>
+    <button class="cf-arrow cf-next" type="button" id="cf-next" aria-label="Next book">&#8250;</button>
+    <div class="cf-dots" id="cf-dots"><button type="button" aria-label="Show GATE EE" data-i="0"></button><button type="button" aria-label="Show GATE ECE" data-i="1"></button><button type="button" aria-label="Show GATE CSE" data-i="2"></button><button type="button" aria-label="Show GATE CE" data-i="3"></button><button type="button" aria-label="Show GATE DA" data-i="4"></button><button type="button" aria-label="Show GATE ME" data-i="5"></button></div>
+    <div class="cf-name" id="cf-name"></div>
     <span class="badge">6 books · 2027</span>
     <span class="pricepill">₹250<s>₹300</s></span>
-  </a>
+  </div>
 </section>
 
 </div>
@@ -448,6 +476,37 @@ background:var(--ink);color:#fff;padding:3px 6px;border-radius:5px}
 <script>
 (function(){var d=Math.ceil((new Date(2027,1,6)-new Date())/864e5);var el=document.getElementById('countdown');
 if(el&&d>0)el.textContent=d+' days to GATE 2027';})();
+</script>
+<script>
+(function(){
+  var tr=document.getElementById('cf-track'); if(!tr) return;
+  var sl=[].slice.call(tr.querySelectorAll('.cf-slide')), dots=[].slice.call(document.querySelectorAll('#cf-dots button'));
+  var nm=document.getElementById('cf-name'), pv=document.getElementById('cf-prev'), nx=document.getElementById('cf-next');
+  var cur=-1;
+  function centre(i,smooth){var s=sl[i]; tr.scrollTo({left:s.offsetLeft+s.offsetWidth/2-tr.clientWidth/2,behavior:smooth?'smooth':'auto'});}
+  function update(){
+    var mid=tr.scrollLeft+tr.clientWidth/2, best=0, bd=1e9;
+    sl.forEach(function(s,i){var d=Math.abs(s.offsetLeft+s.offsetWidth/2-mid); if(d<bd){bd=d;best=i;}});
+    if(best===cur) return; cur=best;
+    sl.forEach(function(s,i){s.classList.toggle('on',i===best); s.setAttribute('aria-current',i===best?'true':'false');});
+    dots.forEach(function(b,i){b.classList.toggle('on',i===best);});
+    nm.textContent=sl[best].getAttribute('data-name');
+    pv.disabled=best===0; nx.disabled=best===sl.length-1;
+  }
+  var raf=0; tr.addEventListener('scroll',function(){cancelAnimationFrame(raf); raf=requestAnimationFrame(update);},{passive:true});
+  pv.addEventListener('click',function(){if(cur>0)centre(cur-1,true);});
+  nx.addEventListener('click',function(){if(cur<sl.length-1)centre(cur+1,true);});
+  dots.forEach(function(b,i){b.addEventListener('click',function(){centre(i,true);});});
+  tr.addEventListener('keydown',function(ev){
+    if(ev.key==='ArrowLeft'&&cur>0){ev.preventDefault();centre(cur-1,true);}
+    if(ev.key==='ArrowRight'&&cur<sl.length-1){ev.preventDefault();centre(cur+1,true);}
+  });
+  // a slide that is not in the middle brings itself to the middle instead of opening its page
+  sl.forEach(function(s,i){s.addEventListener('click',function(ev){if(i!==cur){ev.preventDefault();centre(i,true);}});});
+  var start=0; sl.forEach(function(s,i){if(s.getAttribute('data-k')==='cse')start=i;});
+  function init(){centre(start,false); update();}
+  init(); window.addEventListener('load',init); window.addEventListener('resize',function(){if(cur>=0)centre(cur,false);});
+})();
 </script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
 </body>
