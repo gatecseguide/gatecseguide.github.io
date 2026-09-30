@@ -158,7 +158,8 @@ Need help? <a href="https://wa.me/917033935778" target="_blank" rel="noopener">M
       + '<input id="em" type="email" required autocomplete="email" placeholder="you@example.com" value="' + email.replace(/"/g, "") + '" '
       + 'style="width:100%;padding:13px 14px;font-size:1rem;border:1px solid var(--line-2);border-radius:8px">'
       + '<button class="btn big" type="submit">Pay ₹250 securely</button>'
-      + '<a class="btn ghost" href="' + book.fallback + '">Pay on Razorpay\'s page instead</a></form>');
+      + (book.fallback ? '<a class="btn ghost" href="' + book.fallback + '">Pay on Razorpay\'s page instead</a>' : '')
+      + '</form>');
     document.getElementById("f").onsubmit = function (e) {
       e.preventDefault();
       email = document.getElementById("em").value.trim();
