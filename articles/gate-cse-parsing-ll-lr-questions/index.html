@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parsing Questions in GATE CSE: LL(1) and LR Conflicts</title>
+<meta name="description" content="How GATE CSE asks parsing questions. FIRST and FOLLOW rules, LL(1) table conflicts, LR(0) item counting and SLR, LALR and CLR conflicts.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="Parsing Questions in GATE CSE: LL(1) and LR Conflicts">
+<meta property="og:description" content="How GATE CSE asks parsing questions. FIRST and FOLLOW rules, LL(1) table conflicts, LR(0) item counting and SLR, LALR and CLR conflicts.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-10-01"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Parsing Questions in GATE CSE: LL(1) and LR Conflicts">
+<meta name="twitter:description" content="How GATE CSE asks parsing questions. FIRST and FOLLOW rules, LL(1) table conflicts, LR(0) item counting and SLR, LALR and CLR conflicts.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#6b7890;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18)}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:58px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+.nav .btn.sm{padding-inline:11px}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--hot);color:#fff;border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Parsing Questions in GATE CSE: LL(1), SLR, LALR and CLR", "description": "How GATE CSE asks parsing questions. FIRST and FOLLOW rules, LL(1) table conflicts, LR(0) item counting and SLR, LALR and CLR conflicts.", "image": ["https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/og.png"], "datePublished": "2026-10-01", "dateModified": "2026-10-01", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/", "inLanguage": "en-IN", "keywords": "parsing questions gate cse, first and follow gate, ll1 parsing table gate, slr lalr clr conflicts gate, lr0 items count gate 2027"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "Parsing Questions in GATE CSE: LL(1), SLR, LALR and CLR", "item": "https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you compute FIRST and FOLLOW sets quickly?", "acceptedAnswer": {"@type": "Answer", "text": "Work left to right. FIRST of a terminal is itself. For A -> X1 X2 ... add FIRST(X1) without epsilon, and move on to X2 only if X1 is nullable. For FOLLOW, put the end marker in FOLLOW of the start symbol, then for every occurrence of B in A -> alpha B beta add FIRST(beta) without epsilon, plus FOLLOW(A) when beta is nullable or absent. Iterate until nothing changes."}}, {"@type": "Question", "name": "Why can epsilon never appear in a FOLLOW set?", "acceptedAnswer": {"@type": "Answer", "text": "FOLLOW(A) is the set of terminals that can appear immediately to the right of A in some sentential form, so every member is a real terminal or the end marker. Epsilon is not a terminal, it is the absence of one. When the part after A derives epsilon you do not add epsilon, you add FOLLOW of the left side instead."}}, {"@type": "Question", "name": "How do you check whether a grammar is LL(1)?", "acceptedAnswer": {"@type": "Answer", "text": "Test every pair of productions of the same non-terminal. For A -> alpha and A -> beta, FIRST(alpha) and FIRST(beta) must be disjoint, and if one of them derives epsilon, the FIRST set of the other must be disjoint from FOLLOW(A). If every pair passes, no cell of the parse table holds two productions and the grammar is LL(1)."}}, {"@type": "Question", "name": "What is the difference between SLR, LALR and CLR parsers?", "acceptedAnswer": {"@type": "Answer", "text": "All three build on the same items. SLR reduces by A -> alpha on every terminal in FOLLOW(A), which is coarse. CLR carries an exact lookahead inside each item, which is precise but produces the most states. LALR merges CLR states that share a core, so it has the same state count as SLR with lookaheads that are usually as sharp as CLR."}}, {"@type": "Question", "name": "Can merging states in LALR create a shift-reduce conflict?", "acceptedAnswer": {"@type": "Answer", "text": "No. Merging joins states with identical cores, so the shift actions are identical in both and the union of the lookahead sets only affects reduce entries. A shift-reduce conflict would already have existed in CLR. Merging can, however, union two reduce lookahead sets that were disjoint before and create a reduce-reduce conflict."}}, {"@type": "Question", "name": "How many marks does Compiler Design carry in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "On unofficial analyst compilations the subject averaged about 4.6 marks per paper from 2009 to 2026, with a low of 2 and a high of 8. The average was near 3.8 in the earlier half and near 5.4 from 2018 onward, so the trend is upward. Different analysts differ by two or three marks on borderline questions. Check the current notification for the pattern in force."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><details class="brmenu"><summary>Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../gate-ce-2027-book/"><b>GATE CE</b><span>Out now · ₹250</span></a><a href="../../gate-da-2027-book/"><b>GATE DA</b><span>Out now · ₹250</span></a><a href="../../gate-ee-2027-book/"><b>GATE EE</b><span>Out now · ₹250</span></a><a href="../../gate-me-2027-book/"><b>GATE ME</b><span>Out now · ₹250</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Parsing Questions in GATE CSE: LL(1), SLR, LALR and CLR</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 1 Oct 2026</span><span>11 min read</span></div>
+<p class="lead">Parsing questions in GATE CSE are mechanical. You are handed three to six productions and asked for a set, a count, or a class name. Marks are lost on bookkeeping: an epsilon that should not be in a FOLLOW set, a goto that should have pointed back at an existing state, the accept item counted as a reduce. This guide works the full procedure on one tiny grammar.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#where-parsing-sits-in-the-paper">Where parsing sits in the paper</a></li><li><a href="#one-grammar-to-work-on">One grammar to work on</a></li><li><a href="#first-and-follow-mechanically">FIRST and FOLLOW, mechanically</a></li><li><a href="#the-ll1-test-in-one-line">The LL(1) test in one line</a></li><li><a href="#left-recursion-common-prefixes-and-left-factoring">Left recursion, common prefixes and left factoring</a></li><li><a href="#lr0-items-and-how-to-count-them">LR(0) items and how to count them</a></li><li><a href="#shift-reduce-reduce-reduce-and-what-each-parser-buys">Shift-reduce, reduce-reduce, and what each parser buys</a></li><li><a href="#the-dangling-else-grammar">The dangling-else grammar</a></li><li><a href="#answering-which-of-these-is-ll1-or-slr1-fast">Answering &quot;which of these is LL(1) or SLR(1)&quot; fast</a></li><li><a href="#budgeting-time-on-exam-day">Budgeting time on exam day</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>FIRST is read left to right and stops at the first symbol that is not nullable. FOLLOW never contains epsilon.</li>
+<li>The LL(1) test is a condition on each <strong>pair</strong> of productions of the same non-terminal, not on the grammar as a whole.</li>
+<li>Left recursion and a common prefix both break LL(1). Left factoring removes the prefix; it does not remove ambiguity.</li>
+<li>Total LR(0) items = sum of (length of RHS + 1) over all productions, plus 2 for the augmented production. An epsilon production contributes 1.</li>
+<li>LALR(1) has exactly as many states as SLR(1), never fewer. CLR(1) has at least as many.</li>
+<li>Merging states in LALR can create a reduce-reduce conflict and can never create a shift-reduce one.</li>
+<li>An ambiguous grammar is not LR(k) for any k, so spotting two parse trees settles the whole question.</li>
+</ul>
+<h2 id="where-parsing-sits-in-the-paper">Where parsing sits in the paper</h2>
+<p>On the third-party analyst compilation this guide uses, Compiler Design marks per paper from 2009 to 2026 run 2, 4, 3, 4, 3, 6, 4, 5, 3, 4, 6, 4, 8, 4, 5, 8, 5, 5. That is an average of about 4.6 marks, a minimum of 2 and a maximum of 8. Split the record in half and the 2009-2017 average is about 3.8 against about 5.4 for 2018-2026, so the subject has roughly doubled from its 2009-2013 level of 2 to 4 marks. These figures are unofficial and approximate: analysts disagree by two or three marks because borderline questions get filed under Theory of Computation instead.</p>
+<p>Inside that budget, parsing is the largest block. LR and LL parsing, FIRST and FOLLOW, and syntax-directed translation are the recurring items, and data-flow analysis has joined them since 2021. Compiler Design and Digital Logic are the most formula-stable subjects in the paper, which is why they return the best marks per hour. The rest of the subject map is in <a href="../gate-cse-compiler-design-important-topics/">Compiler Design important topics</a>, and classification questions overlap with <a href="../gate-cse-theory-of-computation-important-topics/">Theory of Computation important topics</a>. The Section 7 syllabus wording is unchanged for 2027, but check the current notification rather than any copied syllabus.</p>
+<h2 id="one-grammar-to-work-on">One grammar to work on</h2>
+<p>Everything below uses this grammar, with <code>S</code> as the start symbol.</p>
+<pre><code>S -&gt; A B c
+A -&gt; a | epsilon
+B -&gt; b | epsilon
+</code></pre>
+<p>It is nullable in two places on purpose, because the nullable case is where the errors live.</p>
+<h2 id="first-and-follow-mechanically">FIRST and FOLLOW, mechanically</h2>
+<p>FIRST of a string is what can start it. For <code>A -&gt; X1 X2 ... Xn</code>, add FIRST(X1) minus epsilon; move to X2 only if X1 is nullable; if every Xi is nullable, add epsilon. FOLLOW of a non-terminal is what can stand immediately after it. Seed FOLLOW of the start symbol with the end marker <code>$</code>. For every occurrence <code>A -&gt; alpha B beta</code>, add FIRST(beta) minus epsilon to FOLLOW(B), and add FOLLOW(A) to FOLLOW(B) when beta is empty or nullable. Repeat until no set grows.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>FIRST</th>
+<th>FOLLOW</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>S</code></td>
+<td>a, b, c</td>
+<td>$</td>
+<td>A nullable, so B contributes b; B nullable, so c enters</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>a, epsilon</td>
+<td>b, c</td>
+<td>FIRST(Bc) is b, and B is nullable so c joins</td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td>b, epsilon</td>
+<td>c</td>
+<td>only c can stand after B</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two rules cover almost every mistake made here. Epsilon belongs in FIRST sets and never in a FOLLOW set, because FOLLOW holds terminals that actually appear to the right, and epsilon is the absence of a terminal rather than one. And <code>$</code> belongs in FOLLOW of every non-terminal that can end a sentence, not only the start symbol.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,020-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="the-ll1-test-in-one-line">The LL(1) test in one line</h2>
+<p>A grammar is LL(1) when, for every non-terminal <code>A</code> and every pair of distinct productions <code>A -&gt; alpha</code> and <code>A -&gt; beta</code>:</p>
+<ul>
+<li>FIRST(alpha) and FIRST(beta) are disjoint, and</li>
+<li>if beta derives epsilon, then FIRST(alpha) and FOLLOW(A) are disjoint.</li>
+</ul>
+<p>It is a pairwise test, so a non-terminal with four alternatives needs six checks, and the grammar fails the moment one pair fails.</p>
+<p>Filling the table is the same test written out. Production <code>A -&gt; alpha</code> goes into cell M[A, t] for every terminal t in FIRST(alpha), and also into M[A, t] for every t in FOLLOW(A) when alpha derives epsilon. Any cell holding two productions is a conflict.</p>
+<p>For the grammar above: <code>S -&gt; ABc</code> goes under a, b and c; <code>A -&gt; a</code> under a; <code>A -&gt; epsilon</code> under b and c; <code>B -&gt; b</code> under b; <code>B -&gt; epsilon</code> under c. Eight filled cells, none with two entries, so the grammar is LL(1). The FIRST sets of <code>A -&gt; a</code> and <code>A -&gt; epsilon</code> being different was not enough on its own. What decided it was that a is not in FOLLOW(A).</p>
+<h2 id="left-recursion-common-prefixes-and-left-factoring">Left recursion, common prefixes and left factoring</h2>
+<p>A predictive parser picks a production from one lookahead token and then commits. Two grammar shapes make that impossible.</p>
+<p><strong>Left recursion.</strong> With <code>E -&gt; E + T | T</code>, FIRST(E + T) contains everything in FIRST(E), so the alternatives can never be distinguished. Immediate left recursion is removed by rewriting <code>A -&gt; A alpha | beta</code> as <code>A -&gt; beta A'</code> and <code>A' -&gt; alpha A' | epsilon</code>. Indirect left recursion, where A derives B which derives A, needs the same trick after substituting in a fixed non-terminal order.</p>
+<p><strong>Common prefix.</strong> With <code>S -&gt; a S b | a b</code>, seeing a tells you nothing about which alternative to take. Left factoring pulls the prefix out: <code>S -&gt; a X</code> with <code>X -&gt; S b | b</code>.</p>
+<p>One warning appears as an option almost every year: these two transformations change the grammar, not the language, and neither removes ambiguity. An ambiguous grammar stays outside every LL and LR class.</p>
+<h2 id="lr0-items-and-how-to-count-them">LR(0) items and how to count them</h2>
+<p>An item is a production with a dot somewhere in the right side. A production with k symbols on the right gives k+1 items; an epsilon production gives exactly one item, <code>A -&gt; .</code>; the augmented production <code>S' -&gt; S</code> gives two.</p>
+<p>For our grammar: 4 items from <code>S -&gt; ABc</code>, 2 from <code>A -&gt; a</code>, 1 from <code>A -&gt; epsilon</code>, 2 from <code>B -&gt; b</code>, 1 from <code>B -&gt; epsilon</code>, plus 2 for the augmented production. <strong>Twelve items in all.</strong></p>
+<p>Building the canonical collection is closure and goto, repeated. Closure adds <code>B -&gt; .gamma</code> for every non-terminal B sitting just after a dot. Goto on X shifts the dot past X in every item that has X after the dot, then closes the result. The commonest counting error is creating a fresh state for a goto that lands on a set you already have, so check each new set against the existing ones before numbering it.</p>
+<p>Our grammar gives <strong>seven states</strong>. The start state closes to four items, one of which is the reduce item <code>A -&gt; .</code>, while the same state also shifts on a. In LR(0) terms that is a shift-reduce conflict, so the grammar is not LR(0).</p>
+<h2 id="shift-reduce-reduce-reduce-and-what-each-parser-buys">Shift-reduce, reduce-reduce, and what each parser buys</h2>
+<p>A <strong>shift-reduce</strong> conflict is a state that holds a complete item <code>A -&gt; alpha.</code> and also an item with a terminal after the dot: the parser can reduce or read one more token. A <strong>reduce-reduce</strong> conflict is a state holding two complete items: the parser knows it must reduce but not by which production. Lookahead is what separates them.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Parser</th>
+<th>Lookahead used for a reduce</th>
+<th>Number of states</th>
+<th>What it resolves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LR(0)</td>
+<td>none, reduce on every terminal</td>
+<td>canonical LR(0) collection</td>
+<td>nothing</td>
+</tr>
+<tr>
+<td>SLR(1)</td>
+<td>FOLLOW(A), the same set in every state</td>
+<td>same as LR(0)</td>
+<td>conflicts where the rival terminal lies outside FOLLOW(A)</td>
+</tr>
+<tr>
+<td>LALR(1)</td>
+<td>merged LR(1) lookaheads, per state</td>
+<td>same as LR(0) and SLR(1)</td>
+<td>almost everything CLR does</td>
+</tr>
+<tr>
+<td>CLR(1)</td>
+<td>the exact LR(1) lookahead carried in each item</td>
+<td>at least as many as LALR(1)</td>
+<td>everything one token of lookahead can</td>
+</tr>
+</tbody>
+</table></div>
+<p>The containment stated in exam options is LL(1) inside SLR(1) inside LALR(1) inside CLR(1), with LR(0) inside SLR(1) as well. Return to our grammar and SLR settles it: the reduce <code>A -&gt; epsilon</code> is allowed only on FOLLOW(A) = {b, c}, the competing shift is on a, and the sets are disjoint. The same holds for B. So the grammar is SLR(1) but not LR(0), which is exactly the shape of the standard classification question.</p>
+<p>Now the LALR fact tested as a true-or-false option again and again. Merging two CLR states with the same core leaves the shift actions untouched, because identical cores have identical symbols after the dots; only the reduce lookahead sets are unioned. So merging can turn two reduces that were separated by disjoint lookaheads into one state with overlapping ones, creating a <strong>reduce-reduce</strong> conflict, and it can never create a shift-reduce conflict. Two consequences follow: LALR never has fewer states than SLR, and a grammar can be CLR(1) without being LALR(1).</p>
+<h2 id="the-dangling-else-grammar">The dangling-else grammar</h2>
+<p><code>S -&gt; i S e S | i S | a</code>, with i for if and e for else, is the standard ambiguous example and is worth knowing cold. Top-down, the two alternatives share the prefix <code>i S</code>; after left factoring you get <code>S -&gt; i S X | a</code> with <code>X -&gt; e S | epsilon</code>, and the cell M[X, e] now holds both productions, because e is in FIRST(e S) and also in FOLLOW(X). Bottom-up, the same ambiguity is a shift-reduce conflict on e, resolved by shifting, which attaches each else to the nearest unmatched if. The grammar itself stays ambiguous and stays outside every LR class.</p>
+<h2 id="answering-which-of-these-is-ll1-or-slr1-fast">Answering "which of these is LL(1) or SLR(1)" fast</h2>
+<p>Run the cheap tests before the expensive ones.</p>
+<ol>
+<li>Is the grammar ambiguous? If yes, it is neither LL(1) nor LR(k) for any k, and you are done.</li>
+<li>Is there left recursion or a common prefix? Either one rules out LL(1) without computing a single set.</li>
+<li>Only then compute FIRST and FOLLOW, and only for the non-terminals the options mention.</li>
+<li>For LR classification, augment, build the collection, and stop at the first state holding a complete item alongside anything else. Check it against FOLLOW before declaring a conflict.</li>
+<li>If the ask is a count, recount the accept item <code>S' -&gt; S.</code> and the epsilon items deliberately. That is where the errors cluster.</li>
+</ol>
+<p>The recurring slips, including those from other subjects, are collected in <a href="../gate-cse-common-mistakes/">common mistakes that cost marks</a>, and the item-count and state-count formulas sit in the <a href="../gate-cse-formula-sheet/">GATE CSE formula sheet</a>.</p>
+<h2 id="budgeting-time-on-exam-day">Budgeting time on exam day</h2>
+<p>These questions reward practice rather than thought, which is what you want under a clock. A FIRST or FOLLOW question should take under a minute once the sets are in a column. An LL(1) table question takes about two minutes. A canonical collection for a four-production grammar takes two to three minutes if you draw the states in a fixed layout every time you practise, and much longer if you improvise the layout each attempt.</p>
+<p>So drill the layout, not only the theory. Take five small grammars, build the full collection for each on paper, and time yourself. Redo the same five a week later. The Compiler Design chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> carries a worked bank of such grammars with the canonical collections drawn out state by state and the conflicts marked, which is the part that is hard to get from prose.</p>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How do you compute FIRST and FOLLOW sets quickly?</summary><p>Work left to right. FIRST of a terminal is itself. For A -&gt; X1 X2 ... add FIRST(X1) without epsilon, and move on to X2 only if X1 is nullable. For FOLLOW, put the end marker in FOLLOW of the start symbol, then for every occurrence of B in A -&gt; alpha B beta add FIRST(beta) without epsilon, plus FOLLOW(A) when beta is nullable or absent. Iterate until nothing changes.</p></details><details><summary>Why can epsilon never appear in a FOLLOW set?</summary><p>FOLLOW(A) is the set of terminals that can appear immediately to the right of A in some sentential form, so every member is a real terminal or the end marker. Epsilon is not a terminal, it is the absence of one. When the part after A derives epsilon you do not add epsilon, you add FOLLOW of the left side instead.</p></details><details><summary>How do you check whether a grammar is LL(1)?</summary><p>Test every pair of productions of the same non-terminal. For A -&gt; alpha and A -&gt; beta, FIRST(alpha) and FIRST(beta) must be disjoint, and if one of them derives epsilon, the FIRST set of the other must be disjoint from FOLLOW(A). If every pair passes, no cell of the parse table holds two productions and the grammar is LL(1).</p></details><details><summary>What is the difference between SLR, LALR and CLR parsers?</summary><p>All three build on the same items. SLR reduces by A -&gt; alpha on every terminal in FOLLOW(A), which is coarse. CLR carries an exact lookahead inside each item, which is precise but produces the most states. LALR merges CLR states that share a core, so it has the same state count as SLR with lookaheads that are usually as sharp as CLR.</p></details><details><summary>Can merging states in LALR create a shift-reduce conflict?</summary><p>No. Merging joins states with identical cores, so the shift actions are identical in both and the union of the lookahead sets only affects reduce entries. A shift-reduce conflict would already have existed in CLR. Merging can, however, union two reduce lookahead sets that were disjoint before and create a reduce-reduce conflict.</p></details><details><summary>How many marks does Compiler Design carry in GATE CSE?</summary><p>On unofficial analyst compilations the subject averaged about 4.6 marks per paper from 2009 to 2026, with a low of 2 and a high of 8. The average was near 3.8 in the earlier half and near 5.4 from 2018 onward, so the trend is upward. Different analysts differ by two or three marks on borderline questions. Check the current notification for the pattern in force.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern (official)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li><li><a href="https://questions.examside.com/past-years/gate/gate-cse" rel="nofollow noopener" target="_blank">ExamSIDE chapter-wise GATE CSE questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-compiler-design-important-topics/"><div class="c">Subjects</div><b>Compiler Design for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-theory-of-computation-important-topics/"><div class="c">Subjects</div><b>Theory of Computation for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../articles/">Blog</a><a href="../../contact/">Contact Us</a> <a href="../../terms/">Terms</a> <a href="../../refund-policy/">Refund Policy</a> <a href="../../shipping-delivery-policy/">Shipping and Delivery</a> <a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,020 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
