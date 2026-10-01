@@ -24,7 +24,7 @@
 <meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-compiler-design-important-topics/og.png">
 <meta name="theme-color" content="#10203a">
 <link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript>
 <style>
 :root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#5d6a82;--line:#dbe2ee;--line-2:#c3cddf;
 --hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18);
@@ -95,6 +95,10 @@ article p,article li{color:var(--ink-2)}
 article strong{color:var(--ink)}
 article ul,article ol{padding-left:22px}
 article li{margin:5px 0}
+/* A blockquote is the book's margin note: "Remember", "Trap", "In one line". One short paragraph,
+   set off in a tinted box so a reader skimming the page still catches it. */
+article blockquote{margin:22px 0;padding:12px 16px;background:var(--paper);border-left:4px solid var(--hot);border-radius:0 var(--radius) var(--radius) 0}
+article blockquote p{margin:6px 0;color:var(--ink)}
 .tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
 table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
 th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
@@ -137,6 +141,9 @@ border-radius:var(--radius);padding:10px;background:var(--ground);min-height:40p
 .was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
 .cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.all{display:block}
+.cta.all .covers{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px;margin:10px 0 12px;text-decoration:none}
+.cta.all .covers img{width:100%;border-radius:2px 4px 4px 2px;box-shadow:0 8px 16px -10px rgba(16,32,58,.6)}
 .cta.big img{width:150px}
 @media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
 .faq details{border-bottom:1px solid var(--line);padding:12px 0}
@@ -310,7 +317,7 @@ footer a{color:var(--ink-2)}
 <p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
 </article>
 <h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
-<div class="related"><a class="card" href="../gate-cse-theory-of-computation-important-topics/"><div class="c">Subjects</div><b>Theory of Computation for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>6 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>8 min read</span></a><a class="card" href="../gate-cse-2027-preparation-strategy/"><div class="c">Strategy</div><b>GATE CSE 2027 Preparation Strategy: A 20-Week Plan</b><span>9 min read</span></a></div>
+<div class="related"><a class="card" href="../gate-cse-theory-of-computation-important-topics/"><div class="c">Subjects</div><b>Theory of Computation for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-cse-subject-wise-weightage/"><div class="c">Analysis</div><b>GATE CSE Subject-Wise Weightage 2009–2026</b><span>8 min read</span></a><a class="card" href="../gate-cse-formula-sheet/"><div class="c">Strategy</div><b>GATE CSE Formula Sheet: Key Formulas for Every Subject</b><span>6 min read</span></a><a class="card" href="../gate-cse-most-repeated-topics/"><div class="c">Analysis</div><b>Most Repeated Topics in GATE CSE: The Top 25 Concepts</b><span>9 min read</span></a><a class="card" href="../gate-cse-2027-preparation-strategy/"><div class="c">Strategy</div><b>GATE CSE 2027 Preparation Strategy: A 20-Week Plan</b><span>9 min read</span></a></div>
 </main>
 <footer><div class="wrap wide"><nav aria-label="Books"><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../gate-ece-2027-book/">GATE ECE 2027 book</a><a href="../../gate-ce-2027-book/">GATE CE 2027 book</a><a href="../../gate-da-2027-book/">GATE DA 2027 book</a><a href="../../gate-ee-2027-book/">GATE EE 2027 book</a><a href="../../gate-me-2027-book/">GATE ME 2027 book</a><a href="../../books/">All books</a><a href="../../preview/">Free previews</a><a href="../../articles/">Blog</a></nav><nav aria-label="Policies"><a href="../../contact/">Contact Us</a><a href="../../terms/">Terms</a><a href="../../refund-policy/">Refund Policy</a><a href="../../shipping-delivery-policy/">Shipping and Delivery</a><a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
 <div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,020 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
