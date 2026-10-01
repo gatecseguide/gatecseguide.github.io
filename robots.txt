@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /go/
 Disallow: /d/
-Disallow: /thank-you/
 
 Sitemap: https://gateguide.co.in/sitemap.xml

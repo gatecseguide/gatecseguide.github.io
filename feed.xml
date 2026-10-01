@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0'><channel>
-<title>GATE Guide — free GATE CSE guides</title><link>https://gateguide.co.in/articles/</link>
-<description>Free guides on the GATE CSE syllabus, weightage, subject topics and preparation, by MD ANISH AHAMAD.</description>
+<title>GATE Guide — free GATE 2027 guides</title><link>https://gateguide.co.in/articles/</link>
+<description>Free GATE 2027 guides for CSE, ECE, CE, DA, EE and ME: syllabus, weightage, important topics and preparation, by MD ANISH AHAMAD.</description>
 <language>en-in</language><lastBuildDate>Thu, 01 Oct 2026 09:00:00 +0530</lastBuildDate>
 <item><title>GATE ECE 2027 Preparation Strategy: Ordered by Marks</title><link>https://gateguide.co.in/articles/gate-ece-2027-preparation-strategy/</link><guid isPermaLink='true'>https://gateguide.co.in/articles/gate-ece-2027-preparation-strategy/</guid><pubDate>Thu, 01 Oct 2026 09:00:00 +0530</pubDate><description>A GATE ECE 2027 preparation strategy ordered by what five counted EC papers were actually worth, with twenty-week, eight-week and two-week plans.</description><category>Strategy</category></item>
 <item><title>Parsing Questions in GATE CSE: LL(1), SLR, LALR and CLR</title><link>https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/</link><guid isPermaLink='true'>https://gateguide.co.in/articles/gate-cse-parsing-ll-lr-questions/</guid><pubDate>Thu, 01 Oct 2026 09:00:00 +0530</pubDate><description>How GATE CSE asks parsing questions. FIRST and FOLLOW rules, LL(1) table conflicts, LR(0) item counting and SLR, LALR and CLR conflicts.</description><category>Subjects</category></item>
