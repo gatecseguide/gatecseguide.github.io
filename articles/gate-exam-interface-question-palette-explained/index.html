@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE Exam Interface: Question Palette Colours Explained</title>
+<meta name="description" content="How the GATE computer-based test screen works in every paper: question palette colours, which states are evaluated, MCQ, MSQ and NAT entry, and the timer.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="GATE Exam Interface: Question Palette Colours Explained">
+<meta property="og:description" content="How the GATE computer-based test screen works in every paper: question palette colours, which states are evaluated, MCQ, MSQ and NAT entry, and the timer.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-10-09"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE Exam Interface: Question Palette Colours Explained">
+<meta name="twitter:description" content="How the GATE computer-based test screen works in every paper: question palette colours, which states are evaluated, MCQ, MSQ and NAT entry, and the timer.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#5d6a82;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18);
+--btn:#c7361f;--btn-ink:#fff}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+--btn:#ff6a52;--btn-ink:#0e141f}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif}
+/* Room for the sticky buy bar, only on pages that have one: a page without it used to end in a 76px
+   blank band under the footer. */
+body.has-buybar,body:has(>.buybar){padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+article .hero{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin:6px 0 24px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:40px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:62px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+header.top .nav a.btn.sm{padding-inline:11px}
+/* a thumb needs about 40px to hit a link reliably */
+.nav>a,.brmenu summary{display:inline-flex;align-items:center;min-height:40px}
+.btn.sm{min-height:40px}
+footer nav a{display:inline-flex;align-items:center;min-height:40px}
+footer nav{gap:0 14px}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+/* --btn/--btn-ink keep the label at 4.5:1 or better: a darker red under white text in light mode,
+   coral under dark text in dark mode. `.nav a.btn` and friends are spelt out because `.nav a`
+   (a link colour) is more specific than `.btn` and used to paint the header button's label grey. */
+.btn,.nav a.btn,footer a.btn,.buybar a.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm,.nav a.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost,.nav a.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+/* A blockquote is the book's margin note: "Remember", "Trap", "In one line". One short paragraph,
+   set off in a tinted box so a reader skimming the page still catches it. */
+article blockquote{margin:22px 0;padding:12px 16px;background:var(--paper);border-left:4px solid var(--hot);border-radius:0 var(--radius) var(--radius) 0}
+article blockquote p{margin:6px 0;color:var(--ink)}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+/* Math, typeset by KaTeX at build time (its stylesheet is linked only on pages that have math). It takes
+   the colour of the text around it, so it follows dark mode. Display math is centred at a comfortable
+   size and scrolls sideways on a narrow phone instead of breaking the line or the page. */
+.math-display{display:block;margin:18px 0;padding:2px 0;overflow-x:auto;overflow-y:hidden;
+-webkit-overflow-scrolling:touch;text-align:center;color:var(--ink)}
+.math-display .katex-display{margin:0;padding:4px 2px}
+.math-display .katex{font-size:1.2em}
+.math-inline .katex{font-size:1.07em}
+td .math-inline .katex,th .math-inline .katex{font-size:1em}
+/* KaTeX's hidden MathML copy (for screen readers) is position:absolute; anchored to the page it is
+   laid out as one unbroken line and widened every phone page with inline math. Anchor it to its formula. */
+.katex{position:relative}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3,.cta h2{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem;line-height:1.2}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 8px}
+.shelf a{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;text-decoration:none;border:1px solid var(--line);
+border-radius:var(--radius);padding:10px;background:var(--ground);min-height:40px}
+.shelf a:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.shelf img{width:44px;height:62px;object-fit:cover;border-radius:2px 4px 4px 2px}
+.shelf b{display:block;line-height:1.25;font-size:.95rem}
+.shelf span{font-size:.8rem;color:var(--ink-3);line-height:1.3;display:block}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.all{display:block}
+.cta.all .covers{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px;margin:10px 0 12px;text-decoration:none}
+.cta.all .covers img{width:100%;border-radius:2px 4px 4px 2px;box-shadow:0 8px 16px -10px rgba(16,32,58,.6)}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink);min-height:40px;display:flex;align-items:center;padding-block:4px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'+';flex:none;width:1.2em;color:var(--ink-3);font-weight:500}
+.faq details[open] summary::before{content:'−'}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7909125153156366" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GATE Exam Interface Explained: Question Palette, States and Timer", "description": "How the GATE computer-based test screen works in every paper: question palette colours, which states are evaluated, MCQ, MSQ and NAT entry, and the timer.", "image": ["https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/og.png"], "datePublished": "2026-10-09", "dateModified": "2026-10-09", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/", "inLanguage": "en-IN", "keywords": "gate exam interface, gate question palette colours, gate marked for review answered evaluated, gate cbt screen explained, gate nat virtual keypad"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "GATE Exam Interface Explained: Question Palette, States and Timer", "item": "https://gateguide.co.in/articles/gate-exam-interface-question-palette-explained/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is an answered and marked for review question evaluated in GATE?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in the GATE 2026 official mock. Its question palette labels that state as answered and marked for review, will also be evaluated, and its instructions say the Mark for Review and Next button saves your answer before marking it. A question marked for review with no answer has nothing to evaluate. Confirm the wording on the GATE 2027 mock, because the mock page warns that features may differ."}}, {"@type": "Question", "name": "What do the colours in the GATE question palette mean?", "acceptedAnswer": {"@type": "Answer", "text": "In the GATE 2026 official mock, a plain uncoloured box means not visited, red means visited but not answered, green means answered, purple means marked for review without an answer, and purple with a small green mark means answered and marked for review. Only the green and the purple-with-green questions carry a saved answer. Check the legend on the GATE 2027 mock."}}, {"@type": "Question", "name": "Can I type a NAT answer with the keyboard in GATE?", "acceptedAnswer": {"@type": "Answer", "text": "No. The GATE 2027 information brochure says a NAT answer is a signed real number entered with the virtual numeric keypad on the monitor, and that the computer keyboard will be disabled. You click the digits, the decimal point and the minus sign with the mouse. The question states how many decimal places to give."}}, {"@type": "Question", "name": "What happens when the GATE timer reaches zero?", "acceptedAnswer": {"@type": "Answer", "text": "The paper ends on its own. The GATE 2026 official mock instructions say the examination ends automatically when the countdown timer reaches zero and that you are not required to submit. The GATE 2027 brochure also says the examination will terminate automatically once the duration has elapsed. Saved answers are what count, so save as you go."}}, {"@type": "Question", "name": "Does clicking a question number in the GATE palette save my answer?", "acceptedAnswer": {"@type": "Answer", "text": "No. The GATE 2026 official mock instructions state that clicking a question number in the palette does not save your answer to the current question. Use Save and Next, or Mark for Review and Next, before you move. An option you clicked and then left by jumping through the palette is not a saved answer."}}]}</script>
+</head>
+<body class="has-buybar">
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><details class="brmenu"><summary aria-expanded="false">Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../gate-ce-2027-book/"><b>GATE CE</b><span>Out now · ₹250</span></a><a href="../../gate-da-2027-book/"><b>GATE DA</b><span>Out now · ₹250</span></a><a href="../../gate-ee-2027-book/"><b>GATE EE</b><span>Out now · ₹250</span></a><a href="../../gate-me-2027-book/"><b>GATE ME</b><span>Out now · ₹250</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header><script>(function(){var ms=document.querySelectorAll('details.brmenu');function sync(m){var s=m.querySelector('summary');if(s)s.setAttribute('aria-expanded',m.open?'true':'false');}ms.forEach(function(m){sync(m);m.addEventListener('toggle',function(){sync(m);});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){shut(m);});});});function shut(m){m.open=false;sync(m);}document.addEventListener('click',function(e){ms.forEach(function(m){if(m.open&&!m.contains(e.target))shut(m);});});document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;ms.forEach(function(m){if(m.open){shut(m);var s=m.querySelector('summary');if(s)s.focus();}});});})();</script>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Exam</nav>
+<article>
+<h1>GATE Exam Interface Explained: Question Palette, States and Timer</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 9 Oct 2026</span><span>9 min read</span></div>
+<img class="hero" src="og.webp" width="1200" height="630" alt="GATE Exam Interface Explained: Question Palette, States and Timer" fetchpriority="high" decoding="async">
+<p class="lead">The GATE screen shows one question at a time on the left and a <strong>question palette</strong> on the right. The palette colours each question number by its state, and only a saved answer is evaluated. An answered question that you have also marked for review still counts. This guide explains the screen, the five palette states, how each is treated when the paper ends, and how MCQ, MSQ and NAT answers go in. It applies to every branch: the official mocks for all six run on the same test software.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#the-words-this-guide-uses">The words this guide uses</a></li><li><a href="#how-the-screen-is-laid-out">How the screen is laid out</a></li><li><a href="#the-five-palette-states-and-what-each-one-means">The five palette states and what each one means</a></li><li><a href="#how-each-state-is-treated-when-the-paper-ends">How each state is treated when the paper ends</a></li><li><a href="#entering-an-answer-mcq-msq-and-nat">Entering an answer: MCQ, MSQ and NAT</a></li><li><a href="#a-worked-example-scoring-a-mixed-set-by-palette-state">A worked example: scoring a mixed set by palette state</a></li><li><a href="#the-timer-and-what-happens-when-it-reaches-zero">The timer, and what happens when it reaches zero</a></li><li><a href="#sections-zoom-and-instructions-what-is-confirmed">Sections, zoom and instructions: what is confirmed</a></li><li><a href="#practise-the-screen-on-the-official-mock">Practise the screen on the official mock</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Every GATE 2027 paper is a computer-based test of three hours, and it ends automatically when the countdown timer reaches zero.</li>
+<li>The palette has five states: not visited, not answered, answered, marked for review, and answered and marked for review.</li>
+<li>An answer counts only if it was saved. Save and Next saves it; Mark for Review and Next saves it and flags it.</li>
+<li>Clicking a question number in the palette moves you without saving the answer on screen.</li>
+<li>A question marked for review with an answer is evaluated; one marked without an answer scores zero.</li>
+<li>NAT answers go in through an on-screen keypad. The keyboard is disabled.</li>
+</ul>
+<h2 id="the-words-this-guide-uses">The words this guide uses</h2>
+<p>A <strong>computer-based test</strong> (CBT) shows the questions on a computer screen; the GATE 2027 brochure says every one of the 30 papers is held this way. A <strong>response</strong> is what you have entered for a question: an option, a set of options, or a number. A response is <strong>saved</strong> when the software records it for evaluation.</p>
+<p>A <strong>state</strong> is what the palette says about a question. To <strong>mark for review</strong> is to flag a question so you can find it again. The flag is only a bookmark; it does not change how a saved answer is marked.</p>
+<h2 id="how-the-screen-is-laid-out">How the screen is laid out</h2>
+<p>The general instructions of the official GATE 2026 mock describe the screen. The wide left panel shows one question at a time. The narrow right panel, below your name, holds the question palette. A <strong>countdown timer</strong> sits at the top right, and the instructions say its clock is set on the server. A small arrow collapses the palette to give the question more room.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Part of the screen</th>
+<th>Where it is</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Question panel</td>
+<td>Left</td>
+<td>Shows one question and its options or keypad</td>
+</tr>
+<tr>
+<td>Question palette</td>
+<td>Right, below your name</td>
+<td>Shows every question number in its state colour</td>
+</tr>
+<tr>
+<td>Section tabs</td>
+<td>Top left of the question panel</td>
+<td>Switch between General Aptitude and the subject</td>
+</tr>
+<tr>
+<td>Countdown timer</td>
+<td>Top right</td>
+<td>Shows the time left; the paper ends at zero</td>
+</tr>
+<tr>
+<td>Calculator button</td>
+<td>On screen</td>
+<td>Opens the virtual scientific calculator</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-five-palette-states-and-what-each-one-means">The five palette states and what each one means</h2>
+<p>The palette legend in the GATE 2026 official mock uses five symbols. The colours below are from that mock. Check them on the GATE 2027 mock, because the 2026 mock page itself warns that the real exam's features may differ.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Symbol in the 2026 mock</th>
+<th>Saved answer?</th>
+<th>Evaluated?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not visited</td>
+<td>Plain, uncoloured box</td>
+<td>No</td>
+<td>No, scores zero</td>
+</tr>
+<tr>
+<td>Not answered</td>
+<td>Red</td>
+<td>No</td>
+<td>No, scores zero</td>
+</tr>
+<tr>
+<td>Answered</td>
+<td>Green</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Marked for review</td>
+<td>Purple</td>
+<td>No</td>
+<td>No, scores zero</td>
+</tr>
+<tr>
+<td>Answered and marked for review</td>
+<td>Purple with a small green mark</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Not visited</strong> means you have never opened the question. <strong>Not answered</strong> means you opened it but no response is saved. The legend in the 2026 mock labels the last state "Answered &amp; Marked for Review (will also be evaluated)". The mock's instructions add that questions not attempted score zero.</p>
+<blockquote>
+<p><strong>Remember:</strong> Green and purple-with-green are the only two states that carry a saved answer. Everything else on the palette scores zero, whatever you meant to do.</p>
+</blockquote>
+<h2 id="how-each-state-is-treated-when-the-paper-ends">How each state is treated when the paper ends</h2>
+<p>Three buttons decide the state, so learn what each one saves. The mock instructions describe them plainly:</p>
+<ol>
+<li><strong>Save and Next</strong> saves your answer for the current question and opens the next one.</li>
+<li><strong>Mark for Review and Next</strong> saves your answer, marks the question for review, and opens the next one.</li>
+<li><strong>Clear Response</strong> removes your answer. For an MCQ you can also click the chosen option again.</li>
+</ol>
+<p>Clicking a number in the palette moves you to that question, but the instructions are explicit: it does not save your answer to the current question. Pressing Save and Next on the last question of a section takes you to the first question of the next section, and you can switch sections at any time.</p>
+<blockquote>
+<p><strong>Trap:</strong> You click an option, then jump to another question through the palette. The palette shows red, not green, and that answer will not be evaluated. Always leave a question with Save and Next or Mark for Review and Next.</p>
+</blockquote>
+<p>The flag cuts both ways. An MCQ guess saved under Mark for Review and Next is still a saved guess; to withdraw it, press Clear Response.</p>
+<aside class="cta all" aria-label="GATE 2027 books for six branches"><div class="k">The full versions</div><h3>GATE 2027 books for six branches</h3><a class="covers" href="/go/books/blog/" aria-label="See all six GATE 2027 books"><img src="../../assets/cover-360.jpg" width="64" height="90" alt="GATE CSE 2027 book cover" loading="lazy"><img src="../../assets/cover-ece-360.jpg" width="64" height="90" alt="GATE ECE 2027 book cover" loading="lazy"><img src="../../assets/cover-ce-360.jpg" width="64" height="90" alt="GATE CE 2027 book cover" loading="lazy"><img src="../../assets/cover-da-360.jpg" width="64" height="90" alt="GATE DA 2027 book cover" loading="lazy"><img src="../../assets/cover-ee-360.jpg" width="64" height="90" alt="GATE EE 2027 book cover" loading="lazy"><img src="../../assets/cover-me-360.jpg" width="64" height="90" alt="GATE ME 2027 book cover" loading="lazy"></a><p>This guide applies to every paper. One book for each of CSE, ECE, CE, DA, EE and ME, each with its own paper's past questions analysed, worked solutions and 10 full mock tests in the 2027 pattern.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span><span class="was" style="text-decoration:none">each</span></span><a class="btn sm" href="/go/books/blog/">See all six books</a></div></aside>
+<h2 id="entering-an-answer-mcq-msq-and-nat">Entering an answer: MCQ, MSQ and NAT</h2>
+<p>The GATE 2027 brochure sets out the three question types, and the mock shows how each is entered.</p>
+<ul>
+<li>An <strong>MCQ</strong> has four options with round buttons, and only one is correct. Selecting a second option replaces the first.</li>
+<li>An <strong>MSQ</strong> has four options with square checkboxes, and one or more are correct. Each click turns one option on or off.</li>
+<li>A <strong>NAT</strong> has no options. You enter a number on the virtual numeric keypad that appears below the question.</li>
+</ul>
+<p>For a NAT, the brochure says the answer is a signed real number and that the computer keyboard will be disabled. Its examples are 10, -10, 10.1, 10.01 and -10.001, so the keypad gives you digits, a decimal point and a minus sign. The question states how many decimal places to give. The brochure advises rounding only at the end of the calculation.</p>
+<p>You enter one number, but the official key lists each NAT answer as a range. The GATE 2026 MA key heads that column "Key/Range" and writes answers such as "1.00 to 1.10" or "5 to 5". Early rounding is how a careful calculation lands outside it.</p>
+<p>The brochure says you must use only the on-screen virtual calculator; its keys are covered in the <a href="../gate-virtual-calculator-guide/">GATE virtual calculator guide</a>.</p>
+<h2 id="a-worked-example-scoring-a-mixed-set-by-palette-state">A worked example: scoring a mixed set by palette state</h2>
+<p>The marking scheme is common to every GATE paper; the <a href="../gate-cse-2027-exam-pattern-marking-scheme/">GATE exam pattern and marking scheme guide</a> sets it out in full. A wrong 1-mark MCQ loses <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mfrac><mn>1</mn><mn>3</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle \frac{1}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span> of a mark and a wrong 2-mark MCQ loses <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mfrac><mn>2</mn><mn>3</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle \frac{2}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>. MSQ and NAT carry no negative marking, and the GATE 2027 brochure says there is no partial marking for any question.</p>
+<p>In words, your score is the marks of every correct saved answer, minus a third for each wrong 1-mark MCQ, minus two thirds for each wrong 2-mark MCQ:</p>
+<div class="math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>S</mi><mo>=</mo><munder><mo>∑</mo><mtext>correct</mtext></munder><msub><mi>m</mi><mi>i</mi></msub><mtext>  </mtext><mo>−</mo><mtext>  </mtext><mfrac><mn>1</mn><mn>3</mn></mfrac><mtext> </mtext><msub><mi>W</mi><mn>1</mn></msub><mtext>  </mtext><mo>−</mo><mtext>  </mtext><mfrac><mn>2</mn><mn>3</mn></mfrac><mtext> </mtext><msub><mi>W</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">S = \sum_{\text{correct}} m_i \;-\; \frac{1}{3}\,W_1 \;-\; \frac{2}{3}\,W_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3em;vertical-align:-1.25em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.9em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">correct</span></span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.25em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></div>
+<p>Here <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">m_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> is the mark value of a correct question, <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">W_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> is the number of wrong 1-mark MCQs, and <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">W_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> is the number of wrong 2-mark MCQs. Now take ten questions, made up for this guide, as they stand on the palette when the timer reaches zero.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Q</th>
+<th>Type, marks</th>
+<th>Palette state</th>
+<th>Outcome</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>MCQ, 1</td>
+<td>Answered</td>
+<td>Correct</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>MCQ, 1</td>
+<td>Answered</td>
+<td>Wrong</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mo>−</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle -\frac{1}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>MCQ, 2</td>
+<td>Answered and marked</td>
+<td>Correct</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">2</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>MCQ, 2</td>
+<td>Answered</td>
+<td>Wrong</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle -\frac{2}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>MSQ, 2</td>
+<td>Answered</td>
+<td>All correct options, nothing extra</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">2</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>MSQ, 1</td>
+<td>Answered</td>
+<td>One wrong option added</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>7</td>
+<td>NAT, 1</td>
+<td>Answered</td>
+<td>Inside the key's range</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>8</td>
+<td>NAT, 2</td>
+<td>Answered and marked</td>
+<td>Outside the range</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>9</td>
+<td>MCQ, 2</td>
+<td>Marked for review</td>
+<td>No saved answer</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></td>
+</tr>
+<tr>
+<td>10</td>
+<td>MCQ, 1</td>
+<td>Not answered</td>
+<td>Option clicked, left via palette</td>
+<td><span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Four answers earn marks: questions 1, 3, 5 and 7. Two MCQs are wrong, one of each mark value, so <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">W_1 = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span> and <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">W_2 = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span>:</p>
+<div class="math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>S</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>−</mo><mrow><mo fence="true">(</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>3</mn></mfrac></mstyle><mo>×</mo><mn>1</mn><mo>+</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>2</mn><mn>3</mn></mfrac></mstyle><mo>×</mo><mn>1</mn><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>6</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>5</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+S &amp;= (1 + 2 + 2 + 1) - \left(\tfrac{1}{3} \times 1 + \tfrac{2}{3} \times 1\right) \\
+&amp;= 6 - 1 = 5
+\end{aligned}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.01em;vertical-align:-1.255em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.755em;"><span style="top:-3.905em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span><span style="top:-2.405em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.255em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.755em;"><span style="top:-3.905em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span><span style="top:-2.405em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.255em;"><span></span></span></span></span></span></span></span></span></span></span></span></div>
+<p>Question 3 counts even though it is flagged, because its answer was saved. Question 10 might have been right, but it scores nothing: the option was never saved.</p>
+<blockquote>
+<p><strong>In one line:</strong> The palette state decides whether an answer exists; the marking scheme then decides what it is worth.</p>
+</blockquote>
+<h2 id="the-timer-and-what-happens-when-it-reaches-zero">The timer, and what happens when it reaches zero</h2>
+<p>Every GATE 2027 paper runs for three hours, with up to four hours for candidates who take compensatory time. The brochure says the examination terminates automatically when the duration has elapsed. The mock instructions put it more simply: when the timer reaches zero the examination ends, and you are not required to submit.</p>
+<p>The brochure lets you log in and read the instructions 20 minutes before the start, but not after 15 minutes from it, and you cannot leave before the scheduled end. The <a href="../gate-2027-admit-card-exam-day-rules/">admit card and exam day rules guide</a> covers the rest of the day.</p>
+<p>Since nothing needs submitting, use the last two minutes to scan the palette for red numbers you meant to answer.</p>
+<h2 id="sections-zoom-and-instructions-what-is-confirmed">Sections, zoom and instructions: what is confirmed</h2>
+<p>The mock instructions confirm the sections: each section has a tab, the current tab is highlighted, and a section summary sits above the palette. They do not list a zoom button. The GATE 2027 FAQs say candidates with a visual impairment are given the option of viewing the paper in a magnified font.</p>
+<p>The brochure does not say whether you can reopen the instructions during the test. Check it on the GATE 2027 mock, which the brochure says will be linked from the official site; dates are on the <a href="../gate-2027-exam-dates/">GATE 2027 exam dates page</a>.</p>
+<h2 id="practise-the-screen-on-the-official-mock">Practise the screen on the official mock</h2>
+<p>The official mock is the only true copy of the screen. Its page notes that mock answers are not evaluated, so use it for the buttons, not a score. Each branch's GATE 2027 book has <a href="../../books/">10 full mock tests</a> for the questions; sit them against a three-hour clock with the same habits.</p>
+<h2 id="quick-revision">Quick revision</h2>
+<ol>
+<li>The screen has a question panel on the left and the question palette on the right.</li>
+<li>Five states: not visited, not answered (red), answered (green), marked for review (purple), answered and marked (purple with green).</li>
+<li>Only answered, and answered and marked for review, are evaluated.</li>
+<li>Save and Next saves. Mark for Review and Next saves and flags. A palette click does not save.</li>
+<li>NAT answers go in on the on-screen keypad; round only at the end, and the key gives a range.</li>
+<li>Wrong MCQ: <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mo>−</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle -\frac{1}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span> for 1 mark, <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle -\frac{2}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span> for 2 marks; MSQ and NAT: no negative, no partial marks.</li>
+<li>At zero the paper ends by itself; check the palette for red numbers before then.</li>
+</ol>
+<aside class="cta all" aria-label="GATE 2027 books for six branches"><div class="k">The GATE 2027 books · by MD ANISH AHAMAD</div><h3>GATE 2027 books for six branches</h3><a class="covers" href="/go/books/blog/" aria-label="See all six GATE 2027 books"><img src="../../assets/cover-360.jpg" width="64" height="90" alt="GATE CSE 2027 book cover" loading="lazy"><img src="../../assets/cover-ece-360.jpg" width="64" height="90" alt="GATE ECE 2027 book cover" loading="lazy"><img src="../../assets/cover-ce-360.jpg" width="64" height="90" alt="GATE CE 2027 book cover" loading="lazy"><img src="../../assets/cover-da-360.jpg" width="64" height="90" alt="GATE DA 2027 book cover" loading="lazy"><img src="../../assets/cover-ee-360.jpg" width="64" height="90" alt="GATE EE 2027 book cover" loading="lazy"><img src="../../assets/cover-me-360.jpg" width="64" height="90" alt="GATE ME 2027 book cover" loading="lazy"></a><p>One book for each of CSE, ECE, CE, DA, EE and ME, each with its own paper's past questions analysed, worked solutions and 10 full mock tests in the 2027 pattern.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span><span class="was" style="text-decoration:none">each</span></span><a class="btn" href="/go/books/blog/">See all six books</a></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Is an answered and marked for review question evaluated in GATE?</summary><p>Yes, in the GATE 2026 official mock. Its question palette labels that state as answered and marked for review, will also be evaluated, and its instructions say the Mark for Review and Next button saves your answer before marking it. A question marked for review with no answer has nothing to evaluate. Confirm the wording on the GATE 2027 mock, because the mock page warns that features may differ.</p></details><details><summary>What do the colours in the GATE question palette mean?</summary><p>In the GATE 2026 official mock, a plain uncoloured box means not visited, red means visited but not answered, green means answered, purple means marked for review without an answer, and purple with a small green mark means answered and marked for review. Only the green and the purple-with-green questions carry a saved answer. Check the legend on the GATE 2027 mock.</p></details><details><summary>Can I type a NAT answer with the keyboard in GATE?</summary><p>No. The GATE 2027 information brochure says a NAT answer is a signed real number entered with the virtual numeric keypad on the monitor, and that the computer keyboard will be disabled. You click the digits, the decimal point and the minus sign with the mouse. The question states how many decimal places to give.</p></details><details><summary>What happens when the GATE timer reaches zero?</summary><p>The paper ends on its own. The GATE 2026 official mock instructions say the examination ends automatically when the countdown timer reaches zero and that you are not required to submit. The GATE 2027 brochure also says the examination will terminate automatically once the duration has elapsed. Saved answers are what count, so save as you go.</p></details><details><summary>Does clicking a question number in the GATE palette save my answer?</summary><p>No. The GATE 2026 official mock instructions state that clicking a question number in the palette does not save your answer to the current question. Use Save and Next, or Mark for Review and Next, before you move. An option you clicked and then left by jumping through the palette is not a saved answer.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf" rel="nofollow noopener" target="_blank">GATE 2027 Information Brochure (official PDF), sections 7.1 and 7.2</a></li><li><a href="https://gate2027.iitm.ac.in/question_paper_pattern" rel="nofollow noopener" target="_blank">GATE 2027 question paper pattern and marking (official)</a></li><li><a href="https://gate2027.iitm.ac.in/faqs" rel="nofollow noopener" target="_blank">GATE 2027 FAQs (official)</a></li><li><a href="https://gate2026.iitg.ac.in/mock-test-links.html" rel="nofollow noopener" target="_blank">GATE 2026 official mock test links (IIT Guwahati)</a></li><li><a href="https://cdn4.digialm.com//OnlineAssessment/index.html?585@@M464" rel="nofollow noopener" target="_blank">GATE 2026 official CS mock test, general instructions and question palette legend</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/download/2026/Keys/MA_Keys.pdf" rel="nofollow noopener" target="_blank">GATE 2026 official answer key for MA, showing NAT keys as ranges</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-2027-how-many-mock-tests-schedule/"><div class="c">Strategy</div><b>How Many Mock Tests for GATE 2027, and When: A Dated Schedule</b><span>9 min read</span></a><a class="card" href="../gate-mock-test-analysis-how-to-review/"><div class="c">Strategy</div><b>GATE Mock Test Analysis: How to Review a Mock and Plan the Next Week</b><span>9 min read</span></a><a class="card" href="../gate-cse-2027-exam-pattern-marking-scheme/"><div class="c">Exam</div><b>GATE CSE 2027 Exam Pattern and Marking Scheme</b><span>7 min read</span></a><a class="card" href="../gate-virtual-calculator-guide/"><div class="c">Exam</div><b>GATE Virtual Calculator: How to Use It Without Losing Time</b><span>7 min read</span></a><a class="card" href="../gate-2027-admit-card-exam-day-rules/"><div class="c">Exam</div><b>GATE 2027 Admit Card and Exam Day Rules</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav aria-label="Books"><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../gate-ece-2027-book/">GATE ECE 2027 book</a><a href="../../gate-ce-2027-book/">GATE CE 2027 book</a><a href="../../gate-da-2027-book/">GATE DA 2027 book</a><a href="../../gate-ee-2027-book/">GATE EE 2027 book</a><a href="../../gate-me-2027-book/">GATE ME 2027 book</a><a href="../../books/">All books</a><a href="../../preview/">Free previews</a><a href="../../articles/">Blog</a></nav><nav aria-label="Policies"><a href="../../contact/">Contact Us</a><a href="../../terms/">Terms</a><a href="../../refund-policy/">Refund Policy</a><a href="../../shipping-delivery-policy/">Shipping and Delivery</a><a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>6 GATE 2027 books</b>₹250 <s>₹300</s> each · free previews</div><a class="btn sm" href="/go/books/blog/">See all books</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
