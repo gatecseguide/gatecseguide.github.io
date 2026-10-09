@@ -82,6 +82,7 @@ footer a{color:var(--ink-2)}
 <li><strong>Razorpay</strong> processes your payment under its own privacy policy. Its checkout script, loaded on our checkout page, may set its own cookies to run the payment securely.</li>
 <li><strong>Cloudflare Workers</strong> runs our download service. When you pay, it receives your email address, payment ID and the book you bought, and stores them with a count of downloads (Cloudflare KV) for <strong>30 days</strong>, after which they are deleted automatically. The PDF files themselves are stored in Cloudflare R2.</li>
 <li><strong>Resend</strong> sends the email with your download link from books@gateguide.co.in, under its own privacy policy.</li>
+<li>For the <strong>online test series</strong>, Cloudflare Workers also stores your payment ID with the branch you bought, and, for each test you submit, your answers, score and time taken, so you can see your results again. These records are deleted automatically after 31 March 2027. While you take a test, your answers and the time left are also kept in your browser's local storage so the test can resume if the page reloads.</li>
 <li><strong>WhatsApp</strong> (Meta) carries the messages you send us. We keep those messages and your phone number to give you support.</li>
 <li>Authorities, only where the law requires it.</li>
 </ul>
@@ -92,7 +93,7 @@ footer a{color:var(--ink-2)}
 <p>After payment, the confirmation page keeps a small counter in your browser's session storage to limit how many times it retries fetching your download. It is cleared when you close the tab.</p>
 <p>This website shows ads served by Google AdSense. Google and its partners use cookies to serve ads based on your visits to this and other websites, and to measure them. See <a href="https://policies.google.com/technologies/ads">how Google uses cookies in advertising</a>; you can turn off personalised ads in <a href="https://www.google.com/settings/ads">Google Ads Settings</a>.</p>
 <h2>How long we keep it</h2>
-<p>Download records are deleted automatically after 30 days. Payment records are kept for as long as tax and accounting law requires. WhatsApp messages and emails are kept while they are needed to support your purchase, and deleted when they are no longer needed.</p>
+<p>Download records are deleted automatically after 30 days, and test series records after 31 March 2027. Payment records are kept for as long as tax and accounting law requires. WhatsApp messages and emails are kept while they are needed to support your purchase, and deleted when they are no longer needed.</p>
 
 <h2>Your choices</h2>
 <p>Message us on <a href="https://wa.me/917033935778">WhatsApp +91 70339 35778</a> or email <a href="mailto:mdanisahamad2003@gmail.com">mdanisahamad2003@gmail.com</a> to see, correct or delete the information we hold about you, or to stop receiving updates.</p>
