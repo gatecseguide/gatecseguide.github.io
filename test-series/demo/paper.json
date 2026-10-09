@@ -1,0 +1,229 @@
+{
+ "id": "demo",
+ "title": "GATE Guide Demo Test",
+ "branch": "demo",
+ "number": 0,
+ "duration_min": 20,
+ "author": "MD ANISH AHAMAD",
+ "questions": [
+  {
+   "n": 1,
+   "section": "General Aptitude",
+   "type": "MCQ",
+   "marks": 1,
+   "stem": "Choose the word that best fills the blank.\n\nThe committee's statement was so ______ that even its own members disagreed about what it meant.",
+   "options": [
+    "ambiguous",
+    "unanimous",
+    "concise",
+    "punctual"
+   ]
+  },
+  {
+   "n": 2,
+   "section": "General Aptitude",
+   "type": "MCQ",
+   "marks": 1,
+   "stem": "Which of the following sentences is grammatically correct?",
+   "options": [
+    "Neither the manager nor the clerks was present.",
+    "Neither the manager nor the clerks were present.",
+    "Neither the manager or the clerks were present.",
+    "Neither of the manager nor the clerks were present."
+   ]
+  },
+  {
+   "n": 3,
+   "section": "General Aptitude",
+   "type": "NAT",
+   "marks": 1,
+   "stem": "A shopkeeper marks an article 25% above its cost price and then sells it at a discount of 12% on the marked price. The profit, as a percentage of the cost price, is ______ (as an integer)."
+  },
+  {
+   "n": 4,
+   "section": "General Aptitude",
+   "type": "MCQ",
+   "marks": 1,
+   "stem": "What is the next number in the series 2, 6, 12, 20, 30, ___ ?",
+   "options": [
+    "40",
+    "42",
+    "44",
+    "36"
+   ]
+  },
+  {
+   "n": 5,
+   "section": "General Aptitude",
+   "type": "MSQ",
+   "marks": 1,
+   "stem": "Which of the following numbers are divisible by **both** 3 and 4?",
+   "options": [
+    "132",
+    "246",
+    "360",
+    "1004"
+   ]
+  },
+  {
+   "n": 6,
+   "section": "General Aptitude",
+   "type": "MCQ",
+   "marks": 2,
+   "stem": "The table shows the number of units of three products P, Q and R sold by a shop in the four quarters of a year.\n\n| Quarter | P | Q | R |\n|---|---|---|---|\n| Quarter 1 | 120 | 80 | 50 |\n| Quarter 2 | 150 | 90 | 60 |\n| Quarter 3 | 135 | 110 | 55 |\n| Quarter 4 | 180 | 100 | 70 |\n\nIn which quarter was the share of product Q in that quarter's total sales the highest?",
+   "options": [
+    "Quarter 1",
+    "Quarter 2",
+    "Quarter 3",
+    "Quarter 4"
+   ]
+  },
+  {
+   "n": 7,
+   "section": "General Aptitude",
+   "type": "NAT",
+   "marks": 2,
+   "stem": "Pipes A and B can fill a tank in 12 hours and 18 hours respectively. Pipe C can empty the full tank in 36 hours. If all three pipes are opened together on an empty tank, the tank is full in ______ hours (as an integer)."
+  },
+  {
+   "n": 8,
+   "section": "General Aptitude",
+   "type": "MCQ",
+   "marks": 2,
+   "stem": "Four friends P, Q, R and S sit in a row, all facing north.\n\n- Q is not at either end.\n- R sits immediately to the right of P.\n- S sits at the right end.\n\nWho sits at the left end?",
+   "options": [
+    "P",
+    "Q",
+    "R",
+    "It cannot be determined"
+   ]
+  },
+  {
+   "n": 9,
+   "section": "General Aptitude",
+   "type": "MSQ",
+   "marks": 2,
+   "stem": "**Statements:** All P are Q. All Q are R. Some R are not S.\n\nAssume that none of P, Q, R and S is empty. Which of the following conclusions follow **necessarily** from the statements?",
+   "options": [
+    "All P are R.",
+    "Some P are not S.",
+    "Some R are Q.",
+    "No Q is S."
+   ]
+  },
+  {
+   "n": 10,
+   "section": "General Aptitude",
+   "type": "NAT",
+   "marks": 2,
+   "stem": "If $\\log_2 x + \\log_4 x = 6$, then the value of $x$ is ______ (as an integer)."
+  },
+  {
+   "n": 11,
+   "section": "Technical",
+   "type": "MCQ",
+   "marks": 1,
+   "stem": "The eigenvalues of the matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ are",
+   "options": [
+    "2 and 2",
+    "1 and 3",
+    "0 and 4",
+    "−1 and 3"
+   ]
+  },
+  {
+   "n": 12,
+   "section": "Technical",
+   "type": "NAT",
+   "marks": 1,
+   "stem": "The maximum number of nodes in a binary tree of height 4 is ______. (A tree with only a root has height 0.)"
+  },
+  {
+   "n": 13,
+   "section": "Technical",
+   "type": "MSQ",
+   "marks": 1,
+   "stem": "Which of the following sorting algorithms run in $O(n \\log n)$ time in the **worst** case on an array of $n$ elements?",
+   "options": [
+    "Merge sort",
+    "Quicksort that always picks the last element as the pivot",
+    "Heapsort",
+    "Insertion sort"
+   ]
+  },
+  {
+   "n": 14,
+   "section": "Technical",
+   "type": "MCQ",
+   "marks": 1,
+   "stem": "What does the following C program print?\n\n```c\n#include <stdio.h>\n\nint main(void) {\n    int a[] = {3, 1, 4, 1, 5};\n    int s = 0;\n    for (int i = 0; i < 5; i += 2)\n        s += a[i];\n    printf(\"%d\", s);\n    return 0;\n}\n```",
+   "options": [
+    "9",
+    "14",
+    "12",
+    "6"
+   ]
+  },
+  {
+   "n": 15,
+   "section": "Technical",
+   "type": "NAT",
+   "marks": 1,
+   "stem": "The 8-bit two's complement number $11110110$ has the decimal value ______."
+  },
+  {
+   "n": 16,
+   "section": "Technical",
+   "type": "MCQ",
+   "marks": 2,
+   "stem": "The DFA below works over the alphabet $\\{0, 1\\}$. The arrow marks the start state $q_0$, and $q_0$ (double circle) is the only accepting state. Which language does it accept?",
+   "options": [
+    "Strings with an even number of 0s",
+    "Strings that end in 1",
+    "Strings with an odd number of 1s",
+    "Strings with an even number of 1s"
+   ],
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 160\" width=\"320\" height=\"160\" font-family=\"Georgia,serif\" font-size=\"16\" role=\"img\" aria-label=\"DFA with states q0 and q1\"><defs><marker id=\"dfa-ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0,0L10,5L0,10z\" fill=\"#000\"/></marker></defs><line x1=\"8\" y1=\"92\" x2=\"56\" y2=\"92\" stroke=\"#000\" stroke-width=\"1.5\" marker-end=\"url(#dfa-ah)\"/><circle cx=\"90\" cy=\"92\" r=\"30\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\"/><circle cx=\"90\" cy=\"92\" r=\"25\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\"/><text x=\"90\" y=\"97\" text-anchor=\"middle\">q0</text><circle cx=\"240\" cy=\"92\" r=\"30\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\"/><text x=\"240\" y=\"97\" text-anchor=\"middle\">q1</text><path d=\"M114 74 Q165 42 216 74\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\" marker-end=\"url(#dfa-ah)\"/><text x=\"165\" y=\"50\" text-anchor=\"middle\">1</text><path d=\"M216 110 Q165 142 114 110\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\" marker-end=\"url(#dfa-ah)\"/><text x=\"165\" y=\"146\" text-anchor=\"middle\">1</text><path d=\"M78 64 C62 22 118 22 102 64\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\" marker-end=\"url(#dfa-ah)\"/><text x=\"90\" y=\"26\" text-anchor=\"middle\">0</text><path d=\"M228 64 C212 22 268 22 252 64\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\" marker-end=\"url(#dfa-ah)\"/><text x=\"240\" y=\"26\" text-anchor=\"middle\">0</text></svg>"
+  },
+  {
+   "n": 17,
+   "section": "Technical",
+   "type": "NAT",
+   "marks": 2,
+   "stem": "Four processes arrive as shown (times in milliseconds).\n\n| Process | Arrival time | Burst time |\n|---|---|---|\n| P1 | 0 | 7 |\n| P2 | 2 | 4 |\n| P3 | 4 | 1 |\n| P4 | 5 | 4 |\n\nThey are scheduled by **non-preemptive** shortest job first; a tie in burst time goes to the earlier arrival. Taking waiting time = completion time − arrival time − burst time, the average waiting time in milliseconds is ______ (rounded off to two decimal places)."
+  },
+  {
+   "n": 18,
+   "section": "Technical",
+   "type": "MSQ",
+   "marks": 2,
+   "stem": "Which of the following statements about TCP are true?",
+   "options": [
+    "It delivers a reliable, in-order byte stream.",
+    "It preserves the boundaries between the messages an application sends.",
+    "A connection is set up with a three-way handshake.",
+    "Flow control uses the window size advertised by the receiver."
+   ]
+  },
+  {
+   "n": 19,
+   "section": "Technical",
+   "type": "MCQ",
+   "marks": 2,
+   "stem": "A relation $R(A, B, C, D)$ has the functional dependencies $A \\to B$, $B \\to C$ and $C \\to A$, and only those that follow from them. How many candidate keys does $R$ have?",
+   "options": [
+    "3",
+    "1",
+    "2",
+    "6"
+   ]
+  },
+  {
+   "n": 20,
+   "section": "Technical",
+   "type": "NAT",
+   "marks": 2,
+   "stem": "A fair six-sided die is rolled twice. The probability that the sum of the two numbers is 8 is ______ (rounded off to three decimal places)."
+  }
+ ]
+}

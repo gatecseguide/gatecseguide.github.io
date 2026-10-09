@@ -1,0 +1,159 @@
+{
+ "id": "demo",
+ "answers": {
+  "1": {
+   "answer": "A",
+   "subject": "Verbal Ability",
+   "topic": "Sentence completion",
+   "solution": "The clue is that the members *disagreed about what it meant*: the statement could be read in more than one way, which is what **ambiguous** means.\n\n- *Unanimous* describes agreement, the opposite of the clue.\n- *Concise* means brief; brevity alone does not make a statement unclear.\n- *Punctual* is about time.\n\n**Answer: A**"
+  },
+  "2": {
+   "answer": "B",
+   "subject": "Verbal Ability",
+   "topic": "Grammar: subject-verb agreement",
+   "solution": "With *neither … nor*, the verb agrees with the subject **nearer** to it. Here that is *the clerks* (plural), so the verb is *were*.\n\n- A uses *was* next to a plural subject.\n- C pairs *neither* with *or*; the correlative pair is *neither … nor*.\n- D adds *of*, which cannot be followed by *nor* here.\n\n**Answer: B**"
+  },
+  "3": {
+   "answer": {
+    "min": 10,
+    "max": 10
+   },
+   "subject": "Quantitative Aptitude",
+   "topic": "Profit and discount",
+   "solution": "Take the cost price as 100.\n\n$$\\text{Marked price} = 125, \\qquad \\text{Selling price} = 125 \\times 0.88 = 110$$\n\nProfit $= 110 - 100 = 10$, that is **10%** of the cost price.\n\nThe trap is $25 - 12 = 13$: the discount is taken on the marked price, not on the cost price.\n\n**Answer: 10**"
+  },
+  "4": {
+   "answer": "B",
+   "subject": "Analytical Aptitude",
+   "topic": "Number series",
+   "solution": "The differences are 4, 6, 8, 10, so the next difference is 12 and the next term is $30 + 12 = 42$.\n\nEquivalently, the $n$-th term is $n(n+1)$: $6 \\times 7 = 42$.\n\n**Answer: B**"
+  },
+  "5": {
+   "answer": [
+    "A",
+    "C"
+   ],
+   "subject": "Quantitative Aptitude",
+   "topic": "Divisibility",
+   "solution": "A number is divisible by 3 when its digit sum is, and by 4 when its last two digits form a multiple of 4.\n\n| Number | Digit sum | Last two digits | By 3 | By 4 |\n|---|---|---|---|---|\n| 132 | 6 | 32 | yes | yes |\n| 246 | 12 | 46 | yes | no |\n| 360 | 9 | 60 | yes | yes |\n| 1004 | 5 | 04 | no | yes |\n\nOnly 132 and 360 pass both tests.\n\n**Answer: A, C**"
+  },
+  "6": {
+   "answer": "C",
+   "subject": "Data Interpretation",
+   "topic": "Tables and percentages",
+   "solution": "Share of Q = Q ÷ (P + Q + R) for each quarter:\n\n| Quarter | Total | Share of Q |\n|---|---|---|\n| 1 | 250 | $80/250 = 32.0\\%$ |\n| 2 | 300 | $90/300 = 30.0\\%$ |\n| 3 | 300 | $110/300 \\approx 36.7\\%$ |\n| 4 | 350 | $100/350 \\approx 28.6\\%$ |\n\nQuarter 4 has the largest total, which is the trap: its share of Q is actually the smallest.\n\n**Answer: C**"
+  },
+  "7": {
+   "answer": {
+    "min": 9,
+    "max": 9
+   },
+   "subject": "Quantitative Aptitude",
+   "topic": "Time and work",
+   "solution": "Work per hour, as fractions of the tank:\n\n$$\\frac{1}{12} + \\frac{1}{18} - \\frac{1}{36} = \\frac{3 + 2 - 1}{36} = \\frac{4}{36} = \\frac{1}{9}$$\n\nSo the tank fills in **9 hours**. Adding the emptying pipe instead of subtracting it gives $36/6 = 6$ hours, the usual slip.\n\n**Answer: 9**"
+  },
+  "8": {
+   "answer": "A",
+   "subject": "Analytical Aptitude",
+   "topic": "Seating arrangement",
+   "solution": "Number the seats 1 to 4 from left to right. S is in seat 4. P and R are adjacent with R on the right, so (P, R) is in seats (1, 2) or (2, 3).\n\n- (2, 3): Q must take seat 1, an end. Not allowed.\n- (1, 2): Q takes seat 3, which is not an end. Valid: **P R Q S**.\n\nOnly one arrangement works, so P is at the left end.\n\n**Answer: A**"
+  },
+  "9": {
+   "answer": [
+    "A",
+    "C"
+   ],
+   "subject": "Analytical Aptitude",
+   "topic": "Syllogisms",
+   "solution": "Check each option.\n\n- **A follows.** All P are Q and all Q are R, so every P is an R.\n- **B does not follow.** The R that are not S may all lie outside Q; then every P could be an S.\n- **C follows.** Q is not empty and every Q is an R, so at least one R is a Q.\n- **D does not follow.** Nothing stops some or all of Q from being S.\n\n**Answer: A, C**"
+  },
+  "10": {
+   "answer": {
+    "min": 16,
+    "max": 16
+   },
+   "subject": "Quantitative Aptitude",
+   "topic": "Logarithms",
+   "solution": "Change the base: $\\log_4 x = \\dfrac{\\log_2 x}{\\log_2 4} = \\dfrac{1}{2}\\log_2 x$. So\n\n$$\\log_2 x + \\tfrac{1}{2}\\log_2 x = \\tfrac{3}{2}\\log_2 x = 6 \\;\\Rightarrow\\; \\log_2 x = 4 \\;\\Rightarrow\\; x = 2^4 = 16$$\n\nCheck: $\\log_2 16 + \\log_4 16 = 4 + 2 = 6$.\n\n**Answer: 16**"
+  },
+  "11": {
+   "answer": "B",
+   "subject": "Engineering Mathematics",
+   "topic": "Eigenvalues",
+   "solution": "Solve $\\det(A - \\lambda I) = 0$:\n\n$$(2 - \\lambda)^2 - 1 = 0 \\;\\Rightarrow\\; 2 - \\lambda = \\pm 1 \\;\\Rightarrow\\; \\lambda = 1, 3$$\n\nCheck: the sum $1 + 3 = 4$ equals the trace, and the product $1 \\times 3 = 3$ equals $\\det A$. Option C has the right sum but product 0.\n\n**Answer: B**"
+  },
+  "12": {
+   "answer": {
+    "min": 31,
+    "max": 31
+   },
+   "subject": "Data Structures",
+   "topic": "Binary trees",
+   "solution": "A binary tree has at most $2^i$ nodes at level $i$. With levels 0 to 4:\n\n$$\\sum_{i=0}^{4} 2^i = 2^5 - 1 = 31$$\n\nCounting height from 1 instead would give $2^4 - 1 = 15$, the trap.\n\n**Answer: 31**"
+  },
+  "13": {
+   "answer": [
+    "A",
+    "C"
+   ],
+   "subject": "Algorithms",
+   "topic": "Sorting",
+   "solution": "- **Merge sort:** always $\\Theta(n \\log n)$. Correct.\n- **Quicksort, last-element pivot:** on an already sorted array every split is $n-1$ : $0$, giving $\\Theta(n^2)$. Not correct.\n- **Heapsort:** building the heap is $O(n)$ and each of $n$ extractions is $O(\\log n)$. Correct.\n- **Insertion sort:** $\\Theta(n^2)$ on a reverse-sorted array. Not correct.\n\n**Answer: A, C**"
+  },
+  "14": {
+   "answer": "C",
+   "subject": "Programming in C",
+   "topic": "Arrays and loops",
+   "solution": "The loop visits $i = 0, 2, 4$, so\n\n$$s = a[0] + a[2] + a[4] = 3 + 4 + 5 = 12$$\n\nAdding the odd positions instead ($1 + 1$) or stopping at $i = 2$ ($3 + 4 = 7$) are the usual slips; 14 would need all five elements.\n\n**Answer: C**"
+  },
+  "15": {
+   "answer": {
+    "min": -10,
+    "max": -10
+   },
+   "subject": "Digital Logic",
+   "topic": "Number representation",
+   "solution": "The leading bit is 1, so the number is negative. Its magnitude is the two's complement:\n\n$$11110110 \\xrightarrow{\\text{invert}} 00001001 \\xrightarrow{+1} 00001010 = 10$$\n\nSo the value is $-10$. Equivalently, $246 - 256 = -10$. Reading it as unsigned (246) is the trap.\n\n**Answer: −10**"
+  },
+  "16": {
+   "answer": "D",
+   "subject": "Theory of Computation",
+   "topic": "Finite automata",
+   "solution": "Reading a 0 never changes the state (self-loops), and every 1 switches between $q_0$ and $q_1$. So the DFA is in $q_0$ exactly when it has read an even number of 1s, and $q_0$ is the accepting state.\n\n- The empty string (zero 1s) is accepted, which already rules out C.\n- The 0s are ignored, which rules out A.\n- The string 1 ends in 1 but is rejected, which rules out B.\n\n**Answer: D**"
+  },
+  "17": {
+   "answer": {
+    "min": 3.99,
+    "max": 4.01
+   },
+   "subject": "Operating Systems",
+   "topic": "CPU scheduling",
+   "solution": "Only P1 has arrived at $t = 0$, so it runs to completion: 0–7. At $t = 7$ all others are waiting; P3 (burst 1) runs 7–8. P2 and P4 tie at burst 4; P2 arrived first and runs 8–12, then P4 runs 12–16.\n\n| Process | Completion | Waiting |\n|---|---|---|\n| P1 | 7 | $7 - 0 - 7 = 0$ |\n| P2 | 12 | $12 - 2 - 4 = 6$ |\n| P3 | 8 | $8 - 4 - 1 = 3$ |\n| P4 | 16 | $16 - 5 - 4 = 7$ |\n\n$$\\text{Average} = \\frac{0 + 6 + 3 + 7}{4} = 4.00$$\n\nPre-empting P1 when P3 arrives is the trap: that is SRTF, not non-preemptive SJF.\n\n**Answer: 4.00**"
+  },
+  "18": {
+   "answer": [
+    "A",
+    "C",
+    "D"
+   ],
+   "subject": "Computer Networks",
+   "topic": "TCP",
+   "solution": "- **A true.** Sequence numbers, acknowledgements and retransmission give reliable, ordered delivery.\n- **B false.** TCP is a byte stream: two writes may arrive as one read, or one write as several. Message boundaries are a UDP property.\n- **C true.** SYN, SYN-ACK, ACK.\n- **D true.** The sender never has more unacknowledged bytes in flight than the receiver's advertised window allows.\n\n**Answer: A, C, D**"
+  },
+  "19": {
+   "answer": "A",
+   "subject": "Databases",
+   "topic": "Functional dependencies and keys",
+   "solution": "$D$ appears on no right-hand side, so every key contains $D$. $D$ alone gives $\\{D\\}^+ = \\{D\\}$, not a key.\n\n$A, B, C$ form a cycle, so any one of them determines the other two:\n\n$$\\{A, D\\}^+ = \\{B, D\\}^+ = \\{C, D\\}^+ = \\{A, B, C, D\\}$$\n\nEach is minimal, and any other superkey contains one of them. So the candidate keys are $AD$, $BD$ and $CD$.\n\n**Answer: A** (3)"
+  },
+  "20": {
+   "answer": {
+    "min": 0.138,
+    "max": 0.14
+   },
+   "subject": "Engineering Mathematics",
+   "topic": "Probability",
+   "solution": "The 36 ordered outcomes are equally likely. A sum of 8 comes from $(2,6), (3,5), (4,4), (5,3), (6,2)$: 5 outcomes.\n\n$$P = \\frac{5}{36} \\approx 0.139$$\n\nCounting $(3,5)$ and $(5,3)$ once gives $3/36$, the trap.\n\n**Answer: 0.139**"
+  }
+ }
+}
