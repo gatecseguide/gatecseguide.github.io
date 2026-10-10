@@ -345,6 +345,45 @@ function md(src, inline) {
   h = h.replace(/KXMATH(\d+)KX/g, function (m, i) { var x = maths[+i]; return x ? tex(x[0], x[1]) : m; });
   return h.replace(/KXDOLLARKX/g, function () { return "$"; });
 }
+/* full screen: the exam runs full screen, as in the exam hall */
+function fsEl() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+function fsCan() {
+  var d = document.documentElement;
+  return !!(d.requestFullscreen || d.webkitRequestFullscreen) && !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+}
+function fsEnter() {
+  var d = document.documentElement, f = d.requestFullscreen || d.webkitRequestFullscreen;
+  if (!f || fsEl()) return;
+  try {
+    var p = f.call(d, {navigationUI: "hide"});
+    if (p && p.then) p.then(null, function () { setTimeout(function () { fsGate(true); }, 0); });
+  } catch (e) { setTimeout(function () { fsGate(true); }, 0); }
+  /* some browsers neither enter full screen nor reject the request: check again shortly */
+  setTimeout(function () { if (!fsEl()) fsGate(true); }, 1500);
+}
+function fsExit() {
+  if (!fsEl()) return;
+  var f = document.exitFullscreen || document.webkitExitFullscreen;
+  try { var p = f.call(document); if (p && p.then) p.then(null, function () {}); } catch (e) {}
+}
+function fsGate(failed) {
+  if (!S || S.phase !== "exam" || S.nofs || !fsCan() || fsEl()) return;
+  closeCalc(); closeDrawer();
+  overlay('<h2 id="ovt">Return to full screen</h2><p>The test runs in full screen, as in the exam hall. '
+    + (S.fsx ? "You have left full screen <b>" + S.fsx + (S.fsx > 1 ? " times" : " time") + "</b> during this test. " : "")
+    + "The clock keeps running while this notice is open.</p>"
+    + (failed ? "<p>This browser did not switch to full screen. If it keeps refusing (some in-app browsers do), continue in this window, or open the test in Chrome, Edge or Firefox.</p>" : "")
+    + '<div class="row"><button class="btn pri" type="button" id="fsgo">Continue in full screen</button>'
+    + (failed ? '<button class="btn" type="button" id="fsno">Continue in this window</button>' : "") + "</div>", false);
+  $("fsgo").onclick = fsEnter;
+  if ($("fsno")) $("fsno").onclick = function () { S.nofs = true; saveS(); closeOverlay(); };
+}
+function fsChange() {
+  if (!S || S.phase !== "exam") return;
+  if (fsEl()) { if ($("fsgo")) closeOverlay(); return; }
+  S.fsx = (S.fsx || 0) + 1; saveS();
+  fsGate();
+}
 function svgSafe(s) {
   if (!s || typeof window.DOMPurify === "undefined") return "";
   return DOMPurify.sanitize(String(s), {USE_PROFILES: {svg: true, svgFilters: true}});
@@ -531,7 +570,8 @@ function instrHtml(test) {
     + "<li>The test lasts <b>" + mins + " minutes</b>. The countdown timer at the top right of the screen shows the time left. When it reaches zero the test ends and your answers are submitted on their own; you do not have to submit it yourself.</li>"
     + "<li>The question palette on the right of the screen (behind the <b>Palette</b> button on a phone) shows the status of each question in the current section with one of these symbols:" + legendList() + "</li>"
     + "<li>Marked for Review is only a reminder to look at a question again. A question that is marked for review but has no answer is not evaluated.</li>"
-    + "<li>The Calculator button opens a scientific calculator on the screen. It is the only calculator you may use, as in the exam hall.</li></ol>"
+    + "<li>The Calculator button opens a scientific calculator on the screen. It is the only calculator you may use, as in the exam hall.</li>"
+    + "<li>The test opens in <b>full screen</b>. If you leave full screen (the Esc key or switching to another window), the test is hidden behind a notice until you return to full screen; the clock keeps running and the number of times you left is counted. (Safari on an iPhone does not allow full screen, so there the test runs in the normal window.)</li></ol>"
     + "<h3>Moving between questions</h3><ol class=\"instr\">"
     + "<li>Click a question number in the palette to go straight to it. <b>An answer you have selected but not saved is lost when you do this.</b></li>"
     + "<li>Click <b>Save &amp; Next</b> to save your answer to the current question and go to the next one.</li>"
@@ -562,7 +602,7 @@ function instructions(test) {
     + (DEMO ? '<a class="btn" href="/test-series/">Back</a>' : '<button class="btn" id="back" type="button">Back to tests</button>') + "</div>",
     test.title + " - instructions");
   $("agree").onchange = function () { $("go").disabled = !this.checked; };
-  $("go").onclick = function () { beginExam(test); };
+  $("go").onclick = function () { fsEnter(); beginExam(test); };
   if ($("back")) $("back").onclick = loadList;
 }
 
@@ -592,6 +632,7 @@ function resume(s) {
   enterExam();
   if (remaining() <= 0) return timeUp();
   toast("Resumed where you left off. The clock kept running.");
+  fsEnter(); fsGate();
 }
 function enterExam() {
   showView("exam");
@@ -791,7 +832,7 @@ function submitNow(auto) {
     S.auto = !!auto;
     saveS();
   }
-  stopTimer(); closeOverlay(); closeCalc(); closeDrawer();
+  stopTimer(); closeOverlay(); closeCalc(); closeDrawer(); fsExit();
   var responses = {};
   Object.keys(S.ans).forEach(function (n) { if (hasAns(S.ans[n])) responses[n] = S.ans[n]; });
   var marked = Object.keys(S.st).filter(function (n) { return S.st[n] === "m" || S.st[n] === "am"; }).map(Number);
@@ -1082,10 +1123,12 @@ function wire() {
   $("scrim").onclick = closeDrawer;
   $("ov").addEventListener("click", function (e) { if (e.target === $("ov") && ovCloseable) closeOverlay(); });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") { if (!$("ov").hidden) closeOverlay(); else if ($("side").classList.contains("open")) closeDrawer(); else if (!$("calc").hidden) closeCalc(); }
+    if (e.key === "Escape") { if (!$("ov").hidden) { if (ovCloseable) closeOverlay(); } else if ($("side").classList.contains("open")) closeDrawer(); else if (!$("calc").hidden) closeCalc(); }
   });
   /* A numerical answer is typed only on the keypad, as in GATE: keys pressed on the computer keyboard never reach it. */
   $("qcontent").addEventListener("paste", function (e) { e.preventDefault(); });
+  document.addEventListener("fullscreenchange", fsChange);
+  document.addEventListener("webkitfullscreenchange", fsChange);
   window.addEventListener("storage", function (e) {
     if (S && e.key === pkey(S.who, S.n) && !e.newValue) location.reload();
   });
