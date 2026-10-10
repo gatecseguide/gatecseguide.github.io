@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your GATE 2027 book</title>
 <meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'">
+<script>if(self!==top){document.documentElement.style.display="none";try{top.location=self.location;}catch(e){}}</script>
 <link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript>
 <style>
@@ -204,12 +207,22 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
   var PID_RE = /^pay_[A-Za-z0-9]{6,}$/;
   var q = new URLSearchParams(location.search);
   var given = (q.get("razorpay_payment_id") || q.get("pid") || "").trim();
+  // The payment id is the buyer's key: out of the address bar (and so out of history and analytics)
+  // at once, kept only for this tab so a reload still finds it.
+  if (given) {
+    try { sessionStorage.setItem("ty_pid", given); } catch (e) {}
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  } else {
+    try { given = sessionStorage.getItem("ty_pid") || ""; } catch (e) {}
+  }
   var pid = PID_RE.test(given) ? given : "";
   var heading = document.getElementById("heading");
   var lead = document.getElementById("lead");
   var state = document.getElementById("state");
 
   function show(html) { state.innerHTML = html; }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) {
+    return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); }
   function say(h, msg) { heading.textContent = h; lead.textContent = msg; }
   // pid has passed PID_RE before it is ever shown, so it is letters, digits and "_" only.
   function pidLine(extra) { return '<p class="pid">Payment id ' + pid + (extra || '') + '</p>'; }
@@ -278,7 +291,7 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
     if (res.ok && res.j.ok) {
       // The worker says which book this payment bought and how big it is, so this page tells the
       // truth for every book without being rebuilt when one is added.
-      var title = res.j.title || "the book";
+      var title = esc(res.j.title || "the book");
       if (res.j.mb) {
         document.getElementById("sizeline").textContent = "The file is about " + res.j.mb
           + " MB. Use Wi-Fi if you can; on a slow connection it takes a few minutes.";
@@ -286,17 +299,17 @@ Updates to this edition are free: message on WhatsApp with your payment id and y
       // Each purchase downloads once. After that the page hands over to WhatsApp, with the payment id
       // already in the message, instead of showing a button that would only come back here.
       if (!(res.j.left > 0)) {
-        say("Get your book again on WhatsApp", "The " + title + " PDF for this payment has already been "
+        say("Get your book again on WhatsApp", "The " + (res.j.title || "the book") + " PDF for this payment has already been "
           + "downloaded once. If you did not save it, or it did not open, message on WhatsApp with your payment id "
           + "and you will get the PDF there.");
         show('<div class="dl"><a class="btn big" href="' + wa()
           + '" target="_blank" rel="noopener">Get the PDF on WhatsApp</a>' + pidLine() + '</div>');
         return;
       }
-      say("Thank you. Your book is ready.", "Tap the button to download your " + title + " PDF. "
+      say("Thank you. Your book is ready.", "Tap the button to download your " + (res.j.title || "the book") + " PDF. "
         + "You get one download, so save the PDF on your device as soon as it opens. "
         + "Any problem? Message on WhatsApp with your payment id.");
-      var size = res.j.mb ? " (PDF, " + res.j.mb + " MB)" : " (PDF)";
+      var size = Number(res.j.mb) > 0 ? " (PDF, " + Math.round(Number(res.j.mb)) + " MB)" : " (PDF)";
       var buttons = '<a class="btn big" href="' + WORKER + '/book?pid=' + encodeURIComponent(pid) + '">Download '
         + title + size + '</a>';
       // Each book's own free preview, picked by the title the worker reports ("GATE EE 2027"), so a

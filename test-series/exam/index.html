@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-cr0sPTTRuVIccWyH2yxaEhiOMPo/UNEI9+ai2xkEDqU=' 'sha256-i8MFm0tIYkiZaORbcc64Olas6evlQCbOmn5uGcNk/ro=' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://gatecseguide-download.mdanisahamad2003.workers.dev https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GATE Guide Test Series</title>
 <meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<script>if(self!==top){document.documentElement.style.display="none";try{top.location=self.location;}catch(e){}}</script>
 <meta name="author" content="MD ANISH AHAMAD">
 <link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#10203a">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
@@ -295,6 +298,10 @@ var STATES = [["nv", "Not Visited"], ["na", "Not Answered"], ["a", "Answered"], 
 var LABEL = {}; STATES.forEach(function (s) { LABEL[s[0]] = s[1]; });
 var params = new URLSearchParams(location.search);
 var DEMO = params.get("demo") === "1";
+/* The payment id is the buyer's key: out of the address bar before any other script (analytics) runs. */
+if (params.get("pid") || params.get("razorpay_payment_id")) {
+  try { history.replaceState(null, "", location.pathname + (DEMO ? "?demo=1" : "")); } catch (e) {}
+}
 
 function $(id) { return document.getElementById(id); }
 function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -343,7 +350,10 @@ function md(src, inline) {
   h = DOMPurify.sanitize(h);
   h = h.replace(/<table>/g, '<div class="tbl"><table>').replace(/<\/table>/g, "</table></div>");
   h = h.replace(/KXMATH(\d+)KX/g, function (m, i) { var x = maths[+i]; return x ? tex(x[0], x[1]) : m; });
-  return h.replace(/KXDOLLARKX/g, function () { return "$"; });
+  h = h.replace(/KXDOLLARKX/g, function () { return "$"; });
+  /* Cleaned again after the maths goes in: a placeholder that landed inside an attribute must not
+     become markup. KaTeX's own HTML, MathML and SVG all pass. */
+  return DOMPurify.sanitize(h, {ADD_TAGS: ["annotation", "semantics"], ADD_ATTR: ["encoding", "aria-hidden"]});
 }
 /* full screen: the exam runs full screen, as in the exam hall */
 function fsEl() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
@@ -463,6 +473,16 @@ function access(bad, val) {
   };
 }
 function changePid() { try { localStorage.removeItem(LS_PID); } catch (e) {} pid = ""; access(false, ""); }
+/* For a shared computer: forget the payment id, every saved paper and the email typed at checkout. */
+function signOut() {
+  try {
+    for (var i = localStorage.length - 1; i >= 0; i--) {
+      var k = localStorage.key(i);
+      if (k === LS_PID || k === "buyer_email" || /^ggts:/.test(k)) localStorage.removeItem(k);
+    }
+  } catch (e) {}
+  pid = ""; access(false, ""); toast("Signed out. Nothing from your account is left on this device.");
+}
 
 /* ------------------------------------------------------------ test list */
 var listData = null;
@@ -498,11 +518,13 @@ function renderList(j) {
     + day(j.valid_until) + ".</p>"
     + '<div class="tbl"><table class="tl"><thead><tr><th>No.</th><th>Test</th><th class="num">Action</th></tr></thead><tbody>'
     + (rows || '<tr><td colspan="3">No tests yet.</td></tr>') + "</tbody></table></div>"
-    + '<p class="small">Payment ID <code>' + esc(pid) + '</code> · keep it safe: it opens your tests on any device. '
-    + '<button class="linkbtn" id="chg" type="button">Use a different payment ID</button></p>'
+    + '<p class="small">Payment ID <code>' + esc(maskPid(pid)) + '</code> (the full ID is in your purchase email) · keep it safe: it opens your tests on any device. '
+    + '<button class="linkbtn" id="chg" type="button">Use a different payment ID</button> · '
+    + '<button class="linkbtn" id="out" type="button">Sign out on this device</button></p>'
     + '<p class="small">Need help? <a href="' + WA_HELP + encodeURIComponent(pid) + '" target="_blank" rel="noopener">Message on WhatsApp</a>.</p>',
     (j.name || "Your tests") + " - GATE Guide");
   $("chg").onclick = changePid;
+  $("out").onclick = signOut;
   Array.prototype.forEach.call(document.querySelectorAll("[data-start]"), function (b) {
     b.onclick = function () { startTest(+b.getAttribute("data-start")); };
   });
@@ -760,8 +782,8 @@ function renderSide() {
   QS.forEach(function (q, i) {
     if (q.section !== sec) return;
     var st = S.st[q.n], cur = i === S.cur;
-    h += '<button type="button" class="pq st-' + st + (cur ? " cur" : "") + '" data-i="' + i + '" aria-label="Question ' + q.n + ", " + LABEL[st]
-      + (cur ? ", current question" : "") + '"' + (cur ? ' aria-current="true"' : "") + ">" + q.n + "</button>";
+    h += '<button type="button" class="pq st-' + st + (cur ? " cur" : "") + '" data-i="' + i + '" aria-label="Question ' + esc(q.n) + ", " + LABEL[st]
+      + (cur ? ", current question" : "") + '"' + (cur ? ' aria-current="true"' : "") + ">" + esc(q.n) + "</button>";
   });
   $("pal").innerHTML = h;
   Array.prototype.forEach.call($("pal").querySelectorAll("button"), function (b) {
@@ -903,7 +925,7 @@ function rcard(q) {
   var h = '<article class="rq ' + esc(st) + '" data-st="' + esc(st) + '"><div class="rqh"><b>Q' + esc(q.n) + "</b><span>" + esc(q.section || "")
     + "</span><span>" + esc(q.type) + " · " + esc(q.marks) + " mark" + (q.marks > 1 ? "s" : "") + "</span>"
     + (q.subject ? "<span>" + esc(q.subject) + (q.topic ? " — " + esc(q.topic) : "") + "</span>" : "")
-    + '<span class="badge ' + esc(st) + '">' + lab + " · " + signed(q.awarded) + "</span></div>"
+    + '<span class="badge ' + esc(st) + '">' + esc(lab) + " · " + signed(q.awarded) + "</span></div>"
     + '<div class="md">' + md(q.stem) + "</div>" + (q.svg ? '<div class="fig">' + svgSafe(q.svg) + "</div>" : "");
   if (q.options && q.options.length) {
     var key = Array.isArray(q.answer) ? q.answer : [q.answer], you = Array.isArray(q.response) ? q.response : (q.response ? [q.response] : []);
