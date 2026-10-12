@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSSSB TGT CS Networking Questions with Answers</title>
+<meta name="description" content="Computer networks is the most-asked DSSSB TGT Computer Science topic. Layers, ports, devices, IP classes and subnetting, with solved questions.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="DSSSB TGT CS Networking Questions with Answers">
+<meta property="og:description" content="Computer networks is the most-asked DSSSB TGT Computer Science topic. Layers, ports, devices, IP classes and subnetting, with solved questions.">
+<meta property="og:url" content="https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-10-13"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DSSSB TGT CS Networking Questions with Answers">
+<meta name="twitter:description" content="Computer networks is the most-asked DSSSB TGT Computer Science topic. Layers, ports, devices, IP classes and subnetting, with solved questions.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript>
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#5d6a82;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18);
+--btn:#c7361f;--btn-ink:#fff}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+--btn:#ff6a52;--btn-ink:#0e141f}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif}
+/* Room for the sticky buy bar, only on pages that have one: a page without it used to end in a 76px
+   blank band under the footer. */
+body.has-buybar,body:has(>.buybar){padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+article .hero{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin:6px 0 24px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:40px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+@media (max-width:820px){.nav a.oe{display:none}}  /* tablets: it stays in the Branches menu */
+.brpanel .oth{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:10px 10px 2px;border-top:1px solid var(--line);margin-top:4px}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:62px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+header.top .nav a.btn.sm{padding-inline:11px}
+/* a thumb needs about 40px to hit a link reliably */
+.nav>a,.brmenu summary{display:inline-flex;align-items:center;min-height:40px}
+.btn.sm{min-height:40px}
+footer nav a{display:inline-flex;align-items:center;min-height:40px}
+footer nav{gap:0 14px}}
+/* Below 375px the header cannot hold Branches, Tests, Blog and Buy: Blog stays in the footer. */
+@media (max-width:374px){.nav a.blog{display:none}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+/* --btn/--btn-ink keep the label at 4.5:1 or better: a darker red under white text in light mode,
+   coral under dark text in dark mode. `.nav a.btn` and friends are spelt out because `.nav a`
+   (a link colour) is more specific than `.btn` and used to paint the header button's label grey. */
+.btn,.nav a.btn,footer a.btn,.buybar a.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm,.nav a.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost,.nav a.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+/* A blockquote is the book's margin note: "Remember", "Trap", "In one line". One short paragraph,
+   set off in a tinted box so a reader skimming the page still catches it. */
+article blockquote{margin:22px 0;padding:12px 16px;background:var(--paper);border-left:4px solid var(--hot);border-radius:0 var(--radius) var(--radius) 0}
+article blockquote p{margin:6px 0;color:var(--ink)}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+/* Math, typeset by KaTeX at build time (its stylesheet is linked only on pages that have math). It takes
+   the colour of the text around it, so it follows dark mode. Display math is centred at a comfortable
+   size and scrolls sideways on a narrow phone instead of breaking the line or the page. */
+.math-display{display:block;margin:18px 0;padding:2px 0;overflow-x:auto;overflow-y:hidden;
+-webkit-overflow-scrolling:touch;text-align:center;color:var(--ink)}
+.math-display .katex-display{margin:0;padding:4px 2px}
+.math-display .katex{font-size:1.2em}
+.math-inline .katex{font-size:1.07em}
+td .math-inline .katex,th .math-inline .katex{font-size:1em}
+/* KaTeX's hidden MathML copy (for screen readers) is position:absolute; anchored to the page it is
+   laid out as one unbroken line and widened every phone page with inline math. Anchor it to its formula. */
+.katex{position:relative}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3,.cta h2{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem;line-height:1.2}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 8px}
+.shelf a{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;text-decoration:none;border:1px solid var(--line);
+border-radius:var(--radius);padding:10px;background:var(--ground);min-height:40px}
+.shelf a:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.shelf img{width:44px;height:62px;object-fit:cover;border-radius:2px 4px 4px 2px}
+.shelf b{display:block;line-height:1.25;font-size:.95rem}
+.shelf span{font-size:.8rem;color:var(--ink-3);line-height:1.3;display:block}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.all{display:block}
+.cta.all .covers{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px;margin:10px 0 12px;text-decoration:none}
+.cta.all .covers img{width:100%;border-radius:2px 4px 4px 2px;box-shadow:0 8px 16px -10px rgba(16,32,58,.6)}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink);min-height:40px;display:flex;align-items:center;padding-block:4px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'+';flex:none;width:1.2em;color:var(--ink-3);font-weight:500}
+.faq details[open] summary::before{content:'−'}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7909125153156366" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DSSSB TGT Computer Science Networking Questions with Answers", "description": "Computer networks is the most-asked DSSSB TGT Computer Science topic. Layers, ports, devices, IP classes and subnetting, with solved questions.", "image": ["https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/og.png"], "datePublished": "2026-10-13", "dateModified": "2026-10-13", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/", "inLanguage": "en-IN", "keywords": "dsssb computer networks questions, dsssb tgt cs networking mcq, osi model questions dsssb, port number questions, subnet mask questions dsssb"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "DSSSB TGT Computer Science Networking Questions with Answers", "item": "https://gateguide.co.in/articles/dsssb-tgt-computer-science-networking-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many networking questions come in DSSSB TGT Computer Science?", "acceptedAnswer": {"@type": "Answer", "text": "Computer networks is the most-asked Section B topic. In 11 TGT Computer Science papers it gave 106 of 1,100 questions, about 9.6 per paper, and it was in the top three topics every year from 2017 to 2024. Expect around nine or ten networking questions in your paper."}}, {"@type": "Question", "name": "Which port numbers should I memorise for DSSSB?", "acceptedAnswer": {"@type": "Answer", "text": "The ones asked again and again are HTTP 80, HTTPS 443, FTP 20 for data and 21 for control, SSH 22, Telnet 23, SMTP 25, DNS 53, DHCP 67 and 68, POP3 110 and IMAP 143. Learn them as a table and test yourself in both directions - port to protocol and protocol to port."}}, {"@type": "Question", "name": "How do I calculate usable hosts in a subnet quickly?", "acceptedAnswer": {"@type": "Answer", "text": "Count the host bits, which is 32 minus the prefix length, then use 2 to the power of host bits minus 2, because the network and broadcast addresses cannot be given to hosts. A /26 subnet has 6 host bits, so 64 minus 2 gives 62 usable hosts."}}, {"@type": "Question", "name": "At which layer do a hub, switch and router work?", "acceptedAnswer": {"@type": "Answer", "text": "A hub and a repeater work at the physical layer, a switch and a bridge at the data link layer because they use MAC addresses, and a router at the network layer because it forwards packets by IP address. A gateway can work at any layer and connects networks that use different protocols."}}]}</script>
+</head>
+<body class="has-buybar">
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><details class="brmenu"><summary aria-expanded="false">Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../gate-ce-2027-book/"><b>GATE CE</b><span>Out now · ₹250</span></a><a href="../../gate-da-2027-book/"><b>GATE DA</b><span>Out now · ₹250</span></a><a href="../../gate-ee-2027-book/"><b>GATE EE</b><span>Out now · ₹250</span></a><a href="../../gate-me-2027-book/"><b>GATE ME</b><span>Out now · ₹250</span></a><div class="oth">Other exams</div><a href="../../dsssb-tgt-computer-science-book/"><b>DSSSB TGT CS</b><span>Out now · ₹250</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../test-series/"><span class="l">Test series</span><span class="s">Tests</span></a><a class="l oe" href="../../dsssb-tgt-computer-science-book/">Other exams</a><a class="blog" href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header><script>(function(){var ms=document.querySelectorAll('details.brmenu');function sync(m){var s=m.querySelector('summary');if(s)s.setAttribute('aria-expanded',m.open?'true':'false');}ms.forEach(function(m){sync(m);m.addEventListener('toggle',function(){sync(m);});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){shut(m);});});});function shut(m){m.open=false;sync(m);}document.addEventListener('click',function(e){ms.forEach(function(m){if(m.open&&!m.contains(e.target))shut(m);});});document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;ms.forEach(function(m){if(m.open){shut(m);var s=m.querySelector('summary');if(s)s.focus();}});});})();</script>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>DSSSB TGT Computer Science Networking Questions with Answers</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 13 Oct 2026</span><span>6 min read</span></div>
+<img class="hero" src="og.webp" width="1200" height="630" alt="DSSSB TGT Computer Science Networking Questions with Answers" fetchpriority="high" decoding="async">
+<p class="lead">DSSSB TGT Computer Science networking questions are the single biggest block in Section B: about ten per paper across 11 past papers. The good news is that the same few ideas repeat — layers, ports, devices, addressing. This guide covers each with the fact table you need and solved questions in DSSSB style.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#the-words-you-will-meet">The words you will meet</a></li><li><a href="#layers-by-function">Layers by function</a></li><li><a href="#port-numbers">Port numbers</a></li><li><a href="#ip-addressing">IP addressing</a></li><li><a href="#solved-questions-in-dsssb-style">Solved questions in DSSSB style</a></li><li><a href="#protocols-in-one-line-each">Protocols in one line each</a></li><li><a href="#how-dsssb-writes-networking-questions">How DSSSB writes networking questions</a></li><li><a href="#building-a-ten-minute-daily-drill">Building a ten-minute daily drill</a></li><li><a href="#facts-that-are-often-confused">Facts that are often confused</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Networks gave 106 of 1,100 Section B questions in 11 papers: about 9.6 per paper.</li>
+<li>Learn the OSI and TCP/IP layers by function, not only by name.</li>
+<li>Port numbers and device-to-layer matching are near-certain questions.</li>
+<li>IP classes, private ranges, default masks and usable hosts cover the numerical part.</li>
+<li>Protocols ARP, DHCP, ICMP, SMTP, POP3 and IMAP are favourite one-liners.</li>
+</ul>
+<h2 id="the-words-you-will-meet">The words you will meet</h2>
+<ul>
+<li><strong>Protocol</strong> — the agreed rules for one kind of communication (HTTP for web pages, SMTP for sending mail).</li>
+<li><strong>Port</strong> — a number that identifies the service on a host (80 for HTTP).</li>
+<li><strong>Subnet mask</strong> — tells which part of an IP address is the network and which part is the host.</li>
+</ul>
+<h2 id="layers-by-function">Layers by function</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>OSI layer</th>
+<th>What it does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7 Application</td>
+<td>services to the user</td>
+<td>HTTP, FTP, SMTP, DNS</td>
+</tr>
+<tr>
+<td>6 Presentation</td>
+<td>format, encryption, compression</td>
+<td>SSL/TLS (often placed here), JPEG</td>
+</tr>
+<tr>
+<td>5 Session</td>
+<td>dialog control, synchronisation</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4 Transport</td>
+<td>end-to-end delivery, ports, flow control</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td>3 Network</td>
+<td>logical addressing, routing</td>
+<td>IP, ICMP; router</td>
+</tr>
+<tr>
+<td>2 Data link</td>
+<td>framing, MAC addresses, error detection</td>
+<td>Ethernet; switch, bridge</td>
+</tr>
+<tr>
+<td>1 Physical</td>
+<td>bits on the medium</td>
+<td>cables, hub, repeater</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Remember:</strong> "Please Do Not Throw Sausage Pizza Away" — Physical, Data link, Network, Transport, Session, Presentation, Application (bottom to top).</p>
+</blockquote>
+<h2 id="port-numbers">Port numbers</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Port</th>
+<th>Protocol</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTP data / control</td>
+<td>20 / 21</td>
+<td>DNS</td>
+<td>53</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22</td>
+<td>DHCP</td>
+<td>67 / 68</td>
+</tr>
+<tr>
+<td>Telnet</td>
+<td>23</td>
+<td>HTTP</td>
+<td>80</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>25</td>
+<td>POP3</td>
+<td>110</td>
+</tr>
+<tr>
+<td>IMAP</td>
+<td>143</td>
+<td>HTTPS</td>
+<td>443</td>
+</tr>
+</tbody>
+</table></div>
+<aside class="cta" aria-label="DSSSB TGT Computer Science 2026 book"><img src="../../assets/cover-dsssb-360.jpg" width="110" height="156" alt="DSSSB TGT Computer Science 2026 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 420-page DSSSB TGT Computer Science 2026 book has both sections chapter by chapter from 11 past DSSSB papers, shortcuts, 5 full mock tests and a 30-day plan.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy-dsssb/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview-dsssb/blog/">Free 25-page preview</a></div></div></aside>
+<h2 id="ip-addressing">IP addressing</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>First octet</th>
+<th>Default mask</th>
+<th>Private range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1–126</td>
+<td>255.0.0.0 (/8)</td>
+<td>10.0.0.0 – 10.255.255.255</td>
+</tr>
+<tr>
+<td>B</td>
+<td>128–191</td>
+<td>255.255.0.0 (/16)</td>
+<td>172.16.0.0 – 172.31.255.255</td>
+</tr>
+<tr>
+<td>C</td>
+<td>192–223</td>
+<td>255.255.255.0 (/24)</td>
+<td>192.168.0.0 – 192.168.255.255</td>
+</tr>
+<tr>
+<td>D</td>
+<td>224–239</td>
+<td>multicast</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>127.0.0.1 is the loopback address. <strong>Usable hosts = 2^(32 − prefix) − 2.</strong></p>
+<blockquote>
+<p><strong>Trap:</strong> 172.32.1.1 is <strong>not</strong> private — the class B private range stops at 172.31. DSSSB uses exactly this kind of near-miss option.</p>
+</blockquote>
+<h2 id="solved-questions-in-dsssb-style">Solved questions in DSSSB style</h2>
+<ol>
+<li>Which layer is responsible for routing? (a) Data link (b) Network (c) Transport (d) Session — <strong>(b)</strong>: routers work at the network layer.</li>
+<li>The protocol that maps an IP address to a MAC address is (a) RARP (b) ARP (c) DNS (d) DHCP — <strong>(b)</strong>.</li>
+<li>Usable hosts in a /26 subnet: 2⁶ − 2 = <strong>62</strong>.</li>
+<li>Which device works at the data link layer? (a) Hub (b) Repeater (c) Switch (d) Router — <strong>(c)</strong>.</li>
+<li>Which is a private address? (a) 172.32.1.1 (b) 192.168.10.5 (c) 11.0.0.1 (d) 193.168.1.1 — <strong>(b)</strong>.</li>
+<li>Transmission in both directions but one at a time is (a) simplex (b) half duplex (c) full duplex — <strong>(b)</strong>.</li>
+<li>Number of links in a full mesh of n devices: n(n − 1)/2, so 6 devices need <strong>15</strong>.</li>
+</ol>
+<p>Networks sits at the top of our <a href="../dsssb-tgt-computer-science-important-topics/">important topics list</a>; the year-wise counts are in the <a href="../dsssb-tgt-computer-science-previous-year-papers-analysis/">previous year papers analysis</a>. In the exam, these fact questions are quick wins — answer them confidently, and save guesses for the harder items, as the <a href="../dsssb-tgt-negative-marking-how-many-questions-to-attempt/">negative marking guide</a> explains.</p>
+<h2 id="protocols-in-one-line-each">Protocols in one line each</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>One-line job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARP / RARP</td>
+<td>IP → MAC / MAC → IP</td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>gives IP addresses automatically</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>domain name → IP address</td>
+</tr>
+<tr>
+<td>ICMP</td>
+<td>error reports and <code>ping</code></td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>sends mail</td>
+</tr>
+<tr>
+<td>POP3 / IMAP</td>
+<td>receives mail (IMAP keeps it on the server)</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>transfers files</td>
+</tr>
+<tr>
+<td>SNMP</td>
+<td>manages network devices</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="how-dsssb-writes-networking-questions">How DSSSB writes networking questions</h2>
+<p>Most networking questions in DSSSB papers are one-line recall questions with four close options. The difficulty is not the concept but the distractors. A question about the layer that handles routing will offer the data link, network, transport and session layers — all real layers, all plausible to a hurried reader. A question about a private IP address will offer 172.32.1.1 next to 192.168.10.5, testing whether you know exactly where the private range ends. The defence is precise learning: not "routing is somewhere in the middle layers" but "routing is the network layer, and the router is the network-layer device".</p>
+<p>A smaller share of questions needs a short calculation. Usable hosts in a subnet, the number of links in a full mesh, and converting a prefix length to a dotted mask are the common ones. Each has a single formula, and each takes under a minute once practised. Learn the formula, work two examples by hand, and you will not lose these marks.</p>
+<h2 id="building-a-ten-minute-daily-drill">Building a ten-minute daily drill</h2>
+<p>For the last two weeks, keep a ten-minute daily drill for networks. Write the seven OSI layers from memory, list ten port numbers, name the layer of four devices, and solve one subnetting question. Check yourself against the tables above. After a week the drill takes five minutes and the facts stay fresh until the exam. Because networks gave about ten questions per paper, this small habit protects close to ten marks.</p>
+<h2 id="facts-that-are-often-confused">Facts that are often confused</h2>
+<p>Students often swap SMTP and POP3 — remember that SMTP sends and POP3 or IMAP receive. They confuse ARP with RARP — ARP finds the MAC address for a known IP address, RARP the reverse. They place the switch at the network layer — it is a data-link device; only a layer-3 switch routes. And they forget that FTP uses two ports, 20 for data and 21 for control. Each of these pairs has appeared as a pair of options in past papers, so a single clear rule for each one saves you from the trap.</p>
+<p>If you are unsure where to begin, start with the topic that gave the most questions in the past papers and work downwards. Write short notes as you go, revise them every few days, and test yourself with timed questions rather than only reading. Steady daily work over the remaining weeks is far more effective than long sessions in the final days, and it leaves you calm enough on the exam day to read every question carefully.</p>
+<h2 id="quick-revision">Quick revision</h2>
+<ol>
+<li>OSI bottom-up: Physical, Data link, Network, Transport, Session, Presentation, Application.</li>
+<li>HTTP 80, HTTPS 443, FTP 20/21, SSH 22, Telnet 23, SMTP 25, DNS 53, POP3 110.</li>
+<li>Hub physical; switch and bridge data link; router network.</li>
+<li>Private: 10/8, 172.16–31, 192.168/16; loopback 127.0.0.1.</li>
+<li>Usable hosts = 2^(host bits) − 2; full mesh links = n(n − 1)/2.</li>
+</ol>
+<aside class="cta big" aria-label="DSSSB TGT Computer Science 2026 book"><img src="../../assets/cover-dsssb-360.jpg" width="150" height="212" alt="DSSSB TGT Computer Science 2026 book cover" loading="lazy"><div><div class="k">DSSSB TGT Computer Science 2026 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>Section A and Section B, chapter by chapter, from 11 past TGT CS papers</li><li>"How much is asked" box, shortcuts and traps in every chapter</li><li>5 full mock tests (1,000 questions) and the Top 100 expected questions</li><li>Day-by-day 30-day plan to the exam</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy-dsssb/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../dsssb-tgt-computer-science-book/">See the book</a><a class="btn ghost" href="/go/preview-dsssb/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>How many networking questions come in DSSSB TGT Computer Science?</summary><p>Computer networks is the most-asked Section B topic. In 11 TGT Computer Science papers it gave 106 of 1,100 questions, about 9.6 per paper, and it was in the top three topics every year from 2017 to 2024. Expect around nine or ten networking questions in your paper.</p></details><details><summary>Which port numbers should I memorise for DSSSB?</summary><p>The ones asked again and again are HTTP 80, HTTPS 443, FTP 20 for data and 21 for control, SSH 22, Telnet 23, SMTP 25, DNS 53, DHCP 67 and 68, POP3 110 and IMAP 143. Learn them as a table and test yourself in both directions - port to protocol and protocol to port.</p></details><details><summary>How do I calculate usable hosts in a subnet quickly?</summary><p>Count the host bits, which is 32 minus the prefix length, then use 2 to the power of host bits minus 2, because the network and broadcast addresses cannot be given to hosts. A /26 subnet has 6 host bits, so 64 minus 2 gives 62 usable hosts.</p></details><details><summary>At which layer do a hub, switch and router work?</summary><p>A hub and a repeater work at the physical layer, a switch and a bridge at the data link layer because they use MAC addresses, and a router at the network layer because it forwards packets by IP address. A gateway can work at any layer and connects networks that use different protocols.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://dsssb.delhi.gov.in/" rel="nofollow noopener" target="_blank">DSSSB official website</a></li><li><a href="https://dsssb.delhi.gov.in/sites/default/files/DSSSB/universal-tab/pc_56-24.pdf" rel="nofollow noopener" target="_blank">Indicative syllabus, Post Code 56/24 (Computer Networks, TCP/Protocols, Network Security)</a></li></ul>
+<p class="disc">Dates, vacancies and the syllabus are set by DSSSB and can change. Always confirm at dsssb.delhi.gov.in. GATE Guide is not affiliated with DSSSB.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../dsssb-tgt-computer-science-important-topics/"><div class="c">Subjects</div><b>DSSSB TGT Computer Science Important Topics for 2026</b><span>6 min read</span></a><a class="card" href="../dsssb-tgt-computer-science-previous-year-papers-analysis/"><div class="c">Analysis</div><b>DSSSB TGT Computer Science Previous Year Papers: Topic-wise Analysis</b><span>6 min read</span></a><a class="card" href="../dsssb-tgt-negative-marking-how-many-questions-to-attempt/"><div class="c">Strategy</div><b>DSSSB TGT Negative Marking: How Many Questions Should You Attempt?</b><span>6 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav aria-label="Books"><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../gate-ece-2027-book/">GATE ECE 2027 book</a><a href="../../gate-ce-2027-book/">GATE CE 2027 book</a><a href="../../gate-da-2027-book/">GATE DA 2027 book</a><a href="../../gate-ee-2027-book/">GATE EE 2027 book</a><a href="../../gate-me-2027-book/">GATE ME 2027 book</a><a href="../../books/">All books</a><a href="../../test-series/">Test series</a><a href="../../preview/">Free previews</a><a href="../../articles/">Blog</a></nav><nav aria-label="Policies"><a href="../../contact/">Contact Us</a><a href="../../terms/">Terms</a><a href="../../refund-policy/">Refund Policy</a><a href="../../shipping-delivery-policy/">Shipping and Delivery</a><a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>DSSSB TGT Computer Science 2026 book</b>420 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy-dsssb/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
