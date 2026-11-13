@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE CE 2027 Transportation Planning: Four-Step Model</title>
+<meta name="description" content="Transportation Planning is new in the GATE CE 2027 syllabus with no past question behind it. The four-step travel demand model explained, step by step.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="GATE CE 2027 Transportation Planning: Four-Step Model">
+<meta property="og:description" content="Transportation Planning is new in the GATE CE 2027 syllabus with no past question behind it. The four-step travel demand model explained, step by step.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-11-13"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATE CE 2027 Transportation Planning: Four-Step Model">
+<meta name="twitter:description" content="Transportation Planning is new in the GATE CE 2027 syllabus with no past question behind it. The four-step travel demand model explained, step by step.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#5d6a82;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18);
+--btn:#c7361f;--btn-ink:#fff}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+--btn:#ff6a52;--btn-ink:#0e141f}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif}
+/* Room for the sticky buy bar, only on pages that have one: a page without it used to end in a 76px
+   blank band under the footer. */
+body.has-buybar,body:has(>.buybar){padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+article .hero{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin:6px 0 24px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:40px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+/* Phones and tablets: every header link sits in one strip that scrolls sideways (swipe), with a fade on
+   the right edge as the hint; the Buy button stays fixed outside the strip. */
+.navs{display:flex;align-items:center;gap:14px}
+@media (max-width:820px){
+header.top .nav{flex:1;min-width:0;justify-content:flex-end}
+.nav .navs{flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  gap:16px;padding-right:18px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.nav .navs::-webkit-scrollbar{display:none}
+.nav .navs .l,.nav .navs a.oe,.nav .navs a.blog{display:inline-flex}
+.nav .navs .s{display:none}
+.nav .navs>a,.nav .navs .brmenu{flex:none}}
+.brpanel .oth{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:10px 10px 2px;border-top:1px solid var(--line);margin-top:4px}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:62px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+header.top .nav a.btn.sm{padding-inline:11px}
+/* a thumb needs about 40px to hit a link reliably */
+.nav>a,.brmenu summary{display:inline-flex;align-items:center;min-height:40px}
+.btn.sm{min-height:40px}
+footer nav a{display:inline-flex;align-items:center;min-height:40px}
+footer nav{gap:0 14px}}
+/* Below 375px the header cannot hold Branches, Tests, Blog and Buy: Blog stays in the footer. */
+@media (max-width:374px){.nav a.blog{display:none}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+/* --btn/--btn-ink keep the label at 4.5:1 or better: a darker red under white text in light mode,
+   coral under dark text in dark mode. `.nav a.btn` and friends are spelt out because `.nav a`
+   (a link colour) is more specific than `.btn` and used to paint the header button's label grey. */
+.btn,.nav a.btn,footer a.btn,.buybar a.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm,.nav a.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost,.nav a.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+/* A blockquote is the book's margin note: "Remember", "Trap", "In one line". One short paragraph,
+   set off in a tinted box so a reader skimming the page still catches it. */
+article blockquote{margin:22px 0;padding:12px 16px;background:var(--paper);border-left:4px solid var(--hot);border-radius:0 var(--radius) var(--radius) 0}
+article blockquote p{margin:6px 0;color:var(--ink)}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+/* Math, typeset by KaTeX at build time (its stylesheet is linked only on pages that have math). It takes
+   the colour of the text around it, so it follows dark mode. Display math is centred at a comfortable
+   size and scrolls sideways on a narrow phone instead of breaking the line or the page. */
+.math-display{display:block;margin:18px 0;padding:2px 0;overflow-x:auto;overflow-y:hidden;
+-webkit-overflow-scrolling:touch;text-align:center;color:var(--ink)}
+.math-display .katex-display{margin:0;padding:4px 2px}
+.math-display .katex{font-size:1.2em}
+.math-inline .katex{font-size:1.07em}
+td .math-inline .katex,th .math-inline .katex{font-size:1em}
+/* KaTeX's hidden MathML copy (for screen readers) is position:absolute; anchored to the page it is
+   laid out as one unbroken line and widened every phone page with inline math. Anchor it to its formula. */
+.katex{position:relative}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3,.cta h2{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem;line-height:1.2}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 8px}
+.shelf a{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;text-decoration:none;border:1px solid var(--line);
+border-radius:var(--radius);padding:10px;background:var(--ground);min-height:40px}
+.shelf a:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.shelf img{width:44px;height:62px;object-fit:cover;border-radius:2px 4px 4px 2px}
+.shelf b{display:block;line-height:1.25;font-size:.95rem}
+.shelf span{font-size:.8rem;color:var(--ink-3);line-height:1.3;display:block}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.all{display:block}
+.cta.all .covers{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px;margin:10px 0 12px;text-decoration:none}
+.cta.all .covers img{width:100%;border-radius:2px 4px 4px 2px;box-shadow:0 8px 16px -10px rgba(16,32,58,.6)}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink);min-height:40px;display:flex;align-items:center;padding-block:4px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'+';flex:none;width:1.2em;color:var(--ink-3);font-weight:500}
+.faq details[open] summary::before{content:'−'}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7909125153156366" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transportation Planning for GATE CE 2027: The Four-Step Model", "description": "Transportation Planning is new in the GATE CE 2027 syllabus with no past question behind it. The four-step travel demand model explained, step by step.", "image": ["https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/og.png"], "datePublished": "2026-11-13", "dateModified": "2026-11-13", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/", "inLanguage": "en-IN", "keywords": "gate ce transportation planning 2027, four step travel demand model gate, gate ce 2027 transportation syllabus, trip generation trip distribution mode choice traffic assignment, gate civil transportation engineering new topics"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "Transportation Planning for GATE CE 2027: The Four-Step Model", "item": "https://gateguide.co.in/articles/gate-ce-transportation-planning-2027/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Transportation Planning in the GATE CE 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The 2027 Civil syllabus adds it as a fourth Transportation topic, covering four-step travel demand modelling, meaning trip generation, trip distribution, mode choice and traffic assignment, and its applications. The 2026 syllabus had no planning topic, and the words travel, trip, demand, choice and assignment appear nowhere in it. Confirm the wording in the official syllabus PDF."}}, {"@type": "Question", "name": "Has Transportation Planning been asked in previous GATE CE papers?", "acceptedAnswer": {"@type": "Answer", "text": "No. Across all sixteen GATE Civil papers from 2019 to 2026, Set 1 and Set 2 in each year, 1,040 questions in all, four-step travel demand modelling drew zero marks. That is because it was not on the syllabus, not because examiners avoid it, so the record says nothing about how it will be asked."}}, {"@type": "Question", "name": "What is the four-step travel demand model?", "acceptedAnswer": {"@type": "Answer", "text": "It forecasts travel in a study area divided into zones, in four steps taken in order. Trip generation finds how many trips start and end in each zone. Trip distribution pairs those trip ends into an origin-destination matrix. Mode choice splits each zone pair's trips between modes. Traffic assignment loads each mode's trips onto routes in the network."}}, {"@type": "Question", "name": "What else is new in GATE CE 2027 Transportation Engineering?", "acceptedAnswer": {"@type": "Answer", "text": "Four smaller phrases besides Transportation Planning. Transportation Infrastructure now names classifications of roadways and the design vehicle, and Traffic Engineering adds interchanges to its intersections line and level of service to its highway capacity line. Of these, only level of service had been examined before, in 2020 Set 1, Q.55. The 2026 wording geometric design of highways also became geometric design of roadways using IRC codes."}}, {"@type": "Question", "name": "How many marks is Transportation Engineering in GATE CE?", "acceptedAnswer": {"@type": "Answer", "text": "It averaged 10.0 marks a paper across the sixteen counted papers, with a range of 6. It ran at 9 to 12 marks in every year except 2023, when both sets fell to 6. Traffic Engineering drew 62 counted marks, Transportation Infrastructure 56 and Highway Pavements 42."}}]}</script>
+</head>
+<body class="has-buybar">
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><div class="navs"><details class="brmenu"><summary aria-expanded="false">Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../gate-ce-2027-book/"><b>GATE CE</b><span>Out now · ₹250</span></a><a href="../../gate-da-2027-book/"><b>GATE DA</b><span>Out now · ₹250</span></a><a href="../../gate-ee-2027-book/"><b>GATE EE</b><span>Out now · ₹250</span></a><a href="../../gate-me-2027-book/"><b>GATE ME</b><span>Out now · ₹250</span></a><div class="oth">Other exams</div><a href="../../dsssb-tgt-computer-science-book/"><b>DSSSB TGT CS</b><span>Out now · ₹250</span></a><a href="../../bihar-stet-computer-science-book/"><b>Bihar STET CS</b><span>Out now · ₹250</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../test-series/"><span class="l">Test series</span><span class="s">Tests</span></a><a class="l oe" href="../../books/#other-exams">Other exams</a><a class="blog" href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a></div><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header><script>(function(){var ms=document.querySelectorAll('details.brmenu');function sync(m){var s=m.querySelector('summary');if(s)s.setAttribute('aria-expanded',m.open?'true':'false');}ms.forEach(function(m){sync(m);m.addEventListener('toggle',function(){sync(m);});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){shut(m);});});});function shut(m){m.open=false;sync(m);}document.addEventListener('click',function(e){ms.forEach(function(m){if(m.open&&!m.contains(e.target))shut(m);});});document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;ms.forEach(function(m){if(m.open){shut(m);var s=m.querySelector('summary');if(s)s.focus();}});});})();</script>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Transportation Planning for GATE CE 2027: The Four-Step Model</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 13 Nov 2026</span><span>9 min read</span></div>
+<img class="hero" src="og.webp" width="1200" height="630" alt="Transportation Planning for GATE CE 2027: The Four-Step Model" fetchpriority="high" decoding="async">
+<p class="lead">Transportation Planning is new in the GATE CE 2027 syllabus, and across all 1,040 questions in the sixteen Civil papers from 2019 to 2026 it has drawn zero marks. Nobody, therefore, can tell you how it will be asked. What you can do is learn the four-step travel demand model properly: what each step answers, what it takes in and what it hands on. That takes an afternoon, and this guide covers it.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#what-changed-exactly">What changed, exactly</a></li><li><a href="#the-four-steps-and-how-they-chain">The four steps, and how they chain</a></li><li><a href="#what-you-can-and-cannot-know-about-the-question">What you can and cannot know about the question</a></li><li><a href="#the-other-2027-additions">The other 2027 additions</a></li><li><a href="#the-examined-three-what-the-record-shows">The examined three: what the record shows</a></li><li><a href="#how-to-prepare-the-section">How to prepare the section</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>The 2027 syllabus adds a fourth Transportation topic: four-step travel demand modelling, meaning trip generation, trip distribution, mode choice and traffic assignment, "and its applications".</li>
+<li>It drew <strong>zero marks</strong> in all sixteen counted papers because it was not on the syllabus. The zero says nothing about how it will be examined.</li>
+<li>The four steps answer four questions in a fixed order: how many trips, between which zones, by which mode, on which route.</li>
+<li>Also new: classifications of roadways, design vehicle, interchanges and level of service.</li>
+<li>The rest of the section is well evidenced: mean 10.0 marks a paper, range 6, three examined topics at 39, 35 and 26 per cent.</li>
+</ul>
+<h2 id="what-changed-exactly">What changed, exactly</h2>
+<p>The 2026 syllabus gave Transportation Engineering three topics: Transportation Infrastructure, Highway Pavements and Traffic Engineering. The words <em>travel</em>, <em>trip</em>, <em>demand</em>, <em>choice</em> and <em>assignment</em> appear nowhere in it. The 2027 document adds a fourth topic, "Transportation Planning: Four step travel demand modelling – trip generation, trip distribution, mode choice, traffic assignment and its applications."</p>
+<p>Read alone, an eight-year zero suggests skipping it. Read against the syllabus, it means the opposite: the topic was not on the syllabus, and unlike some other 2027 additions it was never set early. The record holds no information about it in either direction. The book's judgement, stated as judgement, is that a newly named topic is among the more likely places for a question in the first paper under a revised syllabus, since it is the change the organisers chose to make. That is a reading of the syllabus, not a count.</p>
+<h2 id="the-four-steps-and-how-they-chain">The four steps, and how they chain</h2>
+<p>The model begins by dividing a study area into zones and describing the road and transit network that connects them. The four steps then run in sequence, each one's output becoming the next one's input.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>The question it answers</th>
+<th>What it takes in</th>
+<th>What it hands on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Trip generation</td>
+<td>How many trips start and end in each zone?</td>
+<td>Land use and household data per zone</td>
+<td>Trip ends: productions and attractions by zone</td>
+</tr>
+<tr>
+<td>2. Trip distribution</td>
+<td>Between which pairs of zones do they travel?</td>
+<td>Trip ends, travel cost between zones</td>
+<td>An origin-destination (O-D) matrix</td>
+</tr>
+<tr>
+<td>3. Mode choice</td>
+<td>By which mode: car, bus, rail, walking?</td>
+<td>The O-D matrix, time and cost by mode</td>
+<td>One O-D matrix per mode</td>
+</tr>
+<tr>
+<td>4. Traffic assignment</td>
+<td>By which route through the network?</td>
+<td>Each mode's O-D matrix, the network</td>
+<td>Volumes on each link</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="1-trip-generation">1. Trip generation</h3>
+<p>This step counts trips without saying where they go. Each zone's trip productions and attractions are estimated from what is in it: population, households, car ownership, income, employment, floor space. The usual tools are trip rates per household, regression on land-use variables, and category analysis. The output is two numbers per zone, and nothing yet links one zone to another.</p>
+<h3 id="2-trip-distribution">2. Trip distribution</h3>
+<p>This step joins the trip ends into flows between zone pairs, producing the O-D matrix. The standard tool is the <strong>gravity model</strong>: trips between zones <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span></span> and <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></span> grow with the trips produced at <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span></span> and attracted to <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></span>, and fall as the cost of travel between them rises, <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mi>T</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>k</mi><mtext> </mtext><msub><mi>P</mi><mi>i</mi></msub><mtext> </mtext><msub><mi>A</mi><mi>j</mi></msub></mrow><mrow><mi>f</mi><mo stretchy="false">(</mo><msub><mi>c</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false">)</mo></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle T_{ij} = \frac{k\, P_i\, A_j}{f(c_{ij})}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3435em;vertical-align:-0.9721em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9721em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>. The name is an analogy with Newtonian gravity. Growth-factor methods such as Fratar and Furness do a different job: they update an existing O-D matrix by scaling it to new trip totals. In a doubly constrained model, each row of the matrix sums to that zone's productions and each column to its attractions.</p>
+<h3 id="3-mode-choice">3. Mode choice</h3>
+<p>This step splits each cell of the O-D matrix between the available modes. The usual tool is a logit model: each mode is given a utility built from its travel time and cost, and the mode with the higher utility takes the larger share of trips, though never all of them. Mode choice comes after distribution in the classic sequence, so it works on zone pairs rather than on zones.</p>
+<h3 id="4-traffic-assignment">4. Traffic assignment</h3>
+<p>The last step decides routes and loads the trips onto network links. <strong>All-or-nothing</strong> assignment sends every trip on the shortest path and ignores congestion. <strong>User equilibrium</strong> follows Wardrop's first principle: no traveller can cut their own travel time by changing route alone, so every used route between a zone pair has equal and minimum travel time. The <strong>system optimum</strong> is different, minimising total travel time across everyone, and the gap between the two explains why added road capacity can sometimes make total congestion worse. Incremental assignment loads the matrix in portions, updating link times as it goes.</p>
+<p>The link volumes that come out of step 4 are what an engineer then checks against capacity, which is where this new topic meets another addition, level of service.</p>
+<p>The model's known weakness is conceptual and worth one line: the steps run in sequence, so congestion found in step 4 does not naturally feed back to change trip-making in steps 1 to 3. Practice iterates between the steps to correct for it.</p>
+<h2 id="what-you-can-and-cannot-know-about-the-question">What you can and cannot know about the question</h2>
+<p>You cannot know the format. MSQs have grown from none in the 2019 and 2020 papers to between 3 and 15 per paper from 2022 onwards, so a statement-checking question is one possibility, and a small gravity-model calculation is another. Neither is a forecast. The <a href="../gate-cse-2027-exam-pattern-marking-scheme/">marking scheme, which is common to every GATE paper</a>, shows what an MSQ, MCQ or NAT costs if you get it wrong.</p>
+<p>What you can know is the sequence, the question each step answers, its input and output, and the names of the standard methods. Any question on the topic will assume those.</p>
+<aside class="cta" aria-label="GATE CE 2027 book"><img src="../../assets/cover-ce-360.jpg" width="110" height="156" alt="GATE CE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 623-page GATE CE 2027 book has all sixteen GATE Civil papers counted question by question against their official answer keys, 924 questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy-ce/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview-ce/blog/">Free 37-page preview</a></div></div></aside>
+<h2 id="the-other-2027-additions">The other 2027 additions</h2>
+<ul>
+<li><strong>Classifications of roadways.</strong> The functional hierarchy of roads, from expressways and national highways down to village roads, with a separate urban hierarchy. Classification decides which design standards apply. Read the IRC classification once.</li>
+<li><strong>Design vehicle.</strong> The vehicle whose dimensions and turning path set the geometry: lane width, turning radii, clearances.</li>
+<li><strong>Interchanges.</strong> Traffic Engineering's intersections line now adds interchanges, the grade-separated junctions whose ramps let streams cross without conflict, such as the trumpet, diamond and cloverleaf.</li>
+<li><strong>Level of service.</strong> Added beside highway capacity. It grades operating conditions on a letter scale, conventionally A for free flow down to F for breakdown. Newly named but not new to the paper: 2020 Set 1, Q.55 asked for the extra lanes needed to carry a traffic at LOS C.</li>
+</ul>
+<p>All four are descriptive and cheap. Level of service is the only one a counted paper has set; classifications of roadways, the design vehicle and interchanges never have been. The syllabus wording can change before the exam, so confirm it on <a href="https://gate2027.iitm.ac.in/">gate2027.iitm.ac.in</a>.</p>
+<h2 id="the-examined-three-what-the-record-shows">The examined three: what the record shows</h2>
+<p>The evidence is 103 questions and 160 marks, counted question by question from Set 1 and Set 2 of every year and checked against the official keys. Civil is sat as two different papers each year; <a href="../gate-score-calculation-normalization/">how GATE normalises the two sets</a> explains how they are scored against each other.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Marks</th>
+<th>Questions</th>
+<th>Share</th>
+<th>Trend (2023–26 minus 2019–22)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traffic Engineering</td>
+<td>62</td>
+<td>36</td>
+<td>39%</td>
+<td>−14</td>
+</tr>
+<tr>
+<td>Transportation Infrastructure</td>
+<td>56</td>
+<td>41</td>
+<td>35%</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>Highway Pavements</td>
+<td>42</td>
+<td>26</td>
+<td>26%</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>Transportation Planning</td>
+<td>0</td>
+<td>0</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>The section averaged 10.0 marks a paper, ranging from 6 to 12, and ran at 9 to 12 in every year except 2023, when both sets fell to 6. That dip is the lowest point in the record, not a baseline to draw a trend from. Traffic and Infrastructure trade marks against each other, and Traffic's −14 comes from a heavy early block, 38 marks in 2019–2022 including 13 in 2022, against 24 since. Their combined yearly totals, both sets together, were 16, 16, 15, 17, 8, 16, 13 and 17. Highway Pavements is the steadiest, with 3 to 7 marks in every year.</p>
+<p>The highest-yield formulae in the examined part are short. Stopping sight distance is <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mtext>SSD</mtext><mo>=</mo><mi>v</mi><mi>t</mi><mo>+</mo><mfrac><msup><mi>v</mi><mn>2</mn></msup><mrow><mn>2</mn><mi>g</mi><mi>f</mi></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle \text{SSD} = vt + \frac{v^2}{2gf}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">SSD</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6984em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.3715em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>. Webster's optimum cycle is <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mi>C</mi><mn>0</mn></msub><mo>=</mo><mfrac><mrow><mn>1.5</mn><mi>L</mi><mo>+</mo><mn>5</mn></mrow><mrow><mn>1</mn><mo>−</mo><mi>Y</mi></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle C_0 = \frac{1.5L + 5}{1 - Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1.5</span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>. The fundamental relation <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mi>k</mi><mi>v</mi></mrow><annotation encoding="application/x-tex">q = kv</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span></span> needs the <strong>space</strong>-mean speed, which is the harmonic mean of spot speeds and always the smaller of the two means. Counted questions include 2019 Set 1, Q.11 and Q.47 in Infrastructure, 2019 Set 1, Q.21 and Q.45 in Traffic, and 2019 Set 1, Q.12 and Q.48 in Pavements. For pavements, know that IRC:37 governs flexible design and IRC:58 rigid. Practise the Webster and sight-distance arithmetic on the <a href="../gate-virtual-calculator-guide/">GATE virtual calculator</a>.</p>
+<h2 id="how-to-prepare-the-section">How to prepare the section</h2>
+<ol>
+<li><strong>Learn the four-step model in one sitting</strong>, using the table above, then revisit it once a week.</li>
+<li><strong>Keep the examined three balanced.</strong> At 39, 35 and 26 per cent, none can be cornered and none dropped.</li>
+<li><strong>Hold sight distances and Webster's method cold.</strong> They are the two highest-yield formulae in the section.</li>
+<li><strong>Read the four smaller additions once</strong>, alongside the topic each belongs to.</li>
+</ol>
+<p>The <a href="../../gate-ce-2027-book/">GATE CE 2027 book</a> carries thirty-two Transportation questions with worked solutions, weighted to the counted evidence, including one on Transportation Planning that says openly it rests on the syllabus alone, plus ten full mock tests in the 2027 pattern. Organising-institute context is in <a href="../gate-2027-iit-madras-organizing-institute/">GATE 2027 and IIT Madras</a>.</p>
+<aside class="cta big" aria-label="GATE CE 2027 book"><img src="../../assets/cover-ce-360.jpg" width="150" height="212" alt="GATE CE 2027 book cover" loading="lazy"><div><div class="k">GATE CE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>All 16 GATE CE papers 2019-2026 counted question by question, both sets</li><li>The 2026-to-2027 syllabus diff, generated from the two official PDFs</li><li>924 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>Staged revision plan and last-minute formula sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy-ce/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-ce-2027-book/">See the book</a><a class="btn ghost" href="/go/preview-ce/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Is Transportation Planning in the GATE CE 2027 syllabus?</summary><p>Yes. The 2027 Civil syllabus adds it as a fourth Transportation topic, covering four-step travel demand modelling, meaning trip generation, trip distribution, mode choice and traffic assignment, and its applications. The 2026 syllabus had no planning topic, and the words travel, trip, demand, choice and assignment appear nowhere in it. Confirm the wording in the official syllabus PDF.</p></details><details><summary>Has Transportation Planning been asked in previous GATE CE papers?</summary><p>No. Across all sixteen GATE Civil papers from 2019 to 2026, Set 1 and Set 2 in each year, 1,040 questions in all, four-step travel demand modelling drew zero marks. That is because it was not on the syllabus, not because examiners avoid it, so the record says nothing about how it will be asked.</p></details><details><summary>What is the four-step travel demand model?</summary><p>It forecasts travel in a study area divided into zones, in four steps taken in order. Trip generation finds how many trips start and end in each zone. Trip distribution pairs those trip ends into an origin-destination matrix. Mode choice splits each zone pair&#x27;s trips between modes. Traffic assignment loads each mode&#x27;s trips onto routes in the network.</p></details><details><summary>What else is new in GATE CE 2027 Transportation Engineering?</summary><p>Four smaller phrases besides Transportation Planning. Transportation Infrastructure now names classifications of roadways and the design vehicle, and Traffic Engineering adds interchanges to its intersections line and level of service to its highway capacity line. Of these, only level of service had been examined before, in 2020 Set 1, Q.55. The 2026 wording geometric design of highways also became geometric design of roadways using IRC codes.</p></details><details><summary>How many marks is Transportation Engineering in GATE CE?</summary><p>It averaged 10.0 marks a paper across the sixteen counted papers, with a range of 6. It ran at 9 to 12 marks in every year except 2023, when both sets fell to 6. Traffic Engineering drew 62 counted marks, Transportation Infrastructure 56 and Highway Pavements 42.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CE_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CE syllabus PDF (official)</a></li><li><a href="https://gate2027.iitm.ac.in/download" rel="nofollow noopener" target="_blank">GATE official paper archive (IIT Madras)</a></li><li><a href="https://gate2026.iitg.ac.in/download.html" rel="nofollow noopener" target="_blank">GATE 2026 papers and answer keys (IIT Guwahati)</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-score-calculation-normalization/"><div class="c">Exam</div><b>How the GATE Score Is Calculated (and Normalised)</b><span>7 min read</span></a><a class="card" href="../gate-cse-2027-exam-pattern-marking-scheme/"><div class="c">Exam</div><b>GATE CSE 2027 Exam Pattern and Marking Scheme</b><span>7 min read</span></a><a class="card" href="../gate-2027-iit-madras-organizing-institute/"><div class="c">Exam</div><b>GATE 2027 by IIT Madras: What It Means for CSE Aspirants</b><span>8 min read</span></a><a class="card" href="../gate-virtual-calculator-guide/"><div class="c">Exam</div><b>GATE Virtual Calculator: How to Use It Without Losing Time</b><span>7 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav aria-label="Books"><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../gate-ece-2027-book/">GATE ECE 2027 book</a><a href="../../gate-ce-2027-book/">GATE CE 2027 book</a><a href="../../gate-da-2027-book/">GATE DA 2027 book</a><a href="../../gate-ee-2027-book/">GATE EE 2027 book</a><a href="../../gate-me-2027-book/">GATE ME 2027 book</a><a href="../../books/">All books</a><a href="../../test-series/">Test series</a><a href="../../preview/">Free previews</a><a href="../../articles/">Blog</a></nav><nav aria-label="Policies"><a href="../../contact/">Contact Us</a><a href="../../terms/">Terms</a><a href="../../refund-policy/">Refund Policy</a><a href="../../shipping-delivery-policy/">Shipping and Delivery</a><a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CE 2027 book</b>623 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy-ce/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
