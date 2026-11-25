@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Addressing Modes in GATE CSE: Effective Address, Accesses</title>
+<meta name="description" content="Addressing modes for GATE CSE on one running example. Effective address and memory references per mode, PC-relative offsets, instruction cycle, RISC vs CISC.">
+<meta name="author" content="MD ANISH AHAMAD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/">
+<link rel="alternate" type="application/rss+xml" title="GATE Guide guides" href="https://gateguide.co.in/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GATE Guide">
+<meta property="og:title" content="Addressing Modes in GATE CSE: Effective Address, Accesses">
+<meta property="og:description" content="Addressing modes for GATE CSE on one running example. Effective address and memory references per mode, PC-relative offsets, instruction cycle, RISC vs CISC.">
+<meta property="og:url" content="https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/">
+<meta property="og:image" content="https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-11-25"><meta property="article:author" content="MD ANISH AHAMAD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Addressing Modes in GATE CSE: Effective Address, Accesses">
+<meta name="twitter:description" content="Addressing modes for GATE CSE on one running example. Effective address and memory references per mode, PC-relative offsets, instruction cycle, RISC vs CISC.">
+<meta name="twitter:image" content="https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/og.png">
+<meta name="theme-color" content="#10203a">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png"><link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<style>
+:root{--ground:#fff;--paper:#f4f6fa;--ink:#10203a;--ink-2:#3b4a63;--ink-3:#5d6a82;--line:#dbe2ee;--line-2:#c3cddf;
+--hot:#e0452f;--hot-ink:#b32d1c;--hot-wash:#fdefec;--wa:#128c4a;--radius:10px;--shadow:0 1px 2px rgba(16,32,58,.06),0 8px 24px -12px rgba(16,32,58,.18);
+--btn:#c7361f;--btn-ink:#fff}
+@media (prefers-color-scheme:dark){:root{--ground:#0e141f;--paper:#141c2b;--ink:#eef2f9;--ink-2:#b8c4d8;--ink-3:#8b98ae;--line:#26324a;--line-2:#33415c;
+--hot:#ff6a52;--hot-ink:#ff8a75;--hot-wash:#2a1712;--wa:#25d366;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+--btn:#ff6a52;--btn-ink:#0e141f}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.7 "IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif}
+/* Room for the sticky buy bar, only on pages that have one: a page without it used to end in a 76px
+   blank band under the footer. */
+body.has-buybar,body:has(>.buybar){padding-bottom:76px}
+a{color:var(--ink)}
+img{max-width:100%;height:auto}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+article .hero{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin:6px 0 24px}
+.wide{max-width:1040px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;flex:none;border-radius:5px}
+.nav{display:flex;align-items:center;gap:14px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.nav .s{display:none}
+.brmenu{position:relative}
+.brmenu summary{list-style:none;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.brmenu summary::-webkit-details-marker{display:none}
+.brmenu summary::after{content:' ▾';color:var(--ink-3)}
+.brmenu[open] summary{color:var(--ink)}
+.brpanel{position:absolute;top:calc(100% + 12px);left:-10px;z-index:30;min-width:232px;
+background:var(--ground);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.brpanel a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:40px;
+padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.brpanel a:hover{background:var(--paper)}
+.brpanel a b{font-weight:600;font-size:.92rem}
+.brpanel a span{font-size:.78rem;color:var(--ink-3);white-space:nowrap}
+/* Phones and tablets: every header link sits in one strip that scrolls sideways (swipe), with a fade on
+   the right edge as the hint; the Buy button stays fixed outside the strip. */
+.navs{display:flex;align-items:center;gap:14px}
+@media (max-width:820px){
+header.top .nav{flex:1;min-width:0;justify-content:flex-end}
+.nav .navs{flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  gap:16px;padding-right:18px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.nav .navs::-webkit-scrollbar{display:none}
+.nav .navs .l,.nav .navs a.oe,.nav .navs a.blog{display:inline-flex}
+.nav .navs .s{display:none}
+.nav .navs>a,.nav .navs .brmenu{flex:none}}
+.brpanel .oth{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:10px 10px 2px;border-top:1px solid var(--line);margin-top:4px}
+.brpanel a.all{justify-content:flex-start;color:var(--hot-ink);font-weight:600;font-size:.86rem;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px;padding-top:10px}
+@media (max-width:560px){.brpanel{position:fixed;left:12px;right:12px;top:62px;min-width:0}
+.brpanel a{gap:8px}.brpanel a span{white-space:normal;text-align:right}}
+@media (max-width:560px){.nav{gap:10px}.nav .l{display:none}.nav .s{display:inline}
+/* Branches earns its place on a phone more than a second link to the books page does: the
+   panel ends in "All books", so nothing is lost by dropping the plain link first. */
+header.top .nav a.btn.sm{padding-inline:11px}
+/* a thumb needs about 40px to hit a link reliably */
+.nav>a,.brmenu summary{display:inline-flex;align-items:center;min-height:40px}
+.btn.sm{min-height:40px}
+footer nav a{display:inline-flex;align-items:center;min-height:40px}
+footer nav{gap:0 14px}}
+/* Below 375px the header cannot hold Branches, Tests, Blog and Buy: Blog stays in the footer. */
+@media (max-width:374px){.nav a.blog{display:none}}
+@media (max-width:400px){.brmenu summary{font-size:.86rem}.nav{gap:8px}
+.brand{font-size:.92rem}.brand .mark{width:19px;height:19px}}
+/* --btn/--btn-ink keep the label at 4.5:1 or better: a darker red under white text in light mode,
+   coral under dark text in dark mode. `.nav a.btn` and friends are spelt out because `.nav a`
+   (a link colour) is more specific than `.btn` and used to paint the header button's label grey. */
+.btn,.nav a.btn,footer a.btn,.buybar a.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:var(--radius);
+padding:11px 18px;font:600 .95rem/1.1 "IBM Plex Sans",sans-serif;text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.sm,.nav a.btn.sm{padding:8px 13px;font-size:.88rem}
+.btn.ghost,.nav a.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.crumbs{font-size:.85rem;color:var(--ink-3);margin:22px 0 0}
+.crumbs a{color:var(--ink-3)}
+h1,h2,h3{line-height:1.2;text-wrap:balance}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);margin:10px 0 12px;letter-spacing:-.01em}
+.meta{font-size:.88rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 14px}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+article h2{font-family:Fraunces,Georgia,serif;font-size:1.55rem;margin:42px 0 10px;scroll-margin-top:70px}
+article h3{font-size:1.15rem;margin:28px 0 6px;scroll-margin-top:70px}
+article p,article li{color:var(--ink-2)}
+article strong{color:var(--ink)}
+article ul,article ol{padding-left:22px}
+article li{margin:5px 0}
+/* A blockquote is the book's margin note: "Remember", "Trap", "In one line". One short paragraph,
+   set off in a tinted box so a reader skimming the page still catches it. */
+article blockquote{margin:22px 0;padding:12px 16px;background:var(--paper);border-left:4px solid var(--hot);border-radius:0 var(--radius) var(--radius) 0}
+article blockquote p{margin:6px 0;color:var(--ink)}
+.tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--paper);font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code{font:500 .9em "IBM Plex Mono",monospace;background:var(--paper);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+pre{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:18px 0;font-size:.9rem;line-height:1.5}
+pre code{background:none;padding:0;white-space:pre}
+/* Math, typeset by KaTeX at build time (its stylesheet is linked only on pages that have math). It takes
+   the colour of the text around it, so it follows dark mode. Display math is centred at a comfortable
+   size and scrolls sideways on a narrow phone instead of breaking the line or the page. */
+.math-display{display:block;margin:18px 0;padding:2px 0;overflow-x:auto;overflow-y:hidden;
+-webkit-overflow-scrolling:touch;text-align:center;color:var(--ink)}
+.math-display .katex-display{margin:0;padding:4px 2px}
+.math-display .katex{font-size:1.2em}
+.math-inline .katex{font-size:1.07em}
+td .math-inline .katex,th .math-inline .katex{font-size:1em}
+/* KaTeX's hidden MathML copy (for screen readers) is position:absolute; anchored to the page it is
+   laid out as one unbroken line and widened every phone page with inline math. Anchor it to its formula. */
+.katex{position:relative}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:22px 0;font-size:.95rem}
+.toc summary{cursor:pointer;font-weight:600}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.cta{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--line-2);border-left:5px solid var(--hot);
+border-radius:var(--radius);background:var(--paper);padding:18px;margin:34px 0}
+.cta img{width:110px;border-radius:3px 6px 6px 3px;box-shadow:0 12px 24px -12px rgba(16,32,58,.6)}
+.cta .k{font:500 .75rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-ink)}
+.cta h3,.cta h2{margin:4px 0 6px;font-family:Fraunces,Georgia,serif;font-size:1.25rem;line-height:1.2}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 8px}
+.shelf a{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;text-decoration:none;border:1px solid var(--line);
+border-radius:var(--radius);padding:10px;background:var(--ground);min-height:40px}
+.shelf a:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.shelf img{width:44px;height:62px;object-fit:cover;border-radius:2px 4px 4px 2px}
+.shelf b{display:block;line-height:1.25;font-size:.95rem}
+.shelf span{font-size:.8rem;color:var(--ink-3);line-height:1.3;display:block}
+.cta p{margin:0 0 10px;font-size:.95rem}
+.cta ul{margin:0 0 12px;padding-left:18px;font-size:.93rem}
+.price{font-weight:700;font-size:1.25rem;margin-right:6px}
+.was{color:var(--ink-3);text-decoration:line-through;margin-right:12px}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cta.big{grid-template-columns:150px 1fr;padding:24px}
+.cta.all{display:block}
+.cta.all .covers{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px;margin:10px 0 12px;text-decoration:none}
+.cta.all .covers img{width:100%;border-radius:2px 4px 4px 2px;box-shadow:0 8px 16px -10px rgba(16,32,58,.6)}
+.cta.big img{width:150px}
+@media (max-width:560px){.cta,.cta.big{grid-template-columns:1fr}.cta img,.cta.big img{width:120px}}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink);min-height:40px;display:flex;align-items:center;padding-block:4px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'+';flex:none;width:1.2em;color:var(--ink-3);font-weight:500}
+.faq details[open] summary::before{content:'−'}
+.faq p{margin:8px 0 0}
+.src{font-size:.9rem}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 40px}
+.card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--ground)}
+.card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .c{font:500 .72rem "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-ink)}
+.card b{display:block;margin:4px 0;line-height:1.35}
+.card span{font-size:.88rem;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px;font-size:.86rem;color:var(--ink-3)}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 -6px 20px -8px rgba(0,0,0,.4)}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.buybar .t{font-size:.9rem;line-height:1.25}
+.buybar .t b{display:block}
+.buybar .t s{opacity:.7}
+@media (prefers-color-scheme:dark){.buybar{background:#1b2536}}
+.disc{font-size:.82rem;color:var(--ink-3);margin-top:28px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7909125153156366" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Addressing Modes Questions in GATE CSE: Effective Address", "description": "Addressing modes for GATE CSE on one running example. Effective address and memory references per mode, PC-relative offsets, instruction cycle, RISC vs CISC.", "image": ["https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/og.png"], "datePublished": "2026-11-25", "dateModified": "2026-11-25", "author": {"@type": "Person", "name": "MD ANISH AHAMAD"}, "publisher": {"@type": "Organization", "name": "GATE Guide", "url": "https://gateguide.co.in/", "logo": {"@type": "ImageObject", "url": "https://gateguide.co.in/assets/icon-512.png", "width": 512, "height": 512}}, "mainEntityOfPage": "https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/", "inLanguage": "en-IN", "keywords": "addressing modes gate cse, effective address calculation gate, memory references per instruction, pc relative addressing offset, risc vs cisc gate"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gateguide.co.in/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gateguide.co.in/articles/"}, {"@type": "ListItem", "position": 3, "name": "Addressing Modes Questions in GATE CSE: Effective Address", "item": "https://gateguide.co.in/articles/gate-cse-addressing-modes-questions/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the effective address in an addressing mode?", "acceptedAnswer": {"@type": "Answer", "text": "The effective address is the memory address where the operand actually sits, after the addressing mode's rule has been applied. In direct mode it is the address written in the instruction. In indexed mode it is a constant plus a register. Immediate and register modes have no effective address in memory, because the operand is in the instruction or in a register."}}, {"@type": "Question", "name": "How many memory references does memory indirect addressing need?", "acceptedAnswer": {"@type": "Answer", "text": "Two for the operand. The first reads the memory word at the address in the instruction, which holds a pointer. The second reads the operand at that pointer. Register indirect needs only one, because the pointer already sits in a register. Questions usually also count the instruction fetch, so read whether they ask for operand accesses only."}}, {"@type": "Question", "name": "How do you calculate a PC-relative branch offset?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract the address of the next instruction from the target address, because the program counter has already moved past the branch when the offset is added. If a 4-byte branch sits at address 2000 and targets 1980, the offset is 1980 minus 2004, which is minus 24 bytes, or minus 6 if the machine counts offsets in 4-byte words."}}, {"@type": "Question", "name": "Which addressing modes support relocation of code?", "acceptedAnswer": {"@type": "Answer", "text": "PC-relative and base-register modes support run-time relocation. A PC-relative address is computed from the current program counter, so the code works wherever it is loaded. A base-register address adds a base set at load time, so moving the program only needs a new base value. Direct addressing uses fixed addresses and does not relocate."}}, {"@type": "Question", "name": "Are addressing modes still asked in GATE CSE?", "acceptedAnswer": {"@type": "Answer", "text": "Less often than before. The book's reconstruction shows addressing-mode questions were heavy in the 2000s, with a negative PC-relative offset item in 2017, and sparse since. The 2027 syllabus still names addressing modes verbatim, and the book rates the topic High and due. It usually comes as a 1 or 2-mark MCQ or NAT."}}]}</script>
+</head>
+<body class="has-buybar">
+<header class="top"><div class="wrap wide"><a class="brand" href="../../"><svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="20" fill="#10203a"/><rect x="24" y="58" width="14" height="22" rx="3" fill="#8fa6c8"/><rect x="43" y="44" width="14" height="36" rx="3" fill="#cfd9ea"/><rect x="62" y="24" width="14" height="56" rx="3" fill="#e0452f"/></svg>GATE GUIDE</a><nav class="nav"><div class="navs"><details class="brmenu"><summary aria-expanded="false">Branches</summary><div class="brpanel"><a href="../../gate-cse-2027-book/"><b>GATE CSE</b><span>Out now · ₹250</span></a><a href="../../gate-ece-2027-book/"><b>GATE ECE</b><span>Out now · ₹250</span></a><a href="../../gate-ce-2027-book/"><b>GATE CE</b><span>Out now · ₹250</span></a><a href="../../gate-da-2027-book/"><b>GATE DA</b><span>Out now · ₹250</span></a><a href="../../gate-ee-2027-book/"><b>GATE EE</b><span>Out now · ₹250</span></a><a href="../../gate-me-2027-book/"><b>GATE ME</b><span>Out now · ₹250</span></a><div class="oth">Other exams</div><a href="../../dsssb-tgt-computer-science-book/"><b>DSSSB TGT CS</b><span>Out now · ₹250</span></a><a href="../../bihar-stet-computer-science-book/"><b>Bihar STET CS</b><span>Out now · ₹250</span></a><a class="all" href="../../books/">All books →</a></div></details><a class="l" href="../../books/">Books</a><a href="../../test-series/"><span class="l">Test series</span><span class="s">Tests</span></a><a class="l oe" href="../../books/#other-exams">Other exams</a><a class="blog" href="../../articles/">Blog</a><a class="l" href="../../preview/">Free previews</a></div><a class="btn sm" href="../../books/"><span class="l">Buy a book</span><span class="s">Buy</span></a></nav></div></header><script>(function(){var ms=document.querySelectorAll('details.brmenu');function sync(m){var s=m.querySelector('summary');if(s)s.setAttribute('aria-expanded',m.open?'true':'false');}ms.forEach(function(m){sync(m);m.addEventListener('toggle',function(){sync(m);});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){shut(m);});});});function shut(m){m.open=false;sync(m);}document.addEventListener('click',function(e){ms.forEach(function(m){if(m.open&&!m.contains(e.target))shut(m);});});document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;ms.forEach(function(m){if(m.open){shut(m);var s=m.querySelector('summary');if(s)s.focus();}});});})();</script>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Blog</a> › Subjects</nav>
+<article>
+<h1>Addressing Modes Questions in GATE CSE: Effective Address</h1>
+<div class="meta"><span>By MD ANISH AHAMAD</span><span>Updated 25 Nov 2026</span><span>7 min read</span></div>
+<img class="hero" src="og.webp" width="1200" height="630" alt="Addressing Modes Questions in GATE CSE: Effective Address" fetchpriority="high" decoding="async">
+<p class="lead">Addressing-mode questions in GATE CSE ask three things: which mode an instruction uses, where its operand is (the effective address), and how many memory references it costs. A fourth form asks for a PC-relative branch offset. This guide teaches every common mode on one running example, so you can see each mode fetch a different value from the same memory. It ends with the instruction cycle and a short RISC versus CISC comparison.</p><details class="toc" open><summary>In this guide</summary><ol><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#the-words-you-need-first">The words you need first</a></li><li><a href="#one-running-example">One running example</a></li><li><a href="#the-modes-traced">The modes, traced</a></li><li><a href="#pc-relative-addressing-and-branch-offsets">PC-relative addressing and branch offsets</a></li><li><a href="#why-modes-exist-typical-uses">Why modes exist: typical uses</a></li><li><a href="#the-instruction-cycle">The instruction cycle</a></li><li><a href="#risc-and-cisc-in-one-table">RISC and CISC in one table</a></li><li><a href="#where-these-questions-sit-in-the-paper">Where these questions sit in the paper</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>An addressing mode is the rule that turns an instruction's address field into the operand.</li>
+<li>The effective address (EA) is where the operand sits in memory. Immediate and register modes have none.</li>
+<li>Count one memory reference per memory read. Memory indirect costs two for the operand, register indirect one.</li>
+<li>A PC-relative offset is measured from the next instruction, not from the branch itself.</li>
+<li>PC-relative and base-register modes allow relocation; direct addressing does not.</li>
+</ul>
+<h2 id="the-words-you-need-first">The words you need first</h2>
+<p>An instruction names an operation and its <strong>operands</strong>, the values it works on. The <strong>addressing mode</strong> tells the processor how to find each operand. The <strong>effective address</strong> is the final memory address of the operand after the mode's rule is applied.</p>
+<p>A <strong>memory reference</strong> is one read or write of main memory. Registers are inside the processor, so reading one costs no memory reference. The <strong>program counter</strong> (PC) holds the address of the next instruction to fetch.</p>
+<h2 id="one-running-example">One running example</h2>
+<p>Every mode below loads into register R0. Use this machine state throughout:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>200</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Memory[200]</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Memory[203]</td>
+<td>70</td>
+</tr>
+<tr>
+<td>Memory[500]</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Memory[1003]</td>
+<td>15</td>
+</tr>
+</tbody>
+</table></div>
+<p>Words are 4 bytes, and memory is word-addressable for this example, so address 203 is simply the word after 202.</p>
+<h2 id="the-modes-traced">The modes, traced</h2>
+<p>Here is what LOAD R0 fetches under each mode. The last column counts memory references for the operand only, not for fetching the instruction.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Written as</th>
+<th>Effective address</th>
+<th>Value loaded</th>
+<th>Operand references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Immediate</td>
+<td>#200</td>
+<td>none</td>
+<td>200</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Register</td>
+<td>R1</td>
+<td>none</td>
+<td>200</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Direct (absolute)</td>
+<td>200</td>
+<td>200</td>
+<td>500</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Memory indirect</td>
+<td>@200</td>
+<td>Memory[200] = 500</td>
+<td>40</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Register indirect</td>
+<td>(R1)</td>
+<td>200</td>
+<td>500</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Indexed / displacement</td>
+<td>1000(R2)</td>
+<td>1000 + 3 = 1003</td>
+<td>15</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Base plus index</td>
+<td>(R1 + R2)</td>
+<td>200 + 3 = 203</td>
+<td>70</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Auto-increment</td>
+<td>(R1)+</td>
+<td>200, then R1 becomes 201</td>
+<td>500</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Walk through the tricky rows.</p>
+<p><strong>Immediate</strong> puts the value itself in the instruction, so the operand is 200. <strong>Direct</strong> treats 200 as an address and loads Memory[200], which is 500. The same number gives two different results.</p>
+<p><strong>Memory indirect</strong> reads twice. Memory[200] holds 500, which is a pointer; the second read loads Memory[500], which is 40. <strong>Register indirect</strong> keeps the pointer in R1, so only one memory read is needed.</p>
+<p><strong>Indexed</strong> adds a constant from the instruction to a register. It suits arrays: the constant is the array's start, and the register is the element number. <strong>Base plus index</strong> adds two registers.</p>
+<p><strong>Auto-increment</strong> uses R1 as a pointer and then advances it. The step equals the operand size. Here one word, so R1 goes from 200 to 201. On a byte-addressable machine with 4-byte words, the step would be 4.</p>
+<blockquote>
+<p><strong>Trap:</strong> immediate and direct look alike on paper. Immediate uses the number as the value; direct uses it as an address. The same field gives 200 in one mode and 500 in the other.</p>
+</blockquote>
+<h3 id="counting-references-for-a-whole-instruction">Counting references for a whole instruction</h3>
+<p>Questions often count the instruction fetch too. Take a two-word instruction ADD R0, @300 on this kind of machine. Fetching the instruction costs 2 references. The memory indirect operand costs 2 more. The total is 4. Writing a result back to memory adds one further reference.</p>
+<aside class="cta" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="110" height="156" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">The full version</div><h3>Want the complete analysis?</h3><p>This guide is a summary. The 1,020-page GATE CSE 2027 book has the full topic rankings, 27 years of paper analysis, 1,120 practice questions with worked solutions and 10 full mock tests.</p><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn sm ghost" href="/go/preview/blog/">Free 35-page preview</a></div></div></aside>
+<h2 id="pc-relative-addressing-and-branch-offsets">PC-relative addressing and branch offsets</h2>
+<p>In <strong>PC-relative</strong> mode the effective address is the PC plus an offset in the instruction. By the time the offset is added, the PC has already moved past the branch. So:</p>
+<div class="math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>offset</mtext><mo>=</mo><mtext>target address</mtext><mo>−</mo><mtext>address of the next instruction</mtext></mrow><annotation encoding="application/x-tex">\text{offset} = \text{target address} - \text{address of the next instruction}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">offset</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">target address</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">address of the next instruction</span></span></span></span></span></span></div>
+<p>Example: a 4-byte branch sits at byte address 2000 and must jump to 1980. The next instruction starts at 2004. The offset is <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1980</mn><mo>−</mo><mn>2004</mn><mo>=</mo><mo>−</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">1980 - 2004 = -24</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1980</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2004</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">24</span></span></span></span></span> bytes. If the machine stores offsets in 4-byte words, the stored value is <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>24</mn><mi mathvariant="normal">/</mi><mn>4</mn><mo>=</mo><mo>−</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">-24 / 4 = -6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mord">24/4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">6</span></span></span></span></span>.</p>
+<p>Two unit choices decide the answer: whether the offset is counted from the branch or from the next instruction, and whether it is in bytes or words. The book flags both as repeated traps.</p>
+<blockquote>
+<p><strong>Remember:</strong> subtract the next instruction's address, not the branch's own address, then convert to the unit the question uses.</p>
+</blockquote>
+<h2 id="why-modes-exist-typical-uses">Why modes exist: typical uses</h2>
+<p>Each mode exists for a programming need. Matching modes to uses is a common 1-mark question.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A constant in the code</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>A loop counter or temporary</td>
+<td>Register</td>
+</tr>
+<tr>
+<td>A global variable at a fixed address</td>
+<td>Direct</td>
+</tr>
+<tr>
+<td>Following a pointer</td>
+<td>Register indirect</td>
+</tr>
+<tr>
+<td>Array element <span class="math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">A[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span></span></td>
+<td>Indexed</td>
+</tr>
+<tr>
+<td>Walking through an array in a loop</td>
+<td>Auto-increment</td>
+</tr>
+<tr>
+<td>Code that runs wherever it is loaded</td>
+<td>PC-relative</td>
+</tr>
+<tr>
+<td>Relocating a whole program</td>
+<td>Base register</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Relocation</strong> means loading a program at a different address than it was written for. PC-relative and base-register modes support it, because their addresses shift with the PC or with one base value. Direct addresses are fixed numbers, so they break when the program moves.</p>
+<h2 id="the-instruction-cycle">The instruction cycle</h2>
+<p>Every instruction passes through the <strong>instruction cycle</strong>:</p>
+<ol>
+<li><strong>Fetch</strong>: read the instruction at the PC, then advance the PC.</li>
+<li><strong>Decode</strong>: work out the operation and the addressing modes.</li>
+<li><strong>Operand fetch</strong>: compute effective addresses and read operands.</li>
+<li><strong>Execute</strong>: perform the operation.</li>
+<li><strong>Write back</strong>: store the result.</li>
+</ol>
+<p>The processor checks for pending interrupts at the end of the cycle, after the current instruction completes. The PC update in step 1 is the reason PC-relative offsets are measured from the next instruction.</p>
+<h2 id="risc-and-cisc-in-one-table">RISC and CISC in one table</h2>
+<p>The mode set is one of the clearest differences between the two design styles. The book rates this comparison a lower priority, but it costs little to learn.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>RISC</th>
+<th>CISC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instruction length</td>
+<td>Fixed</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>Addressing modes</td>
+<td>Few, simple</td>
+<td>Many, including memory indirect</td>
+</tr>
+<tr>
+<td>Memory access</td>
+<td>Only load and store</td>
+<td>Many instructions touch memory</td>
+</tr>
+<tr>
+<td>Control unit</td>
+<td>Usually hardwired</td>
+<td>Often microprogrammed</td>
+</tr>
+<tr>
+<td>Registers</td>
+<td>Many</td>
+<td>Fewer</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>In one line:</strong> RISC keeps memory access to loads and stores with a few simple modes; CISC lets many instructions reach memory through many modes.</p>
+</blockquote>
+<h2 id="where-these-questions-sit-in-the-paper">Where these questions sit in the paper</h2>
+<p>Analyst figures quoted in the book put COA at 3 to 12 marks a paper from 2009 to 2026, typically 8 to 11. The book's reconstruction shows addressing-mode questions were common in the 2000s, with a negative PC-relative offset item in 2017, and sparse since 2018. Because the 2027 syllabus names "Instruction set and addressing modes" verbatim, the book rates the topic High and due. That is a prediction, not a promise.</p>
+<p>For the wider subject, see the <a href="../gate-cse-coa-important-topics/">COA important topics guide</a> and the <a href="../gate-2027-coa-syllabus-changes/">COA syllabus changes guide</a>. The fetch-decode-execute stages lead naturally into the <a href="../gate-cse-pipelining-questions/">pipelining questions guide</a>, and the byte-versus-word slip appears in <a href="../gate-cse-common-mistakes/">common mistakes that cost marks</a>. The COA chapter of the <a href="../../gate-cse-2027-book/#buy">GATE CSE 2027 book</a> has more effective-address and reference-counting practice with worked solutions.</p>
+<h2 id="quick-revision">Quick revision</h2>
+<ol>
+<li>Immediate: value in the instruction. Direct: address in the instruction.</li>
+<li>Memory indirect costs two operand references; register indirect costs one.</li>
+<li>Indexed EA = constant + register; base plus index EA = register + register.</li>
+<li>Auto-increment advances the register by the operand size after use.</li>
+<li>PC-relative offset = target minus the next instruction's address.</li>
+<li>Count instruction-fetch references too when the question asks for the total.</li>
+<li>PC-relative and base-register modes support relocation.</li>
+</ol>
+<aside class="cta big" aria-label="GATE CSE 2027 book"><img src="../../assets/cover-360.jpg" width="150" height="212" alt="GATE CSE 2027 book cover" loading="lazy"><div><div class="k">GATE CSE 2027 book · by MD ANISH AHAMAD</div><h3>Prepare from the evidence, not the rumours</h3><ul><li>27 years of GATE CS papers analysed topic by topic</li><li>Top 100 concepts ranked, with the reason for each rank</li><li>1,120 questions with full solutions, 10 mock tests in the 2027 pattern</li><li>20-week study plan and last-minute revision sheet</li></ul><div class="row"><span><span class="price">₹250</span><span class="was">₹300</span></span><a class="btn" href="/go/buy/blog/">Buy now — ₹250</a><a class="btn ghost" href="../../gate-cse-2027-book/">See the book</a><a class="btn ghost" href="/go/preview/blog/">Free preview</a></div></div></aside>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What is the effective address in an addressing mode?</summary><p>The effective address is the memory address where the operand actually sits, after the addressing mode&#x27;s rule has been applied. In direct mode it is the address written in the instruction. In indexed mode it is a constant plus a register. Immediate and register modes have no effective address in memory, because the operand is in the instruction or in a register.</p></details><details><summary>How many memory references does memory indirect addressing need?</summary><p>Two for the operand. The first reads the memory word at the address in the instruction, which holds a pointer. The second reads the operand at that pointer. Register indirect needs only one, because the pointer already sits in a register. Questions usually also count the instruction fetch, so read whether they ask for operand accesses only.</p></details><details><summary>How do you calculate a PC-relative branch offset?</summary><p>Subtract the address of the next instruction from the target address, because the program counter has already moved past the branch when the offset is added. If a 4-byte branch sits at address 2000 and targets 1980, the offset is 1980 minus 2004, which is minus 24 bytes, or minus 6 if the machine counts offsets in 4-byte words.</p></details><details><summary>Which addressing modes support relocation of code?</summary><p>PC-relative and base-register modes support run-time relocation. A PC-relative address is computed from the current program counter, so the code works wherever it is loaded. A base-register address adds a base set at load time, so moving the program only needs a new base value. Direct addressing uses fixed addresses and does not relocate.</p></details><details><summary>Are addressing modes still asked in GATE CSE?</summary><p>Less often than before. The book&#x27;s reconstruction shows addressing-mode questions were heavy in the 2000s, with a negative PC-relative offset item in 2017, and sparse since. The 2027 syllabus still names addressing modes verbatim, and the book rates the topic High and due. It usually comes as a 1 or 2-mark MCQ or NAT.</p></details></section>
+<section class="src"><h2 id="sources">Sources</h2><ul><li><a href="https://gate2027.iitm.ac.in/" rel="nofollow noopener" target="_blank">GATE 2027 official website (IIT Madras)</a></li><li><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" rel="nofollow noopener" target="_blank">GATE 2027 CS syllabus (official PDF)</a></li><li><a href="https://gateoverflow.in/" rel="nofollow noopener" target="_blank">GATE Overflow previous year questions</a></li></ul>
+<p class="disc">Dates, fees and the syllabus are set by the GATE 2027 organising institute and can change. Always confirm at gate2027.iitm.ac.in.</p></section>
+</article>
+<h2 style="font-family:Fraunces,Georgia,serif;margin-top:40px">Keep reading</h2>
+<div class="related"><a class="card" href="../gate-cse-coa-important-topics/"><div class="c">Subjects</div><b>Computer Organization and Architecture for GATE CSE: Important Topics</b><span>9 min read</span></a><a class="card" href="../gate-2027-coa-syllabus-changes/"><div class="c">Syllabus</div><b>GATE 2027 COA Syllabus Changes: Control Unit, Memory, Cache</b><span>7 min read</span></a><a class="card" href="../gate-cse-pipelining-questions/"><div class="c">Subjects</div><b>Pipelining Questions in GATE CSE: Patterns and Traps</b><span>7 min read</span></a><a class="card" href="../gate-cse-common-mistakes/"><div class="c">Strategy</div><b>Common Mistakes That Cost Marks in GATE CSE and How to Avoid Them</b><span>8 min read</span></a></div>
+</main>
+<footer><div class="wrap wide"><nav aria-label="Books"><a href="../../">GATE GUIDE</a><a href="../../gate-cse-2027-book/">GATE CSE 2027 book</a><a href="../../gate-ece-2027-book/">GATE ECE 2027 book</a><a href="../../gate-ce-2027-book/">GATE CE 2027 book</a><a href="../../gate-da-2027-book/">GATE DA 2027 book</a><a href="../../gate-ee-2027-book/">GATE EE 2027 book</a><a href="../../gate-me-2027-book/">GATE ME 2027 book</a><a href="../../books/">All books</a><a href="../../test-series/">Test series</a><a href="../../preview/">Free previews</a><a href="../../articles/">Blog</a></nav><nav aria-label="Policies"><a href="../../contact/">Contact Us</a><a href="../../terms/">Terms</a><a href="../../refund-policy/">Refund Policy</a><a href="../../shipping-delivery-policy/">Shipping and Delivery</a><a href="../../privacy-policy/">Privacy Policy</a></nav><p style="margin:0">© 2026 MD ANISH AHAMAD. GATE is conducted by IISc Bengaluru and the IITs; GATE 2027 is organised by IIT Madras. GATE GUIDE is independent and not affiliated with them. Confirm dates and syllabus at gate2027.iitm.ac.in.</p></div></footer>
+<div class="buybar"><div class="wrap wide"><div class="t"><b>GATE CSE 2027 book</b>1,020 pages · ₹250 <s>₹300</s></div><a class="btn sm" href="/go/buy/blog/">Buy now — ₹250</a></div></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c19a27c681d14a2aa5d8cd01ed60ee72"}'></script>
+</body>
+</html>
